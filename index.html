@@ -1,173 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>Salvius the Robot</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/font-awesome.css" rel="stylesheet">
-		<link href="css/styles.css" rel="stylesheet">
-	</head>
-	<body>
 
-        <div id="carousel" class="carousel slide">
-            <ol class="carousel-indicators">
-                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel" data-slide-to="1"></li>
-                <li data-target="#carousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="img/01.jpg" class="img-responsive">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Salvius the Robot</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="img/02.jpg" class="img-responsive">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Break the mold</h1>
-                            <p>Design your own unique approach and learn at your own pace.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="img/03.jpg" class="img-responsive">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Biped design</h1>
-                            <p>Study and experiment with bipedal locomotion.</p>
-                        </div>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Salvius the Robot</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/cyborg.css" rel="stylesheet">
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="carousel" class="carousel slide">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="images/02.jpg" class="img-responsive">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Salvius the Robot</h1>
                     </div>
                 </div>
             </div>
-            <!-- Carousel left and right slider navigation. -->
-            <a class="left carousel-control" href="#carousel" data-slide="prev">
-                <span class="icon-prev"></span>
-            </a>
-            <a class="right carousel-control" href="#carousel" data-slide="next">
-                <span class="icon-next"></span>
-            </a>  
+            <div class="item">
+                <img src="images/01.jpg" class="img-responsive">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Break the mold</h1>
+                        <p>Design your own unique approach and learn at your own pace.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/03.jpg" class="img-responsive">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Biped design</h1>
+                        <p>Study and experiment with bipedal locomotion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel left and right slider navigation. -->
+        <a class="left carousel-control" href="#carousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </div>
+
+    <div class="container" style="margin-bottom: 60px;">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/status/" class="btn btn-success btn-lg pull-right">
+                    Status Page
+                    <i class="fa fa-angle-double-right"></i>
+                </a>
+
+                <br/>
+            </div>
+        </div>
+    </div>
+
+	<section class="paralax succeed" data-speed="4" data-type="background">
+		<div class="container-fluid">
+			<div class="row">
+
+                <div class="col-sm-5 col-sm-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-body text-center">
+                            <i class="fa fa-large fa-comments-o"></i>
+                            <h2>Collaboration</h2>
+                            <p>Connect with project leaders.</p>
+                            <p>
+                                <a class="btn btn-default" href="https://www.youtube.com/user/salviusrobot/videos" target="_blank">
+                                    <i class="fa fa-3x fa-youtube-square"></i>
+                                </a>
+                                <a class="btn btn-default" href="https://plus.google.com/u/0/+GuntherCox/" target="_blank">
+                                    <i class="fa fa-3x fa-google-plus-square"></i>
+                                </a>
+                                <a class="btn btn-default" href="https://twitter.com/salviusrobot" target="_blank">
+                                    <i class="fa fa-3x fa-twitter-square"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+	    	</div>
+	    </div>
+	</section>
+
+	<section data-speed="2" data-type="background">
+		<div class="container">
+			<div class="page-header">
+				<h1>Open Source Robotics <small>Community driven development</small></h1>
+			</div>
+			<div class="row">
+		        <div class="col-sm-9">
+                    <h3><i class="fa fa-users"></i> Interested in learning more or possibly contributing?</h3>
+                    <p class="lead">
+                        Learn more about Salvius on Wikipedia:
+                        <a href="http://en.wikipedia.org/wiki/Salvius" target="_blank">
+                            wikipedia.org/wiki/salvius
+                        </a>
+                        <br/>
+
+                        and also check out the project blog:
+                        <a href="http://salviusrobot.blogspot.com/" target="_blank">
+                            salviusrobot.blogspot.com
+                        </a>
+                    </p>
+		        </div>
+
+	    	</div>
+	    </div>
+	</section>
+
+	<section class="paralax snow" data-speed="7" data-type="background">
+		<div class="container-fluid">
+			<div class="row">
+		        <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body text-center">
+                            <i class="fa fa-large fa-code"></i>
+                            <h2>Open source</h2>
+                            <p>All of the robot's source code is freely available for anyone to use.</p>
+                            <p>
+                                <a class="btn btn-success" href="https://github.com/gunthercox/salvius" target="_blank">
+                                    View source code on GitHub »
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body text-center">
+                            <i class="fa fa-large fa-book"></i>
+                            <h2>Construction guide</h2>
+                            <p>
+                                Learn about techniques and concepts that will allow you to create your own robot like Salvius.
+                                <i>Each purchase of the construction guide helps to fund this project.</i>
+                            </p>
+                            <p>
+                                <a class="btn btn-default" href="http://gunthercox.github.io/salvius.guide/" target="_blank">
+                                    Preview online
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+	    	</div>
+	    </div>
+	</section>
+
+
+    <div class="container marketing">
+
+        <div class="featurette">
+            <img class="featurette-image img-circle pull-right" src="images/twitter.png">
+            <h2 class="featurette-heading">
+                Upcoming Events: <span class="text-muted">Tweet with Salvius on February 15, 2015.</span>
+            </h2>
+            <p class="lead">
+                Participate in a world-wide event demonstrating the interconnectivity
+                of technology. Participants may tweet messages to Salvius and a selection
+                of other participating robots to ask questions regarding the internet of things (IOT).
+                <br/>
+                <strong>
+                    Contact Gunther Cox at <a href="mailto:gunthercx@gmail.com">gunthercx@gmail.com</a> to register your robot.
+                </strong>
+            </p>
         </div>
 
-        <div class="container marketing">
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <i class="fa fa-large fa-code"></i>
-                    <h2>Open source</h2>
-                    <p>All of the robot's source code is freely available for anyone to use.</p>
-                    <p><a class="btn btn-default" href="https://github.com/gunthercox/salvius" target="_blank">View source code on GitHub »</a></p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <i class="fa fa-large fa-comments-o"></i>
-                    <h2>Collaboration</h2>
-                    <p>Stay connected with project leaders.</p>
-                    <p>
-                        <a class="btn btn-default" href="https://www.youtube.com/user/salviusrobot/videos" target="_blank">
-                            <i class="fa fa-3x fa-youtube-square"></i>
-                        </a>
-                        <a class="btn btn-default" href="https://plus.google.com/u/0/+GuntherCox/" target="_blank">
-                            <i class="fa fa-3x fa-google-plus-square"></i>
-                        </a>
-                        <a class="btn btn-default" href="https://twitter.com/salviusrobot" target="_blank">
-                            <i class="fa fa-3x fa-twitter-square"></i>
-                        </a>
-                    </p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <i class="fa fa-large fa-book"></i>
-                    <h2>Construction guide</h2>
-                    <p>
-                        Learn about techniques and concepts that will allow you to create your own robot like Salvius.
-                        <i>Each purchase of the construction guide helps to fund this project.</i>
-                    </p>
-                    <p>
-                        <a class="btn btn-default" href="http://gunthercox.github.io/salvius.guide/" target="_blank">Preview online »</a>
-                    </p>
-                </div>
-            </div>
+        <hr class="featurette-divider">
 
-            <hr class="featurette-divider">
-
-            <div class="featurette">
-                <img class="featurette-image img-circle pull-right" src="img/twitter.png">
-                <h2 class="featurette-heading">
-                    Upcoming Events: <span class="text-muted">Tweet with Salvius on February 15, 2015.</span>
-                </h2>
-                <p class="lead">
-                    Participate in a world-wide event demonstrating the interconnectivity
-                    of technology. Participants may tweet messages to Salvius and a selection
-                    of other participating robots to ask questions regarding the internet of things (IOT).
-                    <br/>
-                    <strong>
-                        Contact Gunther Cox at <a href="mailto:gunthercx@gmail.com">gunthercx@gmail.com</a> to register your robot.
-                    </strong>
-                </p>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <div class="featurette">
-                <img class="featurette-image img-circle pull-left" src="img/mass_mutual.jpg">
-                <h2 class="featurette-heading">
-                    Come Meet Salvius <span class="text-muted">at the MassMutual Center on<br/>November 7, 2014.</span>
-                </h2>
-                <p class="lead">
-                    Come meet Salvius at the MassMutual Center for the Grinspoon, Garvey & Young Entrepreneurship Conference.
-                    Check out <a href="http://www.hgf.org/what-we-do/programs-and-resources/entrepreneurship/events.aspx" target="_blank">hgf.org</a>
-                    for details on how to register.
-                </p>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <div class="featurette">
-                <img class="featurette-image img-circle pull-right" src="img/wiki.png">
-                <!-- By John Phelan (Own work) [CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons -->
-                <h2 class="featurette-heading">
-                    Learn More <span class="text-muted">About Salvius.</span>
-                </h2>
-                <p class="lead">
-                    Interested in learning more or possibly contributing?
-                    Learn more about Salvius on the project blog:<br/>
-                    <i class="fa fa-rss"></i> <a href="http://salviusrobot.blogspot.com/" target="_blank">salviusrobot.blogspot.com</a>
-                    <br/>
-                    and also on Wikipedia:
-                    <br/>
-                    <i class="fa fa-globe"></i> <a href="http://en.wikipedia.org/wiki/Salvius" target="_blank">wikipedia.org/wiki/salvius</a>
-                    <br/>
-                    View the latest statistics about the robot on the
-                    <a href="http://gunthercox.github.io/salvius.status/" target="_blank">status page</a>.
-                    <br/>
-                    Be sure to read over the
-                    <a href="https://github.com/gunthercox/salvius/blob/master/readme.md" target="_blank">documentation</a> and
-                    <a href="https://github.com/gunthercox/salvius/blob/master/contributing.md" target="_blank">code contribution</a>
-                    documents in the main repository.
-                </p>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <footer>
-                <p>Updated November 1, 2014</p>
-            </footer>
-
+        <div class="featurette">
+            <img class="featurette-image img-circle pull-left" src="images/mass_mutual.jpg">
+            <!-- By John Phelan (Own work) [CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons -->            
+            <h2 class="featurette-heading">
+                Come Meet Salvius <span class="text-muted">at the MassMutual Center on<br/>November 7, 2014.</span>
+            </h2>
+            <p class="lead">
+                Come meet Salvius at the MassMutual Center for the Grinspoon, Garvey & Young Entrepreneurship Conference.
+                Check out <a href="http://www.hgf.org/what-we-do/programs-and-resources/entrepreneurship/events.aspx" target="_blank">hgf.org</a>
+                for details on how to register.
+            </p>
         </div>
 
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script>
-                    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    </div>
 
-                    ga('create', 'UA-12573345-9', 'auto');
-                    ga('send', 'pageview');
-                </script>
-	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/paralax.js"></script>
+	<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12573345-9', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
 </html>

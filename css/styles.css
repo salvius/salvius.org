@@ -1,5 +1,6 @@
 .fa-large {
-  font-size: 130px;
+    font-size: 130px;
+    color: #fff;
 }
 
 /* BOOTSTRAP 3.x GLOBAL STYLES
@@ -7,6 +8,10 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+}
+
+.shadow-bottom {
+    box-shadow: 0 5px 5px #C0B5B5;
 }
 
 /* CUSTOMIZE THE CAROUSEL
@@ -33,7 +38,34 @@ body {
   min-height: 400px;
 }
 
+/* PARALAX ITEMS
+------------------------------------------------- */
 
+.paralax {
+	height: auto;
+	margin: 0 auto;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 200px 0;
+}
+
+.snow { 
+	background: url('../images/first_snow.jpg') 50% 0 fixed;
+    background-size: 120%;
+}
+
+.succeed { 
+	background: url('../images/succeed.jpg') 50% 0 fixed;
+    background-size: 120%;
+}
+
+/* Non-essential demo stuff */
+.hero-unit {
+	background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+.media-object { width: 64px;height: 64px;padding-bottom: 30px }
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -62,14 +94,14 @@ body {
 ------------------------- */
 
 .featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+  margin: 80px 0;/* Space out the Bootstrap <hr> more */
 }
 .featurette {
-  padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
-  overflow: hidden; /* Vertically center images part 2: clear their floats. */
+  padding-top: 120px;/* Vertically center images part 1: add padding above and below text. */
+  overflow: hidden;/* Vertically center images part 2: clear their floats. */
 }
 .featurette-image {
-  margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+  margin-top: -120px;/* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
 }
 
 /* Give some space on the sides of the floated elements so text doesn't run right into it. */

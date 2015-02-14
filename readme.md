@@ -15,6 +15,9 @@ salvius.github.io
 - *Each purchase of the construction guide helps to fund this project.*
 - [Guide](http://gunthercox.github.io/salvius.guide/)
 
+### Status page
+- http://salvius.github.io/status
+
 ### Collaboration
 - **Stay connected on...**
 - [YouTube](https://www.youtube.com/user/salviusrobot/videos)
