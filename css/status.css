@@ -1,0 +1,60 @@
+body {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.chart-activity .ct-series.ct-series-a .ct-line,
+.chart-activity .ct-series.ct-series-a .ct-point {
+    stroke: #F27C1A;
+}
+
+.chart-battery .ct-series.ct-series-a .ct-line,
+.chart-battery .ct-series.ct-series-a .ct-point {
+    stroke: #08AB22;
+}
+.ct-chart .ct-series.ct-series-a .ct-area {
+    fill: #08AB22;
+}
+
+.chart-api-response-time .ct-series.ct-series-a .ct-line,
+.chart-api-response-time .ct-series.ct-series-a .ct-point {
+    stroke: #C81E1E;
+}
+
+.chart-twitter .ct-series.ct-series-a .ct-line,
+.chart-twitter .ct-series.ct-series-a .ct-point {
+    stroke: #0796ED;
+}
+
+/* Bootstrap */
+
+.navbar {
+    min-height: 65px;
+}
+
+.navbar-brand {
+    padding: 22px;
+}
+
+.navbar-btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.navbar-nav>li>a {
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+.dropdown-menu>.active.disabled>a:hover {
+    background: #eeeeee;
+}
+
+/* Font Awesome */
+.nav-icon {
+    padding: 18px!important;
+}
+
+.chart-intelligence .ct-label {
+    font-size: 1.5rem;
+}
