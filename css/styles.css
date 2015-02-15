@@ -10,21 +10,16 @@ body {
   color: #5a5a5a;
 }
 
-.shadow-bottom {
-    box-shadow: 0 5px 5px #C0B5B5;
+.img-circle {
+    border: 20px solid #A84014;
+}
+
+.carousel-caption {
+    background: rgba(56, 57, 59, 0.91);
 }
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  margin-bottom: 60px;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 1;
-}
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
@@ -92,10 +87,6 @@ body {
 
 /* Featurettes
 ------------------------- */
-
-.featurette-divider {
-  margin: 80px 0;/* Space out the Bootstrap <hr> more */
-}
 .featurette {
   padding-top: 120px;/* Vertically center images part 1: add padding above and below text. */
   overflow: hidden;/* Vertically center images part 2: clear their floats. */
