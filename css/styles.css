@@ -11,6 +11,10 @@ body {
     background: #424242;
 }
 
+.panel {
+    background: rgba(0, 0, 0, 0.86);
+}
+
 .img-circle {
     border: 20px solid #f15501;
 }
