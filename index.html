@@ -13,8 +13,8 @@
     <meta content="@salviusrobot" name="twitter:site"/>
 
     <!-- Images that represent Salvius -->
-    <meta content="images/succeed.jpg" property="og:image"/>
-    <meta content="images/first_snow.jpg" property="og:image"/>
+    <meta content="http://salvius.github.io/images/succeed.jpg" property="og:image"/>
+    <meta content="http://salvius.github.io/images/first_snow.jpg" property="og:image"/>
 
     <!-- Six articles that represent Salvius -->
     <meta content="http://salviusrobot.blogspot.com/2015/01/salvius-gives-thumbs-up-to-students-at.html" property="og:see_also"/>
@@ -28,6 +28,13 @@
     <link rel="shortlink" href="http://salvius.github.io/"/>
     <link rel="icon" type="image/png" href="icons/icon.png" />
     <link rel="shortcut icon" href="icons/favicon.ico" />
+
+    <meta name="msapplication-TileColor" content="#f15501"/>
+    <meta name="msapplication-square70x70logo" content="tiny.png"/>
+    <meta name="msapplication-square150x150logo" content="square.png"/>
+    <meta name="msapplication-wide310x150logo" content="wide.png"/>
+    <meta name="msapplication-square310x310logo" content="large.png"/>
+    <meta name="msapplication-notification" content="frequency=30;polling-uri=http://notifications.buildmypinnedsite.com/?feed=http://salviusrobot.blogspot.com/feeds/posts/default?alt=rss&amp;id=1;polling-uri2=http://notifications.buildmypinnedsite.com/?feed=http://salviusrobot.blogspot.com/feeds/posts/default?alt=rss&amp;id=2;polling-uri3=http://notifications.buildmypinnedsite.com/?feed=http://salviusrobot.blogspot.com/feeds/posts/default?alt=rss&amp;id=3;polling-uri4=http://notifications.buildmypinnedsite.com/?feed=http://salviusrobot.blogspot.com/feeds/posts/default?alt=rss&amp;id=4;polling-uri5=http://notifications.buildmypinnedsite.com/?feed=http://salviusrobot.blogspot.com/feeds/posts/default?alt=rss&amp;id=5; cycle=1"/>
 </head>
 
 <body>
@@ -76,15 +83,56 @@
         </a>
     </div>
 
-    <div class="container" style="margin-bottom: 60px;">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="https://github.com/gunthercox/ChatterBot/issues/new">
+                            <i class="fa fa-tag"></i>
+                            Create a support ticket
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/status/">
+                            Status Page
+                            <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-bottom: 20px;">
         <div class="row">
             <div class="col-xs-12">
-                <a href="/status/" class="btn btn-success btn-lg pull-right">
-                    Status Page
-                    <i class="fa fa-angle-double-right"></i>
-                </a>
+                <h3 class="text-center">
+                    Help Salvius reach his goal of 100 shares through social media
+                </h3>
 
-                <br/>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-primary progress-bar-twitter"></div>
+                    <div class="progress-bar progress-bar-info progress-bar-facebook"></div>
+                    <div class="progress-bar progress-bar-danger progress-bar-pinterest"></div>
+                </div>
+
+                <div class="share text-center"></div>
+
+                <h3 class="text-center text-muted">Current count: <span class="total">0</span></h3>
+
             </div>
         </div>
     </div>
@@ -101,13 +149,13 @@
                             <label>Connect with project leaders</label>
                             <div role="toolbar">
                                 <a class="btn btn-default" href="https://www.youtube.com/user/salviusrobot/videos" target="_blank">
-                                    <i class="fa fa-3x fa-youtube-square"></i>
+                                    <i class="fa fa-3x fa-youtube"></i>
                                 </a>
                                 <a class="btn btn-default" href="https://plus.google.com/u/0/+GuntherCox/" target="_blank">
-                                    <i class="fa fa-3x fa-google-plus-square"></i>
+                                    <i class="fa fa-3x fa-google-plus"></i>
                                 </a>
                                 <a class="btn btn-default" href="https://twitter.com/salviusrobot" target="_blank">
-                                    <i class="fa fa-3x fa-twitter-square"></i>
+                                    <i class="fa fa-3x fa-twitter"></i>
                                 </a>
                             </div>
                         </div>
@@ -222,6 +270,8 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/paralax.js"></script>
+    <script src="js/jquery.sharrre.js"></script>
+	<script src="js/empower.js"></script>
 	<script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

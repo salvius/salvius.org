@@ -6,12 +6,13 @@
 /* BOOTSTRAP 3.x GLOBAL STYLES
 -------------------------------------------------- */
 body {
-  padding-bottom: 40px;
-  color: #5a5a5a;
+    padding-bottom: 40px;
+    color: #B5B5B5;
+    background: #424242;
 }
 
 .img-circle {
-    border: 20px solid #A84014;
+    border: 20px solid #f15501;
 }
 
 .carousel-caption {
