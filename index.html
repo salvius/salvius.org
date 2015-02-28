@@ -34,54 +34,17 @@
     <meta name="msapplication-square150x150logo" content="square.png"/>
     <meta name="msapplication-wide310x150logo" content="wide.png"/>
     <meta name="msapplication-square310x310logo" content="large.png"/>
-    <meta name="msapplication-notification" content="frequency=30;polling-uri=http://notifications.buildmypinnedsite.com/?feed=http://salviusrobot.blogspot.com/feeds/posts/default?alt=rss&amp;id=1;polling-uri2=http://notifications.buildmypinnedsite.com/?feed=http://salviusrobot.blogspot.com/feeds/posts/default?alt=rss&amp;id=2;polling-uri3=http://notifications.buildmypinnedsite.com/?feed=http://salviusrobot.blogspot.com/feeds/posts/default?alt=rss&amp;id=3;polling-uri4=http://notifications.buildmypinnedsite.com/?feed=http://salviusrobot.blogspot.com/feeds/posts/default?alt=rss&amp;id=4;polling-uri5=http://notifications.buildmypinnedsite.com/?feed=http://salviusrobot.blogspot.com/feeds/posts/default?alt=rss&amp;id=5; cycle=1"/>
 </head>
 
 <body>
 
-    <div id="carousel" class="carousel slide">
-        <ol class="carousel-indicators">
-            <li data-target="#carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel" data-slide-to="1"></li>
-            <li data-target="#carousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="images/massmutual.jpg" class="img-responsive" alt="Salvius robot with blue led">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Meet Salvius</h1>
-                        <p>An open-source humanoid robot build from recycled parts</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img src="images/02.jpg" class="img-responsive" alt="Salvius robot face">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Break the mold</h1>
-                        <p>Design your own unique approach and learn at your own pace</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img src="images/03.jpg" class="img-responsive" alt="Salvius robot biped leg">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Biped design</h1>
-                        <p>Study and experiment with bipedal locomotion</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Carousel left and right slider navigation. -->
-        <a class="left carousel-control" href="#carousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </div>
+	<section>
+        <ul id="scene" class="no-space">
+            <li class="layer" data-depth="0.00"><img src="images/massmutual-background.jpg" alt="Salvius background"></li>
+            <li class="layer" data-depth="0.20"><img src="images/massmutual-table.png" alt="Salvius table"></li>
+            <li class="layer" data-depth="0.40"><img src="images/massmutual-salvius.png" alt="Salvius massmutual"></li>
+        </ul>
+    </section>
 
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -129,119 +92,94 @@
         </div>
     </nav>
 
-    <div class="container" style="margin-bottom: 20px;">
-        <div class="row">
-            <div class="col-xs-12">
-                <h3 class="text-center">
-                    Help Salvius reach his goal of 100 shares through social media
-                </h3>
+	<div class="container-fluid">
 
-                <div class="progress">
-                    <div class="progress-bar progress-bar-primary progress-bar-twitter"></div>
-                    <div class="progress-bar progress-bar-info progress-bar-facebook"></div>
-                    <div class="progress-bar progress-bar-danger progress-bar-pinterest"></div>
-                </div>
-
-                <div class="share text-center"></div>
-
-                <h3 class="text-center text-muted">Current count: <span class="total">0</span></h3>
-
+		<div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h1 class="text-center">Meet Salvius!</h1>
+                <p class="lead">
+                    Salvius is a humanoid robot built from recycled materails.
+                </p>
             </div>
         </div>
+
+		<div class="row paralax succeed" data-speed="4" data-type="background">
+            <div class="col-sm-5 col-sm-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <i class="fa fa-large fa-comments-o"></i>
+                        <h2>Collaboration</h2>
+                        <label>Connect with project leaders</label>
+                        <div role="toolbar">
+                            <a class="btn btn-default" href="https://www.youtube.com/user/salviusrobot/videos" target="_blank">
+                                <i class="fa fa-3x fa-youtube"></i>
+                            </a>
+                            <a class="btn btn-default" href="https://plus.google.com/u/0/+GuntherCox/" target="_blank">
+                                <i class="fa fa-3x fa-google-plus"></i>
+                            </a>
+                            <a class="btn btn-default" href="https://twitter.com/salviusrobot" target="_blank">
+                                <i class="fa fa-3x fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    	</div>
+
+	    <div class="row">
+	        <div class="page-header">
+		        <h1>Open Source Robotics <small>Community driven development</small></h1>
+	        </div>
+
+            <div class="col-sm-9">
+                <h3><i class="fa fa-users"></i> Interested in learning more or possibly contributing?</h3>
+                <p class="lead">
+                    Learn more about Salvius on Wikipedia:
+                    <a href="http://en.wikipedia.org/wiki/Salvius" target="_blank">
+                        wikipedia.org/wiki/salvius
+                    </a>
+                </p>
+            </div>
+        </div>
+
+		<div class="row paralax snow" data-speed="7" data-type="background">
+	        <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <i class="fa fa-large fa-code"></i>
+                        <h2>Open source</h2>
+                        <p>All of the robot's source code is freely available for anyone to use.</p>
+                        <p>
+                            <a class="btn btn-success" href="https://github.com/gunthercox/salvius" target="_blank">
+                                View source code on GitHub »
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <i class="fa fa-large fa-book"></i>
+                        <h2>Construction guide</h2>
+                        <p>
+                            Learn about techniques and concepts that will allow you to create your own robot like Salvius.
+                            <i>Each purchase of the construction guide helps to fund this project.</i>
+                        </p>
+                        <div class="btn-toolbar">
+                            <a class="btn btn-success" href="http://gunthercox.github.io/salvius.guide/" target="_blank">
+                                Preview online
+                            </a>
+                            <button class="btn btn-warning">
+                                Preorder soon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    	</div>
     </div>
-
-	<section class="paralax succeed" data-speed="4" data-type="background">
-		<div class="container-fluid">
-			<div class="row">
-
-                <div class="col-sm-5 col-sm-offset-1">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-center">
-                            <i class="fa fa-large fa-comments-o"></i>
-                            <h2>Collaboration</h2>
-                            <label>Connect with project leaders</label>
-                            <div role="toolbar">
-                                <a class="btn btn-default" href="https://www.youtube.com/user/salviusrobot/videos" target="_blank">
-                                    <i class="fa fa-3x fa-youtube"></i>
-                                </a>
-                                <a class="btn btn-default" href="https://plus.google.com/u/0/+GuntherCox/" target="_blank">
-                                    <i class="fa fa-3x fa-google-plus"></i>
-                                </a>
-                                <a class="btn btn-default" href="https://twitter.com/salviusrobot" target="_blank">
-                                    <i class="fa fa-3x fa-twitter"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-	    	</div>
-	    </div>
-	</section>
-
-	<section data-speed="2" data-type="background">
-		<div class="container">
-			<div class="page-header">
-				<h1>Open Source Robotics <small>Community driven development</small></h1>
-			</div>
-			<div class="row">
-		        <div class="col-sm-9">
-                    <h3><i class="fa fa-users"></i> Interested in learning more or possibly contributing?</h3>
-                    <p class="lead">
-                        Learn more about Salvius on Wikipedia:
-                        <a href="http://en.wikipedia.org/wiki/Salvius" target="_blank">
-                            wikipedia.org/wiki/salvius
-                        </a>
-                    </p>
-		        </div>
-
-	    	</div>
-	    </div>
-	</section>
-
-	<section class="paralax snow" data-speed="7" data-type="background">
-		<div class="container-fluid">
-			<div class="row">
-		        <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-center">
-                            <i class="fa fa-large fa-code"></i>
-                            <h2>Open source</h2>
-                            <p>All of the robot's source code is freely available for anyone to use.</p>
-                            <p>
-                                <a class="btn btn-success" href="https://github.com/gunthercox/salvius" target="_blank">
-                                    View source code on GitHub »
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-center">
-                            <i class="fa fa-large fa-book"></i>
-                            <h2>Construction guide</h2>
-                            <p>
-                                Learn about techniques and concepts that will allow you to create your own robot like Salvius.
-                                <i>Each purchase of the construction guide helps to fund this project.</i>
-                            </p>
-                            <div class="btn-toolbar">
-                                <a class="btn btn-info" href="http://gunthercox.github.io/salvius.guide/" target="_blank">
-                                    Preview online
-                                </a>
-                                <button class="btn btn-success">
-                                    Preorder today
-                                    <i class="fa fa-angle-double-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-	    	</div>
-	    </div>
-	</section>
-
 
     <div class="container marketing">
 
@@ -274,14 +212,34 @@
                 for details on how to register.
             </p>
         </div>
+    </div>
+
+    <div class="container" style="margin-bottom: 20px;">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="text-center">
+                    Share to increase Salvius's social power level!
+                </h3>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-primary progress-bar-twitter"></div>
+                    <div class="progress-bar progress-bar-info progress-bar-facebook"></div>
+                    <div class="progress-bar progress-bar-danger progress-bar-pinterest"></div>
+                </div>
+
+                <div class="share text-center"></div>
+
+                <h3 class="text-center text-muted">Power level: <span class="total">0</span></h3>
+
+            </div>
+        </div>
+    </div>
 
 	<footer>
 		<div class="container-fluid">
 			<div class="row">
 		        <div class="col-xs-12">
 
-<a data-pin-do="embedBoard" href="https://www.pinterest.com/salviusrobot/salvius-travel-board/"data-pin-scale-width="80" data-pin-scale-height="200" data-pin-board-width="400">Follow Gunther Cox's board Salvius Travel Board on Pinterest.</a>
-<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
                 </div>
             </div>
         </div>
@@ -292,7 +250,11 @@
 	<script src="js/paralax.js"></script>
     <script src="js/jquery.sharrre.js"></script>
 	<script src="js/empower.js"></script>
+	<script src="js/parallax.js"></script>
 	<script>
+        var scene = document.getElementById('scene');
+        var parallax = new Parallax(scene);
+
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

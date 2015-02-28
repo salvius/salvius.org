@@ -2,7 +2,7 @@ $(document).ready(function(){
    // cache the window object
    $window = $(window);
  
-   $('section[data-type="background"]').each(function(){
+   $('div[data-type="background"]').each(function(){
      // declare the variable to affect the defined data-type
      var $scroll = $(this);
                      
@@ -16,9 +16,6 @@ $(document).ready(function(){
  
         // move the background
         $scroll.css({ backgroundPosition: coords });   
-      }); // end window scroll
-   });  // end section function
-}); // close out script
-
-/* Create HTML5 element for IE */
-document.createElement("section");
+      });
+   });
+});
