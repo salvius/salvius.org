@@ -3,6 +3,22 @@
     color: #fff;
 }
 
+.color-rust {
+    background: #87210A;
+}
+
+.color-soil {
+    background: #5C421A;
+}
+
+.color-putty {
+    background: #393333;
+}
+
+.color-marketing-blue {
+    background: #114262;
+}
+
 /* BOOTSTRAP 3.x GLOBAL STYLES
 -------------------------------------------------- */
 body {
@@ -34,8 +50,10 @@ ul.no-space img {
     background: rgba(0, 0, 0, 0.86);
 }
 
-.img-circle {
-    border: 20px solid #f15501;
+.container-fluid, .container-fluid .row {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0px;
 }
 
 /* CUSTOMIZE THE CAROUSEL

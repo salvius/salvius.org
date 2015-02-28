@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta content="Salvius in an open-source humanoid robot built on a minimal budget using recycled materials." name="description"/>
+
+    <meta content="Salvius in an open source humanoid robot built on a minimal budget" property="og:description"/>
+    <meta content="Salvius the Robot" property="og:site_name"/>
+    <meta content="http://salvius.github.io" property="og:referenced"/>
+    <meta content="@salviusrobot" name="twitter:site"/>
+
+    <!-- Images that represent Salvius -->
+    <meta content="http://salvius.github.io/images/succeed.jpg" property="og:image"/>
+    <meta content="http://salvius.github.io/images/first_snow.jpg" property="og:image"/>
+
+	<title>Store</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.2/sandstone/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.css" rel="stylesheet">
+
+    <link rel="canonical" href="http://salvius.github.io/"/>
+    <link rel="shortlink" href="http://salvius.github.io/"/>
+    <link rel="icon" type="image/png" href="icons/icon.png" />
+    <link rel="shortcut icon" href="icons/favicon.ico" />
+
+    <style>
+        .thumbnail-list {
+          list-style:none;
+          margin:0;
+          padding:0;
+          font-size:0;
+        }
+        .thumbnail-list li {
+          display:inline-block;
+          vertical-align:top;
+          width:50%;
+          padding:2%;
+          font-size:12px;
+        }
+        .thumbnail-list img {
+          display:block;
+          width:100%;
+        }
+        .item { background:green; }
+        .product-price {
+          float:left;
+          width:100%;
+          color:#999;
+        }
+        .btn-slide { display:none; }
+
+        @media (min-width:640px) {
+          .thumbnail-list li { width:33.33333%; }
+        }
+        @media (max-width:767px) {
+          .btn-slide {
+            text-align:center;
+            width:100%;
+            padding:10px;
+            margin:0 auto;
+            display:block;
+            font:bold 120%/100% Arial,Helvetica,sans-serif;
+            color:#000;
+            text-decoration:none;
+            border:1px solid #ccc;
+          }
+          #panel { display:none; }
+          .thumbnail-list li { text-align:center; }
+        }
+        @media (max-width:320px) {
+          .thumbnail-list li { width: 100%}
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/" target="_blank">
+                            <i class="fa fa-home" style="color: #FF7800;"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://salviusrobot.blogspot.com/" target="_blank">
+                            <i class="fa fa-rss" style="color: #FF7800;"></i>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://en.wikipedia.org/wiki/Salvius" target="_blank">
+                            <i class="fa fa-globe"></i>
+                            Wiki
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/gunthercox/ChatterBot/issues/new" target="_blank">
+                            <i class="fa fa-tag" style="color: #ffffff"></i>
+                            Create a support ticket
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/status/">
+                            <i class="fa fa-circle" style="color: #48BB1E;"></i>
+                            Status Page
+                            <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+	<div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-4 col-md-3">
+                <div id="panel">
+                    <div class="well">
+                         <h2>Robot Store</h2>
+
+                        <p>
+                            The robot store allows you to get the supplies you
+                            need to start building your robots. Each kit is
+                            modeled after Salvius.
+                            <hr/>
+                            You can purchase each item individually to fit the
+                            scope of your project.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-9">
+                <ul class="thumbnail-list">
+                    <li>
+                        <a href="#">
+                            <img src="images/head.png" style="height: 180px; width: auto; margin: 0px auto;">
+                        </a>
+
+                        <h4>Head Kit</h4>
+                        <p>
+                            The head kit contains everything needed to build a
+                            robotic head with a fully articulated neck.
+                        </p>
+                        <div class="product-price">
+                            <span class="normal-price">MYR230.00</span>
+                        </div>
+                        <button type="button" class="btn btn-default navbar-btn">Add to Cart</button>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/arm.png">
+                        </a>
+
+                        <h4>Arm Kit</h4>
+                        <div class="product-price">
+     <span class="normal-price">MYR230.00</span>
+
+                            </div>
+                            <button type="button" class="btn btn-default navbar-btn">Add to Cart</button>
+                    </li>
+                    <li> <a href="#"><img src="images/hands.jpg"></a>
+
+                        <h4>Hand Kit</h4>
+                            <div class="product-price">
+                                <span class="normal-price">MYR230.00</span>
+                            </div>
+                            <button type="button" class="btn btn-default navbar-btn">Add to Cart</button>
+                    </li>
+                    <li>
+                        <a href="#"><img src="images/torso.png"></a>
+
+                        <h4>Torso Kit</h4>
+                        <div class="product-price">
+                            <span class="normal-price">MYR230.00</span>
+                        </div>
+                        <button type="button" class="btn btn-default navbar-btn">Add to Cart</button>
+                    </li>
+                    <li>
+                        <a href="#"><img src="images/leg.jpg"></a>
+
+                        <h4>Leg Kit</h4>
+                        <div class="product-price">
+                            <span class="normal-price">MYR230.00</span>
+                        </div>
+                        <button type="button" class="btn btn-default navbar-btn">Add to Cart</button>
+                    </li>
+                    <li>
+                        <a href="#"><img src="images/brain.png"></a>
+
+                        <h4>Brain Kit</h4>
+                        <div class="product-price">
+                            <span class="normal-price">MYR230.00</span>
+                        </div>
+                        <button type="button" class="btn btn-default navbar-btn">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12573345-9', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
