@@ -1,0 +1,15 @@
+# Site settings
+title: Salvius the Robot
+email: gunthercx@gmail.com
+description: >
+  Salvius is a robotic prototype designed for learning.
+  Developers can easially expiriment with machine learning and
+  kinematics for humanoid robots.
+short_description: Salvius in an open-source humanoid robot built on a minimal budget using recycled materials.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "salvius.github.io" # base hostname & protocol for a site
+twitter_username: salviusrobot
+github_username:  gunthercox
+
+# Build settings
+markdown: kramdown

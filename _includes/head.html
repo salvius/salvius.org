@@ -1,0 +1,34 @@
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <meta content="{{ site.title }}" property="og:site_name"/>
+    <meta content="http://salvius.github.io" property="og:referenced"/>
+    <meta content="@{{ site.twitter_username }}" name="twitter:site"/>
+
+    <!-- Images that represent Salvius -->
+    <meta content="http://salvius.github.io/images/succeed.jpg" property="og:image"/>
+    <meta content="http://salvius.github.io/images/first_snow.jpg" property="og:image"/>
+
+    <!-- Six articles that represent Salvius -->
+    <meta content="http://salviusrobot.blogspot.com/2015/01/salvius-gives-thumbs-up-to-students-at.html" property="og:see_also"/>
+
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.short_description }}{% endif %}"/>
+
+    <link href="{{ "/css/cyborg.css" | prepend: site.baseurl }}" rel="stylesheet"/>
+	<link href="{{ "/css/font-awesome.css" | prepend: site.baseurl }}" rel="stylesheet"/>
+	<link href="{{ "/css/styles.css" | prepend: site.baseurl }}" rel="stylesheet"/>
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
+    <link rel="shortlink" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
+    <link rel="icon" type="image/png" href="icons/icon.png"/>
+    <link rel="shortcut icon" href="icons/favicon.ico" />
+
+    <meta name="msapplication-TileColor" content="#f15501"/>
+    <meta name="msapplication-square70x70logo" content="tiny.png"/>
+    <meta name="msapplication-square150x150logo" content="square.png"/>
+    <meta name="msapplication-wide310x150logo" content="wide.png"/>
+    <meta name="msapplication-square310x310logo" content="large.png"/>
+</head>

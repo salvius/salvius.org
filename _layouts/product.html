@@ -1,0 +1,84 @@
+---
+layout: gallery
+---
+
+<meta content="{{ page.description }}" name="description"/>
+<meta content="{{ page.description }}" property="og:description"/>
+
+<meta property="og:title" content="{{ page.title }}"/>
+<meta property="og:type" content="product"/>
+<meta property="og:price:amount" content="{{ page.price }}"/>
+<meta property="og:price:currency" content="USD"/>
+<meta property="og:availability" content="preorder"/>
+<meta property="og:provider_name" content="Robot Store"/>
+<meta property="og:brand" content="Salvius"/>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <a href="/store/" class="btn btn-primary">
+                <i class="fa fa-angle-double-left"></i>
+                Back to Robot Store
+            </a>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <img src="{{ page.image }}" alt="Robotic head kit">
+                <div class="caption">
+                    <p>
+                        <img src="/images/cc.svg" class="icon-cc">
+                        images are <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="new">CC BY-NC-SA 3.0</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <h2>{{ page.title }}</h2>
+            {{ content }}
+        </div>
+
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="text-center">
+                        <h1>${{ page.price }}</h1>
+                        <button type="button" class="btn btn-default">Add to Cart</button>
+                    </div>                    
+                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="text-center">0</td>
+                        <td class="text-center">Out of stock</td>
+                    </tr>
+                </table>
+                <div class="panel-body">
+                    <p class="text-center">
+                        <em>Incoming stock values are estimates,
+                        and subject to change without warning.</em>
+                    </p>
+                </div>
+                <div class="panel-footer text-center">
+                    <div class="btn-toolbar">
+                        <button class="btn btn-danger btn-sm">
+                            <i class="fa fa-google-plus"></i>
+                        </button>
+                        <button class="btn btn-info btn-sm">
+                            <i class="fa fa-twitter"></i>
+                        </button>
+                        <button class="btn btn-warning btn-sm">
+                            <i class="fa fa-pinterest"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

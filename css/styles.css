@@ -3,6 +3,12 @@
     color: #fff;
 }
 
+.inset-shadow {
+    -webkit-box-shadow: inset 0 0 10px 5px rgba(0,0,0,0.4);
+    -moz-box-shadow: inset 0 0 10px 5px rgba(0,0,0,0.4);
+    box-shadow: inset 0 0 10px 5px rgba(0,0,0,0.4);
+}
+
 .color-rust {
     background: #87210A;
 }
@@ -15,7 +21,7 @@
     background: #393333;
 }
 
-.color-marketing-blue {
+.color-marketing {
     background: #114262;
 }
 
@@ -27,7 +33,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-    text-shadow: 2px 2px #1e1e1e;
+    text-shadow: 1px 1px #222144;
 }
 
 footer {
@@ -74,7 +80,6 @@ ul.no-space img {
 	margin: 0 auto;
     width: 100%;
     position: relative;
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
     padding: 200px 0;
 }
 
