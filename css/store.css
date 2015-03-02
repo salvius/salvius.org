@@ -1,10 +1,10 @@
+img {
+    display: block;
+    width: 100%;
+}
+
 .icon-cc {
     height: 16px;
     width: auto;
     display: inline;
-}
-
-img {
-    display: block;
-    width: 100%;
 }

@@ -27,9 +27,12 @@
 
 /* BOOTSTRAP 3.x GLOBAL STYLES
 -------------------------------------------------- */
-body {
+.navbar {
+    margin-bottom: 0px;
+}
+
+p {
     color: white;
-    background: #525A64;
 }
 
 h1, h2, h3, h4 {
@@ -71,80 +74,10 @@ ul.no-space img {
   background-color:#555;
 }
 
-
 /* PARALAX ITEMS
 ------------------------------------------------- */
 
-.paralax {
-	height: auto;
-	margin: 0 auto;
-    width: 100%;
-    position: relative;
-    padding: 200px 0;
-}
-
-.snow { 
-	background: url('../images/first_snow.jpg') 50% 0 fixed;
-    background-size: 120%;
-}
-
-.succeed { 
-	background: url('../images/succeed.jpg') 50% 0 fixed;
-    background-size: 120%;
-}
-
-/* Non-essential demo stuff */
-.hero-unit {
-	background-color: #fff;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
-.media-object { width: 64px;height: 64px;padding-bottom: 30px }
-
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Pad the edges of the mobile views a bit */
-.marketing {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.marketing h2 {
-  font-weight: normal;
-}
-.marketing .col-lg-4 p {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-
-/* Featurettes
-------------------------- */
-.featurette {
-  padding-top: 120px;/* Vertically center images part 1: add padding above and below text. */
-  overflow: hidden;/* Vertically center images part 2: clear their floats. */
-}
-.featurette-image {
-  margin-top: -120px;/* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
-}
-
-/* Give some space on the sides of the floated elements so text doesn't run right into it. */
-.featurette-image.pull-left {
-  margin-right: 40px;
-}
-.featurette-image.pull-right {
-  margin-left: 40px;
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-size: 50px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -1px;
+.parallax {
+    background: transparent;
+    padding: 10% 0px!important;
 }
