@@ -16,14 +16,14 @@ $(".share").sharrre({
     template: TEMPLATE,
     render: function(api, options) {
 
-        var twitter_percent = (options.count.twitter) + "%";
-        var facebook_percent = (options.count.facebook) + "%";
-        var pinterest_percent = (options.count.pinterest) + "%";
+        var twitter_percent = (options.count.twitter + 35) + "%";
+        var facebook_percent = (options.count.facebook + 25) + "%";
+        var pinterest_percent = (options.count.pinterest + 5) + "%";
 
         $(".progress-bar-twitter").css("width", twitter_percent);
         $(".progress-bar-facebook").css("width", facebook_percent);
         $(".progress-bar-pinterest").css("width", pinterest_percent);
-        $(".total").text(options.total);
+        $(".total").text(options.total + 35 + 25 + 5);
 
         $(api.element).on("click", ".twitter", function() {
             api.simulateClick();

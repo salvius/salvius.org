@@ -9,12 +9,24 @@
     box-shadow: inset 0 0 10px 5px rgba(0,0,0,0.4);
 }
 
+.green-glow {
+    text-shadow: 0 0 0.2em #8F7;
+}
+
+.blue-glow {
+    text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F, 0 0 0.2em #87F
+}
+
 .color-rust {
     background: #87210A;
 }
 
 .color-soil {
     background: #5C421A;
+}
+
+.color-green {
+    background: #4E7A37
 }
 
 .color-putty {
