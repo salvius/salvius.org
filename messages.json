@@ -1,0 +1,9 @@
+{
+    "products": [
+        {
+            "name": "Head Kit",
+            "type": "product",
+            "url": "https://salvius.github.io/store/head-kit/"
+        }
+    ]
+}

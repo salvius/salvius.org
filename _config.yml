@@ -3,12 +3,14 @@ title: Salvius the Robot
 email: gunthercx@gmail.com
 description: >
   Salvius is a robotic prototype designed for learning.
-  The robot's design is centered around a comprehensive API which makes
-  it possible to get up and running in mere minutes. Developers can easially
-  expiriment with machine learning and kinematics for humanoid robots.
-  A wide selection of plug and play hardware additions can be installed as well.
-  Salvius has been built using a variety of recycled materials, making it simple
-  and inexpensive to start developing.
+  The robot's design is centered around a comprehensive
+  API which makes it possible to get up and running in
+  mere minutes. Developers can easily experiment with
+  machine learning and kinematics for humanoid robots.
+  A wide selection of plug and play hardware additions
+  can be installed as well. Salvius has been built using
+  a variety of recycled materials, making it simple and
+  inexpensive to start developing.
 short_description: Salvius in an open-source humanoid robot built on a minimal budget using recycled materials.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "salvius.github.io" # base hostname & protocol for a site
