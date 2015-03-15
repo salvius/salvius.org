@@ -26,6 +26,17 @@
     <link rel="icon" type="image/png" href="icons/icon.png"/>
     <link rel="shortcut icon" href="icons/favicon.ico" />
 
+    <meta content="{{ page.description }}" name="description"/>
+    <meta content="{{ page.description }}" property="og:description"/>
+
+    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:type" content="product"/>
+    <meta property="og:price:amount" content="{{ page.price }}"/>
+    <meta property="og:price:currency" content="USD"/>
+    <meta property="og:availability" content="preorder"/>
+    <meta property="og:provider_name" content="Robot Store"/>
+    <meta property="og:brand" content="Salvius"/>
+
     <meta name="msapplication-TileColor" content="#f15501"/>
     <meta name="msapplication-square70x70logo" content="tiny.png"/>
     <meta name="msapplication-square150x150logo" content="square.png"/>
