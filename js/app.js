@@ -1,8 +1,6 @@
 var install_app = document.getElementById("chrome-install");
 var launch_app = document.getElementById("chrome-launch-app");
 
-console.log(chrome.app.isInstalled);
-
 function ShowChromeAppButtons() {
     if (chrome.app.isInstalled) {
         // App is installed. Show the launch button, hide the install button
@@ -43,3 +41,19 @@ chrome.webstore.onInstallStageChanged.addListener(function(installStage) {
 });
 
 ShowChromeAppButtons();
+
+$("#nav").affix({
+  offset: {
+    top: 435
+  }
+});
+
+$("#nav").on("affixed.bs.affix", function() {
+    $(".color-soil").css("margin-top", "50px");
+});
+
+$("#nav").on("affixed-top.bs.affix", function() {
+    $(".color-soil").css("margin-top", "0px");
+});
+
+$("body").scrollspy({target: "#navbar-collapse"});

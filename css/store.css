@@ -3,6 +3,10 @@ img {
     width: 100%;
 }
 
+body {
+    background: white;
+}
+
 .icon-cc {
     height: 16px;
     width: auto;

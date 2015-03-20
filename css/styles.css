@@ -10,9 +10,7 @@
     padding-bottom: 30px;
 }
 
-.green-glow {
-    text-shadow: 0 0 0.2em #8F7;
-
+.animate {
     -webkit-transition: all 1s linear;
     -o-transition: all 1s linear;
     -moz-transition: all 1s linear;
@@ -21,12 +19,16 @@
     transition: all 1s linear;
 }
 
-.blue-glow {
-    text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F, 0 0 0.2em #87F
+.green-glow {
+    text-shadow: 0 0 0.2em #8F7, 0 0 0.2em #8F7, 0 0 0.2em #8F7;
 }
 
-.color-rust {
-    background: #87210A;
+.blue-glow {
+    text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F, 0 0 0.2em #87F;
+}
+
+.row:hover .yellow-glow.animate {
+    text-shadow: 0 0 0.2em #FFFD77, 0 0 0.2em #F87, 0 0 0.2em #8EFF77;
 }
 
 .color-soil {
@@ -41,8 +43,12 @@
     background: #393333;
 }
 
-.color-marketing {
-    background: #114262;
+.color-rust {
+    background: #87210A;
+}
+
+.color-navy {
+    background: #232937;
 }
 
 /* BOOTSTRAP 3.x GLOBAL STYLES
@@ -51,17 +57,25 @@
     margin-bottom: 0px;
 }
 
+.jumbotron {
+    border: 3px solid #E1DDDD;
+    background: white;
+    box-shadow: 2px 2px 2px 0px #000;
+}
+
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
 p {
     color: white;
 }
 
 h1, h2, h3, h4 {
     text-shadow: 1px 1px #222144;
-}
-
-footer {
-	background: url('../images/map.png');
-    min-height: 500px;
 }
 
 ul.no-space {
@@ -75,29 +89,6 @@ ul.no-space img {
     width: 100%;
 }
 
-.panel {
-    background: rgba(0, 0, 0, 0.86);
-}
-
-.container-fluid, .container-fluid .row {
-    padding-left: 0px;
-    padding-right: 0px;
-    margin: 0px;
-}
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 400px;
-  background-color:#555;
-}
-
-/* PARALAX ITEMS
-------------------------------------------------- */
-
 .parallax {
-    background: transparent;
     padding: 10% 0px!important;
 }

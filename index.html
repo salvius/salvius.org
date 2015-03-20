@@ -5,12 +5,14 @@ layout: main
 <div class="row color-soil inset-shadow">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="page-header">
-            <h1>
+            <h1 id="meet-salvius">
                 Meet Salvius!
-                <small class="text-success">A humanoid robot built from recycled materails. <i class="fa fa-leaf"></i></small>
+                <small class="text-success">A humanoid robot built from recycled materials.</small>
+                <i class="fa fa-leaf text-success pull-right"></i>
             </h1>
         </div>
         <p class="lead">
+            <img src="/images/head.svg" class="pull-left" height="200px">
             {{ site.description }}
         </p>
     </div>
@@ -35,10 +37,13 @@ layout: main
     </div>
 </div>
 
-<div class="row color-putty inset-shadow">
+<div id="open-source" class="row color-putty inset-shadow">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="page-header">
-            <h1>Open Source Robotics</h1>
+            <h1>
+                Open Source Robotics
+                <i class="fa fa-lightbulb-o yellow-glow animate pull-right"></i>
+            </h1>
         </div>
 
         <h3>
@@ -70,33 +75,70 @@ layout: main
     </div>
 </div>
 
-<div class="row parallax" id="snowImage" data-parallax="scroll" data-image-src="/images/first_snow.jpg">
+<div class="row parallax" data-parallax="scroll" data-image-src="/images/first_snow.jpg">
     <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-body text-center">
-                <i class="fa fa-large fa-share-alt"></i>
-                {% include social.html %}
+        <div class="panel panel-default" id="snowImage">
+            <div class="panel-body">
+                <h2 class="text-center">
+                    <i class="fa fa-large fa-map-marker"></i>
+                    Salvius Travels</h2>
+                <p class="lead">
+                    Salvius travels to a variety of locations. The goal of this
+                    initiative is to improve the project's development while
+                    simultaneously creating opportunities for people to work with
+                    new and cutting edge technologies.
+                    The robot has been the center of workshops and presentations,
+                    the robot also serves as a great platform for developing at
+                    hackathons and maker fairs.
+                </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="row color-green inset-shadow">
+<div id="story" class="row color-green inset-shadow">
     <div class="col-sm-10 col-sm-offset-1">
-        <div class="page-header">
+        <!--div class="page-header">
             <h1>
-                Salvius Travels
-                <i class="fa fa-map-marker pull-right"></i>
+                Story
+                <i class="fa fa-rocket pull-right"></i>
             </h1>
-        </div>
+        </div-->
         <p class="lead">
-            <i class="fa fa-globe"></i> Salvius travels to a variety of locations.
-            The goal of this initiative is to improve the project's development
-            while simultaneously creating opportunities for people to work with
-            new and cutting edge technologies.
-            The robot has been the center of workshops and presentations,
-            the robot also serves as a great platform for developing at
-            hackathons and maker fairs.
+            <!--Social icons-->
         </p>
     </div>
 </div>
+
+<!--div class="row parallax" data-parallax="scroll" data-naturalWidth="1920" data-naturalHeight="1080" data-image-src="/images/map.png">
+    <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="sponsors" class="row color-navy inset-shadow">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="page-header">
+            <h1>
+                Sponsors
+                <i class="fa fa-ship pull-right"></i>
+            </h1>
+        </div>
+
+        <div class="jumbotron">
+            <a href="https://www.facebook.com/pages/Wilbraham-Music/148382598513113" title="Wilbraham Music">
+                <img src="/images/affiliates/wilbraham_music.jpg" alt="Wilbraham Music" width="200px"/>
+            </a>
+        </div>
+
+        <p class="lead">
+            <img src="/images/schematics/arm.svg" width="100%">
+            <br/>
+            <img src="/images/schematics/leg.svg" height="250px">
+        </p>
+
+    </div>
+</div-->
