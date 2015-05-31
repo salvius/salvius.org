@@ -91,7 +91,7 @@
     z-index: 9999;
 }
 
-p {
+p, label {
     color: white;
 }
 
