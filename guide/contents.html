@@ -1,0 +1,37 @@
+---
+layout: page
+title: "Table of Contents"
+permalink: /guide/contents/
+---
+
+<h1 class="page-heading">{{ page.title }}</h1>
+<p class="lead">{{ site.description }}</p>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <a href="{{ "/cover.html" | prepend: site.baseurl }}">Cover Page</i></a>
+    </li>
+    <li class="list-group-item">
+        <a class="text-muted">Introduction <i class="fa fa-lock"></i></a>
+    </li>
+    <li class="list-group-item">
+        <a class="text-muted">Selecting Parts <i class="fa fa-lock"></i></a>
+    </li>
+    <li class="list-group-item">
+        <a class="text-muted">Tools & Supplies <i class="fa fa-lock"></i></a>
+    </li>
+
+    {% for post in site.posts %}
+        <li class="list-group-item">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </li>
+    {% endfor %}
+
+    {% for page in site.pages %}
+        {% if page.title and page.permalink %}
+            <li class="list-group-item">
+                <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>

@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse" id="nav">
+<div class="navbar navbar-inverse navbar-static-top" id="nav">
    <div class="container-fluid">
 
         <div class="navbar-header">
@@ -14,13 +14,13 @@
             <ul class="nav navbar-nav" role="navigation">
                 <li>
                     <a href="/">
-                        <i class="fa fa-home" style="color: white;"></i>
+                        <i class="fa fa-home"></i>
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="http://salviusrobot.blogspot.com/" target="_blank">
-                        <i class="fa fa-rss" style="color: #FF7800;"></i>
+                    <a href="http://blog.salvius.org">
+                        <i class="fa fa-rss"></i>
                         Blog
                     </a>
                 </li>
@@ -32,19 +32,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="https://github.com/gunthercox/salvius/issues/new">
-                        <i class="fa fa-tag" style="color: white"></i>
-                        Create a support ticket
-                    </a>
-                </li>
-                <li>
-                    <a href="/status/">
-                        <i class="fa fa-circle" style="color: #48BB1E;"></i>
-                        Status Page
-                        <i class="fa fa-angle-double-right"></i>
-                    </a>
-                </li>
+                {% include nav-right.html %}
             </ul>
         </div>
     </div> 
