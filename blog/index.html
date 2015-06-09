@@ -1,0 +1,12 @@
+---
+layout: default
+title: "Salvius Construction Guide"
+---
+
+Testing
+
+{% for post in site.posts %}
+<li class="list-group-item">
+    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+</li>
+{% endfor %}
