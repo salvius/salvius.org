@@ -1,6 +1,7 @@
 ---
 layout: page
-permalink: /spec/0.0.0/ 
+permalink: /spec/0.0.1/ 
+redirect_from: "/spec/latest/"
 ---
 
 {% include spec/navigation.html %}
@@ -14,11 +15,23 @@ permalink: /spec/0.0.0/
 
         <div class="row">
             <div class="col-xs-6">
-                <strong class="text-muted">Version 0.0.0</strong>
+                <strong class="text-muted">Version 0.0.1 (development)</strong>
             </div>
             <div class="col-xs-6 text-right">
-                <a href="https://github.com/salvius/salvius.github.io/tree/master/_includes/spec/0.0.0/" class="btn btn-default btn-xs">Edit on GitHub</a>
+                <a href="https://github.com/salvius/salvius.github.io/tree/master/_includes/spec/0.0.1/" class="btn btn-default btn-xs">Edit on GitHub</a>
             </div>
+        </div>
+
+        <br/>
+
+        <div class="alert alert-danger">
+            <p>
+                <strong>Attention!</strong>
+                <br/>
+                This document contains the latest development version of the
+                humanoid robot specification. It contains improvements from
+                previous versions but is still likely to change.
+            </p>
         </div>
 
         {% include spec/introduction.html %}
