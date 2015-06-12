@@ -10,6 +10,10 @@
     padding-bottom: 30px;
 }
 
+.text-shadow {
+    text-shadow: 1px 1px #222144;
+}
+
 .animate {
     -webkit-transition: all 1s linear;
     -o-transition: all 1s linear;
@@ -31,20 +35,50 @@
     text-shadow: 0 0 0.2em #FFFD77, 0 0 0.2em #F87, 0 0 0.2em #8EFF77;
 }
 
+.white-outline {
+    color: white;
+    font-weight: 800;
+    border: 2px solid white;
+}
+
+.white-outline a,
+.white-outline a:hover {
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 2px solid white;
+}
+
+.color-forest.white-outline a:hover,
+.color-forest.white-outline.btn:hover {
+    background: #297E56;
+    border: 2px solid white;
+}
+
+.color-darkorange.white-outline a:hover,
+.color-darkorange.white-outline.btn:hover {
+    background: #9B200C;
+    border: 2px solid white;
+}
+
 .color-soil {
     background: #5C421A;
+    color: white;
 }
 
 .color-darkgray {
     background: #231f20;
+    color: white;
 }
 
 .color-prestige {
     background: #5C1A30;
+    color: white;
 }
 
 .color-putty {
     background: #393333;
+    color: white;
 }
 
 .color-softgreen {
@@ -53,22 +87,27 @@
 
 .color-forest {
     background: #1A5C3D;
+    color: white;
 }
 
 .color-orange {
     background: #ea671f;
+    color: white;
 }
 
 .color-darkorange {
     background: #C02911;
+    color: white;
 }
 
 .color-rust {
     background: #87210A;
+    color: white;
 }
 
 .color-navy {
     background: #232937;
+    color: white;
 }
 
 /* BOOTSTRAP 3.x GLOBAL STYLES
@@ -115,14 +154,6 @@
     z-index: 9999;
 }
 
-p, label {
-    color: white;
-}
-
-h1, h2, h3, h4 {
-    text-shadow: 1px 1px #222144;
-}
-
 /* Keep button images within the viewport */
 button img {
     max-width: 100%;
@@ -143,122 +174,11 @@ ul.no-space img {
     padding: 10% 0px!important;
 }
 
-/* Brand colors */
-.mobile-social-share {
-    background: none repeat scroll 0 0 #EEEEEE;
-    display: block !important;
-    min-height: 70px !important;
-    margin: 50px 0;
-}
-
-.white-outline {
-    color: white;
-    font-weight: 800;
-    border: 2px solid white;
-}
-
-.color-forest.white-outline a:hover {
-    background: #297E56;
-    border: 2px solid white;
-}
-
-.color-darkorange.white-outline a:hover {
-    background: #9B200C;
-    border: 2px solid white;
-}
-
-.white-outline a,
-.white-outline a:hover {
-    color: white;
-    font-weight: 800;
-    text-transform: uppercase;
-    border: 2px solid white;
-}
-
 body {
     color: #777777;
     font-family: "Lato","Helvetica Neue","Arial","Helvetica",sans-serif;
     font-size: 13px;
     line-height: 19.5px;
-}
-
-
-.mobile-social-share h3 {
-    color: inherit;
-    float: left;
-    font-size: 15px;
-    line-height: 20px;
-    margin: 25px 25px 0 25px;
-}
-
-.share-group {
-    float: right;
-    margin: 18px 25px 0 0;
-}
-
-.btn-group {
-    display: inline-block;
-    font-size: 0;
-    position: relative;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
-.mobile-social-share ul {
-    float: right;
-    list-style: none outside none;
-    margin: 0;
-    min-width: 61px;
-    padding: 0;
-}
-
-.share {
-    min-width: 17px;
-}
-
-.mobile-social-share li {
-    display: block;
-    font-size: 18px;
-    list-style: none outside none;
-    margin-bottom: 3px;
-    margin-left: 4px;
-    margin-top: 3px;
-}
-
-.btn-twitter {
-    background-color: #3399CC !important;
-    width: 51px;
-    color:#FFFFFF!important;
-}
-
-.btn-facebook {
-    background-color: #3D5B96 !important;
-    width: 51px;
-    color:#FFFFFF!important;
-}
-
-.btn-google {
-    background-color: #DD3F34 !important;
-    width: 51px;
-    color:#FFFFFF!important;
-}
-
-.btn-linkedin {
-    background-color: #1884BB !important;
-    width: 51px;
-    color:#FFFFFF!important;
-}
-
-.btn-pinterest {
-    background-color: #CC1E2D !important;
-    width: 51px;
-    color:#FFFFFF!important;
-}
-
-.btn-mail {
-    background-color: #FFC90E !important;
-    width: 51px;
-    color:#FFFFFF!important;
 }
 
 /* PAGES */
@@ -299,4 +219,38 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 h1, .h1 {
   font-size: 56px;
+}
+
+/* Store */
+
+.icon-cc {
+    height: 16px;
+    width: auto;
+    display: inline;
+}
+
+.blueprint-background {
+    background-color:#269;
+    background-image: linear-gradient(white 2px, transparent 2px),
+    linear-gradient(90deg, white 2px, transparent 2px),
+    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.blueprint-background .thumbnail {
+  background: #269;
+  font-family: monospace;
+  border: 2px solid #fff;
+}
+
+.blueprint-background .thumbnail .caption {
+  color: #eee;
+}
+
+.blueprint-background .page-header {
+  color: #fff;
+  font-family: monospace;
+  padding-left: 10px;
 }
