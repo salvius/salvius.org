@@ -89,10 +89,12 @@ $("#nav").affix({
 
 $("#nav").on("affixed.bs.affix", function() {
     $(".color-soil").css("margin-top", "50px");
+    $(window).resize();
 });
 
 $("#nav").on("affixed-top.bs.affix", function() {
     $(".color-soil").css("margin-top", "0px");
+    $(window).resize();
 });
 
 $("body").scrollspy({target: "#navbar-collapse"});
