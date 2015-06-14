@@ -37,6 +37,7 @@ $("#length").on("input change", function() {
 
 /* Chrome App */
 
+/*
 var install_app = document.getElementById("chrome-install");
 var launch_app = document.getElementById("chrome-launch-app");
 
@@ -80,6 +81,7 @@ chrome.webstore.onInstallStageChanged.addListener(function(installStage) {
 });
 
 ShowChromeAppButtons();
+*/
 
 $("#nav").affix({
     offset: {

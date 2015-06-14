@@ -18,7 +18,7 @@ layout: main
     </div>
 </div>
 
-<div class="row parallax" data-parallax="scroll" data-naturalWidth="3200" data-naturalHeight="2067" data-speed="0.4" data-image-src="/images/succeed.jpg">
+<div class="row parallax" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-naturalWidth="3200" data-naturalHeight="2067" data-image-src="/images/succeed.jpg">
     <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
         <div class="panel panel-default white-outline color-darkorange">
             <div class="panel-body text-center">
@@ -31,64 +31,121 @@ layout: main
                     The kit contains everything you need to start
                     building humanoid robots.
                 </p>
-                <a href="/store/" class="btn btn-success btn-lg white-outline color-darkorange">Preorder</a>
+                <a href="/store/" class="btn btn-default btn-lg white-outline color-darkorange">Preorder</a>
             </div>
         </div>
     </div>
 </div>
 
-<div id="open-source" class="row color-forest inset-shadow">
+<div id="software" class="row color-forest inset-shadow">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="page-header">
             <h1>
-                Open Source Robotics
+                Open Source Software
                 <i class="fa fa-lightbulb-o yellow-glow animate pull-right"></i>
             </h1>
         </div>
 
-        <h3>
-            <i class="fa fa-users"></i>
-            Interested in learning more or contributing?
-            <a href="#contribute" data-toggle="collapse">Learn how you can help.</a>
-        </h3>
-
-        <div id="contribute" class="collapse">
-            <p class="lead">
-                It has been a challenge for contributers to help develop for Salvius
-                because many people don't have a robot of their own to work with.
-                To help solve this issue, the code for Salvius has been broken up
-                into several software libraries that aren't just limited to use in
-                robotics.
-
-                <strong>Some of the primary libraries that we are looking for help with are listed below:</strong>
-
-                <ul class="list-group">
-                    <a href="https://github.com/gunthercox/ChatterBot" class="list-group-item">
-                        <h4 class="list-group-item-heading">ChatterBot</h4>
-                        <p>ChatterBot is a machine learning, conversational dialog engine.</p>
-                    </a>
-                    <a href="http://zorg-framework.github.io/" class="list-group-item">
-                        <h4 class="list-group-item-heading">Zorg</h4>
-                        <p>Zorg is a framework for robotics and physical computing.</p>
-                    </a>
-                </ul>
-            </p>
-        </div>
-
         <p class="lead">
-            All of the robot's source code is freely available for anyone to use.
-            Salvius is a community driven development project which is rapidly
-            becoming one of the most robust development platforms available.
+            A minimal amount of code has been written specifically for Salvius.
+            Instead, this project aims to create and promote the development of
+            more robust software libraries that have extensive use cases
+            throughout the software community.
         </p>
 
-        <p class="lead"> Several apps are also available for Android, Amazon, and Chrome
+	    <div class="row">
+
+		    <div class="col-sm-4">
+                <div class="card hovercard color-white">
+                    <div class="cardheader color-navy">
+
+                    </div>
+                    <div class="avatar">
+                        <img src="/images/vectors/head.svg" alt="Salvius" class="color-white">
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            Salvius
+                        </div>
+                        <p class="lead">
+                            Salvius is a humanoid robot made from recycled parts.
+                        </p>
+                    </div>
+                    <div class="bottom">
+                        <a class="btn btn-info btn-lg" href="https://twitter.com/salviusrobot" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-primary btn-lg" href="https://www.facebook.com/salviusrobot" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a class="btn btn-default btn-lg" href="https://github.com/gunthercox/salvius" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+		    <div class="col-sm-4">
+                <div class="card hovercard color-white">
+                    <div class="cardheader color-prestige">
+
+                    </div>
+                    <div class="avatar">
+                        <img src="/images/logos/chatterbot.png" alt="ChatterBot">
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            ChatterBot
+                        </div>
+                        <p class="lead">
+                            ChatterBot is a machine learning, conversational dialog engine.
+                        </p>
+                    </div>
+                    <div class="bottom">
+                        <a class="btn btn-default btn-lg" href="https://github.com/gunthercox/ChatterBot" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+		    <div class="col-sm-4">
+
+                <div class="card hovercard color-white">
+                    <div class="cardheader color-rust">
+
+                    </div>
+                    <div class="avatar">
+                        <img src="/images/logos/zorg.svg" alt="Zorg" class="color-white">
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            <a target="_blank" href="#">Zorg</a>
+                        </div>
+                        <p class="lead">Zorg is a framework for robotics and physical computing.</p>
+                    </div>
+                    <div class="bottom">
+                        <a class="btn btn-default btn-lg" href="https://github.com/zorg-framework/" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                        <a class="btn btn-warning btn-lg" href="http://zorg-framework.github.io/" target="_blank">
+                            <i class="fa fa-home"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+	    </div>
+
+        <!--p class="lead"> Several apps are also available for Android, Amazon, and Chrome
             which can be downloaded and used to interact with the robot's API.
-        </p>
+        </p-->
 
-        <div class="row">
+        <!--div class="row">
             <div class="col-sm-6" style="margin-bottom: 15px">
                 <button class="btn btn-default btn-block white-outline" id="chrome-install" title="Add to Chrome">
-                    <img src="/images/ChromeWebStore.png" alt="Chrome Web Store">
+                    <img src="/images/ChromeWebStore.svg" height="96px" alt="Chrome Web Store">
                 </button>
 
                 <a href="https://chrome.google.com/webstore/detail/bmielhhjhgabhdjncbgbjhbjaohgeoeh" class="btn btn-default" id="chrome-launch-app" target="_blank" style="display: none;">
@@ -101,12 +158,34 @@ layout: main
                     <img src="/images/GithubDownload.png" alt="Download on GitHub">
                 </a>
             </div>
-        </div>
+        </div-->
 
     </div>
 </div>
 
-<div class="row parallax" data-parallax="scroll" data-image-src="/images/first_snow.jpg">
+<div id="engineering" class="row row-banner color-darkorange">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="page-header">
+            <h1>
+                Open Specification
+                <a href="" class="btn btn-lg btn-default white-outline color-darkorange pull-right">
+                    View Specification
+                </a>
+            </h1>
+        </div>
+
+        <p class="lead">
+            Salvius is engineered to comply with the Engineering Specification for Humanoid Robots. This ensures that each new component must meet a minimum standard of functionality before it is added to the robot.
+        </p>
+
+        <p class="lead">
+The engineering specification implemented by Salvius is set up with versions so that development can continue even if the entire robot cannot be immediately upgraded to match the latest version of the specification.
+        </p>
+
+    </div>
+</div>
+
+<div class="row parallax" data-parallax="scroll" data-bleed="10" data-image-src="/images/first_snow.jpg">
     <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
         <div class="panel panel-default color-navy white-outline" id="snowImage">
             <div class="panel-body">
@@ -164,7 +243,7 @@ layout: main
     </div>
 </div>
 
-<div class="row parallax" data-parallax="scroll" data-naturalWidth="4000" data-naturalHeight="2248" data-image-src="/images/nature.jpg">
+<div class="row parallax" data-parallax="scroll" data-bleed="10" data-naturalWidth="4000" data-naturalHeight="2248" data-image-src="/images/nature.jpg">
     <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
         <div class="panel panel-default color-softgreen white-outline">
             <div class="panel-body">
