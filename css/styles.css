@@ -184,7 +184,7 @@ ul.no-space img {
 body {
     color: #777777;
     font-family: "Lato","Helvetica Neue","Arial","Helvetica",sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 19.5px;
 }
 
@@ -211,6 +211,14 @@ body {
 
 .document-readable p {
     font-size: 16px;
+}
+
+.post {
+    font-size: 16px;
+}
+
+.post img {
+    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {

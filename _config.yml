@@ -13,7 +13,7 @@ description: >
   inexpensive to start developing.
 short_description: Salvius in an open-source humanoid robot built on a minimal budget using recycled materials.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "salvius.github.io" # base hostname & protocol for a site
+url: "http://salvius.org" # base hostname & protocol for a site
 twitter_username: salviusrobot
 github_username:  gunthercox
 

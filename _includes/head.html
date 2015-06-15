@@ -51,8 +51,8 @@
     <link rel="stylesheet" href="/css/guide.css"/>
 	<link rel="stylesheet" href="/css/styles.css"/>
 
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
-    <link rel="shortlink" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
+    <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html',''}}"/>
+    <link rel="shortlink" href="{{ site.url }}{{ page.url | replace:'index.html',''}}"/>
     <link rel="icon" type="image/png" href="icons/icon.png"/>
     <link rel="shortcut icon" href="icons/favicon.ico"/>
 
