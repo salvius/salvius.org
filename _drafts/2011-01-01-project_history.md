@@ -1,0 +1,79 @@
+---
+layout: post
+permalink: /blog/:year/:month/:title
+title: Project History Summary 2008 to 2011
+---
+
+- 08/15/11 - I will create a blog to talk about the robot.
+- 08/12/11 - Arduino arrived in mail, began programming it
+- 08/08/11 - Ordered Arduino Uno USB IO Board.
+- 08/07/11 - Tidied up electrical wires.
+- 07/28/11 - Installed 8 ohm speaker in head.
+- 07/15/11 - Configured computer.
+- 07/11/11 - Installed optical sensor panel and speaker in head.
+- 07/10/11 - Finished building new human-like head.
+- 05/16/11 - Broke laser cartridge, will have to get new one.
+- 05/15/11 - Installed optical sensors in mount.
+- 05/14/11 - Attached camera to sensor mount.
+- 05/13/11 - Cut plexiglass optical sensors mount.
+- 05/12/11 - Made template for optical sensors mount.
+- 05/11/11 - Removed and measured optical sensors from head.
+- 05/03/11 - Moved shoulder joint up higher so that it is 3.5 inches from top of shoulder.
+- 05/02/11 - Cut 18 inch replacement axial for arm joints.
+- 04/28/11 - Simplified audio amplifier.
+- 04/26/11 - Finished adapter to run radio off of psu.
+- 02/28/11 - Tested larger audio amplifier with stereo speakers.
+- 02/27/11 - Began work on servo controller for ear servos.
+- 02/26/11 - Added 3 watts of extra amplification to audio amplifier.
+- 02/25/11 - Tested cam and mic wireless connection.
+- 02/24/11 - Connected left arm wires to junction box.
+- 02/23/11 - Attached new wires to left arm motors.
+- 02/22/11 - Enabled two speakers for mono.
+- 02/21/11 - Assembled audio amplifier.
+- 02/20/11 - Installed radio.
+- 02/19/11 - Attached electronics to drive base.
+- 02/18/11 - Attached left arm to body.
+- 02/17/11 - Mounted upper-torso on drive base.
+- 02/16/11 - Assembled plywood drive base.
+- 02/15/11 - Reattached sensors and electronics to new head.
+- 02/14/11 - Salvaged two gear boxes and chain from older body design.
+- 02/13/11 - Robot Operating System (ROS) is a potential OS for robot.
+- 02/06/11 - Cut out metal parts for new head based on cardboard template.
+- 02/05/11 - Stereo speakers hooked up and functioning.
+- 02/04/11 - Attached temporary wires for neck joint.
+- 02/02/11 - Created neck joint.
+- 02/01/11 - Built new wooden cube shaped upper body for robot.
+- 01/27/11 - Began redesigning head due to problems with size and shape of previous version.
+- 08/24/10 - Upgraded to larger upper arm on left side with larger motor.
+- 08/20/10 - Development has begun on radio core.
+- 06/15/10 - Right hand is now able to reconfigure into drill driver.
+- 06/14/10 - Found an online suppler of muscle wire for nano-robots.
+- 05/05/10 - Finished installing right arm motor for wrist rotation.
+- 04/12/10 - Organized data files.
+- 03/01/10 - Robot now has limited speech and extremely pour motor control.
+- 02/27/10 - Someone to speak to the robot and the robot can to reply to the person.
+- 02/14/10 - Working on a design for a grabber to go on the flexible mobile arm.
+- 02/10/10 - Working on housing for custom power cell.
+- 02/07/10 - Working on navigational system.
+- 02/08/10 - New design for legs and feet will likely result in a more maneuverable torso.
+- 11/19/09 - Working on a design for legs to get the robot mobile.
+- 10/01/09 - The design for a bracket to attach the head to the neck has been made.
+- 08/29/09 - Brackets to hold the access panel in the back of the head closed have been installed.
+- 07/29/09 - The laser data transmitter circuit board is now finished.
+- 06/18/09 - The new head is being modified to use the sensors built for the older head.
+- 06/15/09 - Salvaged a sound amplifying circuit for microphone elements in ears.
+- 05/07/09 - Began redesigning robot's head.
+- 04/26/09 - Made larger shoulder mount.
+- 04/18/09 - Upgraded left arm chain drive.
+- 04/15/09 - Made simple right arm.
+- 04/02/09 - Mount for legs and torso joint is installed.
+- 04/01/09 - Upgraded wrist joint.
+- 03/25/09 - Made simple left arm.
+- 03/23/09 - Reinforced Neck rotation joint.
+- 03/19/09 - Neck rotation joint installed.
+- 03/17/09 - Inserted grommet into hole in chest cover.
+- 03/16/09 - Chest cover panel is attached.
+- 11/09/08 - Mounted wire holders to secure wiring.
+- 11/08/08 - Installed Wire covers.
+- 11/07/08 - Attached motor wires.
+- 11/06/08 - Officially started building robot.

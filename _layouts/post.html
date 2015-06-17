@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    {% include head.html %}
+    <body>
+        {% include navigation.subpage.html %}
+
+        <div class="container-fluid color-forest">
+            <div class="row" style="padding: 20px 0px">
+                <div class="col-xs-6">
+                    {% if page.previous %}
+                    <a class="btn btn-default white-outline color-forest" href="{{ page.previous.url }}">Previous</a>
+                    {% endif %}
+                </div>
+                <div class="col-xs-6 text-right">
+                    {% if page.next %}
+                    <a class="btn btn-default white-outline color-forest" href="{{ page.next.url }}">Next</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="container color-white">
+
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="page-header">
+                        <h1>{{ page.title }}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row post">
+                <div class="col-sm-2">
+
+                    {% include blog_date.html %}
+
+                </div>
+                <div class="col-sm-8">
+                    
+                    {{ content }}
+
+                </div>
+            </div>
+
+        </div>
+
+        {% include footer.html %}
+    </body>
+</html>

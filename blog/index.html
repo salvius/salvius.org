@@ -1,12 +1,29 @@
 ---
-layout: default
-title: "Salvius Construction Guide"
+layout: page
+title: "Salvius Robot Blog"
 ---
 
-Testing
+<div class="container color-white">
+    {% for page in site.posts %}
 
-{% for post in site.posts %}
-<li class="list-group-item">
-    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-</li>
-{% endfor %}
+        <div class="container color-white">
+
+            {% include blog_title.html %}
+
+            <div class="row post">
+                <div class="col-sm-2">
+
+                    {% include blog_date.html %}
+
+                </div>
+                <div class="col-sm-8">
+                    
+                    {{ page.content }}
+
+                </div>
+            </div>
+
+        </div>
+
+    {% endfor %}
+</div>

@@ -1,3 +1,9 @@
+---
+layout: post
+permalink: /blog/:year/:month/:title
+title: Endoskeleton
+---
+
 An endoskeleton is an internal support structure of an animal, composed of mineralized tissue.
 
 Endoskeleton develops within the skin or in the deeper body tissues. The vertebrate is basically an endoskeleton made up of two types of tissues (bone and cartilage). During early embryonic development the endoskeleton is composed of notochord and cartilage. The notochord in most vertebrates is replaced by vertebral column and cartilage is replaced by bone in most adults.In three phyla and one subclass of animals, endoskeletons of various complexity are found: Chordata, Echinodermata, Porifera, and Coleoidea. An endoskeleton may function purely for support (as in the case of sponges), but often serves as an attachment site for muscle and a mechanism for transmitting muscular forces. A true endoskeleton is derived from mesodermal tissue. Such a skeleton is present in echinoderms and chordates. The poriferan 'skeleton' consists of microscopic calcareous or siliceous spicules or a spongin network. The Coleoidae do not have a true endoskeleton in the evolutionary sense; here, a mollusk exoskeleton evolved into several sorts of internal structure, the "cuttlebone" of cuttlefish being the best-known version. Yet they do have cartilaginous tissue in their body, even if it is not mineralized, especially in the head, where it forms a primitive cranium.The endoskeleton gives shape,support and protection to the body and provides a means of locomotion.
