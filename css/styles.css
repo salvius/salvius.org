@@ -54,13 +54,16 @@ a.white-outline:hover {
 .color-forest.white-outline a:hover,
 .color-forest.white-outline.btn:hover {
     background: #297E56;
-    border: 2px solid white;
 }
 
 .color-darkorange.white-outline a:hover,
 .color-darkorange.white-outline.btn:hover {
     background: #9B200C;
-    border: 2px solid white;
+}
+
+.color-putty.white-outline a:hover,
+.color-putty.white-outline.btn:hover {
+    background: #4F4848;
 }
 
 .color-white {
@@ -100,6 +103,11 @@ a.white-outline:hover {
 .color-orange {
     background: #ea671f;
     color: white;
+}
+
+.color-orange.white-outline a:hover,
+.color-orange.white-outline.btn:hover {
+    background: #FF803B;
 }
 
 .color-darkorange {
@@ -193,24 +201,6 @@ body {
 .salvius-spec h2,
 .salvius-spec img {
     display: none;
-}
-
-.document-readable {
-    background: #fefefe;
-}
-
-.document-readable p,
-.document-readable h1,
-.document-readable h2,
-.document-readable h3,
-.document-readable h4,
-.document-readable h5
-{
-    color: #222;
-}
-
-.document-readable p {
-    font-size: 16px;
 }
 
 .post {

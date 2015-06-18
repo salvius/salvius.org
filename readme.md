@@ -1,7 +1,7 @@
-salvius.github.io
-=================
+salvius.org
+===========
 
-## Checkout the site: http://salvius.github.io/
+## Checkout the site: http://salvius.org/
 
 ***
 
@@ -13,10 +13,10 @@ salvius.github.io
 ### Construction guide
 - **Learn about techniques and concepts that will allow you to create your own robot like Salvius.**
 - *Each purchase of the construction guide helps to fund this project.*
-- [Guide](http://gunthercox.github.io/salvius.guide/)
+- [Guide](http://salvius.org/guide)
 
 ### Status page
-- http://salvius.github.io/status
+- http://salvius.org/status
 
 ### Collaboration
 - **Stay connected on...**
@@ -27,9 +27,9 @@ salvius.github.io
 
 ### Learn more about Salvius
 - **Interested in learning more or possibly contributing? Learn more about Salvius on the project blog and on Wikipedia.**
-- [Blog](http://salviusrobot.blogspot.com)
+- [Blog](http://blog.salvius.org)
 - [Wikipedia](http://wikipedia.org/wiki/salvius)
 
 ### Data and statistics
 - **View data recoreded by the robot on the status page**
-- [salvius.status](http://gunthercox.github.io/salvius.status/)
+- [salvius.status](http://salvius.org/status)

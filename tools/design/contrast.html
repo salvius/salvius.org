@@ -1,0 +1,201 @@
+<html>
+    <head>
+        <style>
+            .effective {
+                color: #a9306f;
+                background: #c7e4d3;
+                padding: 15px;
+                font-size: 50px;
+            }
+            .effective .content {
+                height: 50px;
+                width: 50px;
+                border-radius: 50px;
+                background: #a9306f;
+            }
+            .ineffective {
+                color: #79c19e;
+                background: #fcd3c4;
+                padding: 15px;
+                font-size: 50px;
+            }
+            .ineffective .content {
+                height: 50px;
+                width: 50px;
+                background: #79c19e;
+            }
+        </style>
+        <style>
+    .pie {
+		position:absolute;
+		width:200px;
+		height:400px;
+		overflow:hidden;
+		left:300px;
+		-webkit-transform-origin:left center;
+		transform-origin:left center;
+	}
+
+	.pie:BEFORE {
+		content:"";
+		position:absolute;
+		width:200px;
+		height:400px;
+		left:-200px;
+		border-radius:200px 0 0 200px;
+		-webkit-transform-origin:right center;
+		transform-origin:right center;
+	}
+
+	.pie:nth-of-type(1):BEFORE,
+	.pie:nth-of-type(1):AFTER {
+		background-color: #ffe800;	
+	}
+	.pie:nth-of-type(2):AFTER,
+	.pie:nth-of-type(2):BEFORE {
+		background-color: #f58220;	
+	}
+	.pie:nth-of-type(3):AFTER,
+	.pie:nth-of-type(3):BEFORE {
+		background-color: #ed1b2f;	
+	}
+	.pie:nth-of-type(4):AFTER,
+	.pie:nth-of-type(4):BEFORE {
+		background-color: #a9306f;	
+	}
+	.pie:nth-of-type(5):AFTER,
+	.pie:nth-of-type(5):BEFORE {
+		background-color: #3d6ab3;	
+	}
+	.pie:nth-of-type(6):AFTER,
+	.pie:nth-of-type(6):BEFORE {
+		background-color: #0092c8;	
+	}
+	.pie:nth-of-type(7):AFTER,
+	.pie:nth-of-type(7):BEFORE {
+		background-color: #009c9e;	
+	}
+	.pie:nth-of-type(8):AFTER,
+	.pie:nth-of-type(8):BEFORE {
+		background-color: #009956;	
+	}
+
+	.pie[data-start="45"] {
+		-webkit-transform: rotate(45deg);
+		transform:rotate(45deg);
+	}
+	.pie[data-start="90"] {
+		-webkit-transform: rotate(90deg);
+		transform:rotate(90deg);
+	}
+	.pie[data-start="135"] {
+		-webkit-transform: rotate(135deg);
+		transform:rotate(135deg);
+	}
+	.pie[data-start="180"] {
+		-webkit-transform: rotate(180deg);
+		transform:rotate(180deg);
+	}
+	.pie[data-start="225"] {
+		-webkit-transform: rotate(225deg);
+		transform:rotate(225deg);
+	}
+	.pie[data-start="270"] {
+		-webkit-transform: rotate(270deg);
+		transform:rotate(270deg);
+	}
+	.pie[data-start="315"] {
+		-webkit-transform: rotate(315deg);
+		transform:rotate(315deg);
+	}
+
+	.pie[data-value="45"]:BEFORE {
+		-webkit-transform: rotate(45deg);
+		transform:rotate(45deg);
+	}
+
+    .contrast {
+        height: 60px;
+        width: 60px;
+        background: #000;
+        border-radius: 30px;
+        position: absolute;
+        margin: 30px;
+    }
+
+    .contrast-1 {
+		background-color: #ffe800;
+	}
+    .contrast-2 {
+		background-color: #f58220;
+	}
+    .contrast-3 {
+		background-color: #ed1b2f;
+	}
+    .contrast-4 {
+		background-color: #a9306f;
+	}
+    .contrast-5 {
+		background-color: #3d6ab3;
+	}
+    .contrast-6 {
+		background-color: #0092c8;
+	}
+    .contrast-7 {
+		background-color: #009c9e;
+	}
+    .contrast-8 {
+		background-color: #009956;
+	}
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="effective">
+                    <div class="content"></div>
+                </td>
+                <td class="effective">
+                    Effective
+                </td>
+            </tr>
+            <tr>
+                <td class="ineffective">
+                    <div class="content"></div>
+                </td>
+                <td class="ineffective">
+                    Not as effective
+                </td>
+            </tr>
+        </table>
+
+        <hr/>
+        <h1>Effective color pallet:</h1>
+
+        <div class="pie" data-start="0" data-value="45">
+            <div class="contrast contrast-5"></div>
+        </div>
+        <div class="pie" data-start="45" data-value="45">
+            <div class="contrast contrast-6"></div>
+        </div>
+        <div class="pie" data-start="90" data-value="45">
+            <div class="contrast contrast-7"></div>
+        </div>
+        <div class="pie" data-start="135" data-value="45">
+            <div class="contrast contrast-8"></div>
+        </div>
+        <div class="pie" data-start="180" data-value="45">
+            <div class="contrast contrast-1"></div>
+        </div>
+        <div class="pie" data-start="225" data-value="45">
+            <div class="contrast contrast-2"></div>
+        </div>
+        <div class="pie" data-start="270" data-value="45">
+            <div class="contrast contrast-3"></div>
+        </div>
+        <div class="pie" data-start="315" data-value="45">
+            <div class="contrast contrast-4"></div>
+        </div>
+
+    </body>
+</html>

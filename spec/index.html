@@ -1,21 +1,69 @@
 ---
 layout: page
+title: Engineering Specification for Humanoid Robots
 ---
 
-{% include spec/navigation.html %}
+{% include spec/heading.html %}
 
 <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-lg-6 col-lg-offset-3 color-white">
 
-        <div class="well document-readable">
-            <p class="lead">
-                Salvius was originally developed without specification. With many components being continuously developed and improved, it became necessary to develop a specification to follow to ensure that new parts could successfully replace old ones. Adhering to a specification makes it possible to set development goal and measure the project's progress.
-            </p>
+        {% include spec/introduction.html %}
 
-            <p class="lead">
-                The engineering specification implemented by Salvius is set up with versions so that development can continue even if the entire robot cannot be immediately upgraded to match the latest version of the specification.
-            </p>
+        {% include spec/history.html %}
+
+    </div>
+</div>
+
+<div class="row color-putty">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="page-header">
+            <h1>Body</h1>
         </div>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3 color-white">
+        {% include spec/head.html %}
+
+        {% include spec/neck.html %}
+
+        {% include spec/torso.html %}
+    </div>
+</div>
+
+<div class="row color-orange">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="page-header">
+            <h1>Arms</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3 color-white">
+        {% include spec/shoulder.html %}
+
+        {% include spec/elbow.html %}
+
+        {% include spec/wrist.html %}
+
+        {% include spec/finger.html %}
+    </div>
+</div>
+
+<div class="row color-rust">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="page-header">
+            <h1>Legs</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3 color-white">
+
+        {% include spec/hip.html %}
     </div>
 </div>
