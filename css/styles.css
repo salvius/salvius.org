@@ -483,3 +483,32 @@ h1, .h1 {
     padding: 0 20px;
     margin-bottom: 17px;
 }
+
+/* Specification Carousel */
+
+#specificationCarousel .item {
+    padding-top: 15px;
+}
+
+#specificationCarousel .item * {
+    padding: 0px;
+    margin: 0px;
+}
+
+#specificationCarousel .caption {
+    padding: 15px;
+}
+
+#specificationCarousel .item .image {
+    height: 200px;
+    overflow: hidden;
+}
+
+#specificationCarousel .item .image img {
+    height: 120%;
+    transition: all .2s ease-in-out;
+}
+
+#specificationCarousel .item:hover .image img {
+    transform: scale(1.1);
+}
