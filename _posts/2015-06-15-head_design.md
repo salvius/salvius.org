@@ -1,6 +1,5 @@
 ---
 layout: post
-permalink: /blog/:year/:month/:title
 title: 2015 Head Redesign
 ---
 

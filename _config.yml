@@ -11,20 +11,21 @@ description: >
   can be installed as well. Salvius has been built using
   a variety of recycled materials, making it simple and
   inexpensive to start developing.
-short_description: Salvius in an open-source humanoid robot built on a minimal budget using recycled materials.
+short_description: Salvius is an open-source humanoid robot built on a minimal budget using recycled materials.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://salvius.org" # base hostname & protocol for a site
 twitter_username: salviusrobot
 github_username:  gunthercox
 
+permalink: /blog/:year/:month/:title/
+
 # Build settings
 markdown: kramdown
+highlighter: pygments
 
 sass:
     sass_dir: _sass
     style: compressed
 
 gems:
-  - jekyll-mentions
-  - jekyll-redirect-from
   - jekyll-sitemap
