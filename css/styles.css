@@ -1,6 +1,11 @@
 .fa-large {
     font-size: 130px;
-    color: #fff;
+    color: white;
+}
+
+.text-white,
+.text-white:hover {
+    color: white;
 }
 
 .inset-shadow {

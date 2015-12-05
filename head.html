@@ -5,20 +5,33 @@ description: Humanoid robot head design
 permalink: /head/
 ---
 
-<h2>Head</h2>
+<div class="row inset-shadow">
+    <div class="col-sm-10 col-sm-offset-1">
 
-<p>
-There is minimal requirements dictating the function of a robot's head for a humanoid design. Due to the lack of moving parts, the only specification that the head must obey is the size of its proportions in relation the the rest of the body.
-</p>
+        <div class="page-header">
+            <h1>{{ page.title }}</h1>
+        </div>
 
-<p class="alert alert-warning">
-The calculations for determining the optimal size ratio of the head and position of the eyes are still being determined.
-<p>
+        <p class="lead">
+        There is minimal requirements dictating the function of a robot's head for a humanoid design. Due to the lack of moving parts, the only specification that the head must obey is the size of its proportions in relation the the rest of the body.
+        </p>
 
-<p>
-It is recommended that the robot's head house hardware for visual input and audio output.
-This allows for optimal control over the direction of visual and audio data.
-</p>
+        <p class="alert alert-warning">
+            The calculations for determining the optimal size ratio of the head and position of the eyes are still being determined.
+        <p>
+
+        <p>
+        It is recommended that the robot's head house hardware for visual input and audio output.
+        This allows for optimal control over the direction of visual and audio data.
+        </p>
+
+        <ul>
+            <li>Speaker: 8 ohm speaker.</li>
+            <li>Speaker wire: 12 gauge stranded core wire. Twisted to reduce electromagnetic interference.</li>
+        </ul>
+
+    </div>
+</div>
 
 <div class="row">
     {% include navigation.topics.html %}

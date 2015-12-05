@@ -5,22 +5,42 @@ description: Robotic arm design
 permalink: /arms/
 ---
 
-<h2>Shoulder</h2>
+<div class="row inset-shadow">
+    <div class="col-sm-10 col-sm-offset-1">
 
-<p>
-    The robot's shoulder joint must allow rotation, flexion and extension.
-</p>
+        <div class="page-header">
+            <h1>{{ page.title }}</h1>
+        </div>
 
-<img src="/images/spec/shoulder.svg"/>
+        <p class="lead">
+            The robot's shoulder joint must allow rotation, flexion and extension.
+        </p>
 
-<h2>Elbow</h2>
+        <strong>Parts list for building the arms</strong>
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-check-square"></i>Rectangular moulding (pvc or wood)</li>
+            <li><i class="fa-li fa fa-check-square"></i>Hinge</li>
+            <li><i class="fa-li fa fa-check-square"></i>Windshield wiper motor</li>
+            <li><i class="fa-li fa fa-check-square"></i>Plywood</li>
+            <li><i class="fa-li fa fa-check-square"></i><what_size?> standoff</li>
+            <li><i class="fa-li fa fa-check-square"></i>Rubber bands, surgical tubing, or bungee cord</li>
+        </ul>
 
-<p>
-    The elbow joint is represented as hinge joints connecting the upper arm and the forearm.
-    The joint allows for 180 degrees of flexion and extension and must prevent hyperextension.
-</p>
+        <h2>Shoulder</h2>
 
-<img src="/images/spec/elbow.svg"/>
+        <img src="/images/spec/shoulder.svg"/>
+
+        <h2>Elbow</h2>
+
+        <p>
+            The elbow joint is represented as hinge joints connecting the upper arm and the forearm.
+            The joint allows for 180 degrees of flexion and extension and must prevent hyperextension.
+        </p>
+
+        <img src="/images/spec/elbow.svg"/>
+
+    </div>
+</div>
 
 <div class="row">
     {% include navigation.topics.html %}
