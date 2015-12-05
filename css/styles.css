@@ -66,6 +66,11 @@ a.white-outline:hover {
     background: #4F4848;
 }
 
+.color-prestige.white-outline a:hover,
+.color-prestige.white-outline.btn:hover {
+    background: #421222;
+}
+
 .color-white {
     background: white;
     color: black;
@@ -223,6 +228,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 h1, .h1 {
   font-size: 56px;
+}
+
+.table {
+    color: #777777;
 }
 
 .page-header {
@@ -486,6 +495,12 @@ h1, .h1 {
 
 /* Specification Carousel */
 
+#specificationCarousel a,
+#specificationCarousel a:hover {
+    color: white;
+    text-decoration: none;
+}
+
 #specificationCarousel .item {
     padding-top: 15px;
 }
@@ -511,4 +526,23 @@ h1, .h1 {
 
 #specificationCarousel .item:hover .image img {
     transform: scale(1.1);
+}
+
+#specificationCarousel .row-more {
+    height: 0px;
+}
+
+#specificationCarousel .row-more .item {
+    height: 0px;
+    padding-top: 0px;
+    display: block;
+    overflow-y: hidden;
+	transition-property: all;
+	transition-duration: .9s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+#specificationCarousel .row-more.open .item {
+    height: 270px;
+    padding-top: 15px;
 }

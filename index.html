@@ -2,7 +2,7 @@
 layout: main
 ---
 
-<div class="row color-soil inset-shadow">
+<div class="row color-soil inset-shadow js-first-row">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="page-header">
             <h1 id="meet-salvius">
@@ -163,77 +163,36 @@ layout: main
     </div>
 </div>
 
-<div id="engineering" class="row row-banner color-darkorange">
+<div id="engineering" class="row row-banner color-prestige">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="page-header">
             <h1>
                 Open Specification
-                <a href="/spec/" class="btn btn-lg btn-default white-outline color-darkorange pull-right">
+                <a href="/spec/" class="btn btn-lg btn-default white-outline color-prestige pull-right">
                     View Specification
                 </a>
             </h1>
         </div>
 
         <p class="lead">
-            Salvius is engineered to comply with the Engineering Specification for Humanoid Robots.
-            This ensures that each new component must meet a minimum standard of functionality before it is added to the robot.
+            Salvius is designed in compliance with a versioned engineering specification.
+            This ensures that each new component must meet a minimum standard of functionality before being added to the robot.
+            The versioning system of the specification makes it possible for development to continue even if the entire robot cannot be immediately upgraded to match the latest version of the specification.
         </p>
 
         <p class="lead">
-            The engineering specification implemented by Salvius is set up with versions so that development can continue even if the entire robot cannot be immediately upgraded to match the latest version of the specification.
+        Salvius was originally developed without specification. With many components being continuously developed and improved, it became necessary to develop a specification to follow to ensure that new parts could successfully replace old ones. Adhering to a specification makes it possible to set development goals and measure the project's progress.
         </p>
 
-        <p class="lead">
+        <!--p class="lead">
             Salvius uses a <a href="http://cppp.io">cppp.io</a> compliant RESTful API.
-            This allows you to connect to the robot using apps like <a href="http://commander.io/">Commander</a>
+            This allows you to connect to the robot using apps like <a href="http://commander.io">Commander</a>
             or robeaux for quick and easy configuration.
-        </p>
+        </p-->
 
     </div>
 
-    <div id="specificationCarousel" class="color-darkgray">
-        <div class="col-xs-3 color-prestige">
-            <div class="item">
-                <div class="image">
-                    <img src="/images/hands.jpg" class="zoom"/>
-                </div>
-                <div class="caption">
-                    <h3 class="text-center">Hands</h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-3 color-rust">
-            <div class="item">
-                <div class="image">
-                    <img src="/images/02.jpg" class="zoom"/>
-                </div>
-                <div class="caption">
-                    <h3 class="text-center">Neck</h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-3 color-navy">
-            <div class="item">
-                <div class="image">
-                    <img src="http://3.bp.blogspot.com/-dFb3xrR_FXw/UtLJvRsgUMI/AAAAAAAAIi8/WgLwKeUh05U/s1600/IMG_2037.JPG" class="zoom"/>
-                </div>
-                <div class="caption">
-                    <h3 class="text-center">Hardware</h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-3 color-forest">
-            <div class="item">
-                <div class="image">
-                    <img src="/images/leg.jpg" class="zoom"/>
-                </div>
-                <div class="caption">
-                    <h3 class="text-center">More...</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    {% include navigation.topics.html %}
 </div>
 
 <div class="row parallax" data-parallax="scroll" data-bleed="10" data-image-src="/images/first_snow.jpg">
