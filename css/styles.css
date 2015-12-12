@@ -525,7 +525,7 @@ h1, .h1 {
 }
 
 #specificationCarousel .item .image img {
-    height: 120%;
+    width: 130%;
     transition: all .2s ease-in-out;
 }
 

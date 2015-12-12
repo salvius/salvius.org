@@ -1,6 +1,5 @@
 ---
 layout: post
-permalink: /blog/:year/:month/:title
 title: Project History Summary 2008 to 2011
 ---
 
