@@ -30,6 +30,7 @@ body {
 
 .navbar {
     min-height: 65px;
+    margin-bottom: 15px;
 }
 
 .navbar-brand {
