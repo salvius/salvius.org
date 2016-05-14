@@ -47,7 +47,9 @@
 
 	<link rel="stylesheet" href="/css/main.css"/>
 	<link rel="stylesheet" href="/css/font-awesome.css"/>
-    <link rel="stylesheet" href="/css/slick.css"/>
+    {% for css_name in page.extra_css %}
+        <link rel="stylesheet" href="{{ css_name }}">
+    {% endfor %}
 
     <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html',''}}"/>
     <link rel="shortlink" href="{{ site.url }}{{ page.url | replace:'index.html',''}}"/>

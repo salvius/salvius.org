@@ -32,7 +32,7 @@ salvius.org
 
 ## Site notes
 
-To the server locally using GitHub's configuration use:
+To serve this site locally using GitHub's configuration use:
 ```
 bundle exec jekyll serve
 ```
