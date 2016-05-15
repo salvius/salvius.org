@@ -1,6 +1,5 @@
 .fa-large {
-    font-size: 130px;
-    color: white;
+    font-size: 110px!important;
 }
 
 .text-white,
@@ -195,8 +194,15 @@ ul.no-space img {
     width: 100%;
 }
 
-.parallax {
-    padding: 10% 0px!important;
+.parallax-window {
+    min-height: 720px;
+    background: transparent;
+    padding: 200px 0px!important;
+}
+
+picture, picture * {
+    width: 100%;
+    height: auto;
 }
 
 body {

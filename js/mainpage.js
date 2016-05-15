@@ -1,3 +1,8 @@
+var scene = document.getElementById('scene');
+var parallax = new Parallax(scene);
+
+/* Fixed page navigation */
+
 var $firstRow = $(".js-first-row");
 
 if ($firstRow.length) {
@@ -22,16 +27,8 @@ if ($firstRow.length) {
     $("#nav").affix();
 }
 
-$(".js-show-more").click(function(e) {
-    $(".js-row-more").toggleClass("open");
+/* Smooth scrolling to an anchor on the same page */
 
-    function reveal() {
-        window.scrollBy(0, 160);
-    }
-    setTimeout(reveal, 100);
-});
-
-/* Smooth scrolling to an anchor on the same page. */
 $(function() {
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
