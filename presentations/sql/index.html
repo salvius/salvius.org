@@ -18,52 +18,95 @@ extra_css:
         </section>
 
 		<section>
+    		<section>
+                <h2>A Brief History of Databases</h2>
+                <h1><i class="fa fa-clock-o"></i></h1>
+		    </section>
+    		<section data-background-image="https://upload.wikimedia.org/wikipedia/commons/1/15/File_Cabinet.jpg">
+                <h2 style="color: white;">The first database</h2>
+		    </section>
+    		<section>
+                <h2>1960</h2>
+                <p>
+                    Computers become cost-effective enough for private businesses to use them for data management
+                </p>
+		    </section>
+    		<section>
+                <h2>1970</h2>
+                <p>
+                    E.F. Codd, working for IBM, publishes a paper describing the relational database model.
+                </p>
+		    </section>
+    		<section>
+                <h2>1980</h2>
+                <p>
+                    SQL becomes a technological standard for query languages.
+                </p>
+		    </section>
+    		<section>
+                <h2>1990</h2>
+                <p>
+                    After a period of heavy market saturation, remaining database
+                    companies continue to sell their products at high prices.
+                </p>
+		    </section>
+    		<section>
+                <h2>2000</h2>
+                <p>
+                    Interactive applications are created to interact with databases.
+                </p>
+		    </section>
+		</section>
+
+		<section>
             <h2>What is SQL?</h2>
             <ul>
                 <li>Structured Query Language</li>
+                <li>Used to manipulate data in a relational database</li>
             </ul>
 		</section>
 
-		<section>
-    		<section>
-                <h2>A Brief History of Relational Databases</h2>
-                <h1><i class="fa fa-clock-o"></i></h1>
-		    </section>
-
-    		<section data-background-image="https://upload.wikimedia.org/wikipedia/commons/1/15/File_Cabinet.jpg">
-                <h2>The first database</h2>
-                
-		    </section>
-    		<section>
-                <h2>Digital databases</h2>
-                
-		    </section>
-    		<section>
-                <h2>Flat file databases</h2>
-                
-		    </section>
-    		<section>
-                <h2>Relational databases</h2>
-                
-		    </section>
-		</section>
-
-		<section>
-		    <section>
-                <h2>What is a Relational Database?</h2>
-            </section>
-    		<section>
-                <h2>Relations</h2>
-                
-		    </section>
+	    <section>
+            <h2>What is a Relational Database?</h2>
         </section>
 
 		<section>
-            <h2>Relational Algebra</h2>
+            <h2>Relations</h2>
+            <ul>
+                <li>A tuple data structure</li>
+                <li>Order of tuples in database does not matter</li>
+                <li>Order of elements in tuple does not matter</li>
+            </ul>
+	    </section>
+
+		<section>
+            <h2>Schema</h2>
+            <p>A representation of how information is organized in a database.</p>
+	    </section>
+
+	    <section>
+            <h2>Entity-Relationships</h2>
             <p>
-                The main application of relational algebra is providing a theoretical foundation for relational databases, particularly query languages for such databases, chief among which is SQL. (<a href="https://en.wikipedia.org/wiki/Relational_algebra">wikipedia.org/relational_algebra</a>)
+                Database design focus on the data application, instead of logical table structure.
             </p>
         </section>
+
+		<section>
+            <h2>Relational databases</h2>
+            <p>
+                A database schema, or logical organization, is disconnected
+                from how the information is physicaly stored on the computer.
+            </p>
+	    </section>
+
+		<section>
+            <h1>Database Mathematics</h1>
+            <ol>
+                <li>Set theory</li>
+                <li>Relational algebra</li>
+                <li>Relational calculus (skipping)</li>
+            </ol>
+	    </section>
 
 		<section>
             <h2>Set theory</h2>
@@ -83,6 +126,13 @@ extra_css:
         </section>
 
 		<section>
+            <h2>Relational Algebra</h2>
+            <p>
+                The main application of relational algebra is providing a theoretical foundation for relational databases, particularly query languages for such databases, chief among which is SQL. (<a href="https://en.wikipedia.org/wiki/Relational_algebra">wikipedia.org/relational_algebra</a>)
+            </p>
+        </section>
+
+		<section>
 		    <section>
                 <h2>Five primitive relational operators</h2>
                 <table>
@@ -93,7 +143,7 @@ extra_css:
                         </tr>
                         <tr>
                             <td>∩</td>
-                            <td>Difference</td>
+                            <td>Intersection</td>
                         </tr>
                         <tr>
                             <td>×</td>
@@ -123,7 +173,15 @@ extra_css:
                 <div>A ∪ B = {1, 2, 3, 4, 5, 6, 7, 8}</div>
             </section>
 		    <section>
-                <h2>Difference (∩)</h2>
+                <h2>Intersection (∩)</h2>
+                <p>
+                    The intersection of two sets A and B<br/>
+                    is the set that contains all elements of A that also belong to B.
+                </p>
+                <strong>Example</strong>
+                <div>A = {1, 2, 3, 4}</div>
+                <div>B = {2, 4, 6, 8}</div>
+                <div>A ∩ B = {2, 4}</div>
             </section>
 		    <section>
                 <h2>Cartesian product (×)</h2>
@@ -149,7 +207,7 @@ extra_css:
                 <h2>Union (∪)</h2>
             </section>
 		    <section>
-                <h2>Difference (∩)</h2>
+                <h2>Intersection (∩)</h2>
             </section>
 		    <section>
                 <h2>Cartesian product (×)</h2>
