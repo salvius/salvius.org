@@ -1,0 +1,40 @@
+CREATE TABLE Account(
+  Name varchar(255),
+  Email varchar(50),
+  Age int
+);
+
+INSERT INTO Account (Name, Email, Age)
+VALUES (
+  "Gunther", "gunther@salvius.org", 22
+);
+
+INSERT INTO Account (Name, Email, Age)
+VALUES (
+  "Mark", "mark@aol.com", 65
+);
+
+INSERT INTO Account (Name, Email, Age)
+VALUES (
+  "Abby", "abby42@gmail.com", 21
+);
+
+INSERT INTO Account (Name, Email, Age)
+VALUES (
+  "Smith", "mr@smith.com", 45
+);
+
+INSERT INTO Account (Name, Email, Age)
+VALUES (
+  "Sky", "terminator@sky.net", 0
+);
+
+INSERT INTO Account (Name, Email, Age)
+VALUES (
+  "Arnold", "arnold@schwarzenegger.com", 68
+);
+
+INSERT INTO Account (Name, Email, Age)
+VALUES (
+  "Neo", "neo@matrix.net", 32
+);
