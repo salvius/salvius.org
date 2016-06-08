@@ -185,39 +185,308 @@ extra_css:
             </section>
 		    <section>
                 <h2>Cartesian product (×)</h2>
+                <p>
+                    The Cartesian product of sets A and B is the set of all
+                    ordered pairs (a, b) where a ∈ A and b ∈ B.
+                </p>
+                <strong>Example</strong>
+                <div>A = {1, 2}</div>
+                <div>B = {3, 4}</div>
+                <div>A × B = {(1,3), (1,4), (2,3), (2,4)}</div>
+                <div>B × A = {(3,1), (3,2), (4,1), (4,2)}</div>
             </section>
 		    <section>
-                <h2>Projection (π)</h2>
+                <h2>Projection (Π)</h2>
+                <p>
+                    A projection is the subset of available
+                    columns based on a set of attribute
+                    names where attributes not listed in the
+                    set have been discarded.
+                </p>
+            </section>
+		    <section>
+                <strong>Account</strong>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gunther</td>
+                            <td>gunther@salvius.org</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Mark</td>
+                            <td>mark@aol.com</td>
+                            <td>65</td>
+                        </tr>
+                        <tr>
+                            <td>Abby</td>
+                            <td>abby42@gmail.com</td>
+                            <td>21</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+		    <section>
+                <strong><sub>Π Email, Name</sub>(Account)</strong>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>gunther@salvius.org</td>
+                            <td>Gunther</td>
+                        </tr>
+                        <tr>
+                            <td>mark@aol.com</td>
+                            <td>Mark</td>
+                        </tr>
+                        <tr>
+                            <td>abby42@gmail.com</td>
+                            <td>Abby</td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </section>
 		    <section>
                 <h2>Selection <span style="text-transform:lowercase;">(σ)</span></h2>
+                <p>
+                    A selection is an operation that returns
+                    a subset of the rows in a database.
+                </p>
+            </section>
+		    <section>
+                <strong>Account</strong>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gunther</td>
+                            <td>gunther@salvius.org</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Mark</td>
+                            <td>mark@aol.com</td>
+                            <td>65</td>
+                        </tr>
+                        <tr>
+                            <td>Abby</td>
+                            <td>abby42@gmail.com</td>
+                            <td>21</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+		    <section>
+                <strong><sub>σ Email="gunther@salvius.org"</sub> (Account)</strong>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gunther</td>
+                            <td>gunther@salvius.org</td>
+                            <td>22</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+		    <section>
+                <strong><sub>σ Age<50</sub> (Account)</strong>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gunther</td>
+                            <td>gunther@salvius.org</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Abby</td>
+                            <td>abby42@gmail.com</td>
+                            <td>21</td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </section>
         </section>
 
 	    <section>
             <h2>Converting relational algebra to SQL</h2>
+        </section>
 
+	    <section>
+            <h2>SQL query syntax</h2>
+            <p>
+                <blockquote style="text-align: left;">
+                SELECT column_name, column_name<br/>
+                FROM table_name<br/>
+                WHERE column_name operator value;
+                </blockquote>
+            </p>
         </section>
 
 		<section>
-		    <section>
-                <h2>Examples</h2>
-            </section>
-		    <section>
+	        <section>
                 <h2>Union (∪)</h2>
             </section>
 		    <section>
+                <blockquote style="text-align: left;">
+                SELECT *<br/>
+                FROM Account<br/>
+                WHERE Name="Gunther"<br/>
+                OR Email="gunther@salvius.org";
+                </blockquote>
+            </section>
+        </section>
+
+		<section>
+	        <section>
                 <h2>Intersection (∩)</h2>
             </section>
 		    <section>
+                <blockquote style="text-align: left;">
+                SELECT *<br/>
+                FROM Account<br/>
+                WHERE Age > 20<br/>
+                AND Age < 30;
+                </blockquote>
+            </section>
+        </section>
+
+		<!--section>
+	        <section>
                 <h2>Cartesian product (×)</h2>
             </section>
 		    <section>
+
+            </section>
+        </section-->
+
+		<section>
+	        <section>
                 <h2>Projection (π)</h2>
             </section>
 		    <section>
+                <blockquote style="text-align: left;">
+                SELECT Email, Name<br/>
+                FROM Account
+                </blockquote>
+            </section>
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>gunther@salvius.org</td>
+                            <td>Gunther</td>
+                        </tr>
+                        <tr>
+                            <td>mark@aol.com</td>
+                            <td>Mark</td>
+                        </tr>
+                        <tr>
+                            <td>abby42@gmail.com</td>
+                            <td>Abby</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+
+		<section>
+	        <section>
                 <h2>Selection <span style="text-transform:lowercase;">(σ)</span></h2>
             </section>
+		    <section>
+                <blockquote style="text-align: left;">
+                SELECT *<br/>
+                FROM Account</br>
+                WHERE Age < 50;
+                </blockquote>
+            </section>
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gunther</td>
+                            <td>gunther@salvius.org</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Abby</td>
+                            <td>abby42@gmail.com</td>
+                            <td>21</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+
+	    <section>
+            <h2>Links</h2>
+            <ul>
+                <li><a href="http://sqlfiddle.com/">SQL Fiddle</a></li>
+            </ul>
+        </section>
+
+	    <section>
+            <h2>What I did <strong>not</strong> cover</h2>
+            <ul>
+                <li>Entity-Relationship diagrams</li>
+                <li>Additional SQL syntax (ORDER BY, GROUP BY, etc.)</li>
+                <li>Join operations (inner join, outer join, etc.)</li>
+            </ul>
         </section>
 
     </div>
