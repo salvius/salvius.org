@@ -392,14 +392,65 @@ extra_css:
             </section>
         </section>
 
-		<!--section>
+		<section>
 	        <section>
                 <h2>Cartesian product (×)</h2>
             </section>
 		    <section>
-
+                <blockquote style="text-align: left;">
+                SELECT Name, Address<br/>
+                FROM Account, Location;
+                </blockquote>
             </section>
-        </section-->
+	        <section>
+                <strong>Location</strong>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Street</th>
+                            <th>City</th>
+                            <th>State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>gunther@salvius.org</td>
+                            <td>24 Main Street</td>
+                            <td>Springfiled</td>
+                            <td>MA</td>
+                        </tr>
+                        <tr>
+                            <td>mark@aol.com</td>
+                            <td>208 Innovation Drive</td>
+                            <td>Silicon Valley</td>
+                            <td>CA</td>
+                        </tr>
+                        <tr>
+                            <td>abby42@gmail.com</td>
+                            <td>4 Pine Grove Lane</td>
+                            <td>Ducktrap</td>
+                            <td>ME</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+	        <section>
+                <p>
+                    Since we have 3 Accounts and 3 Locations,
+                    the <u>cardinality</u> of the cartesian
+                    product will be <b>108</b>.
+                </p>
+
+                <p>
+                    This is because each tuple in the Account
+                    table contains 3 elements and we have 3
+                    Accounts. There is 4 elements in row of the
+                    Location table and there is 3 rows.
+                    (3 * 3) * (3 * 4) = 108
+                </p>
+            </section>
+        </section>
 
 		<section>
 	        <section>
@@ -487,8 +538,9 @@ extra_css:
             <ul>
                 <li>Entity-Relationship diagrams</li>
                 <li>Additional SQL syntax (ORDER BY, GROUP BY, etc.)</li>
-                <li>Join operations (inner join, outer join, etc.)</li>
+                <li>Types of join operations (inner join, outer join, etc.)</li>
                 <li>Schema requirements (Not NULL, etc.)</li>
+                <li>Primary keys, candidate keys and foreign keys</li>
             </ul>
         </section>
 
