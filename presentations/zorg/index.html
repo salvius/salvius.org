@@ -11,39 +11,74 @@ extra_css:
 	<div class="slides">
 		<section>
             <h1>Zorg</h1>
+            <img src="/images/logos/zorg.svg" style="width: 400px" />
             <p>
-	            Zorg a Python framework for robots, physical computing & the internet of things.
+	            A Python framework for robots, physical computing &amp; the internet of things
             </p>
         </section>
-		<section>
-            <h2>Python for robotics</h2>
-            <ul>
-                <li>The Internet of Things</li>
-                <li>Python has exploded as a language for creating web frameworks</li>
-            </ul>
+        <section>
+            <section>
+                <h2>Python for robotics</h2>
+                <ul>
+                    <li>The Internet of Things</li>
+                    <li>Python has exploded as a language for creating web frameworks</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Django</h2>
+                <h2>Flask</h2>
+                <h2>Bottle</h2>
+                <h2>Tornado</h2>
+            </section>
+            <section>
+                <h2>Django</h2>
+                <ul>
+                    <li>Widely used + large developer community</li>
+                    <li>Easily extendable</li>
+                    <li>Many companies create Django plugins for developers to use their products</li>
+                </ul>
+            </section>
+            <section>
+                <h2>What if we could create a Django...</h2>
+                <h2>for robots?</h2>
+            </section>
         </section>
-		<section>
-            <h2>Django</h2>
-            <h2>Flask</h2>
-            <h2>Bottle</h2>
-            <h2>Tornado</h2>
+        <section>
+            <section>
+                <h2>Platform support through adapters</h2>
+                <p>
+                    Zorg is designed to work with any hardware platform, as long as there is an adapter written for it
+                </p>
+            </section>
+            <section>
+                <h2>What is an adapter?</h2>
+                <ul>
+                    <li>Connects Zorg with the underlying hardware interface</li>
+                    <li>Allows for interacting with <abbr title="General purpose input / output">GPIO</abbr> pins</h2>
+                    <li>Exposes device interfaces for connections (SPI, I2C, etc.)</li>
+                </ul>
+            </section>
+            <section>
+                <h2>The adapter pattern</h2>
+                <img src="/images/vectors/edison-lcd-adapter.svg" width="300px">
+                <img src="/images/vectors/raspberrypi-lcd-adapter.svg" width="300px">
+            </section>
         </section>
-		<section>
-            <h2>Django</h2>
-            <ul>
-                <li>Widely used + large developer community</li>
-                <li>Easily extendable</li>
-                <li>Many companies create Django plugins for developers to use their products</li>
-            </ul>
-        </section>
-		<section>
-            <h2>What if we could create a Django...</h2>
-            <h2>for robots?</h2>
-        </section>
-		<section>
-            <h2>The adapter pattern</h2>
-            <img src="/images/vectors/edison-lcd-adapter.svg" width="300px">
-            <img src="/images/vectors/raspberrypi-lcd-adapter.svg" width="300px">
+        <section>
+            <section>
+                <h2>Connecting devices to hardware with drivers</h2>
+                <p>
+                    Write one driver, use it with any supported hardware platform
+                </p>
+            </section>
+            <section>
+                <h2>Why are drivers useful?</h2>
+                <ul>
+                    <li>Designed to be independent of the hardware platform</li>
+                    <li>Allows for a single driver to work on multiple devices</li>
+                    <li>Consistent interface for interacting with the device</li>
+                </ul>
+            </section>
         </section>
         <section>
             <h2>The Zorg Ecosystem</h2>
@@ -84,43 +119,65 @@ extra_css:
             </small>
         </section>
         <section>
-            <h2>The Hybrid Group</h2>
+            <section>
+                <img src="/images/logos/thehybridgroup.png" alt="The Hybrid Group" style="padding: 15px; border-color: grey; height: 75px" />
+                <blockquote>
+                    &ldquo;Based in Los Angeles &amp; San Francisco, our software developers &amp; designers specialize in JavaScript, Ruby on Rails, Cloud Computing, Internet of Things, Mobile Development, Application Design, and most importantly, helping you solve problems.&rdquo;
+                </blockquote>
+                <small>
+                    <a href="http://hybridgroup.com/">hybridgroup.com</a>
+                </small>
+            </section>
+            <section>
+                <h2>Cylon</h2>
+                <img src="/images/logos/cylon.png">
+                <p>JavaScript for Robotics</p>
+                <small>
+                    <a href="https://cylonjs.com/">cylonjs.com</a>
+                </small>
+            </section>
+            <section>
+                <h2>Artoo</h2>
+                <img src="/images/logos/artoo.png">
+                <p>Ruby for Robotics</p>
+                <small>
+                    <a href="http://artoo.io/">artoo.io</a>
+                </small>
+            </section>
+            <section>
+                <h2>Gobot</h2>
+                <img src="/images/logos/gobot.png">
+                <p>A robotics framework written in the Go programming language</p>
+                <small>
+                    <a href="https://gobot.io/">gobot.io</a>
+                </small>
+            </section>
         </section>
         <section>
-            <h2>Cylon</h2>
-            <img src="/images/logos/cylon.png">
-            <p>JavaScript for Robotics</a>
-            <br/>
-            <small>
-                <a href="https://cylonjs.com/">cylonjs.com</a>
-            </small>
-        </section>
-        <section>
-            <h2>Artoo</h2>
-            <img src="/images/logos/artoo.png">
-            <p>Ruby for Robotics</a>
-            <br/>
-            <small>
-                <a href="http://artoo.io/">artoo.io</a>
-            </small>
-        </section>
-        <section>
-            <h2>Gobot</h2>
-            <img src="/images/logos/gobot.png">
-            <p>A robotics framework written in the Go programming language</p>
-            <br/>
-            <small>
-                <a href="https://gobot.io/">gobot.io</a>
-            </small>
-        </section>
-        <section>
-            <h2>CPPP.IO</h2>
-            <p>
-                Common Protocol for Programming Physical Input and Output
-            </p>
-            <small>
-                <a href="http://cppp.io">http://cppp.io</a>
-            </small>
+            <section>
+                <h2>Built-in web API</h2>
+                <p>
+                    Control your robot from anywhere
+                </p>
+            </section>
+            <section>
+                <h2>CPPP.IO</h2>
+                <p>
+                    Common Protocol for Programming Physical Input and Output
+                </p>
+                <small>
+                    <a href="http://cppp.io">cppp.io</a>
+                </small>
+            </section>
+            <section>
+                <h2>Commander</h2>
+                <p>
+                    Universal remote control for robots and the Internet of Things
+                </p>
+                <small>
+                    <a href="http://commander.io/">commander.io</a>
+                </small>
+            </section>
         </section>
         <section>
             <h2>Learn more about Zorg</h2>
