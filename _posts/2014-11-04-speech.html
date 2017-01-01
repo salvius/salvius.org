@@ -1,10 +1,7 @@
 ---
 layout: post
-title: Speech Synthesis
+title: Speech and Speech Synthesis Options for Robotics
 ---
-
-<h2>Exploring Speech and Speech Synthesis for Robotics</h2>
-<hr/>
 
 <big>
     Language can become a barrier for humans and robots when trying to communicate.
@@ -12,33 +9,36 @@ title: Speech Synthesis
     animals and other robots.
 </big>
 
-<h3>Options for speech</h3>
-<p>
-    When I first started exploring ways to add speech to my robotics projects
-    I was using a small FM transmitter to send audio to the robot. However, it can probably be agreed that just sticking a radio in the robot isn't that cool. Instead we are going to look at a few of the different software and hardware required make this conversion.
-</p>
+### Options for speech
 
-<h3>Operational theory</h3>
-<p>
-    Can't slow down other processes to generate the audio.
-    Ability to stop speaking process on demand.
-    Ability to queue tasks for processing?
-    Ability to modify pronunciations as needed.
+When I first started exploring ways to add speech to my robotics projects
+I was using a small FM transmitter to send audio to the robot. However, it can probably be agreed that just sticking a radio in the robot isn't that cool. Instead we are going to look at a few of the different software and hardware required make this conversion.
 
-    We are going to set up a dedicated speech processor that will receive text data from the robot's main computer which it will then process into audio signals that can be understood as words.
+### Operational requirements
 
-    Text to speech through the hardware and software level
-</p>
+- Can't slow down other processes to generate the audio.
+- Ability to stop speaking process on demand.
+- Ability to queue tasks for processing.
+- Ability to modify pronunciations as needed.
 
-<h3>Arduino for speech synthesis</h3>
-<p>
-    Lowest cost
-    Lowest quality audio output
-    The program to do this has already been created so all you have to do is load it onto the Arduino board.
+### Options
 
-    <h3>Raspberry Pi for speech synthesis</h3>
+Text to speech can be done through the hardware **or** software level.
 
-    <hr/>
+## Design goal
 
-    An amplifier will be required in either case to amplify the audio you generate for output throug speakers. Next see the amplifier project -->
-</p>
+We are going to set up a dedicated speech processor that will receive text data from the robot's main computer which it will then process into audio signals that can be understood as words.
+
+### Arduino for speech synthesis
+
+- Lowest cost
+- Lowest quality audio output
+
+Many programs to do this have already been created so all you have to do is load it onto the Arduino board.
+
+### Raspberry Pi for speech synthesis
+
+***
+
+An amplifier will be required in either case to amplify the audio you generate for output through speakers.
+
