@@ -4,20 +4,29 @@ title: "Salvius Robot Blog"
 ---
 
 <div class="container color-white">
+
+    <div class="alert alert-success" style="margin-top: 30px">
+        This is the a new version of the Salvius robot blog.
+        The old blog can still be accessed at <a href="http://blog.salvius.org">blog.salvius.org</a>
+    </div>
+
     {% for page in site.posts %}
 
         <div class="container color-white">
 
-            {% include blog_title.html %}
-
             <div class="row post">
-                <div class="col-sm-2">
+                <div class="hidden-xs col-sm-2">
 
                     {% include blog_date.html %}
 
                 </div>
-                <div class="col-sm-8">
-                    
+                <div class="col-xs-12 col-sm-10">
+
+                    <a href="{{ page.url }}">
+                        <h1>{{ page.title }}</h1>
+                    </a>
+                    <hr/>
+
                     {{ page.content }}
 
                 </div>
