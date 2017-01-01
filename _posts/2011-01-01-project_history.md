@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Project History Summary 2008 to 2011
 ---
 

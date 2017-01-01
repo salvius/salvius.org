@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Choosing a licence for your robot's software
 ---
 

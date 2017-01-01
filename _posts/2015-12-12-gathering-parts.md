@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Gathering Parts For Your Project
 ---
 
