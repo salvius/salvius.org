@@ -17,6 +17,7 @@ url: "http://salvius.org" # base hostname & protocol for a site
 twitter_username: salviusrobot
 github_username:  gunthercox
 
+paginate: 5
 permalink: /blog/:year/:month/:title/
 
 collections:
@@ -44,4 +45,5 @@ sass:
     style: compressed
 
 gems:
+  - jekyll-paginate
   - jekyll-sitemap

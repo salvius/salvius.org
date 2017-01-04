@@ -1,5 +1,6 @@
 ---
 layout: default
+permalink: /notes/
 title: "Salvius Robot Blog"
 ---
 
@@ -9,8 +10,11 @@ title: "Salvius Robot Blog"
             <h1>Class notes</h1>
 
             <p class="lead">
-                This is a random collection of notes that I have
-                accumulated from various classes that I have taken.
+                This is a random collection of notes that I
+                have accumulated from various classes that I
+                have taken.<br/>
+                Hosting them here is mainly to help me stay
+                organized and be able to find them.
             </p>
         </div>
     </div>
@@ -20,8 +24,8 @@ title: "Salvius Robot Blog"
 
     {% for page in site.notes %}
 
-        <div class="row post">
-            <div class="col-sm-10">
+        <div class="row">
+            <div class="col-sm-12">
 
                 <a href="{{ page.url }}">
                     <h1>{{ page.title }}</h1>
