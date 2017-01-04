@@ -23,15 +23,19 @@ permalink: /blog/:year/:month/:title/
 collections:
   notes:
     output: true
+  timeline:
+    output: true
 
 defaults:
   - scope:
-      path: ""
       type: notes
     values:
       layout: note
   - scope:
-      path: ""
+      type: timeline
+    values:
+      layout: timeline
+  - scope:
       type: posts
     values:
       layout: post
