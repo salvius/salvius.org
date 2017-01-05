@@ -4,19 +4,19 @@
     <body>
         {% include navigation.subpage.html %}
 
-        <div class="container-fluid color-forest">
+        <div class="container-fluid {{ page.color_class }}">
             <div class="row" style="padding: 20px 0px">
                 <div class="col-xs-4">
                     {% if page.previous %}
-                    <a class="btn btn-default white-outline color-forest" href="{{ page.previous.url }}">Pevious</a>
+                    <a class="btn btn-default white-outline {{ page.color_class }}" href="{{ page.previous.url }}">Pevious</a>
                     {% endif %}
                 </div>
                 <div class="col-xs-4 text-center">
-                    <a class="btn btn-default white-outline color-forest" href="{% link presentations/timeline.html %}">Main</a>
+                    <a class="btn btn-default white-outline {{ page.color_class }}" href="{{ page.index_url }}">Main</a>
                 </div>
                 <div class="col-xs-4 text-right">
                     {% if page.next %}
-                    <a class="btn btn-default white-outline color-forest" href="{{ page.next.url }}">Next</a>
+                    <a class="btn btn-default white-outline {{ page.color_class }}" href="{{ page.next.url }}">Next</a>
                     {% endif %}
                 </div>
             </div>

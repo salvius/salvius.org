@@ -1,6 +1,7 @@
 # Site settings
+
 title: Salvius the Robot
-email: gunthercx@gmail.com
+
 description: >
   Salvius is a robotic prototype designed for learning.
   The robot's design is centered around a comprehensive
@@ -11,9 +12,15 @@ description: >
   can be installed as well. Salvius has been built using
   a variety of recycled materials, making it simple and
   inexpensive to start developing.
+
 short_description: Salvius is an open-source humanoid robot built on a minimal budget using recycled materials.
+
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://salvius.org" # base hostname & protocol for a site
+
+# Base hostname & protocol for a site
+url: http://salvius.org
+
+email: gunthercx@gmail.com
 twitter_username: salviusrobot
 github_username:  gunthercox
 
@@ -30,11 +37,15 @@ defaults:
   - scope:
       type: notes
     values:
-      layout: note
+      layout: paginated
+      index_url: /notes/
+      color_class: color-prestige
   - scope:
       type: timeline
     values:
-      layout: timeline
+      layout: paginated
+      index_url: /timeline/
+      color_class: color-forest
   - scope:
       type: posts
     values:
