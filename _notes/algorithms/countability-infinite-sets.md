@@ -4,7 +4,7 @@ title: Countability of Infinite Sets
 
 Mathematicians know that different types of infinite sequences exist. Lets start off by discussing two different types of infinite sequences: **countably infinite** sequences and **uncountably infinite** sequences.
 
-## Countably Infinite
+## Countably Infinite Sets
 
 Lets take a look at a small sample of the set of all binary strings. The set looks like the following:
 
@@ -12,7 +12,7 @@ Lets take a look at a small sample of the set of all binary strings. The set loo
 
 The set of all possible sets of binary strings is countably infinite. This is quite interesting because this means that the number of computer programs that can be written is also countable infinite. For the purpose of this example we can assume that a compiled program can be represented as a single binary string.
 
-## Uncountably Infinite
+## Uncountably Infinite Sets
 
 To think about infinite sets that are uncountable, let us consider the following statement. *The set of all problems that exist is uncountable.* In other words, there is an infinite number of possible problems in the universe. Because there is a never ending number of problems, this means that there are problems which cannot be computed. This is because the number of programs that exist is countably infinite, but the number of problems is not.
 

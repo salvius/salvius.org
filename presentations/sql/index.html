@@ -322,7 +322,7 @@ extra_css:
 
             </section>
 		    <section>
-                <strong><sub>σ Age<50</sub> (Account)</strong>
+                <strong><sub>σ Age&lt;50</sub> (Account)</strong>
 
                 <table>
                     <thead>
@@ -355,13 +355,12 @@ extra_css:
 
 	    <section>
             <h2>SQL query syntax</h2>
-            <p>
-                <blockquote style="text-align: left;">
-                SELECT column_name, column_name<br/>
-                FROM table_name<br/>
-                WHERE column_name operator value;
-                </blockquote>
-            </p>
+
+            <blockquote style="text-align: left;">
+            SELECT column_name, column_name<br/>
+            FROM table_name<br/>
+            WHERE column_name operator value;
+            </blockquote>
         </section>
 
 		<section>
@@ -387,7 +386,7 @@ extra_css:
                 SELECT *<br/>
                 FROM Account<br/>
                 WHERE Age > 20<br/>
-                AND Age < 30;
+                AND Age &lt; 30;
                 </blockquote>
             </section>
         </section>
@@ -495,8 +494,8 @@ extra_css:
 		    <section>
                 <blockquote style="text-align: left;">
                 SELECT *<br/>
-                FROM Account</br>
-                WHERE Age < 50;
+                FROM Account<br/>
+                WHERE Age &lt; 50;
                 </blockquote>
             </section>
             <section>
