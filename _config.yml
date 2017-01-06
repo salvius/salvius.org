@@ -69,4 +69,4 @@ gems:
 exclude:
   - readme.md
   - Gemfile
-  - script
+  - scripts
