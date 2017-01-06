@@ -1,0 +1,30 @@
+---
+layout: default
+permalink: /spec/
+title: "Humanoid Robot Specification"
+---
+
+<div class="container-fluid color-prestige inset-shadow">
+    {% include open_specification_heading.html %}
+</div>
+
+<div class="container">
+
+    {% for page in site.spec %}
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                <a href="{{ page.url }}">
+                    <h2>{{ page.title }}</h2>
+                </a>
+
+                <p class="lead">
+                    {{ page.description }}
+                </p>
+
+            </div>
+        </div>
+
+    {% endfor %}
+</div>

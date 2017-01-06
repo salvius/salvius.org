@@ -542,22 +542,3 @@ h1, .h1 {
 #specificationCarousel .item:hover .image img {
     transform: scale(1.1);
 }
-
-#specificationCarousel .row-more {
-    height: 0px;
-}
-
-#specificationCarousel .row-more .item {
-    height: 0px;
-    padding-top: 0px;
-    display: block;
-    overflow-y: hidden;
-	transition-property: all;
-	transition-duration: .9s;
-	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-
-#specificationCarousel .row-more.open .item {
-    height: 270px;
-    padding-top: 15px;
-}

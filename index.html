@@ -157,29 +157,7 @@ extra_js:
 </div>
 
 <div id="engineering" class="row row-banner color-prestige">
-    <div class="col-sm-10 col-sm-offset-1">
-        <div class="page-header">
-            <h1>
-                Open Specification
-                <i class="fa fa-cog pull-right"></i>
-                <!--a href="/spec/" class="pull-right">
-                    View Specification
-                </a-->
-            </h1>
-        </div>
-
-        <p class="lead">
-            The design of a humanoid robot is the result of a great amount of interdisciplinary science.
-            Salvius has been built in compliance with a versioned engineering specification to ensure that each new component must meet a minimum standard of functionality before being added to the robot.
-            Adhering to a specification makes it possible to set development goals and measure the project's progress.
-            Versioning also makes it possible for development to continue even if the entire robot cannot be immediately upgraded to match the latest version of the specification.
-        </p>
-
-        <p class="lead">
-        Salvius was originally developed without specification. With many components being continuously developed and improved, it became necessary to develop a specification to follow to ensure that new parts could successfully replace old ones.
-        </p>
-    </div>
-
+    {% include open_specification_heading.html %}
     {% include navigation.topics.html %}
 </div>
 

@@ -29,9 +29,9 @@ permalink: /blog/:year/:month/:title/
 collections:
   notes:
     output: true
-  timeline:
-    output: true
   spec:
+    output: true
+  timeline:
     output: true
 
 defaults:
@@ -42,6 +42,11 @@ defaults:
       layout: paginated
       index_url: /notes/
       color_class: color-prestige
+
+  - scope:
+      type: spec
+    values:
+      layout: page
 
   - scope:
       type: timeline
