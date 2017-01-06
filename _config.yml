@@ -60,3 +60,8 @@ sass:
 
 gems:
   - jekyll-sitemap
+
+exclude:
+  - readme.md
+  - Gemfile
+  - script
