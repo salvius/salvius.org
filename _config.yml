@@ -31,20 +31,25 @@ collections:
     output: true
   timeline:
     output: true
+  spec:
+    output: true
 
 defaults:
+
   - scope:
       type: notes
     values:
       layout: paginated
       index_url: /notes/
       color_class: color-prestige
+
   - scope:
       type: timeline
     values:
       layout: paginated
       index_url: /timeline/
       color_class: color-forest
+
   - scope:
       type: posts
     values:
