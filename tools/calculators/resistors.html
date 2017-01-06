@@ -1,5 +1,7 @@
-<HTML><HEAD>
-<TITLE>Resistor Color Code Calculator</title>
+---
+title: Resistor Color Code Calculator
+---
+
 <meta NAME="Description" CONTENT="resistor, resistance, color code, color bands, ohms, electronic, components, calculator, calculate">
 <meta NAME="Keywords" CONTENT="resistor, resistance, color code, color bands, ohms, electronic, components, calculator, calculate">
 <SCRIPT> 
@@ -18,7 +20,8 @@ var res4=0;
 var resout=0;
 var restnce=0;
 </script>
-<SCRIPT language=JavaScript> 
+
+<SCRIPT> 
 function calc(){
 restnce=0;
 resout=0;
@@ -79,316 +82,280 @@ if(restnce>1000000){resout=(restnce/1000000) + " MEG"}
 document.outbox.z1.value=" "+(resout)+ " ohms    and   " +(res4)+" % tolerance";
 }
 </script>
-<META content="MSHTML 6.00.2715.400" name=GENERATOR></head>
-</head>
 
-<body BGCOLOR="FFFFFF" alink="0000FF" vlink="FF0000">
-<center>
-<table border="0" cellpadding="0" cellspacing="0" width="85%">
-<tr>
-<td>
-<font face="Arial">
-<p><center>
-<TABLE><TR><TD colspan=2>
-<hr size=3 noshade width="75%" color="000066">
-<font size =6><font color="CC0000">
-<CENTER>Resistors</center>
-<hr size=3 noshade width="75%" color="000066">
+<h2>Fixed Resistors</h2>
 
-
-
-
-
-
-
-<P ALIGN=CENTER><FONT COLOR="#000000"><FONT SIZE=5><U><B>Fixed
-Resistors</B></U></FONT></FONT></P>
-<P ALIGN=LEFT STYLE="font-weight: normal; text-decoration: none"><FONT COLOR="#000000"><FONT SIZE=3>A
+<P>A
 fixed resistor supplies a predetermined resistance to a circuit. The
 standard unit value of a resistor is the ohm (represented by the
-symbol <FONT FACE="Times New Roman, serif">&Omega;) usually with the
+symbol &Omega;) usually with the
 prefix ''K'' or ''M''; ''K'' meaning thousand and ''M'' meaning
 million. The higher the ohm value, the more resistance the component
 provides to the circuit. The value on most fixed resistors is
 identified by color coding. The color coding starts near the edge of
 the resistor and comprises four, five, and sometimes six band colors.
-</FONT></FONT></FONT>
 </P>
-<P ALIGN=LEFT STYLE="text-decoration: none"><FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>The
-formula for determining the resistance from the bands is:</B></FONT></FONT></FONT></P>
-<P ALIGN=CENTER><FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Resistance
-= ((first band color value </SPAN></SPAN></FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&times;
-10) + (second band color)) &times; 10</FONT></FONT><SUP><FONT FACE="Times New Roman, serif"><FONT SIZE=3>third
-band color value</FONT></FONT></SUP> ohms</FONT></P>
-<TABLE WIDTH=100% BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
-	<COL WIDTH=51*>
-	<COL WIDTH=51*>
-	<COL WIDTH=51*>
-	<COL WIDTH=51*>
-	<COL WIDTH=51*>
-	<TR VALIGN=TOP>
-		<TH WIDTH=20% HEIGHT=18>
-			<P><FONT COLOR="#000000">Color</FONT></P>
+
+<P><B>The formula for determining the resistance from the bands is:</B></P>
+<P>Resistance
+= ((first band color value &times;
+10) + (second band color)) &times; 10<SUP>third
+band color value</SUP> ohms</P>
+
+<TABLE class="table">
+	<TR>
+		<TH>
+			<P>Color</P>
 		</TH>
-		<TH WIDTH=20%>
-			<P><FONT COLOR="#000000">First band (A)</FONT></P>
+		<TH>
+			<P>First band (A)</P>
 		</TH>
-		<TH WIDTH=20%>
-			<P><FONT COLOR="#000000">Second band (B)</FONT></P>
+		<TH>
+			<P>Second band (B)</P>
 		</TH>
-		<TH WIDTH=20%>
-			<P><FONT COLOR="#000000">Third band (C)</FONT></P>
+		<TH>
+			<P>Third band (C)</P>
 		</TH>
-		<TH WIDTH=20%>
-			<P><FONT COLOR="#000000">Fourth band (D)</FONT></P>
+		<TH>
+			<P>Fourth band (D)</P>
 		</TH>
 	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P STYLE="background: #000000"><FONT COLOR="#000000">Black</FONT></P>
+	<TR>
+		<TD>
+			<P STYLE="background: #000000">Black</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="0" SDNUM="1033;">
-			<P><FONT COLOR="#000000">0</FONT></P>
+		<TD>
+			<P>0</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="0" SDNUM="1033;">
-			<P><FONT COLOR="#000000">0</FONT></P>
+		<TD SDVAL="0" SDNUM="1033;">
+			<P>0</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="1" SDNUM="1033;">
-			<P><FONT COLOR="#000000">1</FONT></P>
+		<TD SDVAL="1" SDNUM="1033;">
+			<P>1</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
 	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P STYLE="background: #804c19"><FONT COLOR="#000000">Brown</FONT></P>
+	<TR>
+		<TD>
+			<P STYLE="background: #804c19">Brown</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="1" SDNUM="1033;">
-			<P><FONT COLOR="#000000">1</FONT></P>
+		<TD SDVAL="1" SDNUM="1033;">
+			<P>1</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="1" SDNUM="1033;">
-			<P><FONT COLOR="#000000">1</FONT></P>
+		<TD SDVAL="1" SDNUM="1033;">
+			<P>1</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="10" SDNUM="1033;">
-			<P><FONT COLOR="#000000">10</FONT></P>
+		<TD SDVAL="10" SDNUM="1033;">
+			<P>10</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="0.01" SDNUM="1033;0;0.00%">
-			<P><FONT COLOR="#000000">1.00%</FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P STYLE="background: #ff0000"><FONT COLOR="#000000">Red</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="2" SDNUM="1033;">
-			<P><FONT COLOR="#000000">2</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="2" SDNUM="1033;">
-			<P><FONT COLOR="#000000">2</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="100" SDNUM="1033;">
-			<P><FONT COLOR="#000000">100</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="0.02" SDNUM="1033;0;0.00%">
-			<P><FONT COLOR="#000000">2.00%</FONT></P>
+		<TD SDVAL="0.01" SDNUM="1033;0;0.00%">
+			<P>1.00%</P>
 		</TD>
 	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P STYLE="background: #ff420e"><FONT COLOR="#000000">Orange</FONT></P>
+	<TR>
+		<TD>
+			<P STYLE="background: #ff0000">Red</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="3" SDNUM="1033;">
-			<P><FONT COLOR="#000000">3</FONT></P>
+		<TD SDVAL="2" SDNUM="1033;">
+			<P>2</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="3" SDNUM="1033;">
-			<P><FONT COLOR="#000000">3</FONT></P>
+		<TD SDVAL="2" SDNUM="1033;">
+			<P>2</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="1000" SDNUM="1033;">
-			<P><FONT COLOR="#000000">1000</FONT></P>
+		<TD SDVAL="100" SDNUM="1033;">
+			<P>100</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="0.03" SDNUM="1033;0;0.00%">
-			<P><FONT COLOR="#000000">3.00%</FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P STYLE="background: #ffff00"><FONT COLOR="#000000">Yellow</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="4" SDNUM="1033;">
-			<P><FONT COLOR="#000000">4</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="4" SDNUM="1033;">
-			<P><FONT COLOR="#000000">4</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="10000" SDNUM="1033;">
-			<P><FONT COLOR="#000000">10000</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="0.04" SDNUM="1033;0;0.00%">
-			<P><FONT COLOR="#000000">4.00%</FONT></P>
+		<TD SDVAL="0.02" SDNUM="1033;0;0.00%">
+			<P>2.00%</P>
 		</TD>
 	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P STYLE="background: #008000"><FONT COLOR="#000000">Green</FONT></P>
+	<TR>
+		<TD>
+			<P STYLE="background: #ff420e">Orange</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="5" SDNUM="1033;">
-			<P><FONT COLOR="#000000">5</FONT></P>
+		<TD SDVAL="3" SDNUM="1033;">
+			<P>3</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="5" SDNUM="1033;">
-			<P><FONT COLOR="#000000">5</FONT></P>
+		<TD SDVAL="3" SDNUM="1033;">
+			<P>3</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="100000" SDNUM="1033;">
-			<P><FONT COLOR="#000000">100000</FONT></P>
+		<TD SDVAL="1000" SDNUM="1033;">
+			<P>1000</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="0.005" SDNUM="1033;0;0.00%">
-			<P><FONT COLOR="#000000">0.50%</FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P STYLE="background: #0000ff"><FONT COLOR="#000000">Blue</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="6" SDNUM="1033;">
-			<P><FONT COLOR="#000000">6</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="6" SDNUM="1033;">
-			<P><FONT COLOR="#000000">6</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="1000000" SDNUM="1033;">
-			<P><FONT COLOR="#000000">1000000</FONT></P>
-		</TD>
-		<TD WIDTH=20% SDVAL="0.0025" SDNUM="1033;0;0.00%">
-			<P><FONT COLOR="#000000">0.25%</FONT></P>
+		<TD SDVAL="0.03" SDNUM="1033;0;0.00%">
+			<P>3.00%</P>
 		</TD>
 	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P STYLE="background: #9966cc"><FONT COLOR="#000000">Violet</FONT></P>
+	<TR>
+		<TD>
+			<P STYLE="background: #ffff00">Yellow</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="7" SDNUM="1033;">
-			<P><FONT COLOR="#000000">7</FONT></P>
+		<TD SDVAL="4" SDNUM="1033;">
+			<P>4</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="7" SDNUM="1033;">
-			<P><FONT COLOR="#000000">7</FONT></P>
+		<TD SDVAL="4" SDNUM="1033;">
+			<P>4</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="10000000" SDNUM="1033;">
-			<P><FONT COLOR="#000000">10000000</FONT></P>
+		<TD SDVAL="10000" SDNUM="1033;">
+			<P>10000</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="0.001" SDNUM="1033;0;0.00%">
-			<P><FONT COLOR="#000000">0.10%</FONT></P>
+		<TD SDVAL="0.04" SDNUM="1033;0;0.00%">
+			<P>4.00%</P>
 		</TD>
 	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P STYLE="background: #808080"><FONT COLOR="#000000">Gray</FONT></P>
+	<TR>
+		<TD>
+			<P STYLE="background: #008000">Green</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="8" SDNUM="1033;">
-			<P><FONT COLOR="#000000">8</FONT></P>
+		<TD SDVAL="5" SDNUM="1033;">
+			<P>5</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="8" SDNUM="1033;">
-			<P><FONT COLOR="#000000">8</FONT></P>
+		<TD SDVAL="5" SDNUM="1033;">
+			<P>5</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="100000000" SDNUM="1033;">
-			<P><FONT COLOR="#000000">100000000</FONT></P>
+		<TD SDVAL="100000" SDNUM="1033;">
+			<P>100000</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD SDVAL="0.005" SDNUM="1033;0;0.00%">
+			<P>0.50%</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="background: #0000ff">Blue</P>
+		</TD>
+		<TD SDVAL="6" SDNUM="1033;">
+			<P>6</P>
+		</TD>
+		<TD SDVAL="6" SDNUM="1033;">
+			<P>6</P>
+		</TD>
+		<TD SDVAL="1000000" SDNUM="1033;">
+			<P>1000000</P>
+		</TD>
+		<TD SDVAL="0.0025" SDNUM="1033;0;0.00%">
+			<P>0.25%</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="background: #9966cc">Violet</P>
+		</TD>
+		<TD SDVAL="7" SDNUM="1033;">
+			<P>7</P>
+		</TD>
+		<TD SDVAL="7" SDNUM="1033;">
+			<P>7</P>
+		</TD>
+		<TD SDVAL="10000000" SDNUM="1033;">
+			<P>10000000</P>
+		</TD>
+		<TD SDVAL="0.001" SDNUM="1033;0;0.00%">
+			<P>0.10%</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P STYLE="background: #808080">Gray</P>
+		</TD>
+		<TD SDVAL="8" SDNUM="1033;">
+			<P>8</P>
+		</TD>
+		<TD SDVAL="8" SDNUM="1033;">
+			<P>8</P>
+		</TD>
+		<TD SDVAL="100000000" SDNUM="1033;">
+			<P>100000000</P>
+		</TD>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
 	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P STYLE="background: #ffffff"><FONT COLOR="#000000">White</FONT></P>
+	<TR>
+		<TD>
+			<P STYLE="background: #ffffff">White</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="9" SDNUM="1033;">
-			<P><FONT COLOR="#000000">9</FONT></P>
+		<TD SDVAL="9" SDNUM="1033;">
+			<P>9</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="9" SDNUM="1033;">
-			<P><FONT COLOR="#000000">9</FONT></P>
+		<TD SDVAL="9" SDNUM="1033;">
+			<P>9</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="1000000000" SDNUM="1033;">
-			<P><FONT COLOR="#000000">1000000000</FONT></P>
+		<TD SDVAL="1000000000" SDNUM="1033;">
+			<P>1000000000</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
 	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P><FONT COLOR="#000000">Gold</FONT></P>
+	<TR>
+		<TD>
+			<P>Gold</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="0.05" SDNUM="1033;0;0.00%">
-			<P><FONT COLOR="#000000">5.00%</FONT></P>
+		<TD SDVAL="0.05" SDNUM="1033;0;0.00%">
+			<P>5.00%</P>
 		</TD>
 	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P><FONT COLOR="#000000">Silver</FONT></P>
+	<TR>
+		<TD>
+			<P>Silver</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="0.1" SDNUM="1033;0;0.00%">
-			<P><FONT COLOR="#000000">10.00%</FONT></P>
+		<TD SDVAL="0.1" SDNUM="1033;0;0.00%">
+			<P>10.00%</P>
 		</TD>
 	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=20%>
-			<P><FONT COLOR="#000000">(no color)</FONT></P>
+	<TR>
+		<TD>
+			<P>(no color)</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
-		<TD WIDTH=20%>
+		<TD>
 			<P><BR>
 			</P>
 		</TD>
-		<TD WIDTH=20% SDVAL="0.2" SDNUM="1033;0;0.00%">
-			<P><FONT COLOR="#000000">20.00%</FONT></P>
+		<TD SDVAL="0.2" SDNUM="1033;0;0.00%">
+			<P>20.00%</P>
 		</TD>
 	</TR>
 </TABLE>
 
 
-
-
-
-
-
-
-</TD></TR></TABLE>
-</center>
-<font color="000099">
-<CENTER>
 <FORM name="dropbox">
 <SELECT name=bandone> 
 <OPTION value=101 selected>*** FIRST ***
@@ -444,59 +411,51 @@ band color value</FONT></FONT></SUP> ohms</FONT></P>
 </option></select>
  
 </form>
-</center>
 <P>
-<CENTER>
+
 <FORM>
 <INPUT onclick=calc() type=button value="CALCULATE" name=ENTER>
 </form>
 <P>                  
 <FORM name=outbox> 
-<INPUT type=text size=60 name=z1> 
-</center>
+<INPUT type=text size=60 name=z1>
+</form>
 
-<TABLE><TR><TD colspan=2>
-<font face="Arial"><font color="000099">
-<font size=4><P><BR>
+<P>
+    Additional information concerning the Axial Lead resistor can be obtained if the
+    first band is a wide band.
+</P>
 
-<P ALIGN=JUSTIFY STYLE="margin-bottom: 0in"><IMG SRC="resistors_html_43c7e52e.png" NAME="graphics4" ALIGN=LEFT WIDTH=341 HEIGHT=314 BORDER=0><BR CLEAR=LEFT><FONT COLOR="#000000">
-</FONT></P>
-<P STYLE="margin-bottom: 0in"><FONT COLOR="#000000"><FONT SIZE=1>Additional
-information concerning the Axial Lead resistor can be obtained if the
-first band is a wide band.</FONT></FONT></P>
-<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT COLOR="#000000"><FONT SIZE=1>(Case
-1) if only the first band is wide than the resistor is wire wound.</FONT></FONT></P>
-<P ALIGN=JUSTIFY STYLE="margin-bottom: 0in"><FONT COLOR="#000000"><FONT SIZE=1>(Case
+<P STYLE="margin-bottom: 0in">(Case
+1) if only the first band is wide than the resistor is wire wound.</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0in">(Case
 2) if the first band is wide and there is also a blue fifth band to
 the right of the fourth band than the resistor is wirewound and flame
-proof.</FONT></FONT></P>
+proof.</P>
 
-<P ALIGN=CENTER STYLE="margin-bottom: 0in"><IMG SRC="resistors_html_m774b955.png" NAME="graphics2" ALIGN=LEFT WIDTH=2 HEIGHT=2 BORDER=0><BR CLEAR=LEFT><FONT COLOR="#000000"><FONT SIZE=5><U><B>Variable
-Resistors</B></U></FONT></FONT></P>
-<P ALIGN=LEFT STYLE="margin-bottom: 0in; font-weight: normal; text-decoration: none">
-<FONT COLOR="#000000"><FONT SIZE=3>Variable resistors, also known as
-potentiometers (pots) let you adjust a resistor to a specific
-resistance. The actual range of resistance is determined by the
-upward value of the potentiometer. Potentiometers are thus marked
-with this upward value, such as 10K, 50K, 100K, 1M, and so forth.</FONT></FONT></P>
-<P ALIGN=LEFT STYLE="margin-bottom: 0in; text-decoration: none"><FONT COLOR="#000000"><FONT SIZE=3><B>Example:</B><SPAN STYLE="font-weight: normal">
-a 50K potentiometer will let you set any resistance any ware from 0
-to 50000 ohms</SPAN></FONT></FONT></P>
-<P ALIGN=LEFT STYLE="margin-bottom: 0in; font-weight: normal"><FONT COLOR="#000000"><FONT SIZE=3><SPAN STYLE="text-decoration: none">Potentiometers
-are either the dial or slide type. The rotation of the dial type is
-nearly 360</SPAN><FONT FACE="Times New Roman, serif"><FONT SIZE=3 STYLE="font-size: 13pt">&deg;</FONT></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3 STYLE="font-size: 13pt"><SPAN STYLE="text-decoration: none"><B>,
-</B></SPAN></FONT></FONT><FONT FACE="Times New Roman, serif"><SPAN STYLE="text-decoration: none">depending</SPAN></FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=3 STYLE="font-size: 13pt"><SPAN STYLE="text-decoration: none">
-</SPAN></FONT></FONT><FONT FACE="Times New Roman, serif"><SPAN STYLE="text-decoration: none">on
-the type of potentiometer. Extremely precise potentiometers are
-referred to as multiturn pots or trimmers. Instead of of turning the
-dial one complete rotation to change the resistance, a multiturn pot
-requires that the dial is turned 3, 5, 10, or even 15 times for the
-span to be the same as a regular potentiometer.</SPAN></FONT></FONT></FONT></P>
+<h2>Variable Resistors</h2>
 
-</center>
-</td>
-</tr>
-</table>
-</Center>
-</body>
-</html>
+<P>
+    Variable resistors, also known as
+    potentiometers (pots) let you adjust a resistor to a specific
+    resistance. The actual range of resistance is determined by the
+    upward value of the potentiometer. Potentiometers are thus marked
+    with this upward value, such as 10K, 50K, 100K, 1M, and so forth.
+</P>
+
+<P><B>Example:</B>
+A 50K potentiometer will let you set any resistance any ware from 0
+to 50000 ohms.</P>
+
+<P>
+    Potentiometers are either the dial or slide type.
+    The rotation of the dial type is nearly 360&deg;,
+    depending on the type of potentiometer.
+</p>
+
+<p>
+    Extremely precise potentiometers are referred to as multiturn pots or trimmers.
+    Instead of of turning the dial one complete rotation to change the resistance,
+    a multiturn pot requires that the dial is turned 3, 5, 10, or even 15 times for the
+    span to be the same as a regular potentiometer.
+</p>

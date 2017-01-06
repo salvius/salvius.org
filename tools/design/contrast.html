@@ -1,31 +1,36 @@
-<html>
-    <head>
-        <style>
-            .effective {
-                color: #a9306f;
-                background: #c7e4d3;
-                padding: 15px;
-                font-size: 50px;
-            }
-            .effective .content {
-                height: 50px;
-                width: 50px;
-                border-radius: 50px;
-                background: #a9306f;
-            }
-            .ineffective {
-                color: #79c19e;
-                background: #fcd3c4;
-                padding: 15px;
-                font-size: 50px;
-            }
-            .ineffective .content {
-                height: 50px;
-                width: 50px;
-                background: #79c19e;
-            }
-        </style>
-        <style>
+---
+title: Effective color pallet
+---
+
+<style>
+    .effective {
+        color: #a9306f;
+        background: #c7e4d3;
+        padding: 15px;
+        font-size: 50px;
+    }
+    .effective .content {
+        height: 50px;
+        width: 50px;
+        border-radius: 50px;
+        background: #a9306f;
+    }
+    .ineffective {
+        color: #79c19e;
+        background: #fcd3c4;
+        padding: 15px;
+        font-size: 50px;
+    }
+    .ineffective .content {
+        height: 50px;
+        width: 50px;
+        background: #79c19e;
+    }
+
+    .pie-chart {
+        height: 400px;
+    }
+
     .pie {
 		position:absolute;
 		width:200px;
@@ -47,7 +52,7 @@
 		transform-origin:right center;
 	}
 
-	.pie:nth-of-type(1):BEFORE,
+    .pie:nth-of-type(1):BEFORE,
 	.pie:nth-of-type(1):AFTER {
 		background-color: #ffe800;	
 	}
@@ -147,55 +152,52 @@
     .contrast-8 {
 		background-color: #009956;
 	}
-        </style>
-    </head>
-    <body>
-        <table>
-            <tr>
-                <td class="effective">
-                    <div class="content"></div>
-                </td>
-                <td class="effective">
-                    Effective
-                </td>
-            </tr>
-            <tr>
-                <td class="ineffective">
-                    <div class="content"></div>
-                </td>
-                <td class="ineffective">
-                    Not as effective
-                </td>
-            </tr>
-        </table>
+</style>
 
-        <hr/>
-        <h1>Effective color pallet:</h1>
+<table>
+    <tr>
+        <td class="effective">
+            <div class="content"></div>
+        </td>
+        <td class="effective">
+            Effective
+        </td>
+    </tr>
+    <tr>
+        <td class="ineffective">
+            <div class="content"></div>
+        </td>
+        <td class="ineffective">
+            Not as effective
+        </td>
+    </tr>
+</table>
 
-        <div class="pie" data-start="0" data-value="45">
-            <div class="contrast contrast-5"></div>
-        </div>
-        <div class="pie" data-start="45" data-value="45">
-            <div class="contrast contrast-6"></div>
-        </div>
-        <div class="pie" data-start="90" data-value="45">
-            <div class="contrast contrast-7"></div>
-        </div>
-        <div class="pie" data-start="135" data-value="45">
-            <div class="contrast contrast-8"></div>
-        </div>
-        <div class="pie" data-start="180" data-value="45">
-            <div class="contrast contrast-1"></div>
-        </div>
-        <div class="pie" data-start="225" data-value="45">
-            <div class="contrast contrast-2"></div>
-        </div>
-        <div class="pie" data-start="270" data-value="45">
-            <div class="contrast contrast-3"></div>
-        </div>
-        <div class="pie" data-start="315" data-value="45">
-            <div class="contrast contrast-4"></div>
-        </div>
+<hr/>
 
-    </body>
-</html>
+<div class="pie-chart">
+    <div class="pie" data-start="0" data-value="45">
+        <div class="contrast contrast-5"></div>
+    </div>
+    <div class="pie" data-start="45" data-value="45">
+        <div class="contrast contrast-6"></div>
+    </div>
+    <div class="pie" data-start="90" data-value="45">
+        <div class="contrast contrast-7"></div>
+    </div>
+    <div class="pie" data-start="135" data-value="45">
+        <div class="contrast contrast-8"></div>
+    </div>
+    <div class="pie" data-start="180" data-value="45">
+        <div class="contrast contrast-1"></div>
+    </div>
+    <div class="pie" data-start="225" data-value="45">
+        <div class="contrast contrast-2"></div>
+    </div>
+    <div class="pie" data-start="270" data-value="45">
+        <div class="contrast contrast-3"></div>
+    </div>
+    <div class="pie" data-start="315" data-value="45">
+        <div class="contrast contrast-4"></div>
+    </div>
+</div>
