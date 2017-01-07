@@ -12,7 +12,12 @@ description: Robotics and technology presentations by Gunther Cox
     <div class="col-xs-8 col-xs-offset-2">
 
         <div class="page-header">
-            <h1>Presentations</h1>
+            <h1>
+                Presentations
+                <a href="/notes/" class="text-white" aria-label="Notes">
+                    <i class="fa fa-desktop pull-right" aria-hidden="true" title="Class notes"></i>
+                </a>
+            </h1>
         </div>
 
     </div>
@@ -23,12 +28,17 @@ description: Robotics and technology presentations by Gunther Cox
 
         {% for presentation in site.presentations %}
 
-        <h2><a href="{{ presentation.url }}">{{ presentation.title }}</a></h2>
-        <p>{{ presentation.description }}</p>
+        <h2>
+            <a href="{{ presentation.url }}">
+                {{ presentation.title }}
+
+                <i class="fa fa-arrow-circle-o-right pull-right" aria-hidden="true"></i>
+            </a>
+        </h2>
+        <p class="lead">{{ presentation.description }}</p>
+        <hr/>
 
         {% endfor %}
 
     </div>
 </div>
-
-<div style="height: 500px;"></div>
