@@ -1,0 +1,253 @@
+---
+title: Build an Audio Amplifier
+description: Instructions to build an audio amplifier
+extra_css:
+  - /css/reveal/theme/moon.css
+  - /css/reveal/zenburn.css
+---
+
+<div class="reveal">
+	<div class="slides">
+
+        <section>
+            <h3>{{ page.title }}</h3>
+            <img src="/images/amplifier/img01.png" style="height: 150px;" alt="Audio amplifier">
+            <h4>Project description</h4>
+            <p>
+                This amplifier circuit provides excellent signal amplification and sound quality.
+                In addition, this circuit has an extremely minimalistic design and can be built using only a few parts.
+            </p>
+
+            <div>Build time: 3 hours</div>
+            <div>Apply safety precautions as needed</div>
+        </section>
+
+        <section>
+            <h2>Parts list</h2>
+            <ul>
+                <li>x2 10uf capacitor<img src="/images/amplifier/img02.png" style="height: 20px;"></li>
+                <li>x2 LM386N-1</li>
+                <li>x1 9V battery clip<sup>(Optional)</sup><img src="/images/amplifier/img03.png" style="height: 20px;"></li>
+                <li>x1 9 Volt Battery Clip<sup>(Optional)</sup><img src="/images/amplifier/img04.png" style="height: 20px;"></li>
+                <li>x1 9 Volt battery<sup>(Optional)</sup><img src="/images/amplifier/img05.png" style="height: 20px;"></li>
+                <li>x1 8 to 16 Ohm speaker<sup>(Optional)</sup><img src="/images/amplifier/img06.jpg" style="height: 20px;"></li>
+                <li>x1 3.5mm audio socket<sup>(Optional)</sup></li>
+                <li>x1 4-pin connector & corresponding plug<sup>(Optional)</sup></li>
+                <li>x1 8 pin IC socket<sup>(Optional)</sup></li>
+                <li>x1 Speaker<sup>(Optional)</sup></li>
+            </ul>
+        </section>
+
+        <section>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <img src="/images/amplifier/img07.jpg">
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="/images/amplifier/img08.png">
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="/images/amplifier/img09.jpg">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <img src="/images/amplifier/img10.jpg">
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="/images/amplifier/img11.jpg">
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="/images/amplifier/img12.jpg">
+                    </div>
+                </div>
+                <h2>Tools</h2>
+                <ul>
+                    <li>Solderless breadboard</li>
+                    <li>Thin jumper wire</li>
+                    <li>3.5 mm audio cable</li>
+                    <li>Soldering iron & solder</li>
+                    <li>Pliers / Wire cutters</li>
+                </ul>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img13.png">
+            <h2>About the LM386N-1</h2>
+            <strong>How Integrated Circuit Pins are numbered:</strong>
+            <p>http://blog.salvius.org/2012/06/ics-integrated-circuits.html</p>
+            <p>
+            ICs will almost always have an indicator in the form of a small tab shape, circle or both on one side of the body to indicate the left side of the chip. With the pins facing down (live bug) and the indicator mark to the left you can count the pins. The pins start at 1 on the bottom left and count up as you go the the right. Then the top row starts counting on the right and goes to the left.
+            </p>
+            <p>
+            To build this amplifier we are using the LM386N-1 Audio Amplifier IC. This is a pretty usefull chip because it has low voltage requirements and an excellent amount of amplification. A good way to learn about this chip is to check out the data sheet which is available if you just do a search for "LM386N-1 datasheet" and you should find that there is plenty available from different manufacturers.
+            </p>
+            <p>
+            I'm using the Texas Instruments version of this sheet and they provide some useful hints down near the bottom of the sheet. They say:
+            If a capacitor is put from pin 1 to 8, bypassing the 1.35 k&#8486; resistor, the gain will go up to 200 (46 dB).
+            </p>
+            <p>
+            So this is pretty useful because this tells us how we can increase the gain for this amplifier. The gain is just the amount that our amplifier increases the sound signal. By default LM386 chip has a gain of 20 but were going to increase that because we want to get as much out of this chip as we can.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img14.png">
+            <p>
+            Building the amplifier on a breadboard before soldering it together makes it easier to test for problems if it turns out that we made a mistake while building it.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img15.jpg">
+            <p>
+            Begin by inserting the two ICs into the breadboard. The ICs in the photos have been labeled to make referencing them easier.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img16.jpg">
+            <p>
+            Connect pins 2 and 4 on IC A to the ground line. Connect pins 3 and 4 on IC B to the ground line.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img17.jpg">
+            <p>
+            Connect pin 3 on IC A to pin 2 on IC B. Connect pin 6 on IC A to pin 6 on IC B.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img18.jpg">
+            <p>
+            Attach the 10 uf capacitors between pin 1 and 8 on each IC. Be sure to connect the negative side of the capacitor (stripe side) to pin 8.
+            </p>
+        </section>
+
+        <section>
+            <h2>Audio signal tester</h2>
+            <img src="/images/amplifier/img19.jpg">
+            <p>
+            This is a tool you can make to test the breadboard. Use a cable from a pair of headphones and connect both pairs of ground and signal wires together as shown. Usually you can find a friend who has a broken pair to donate.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img20.png">
+            <p>
+            Connect the ground wire of the audio cable to the ground of your circuit. Attach the signal wire to pin 2 of IC B.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img21.jpg">
+            <p>
+            Connect the negative battery wire to ground and the positive wire to the pin 6 jumper.
+            </p>
+            <img src="/images/amplifier/img22.jpg">
+            <p>
+            Connect the wire for the speaker between pin number 5 from both ICs.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img23.jpg">
+            <h2>Testing the breadboard circuit</h2>
+            <p>
+            Connect the battery and plug in a radio or mp3 play to test your breadboard circuit. You should hear it working, if not go back and check to make sure that everything is connected correctly. If you have double checked your work and it is still not working it is possible that one of the ICs is not working. If that is the case, try switching it out with a new one.
+            </p>
+        </section>
+
+        <section>
+            <h2>Assembling the Amp</h2>
+            <p>
+            The next thing we are going to do is solder the parts
+            onto a circuit board to make it permanent.
+            </p>
+            <p>
+            For this step I am going to also use a IC socket so
+            that I can easily replace the ICs if I ever need to.
+            </p>
+        </section>
+
+        <section>
+            <h2>Separate the PCB pieces</h2>
+            <img src="/images/amplifier/img24.jpg">
+            <img src="/images/amplifier/img25.jpg">
+            <img src="/images/amplifier/img26.jpg">
+            <p>
+    This PCB board comes with a perforated line down the center where you could probably snap the two pieces apart. A miter saw can be used to sever the thatching between the halves resulting in a cleaner edge. Use a block of wood to elevate the PCB board while you cut it.
+            </p>
+        </section>
+
+        <section>
+            <h2>Assembling the Amp</h2>
+            <img src="/images/amplifier/img27.jpg">
+            <p>
+            Place the pins of the IC sockets through the center holes of the PCB board. Flip the board over and apply solder to the base of each pin to hold the socket in place.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img28.png">
+            <p>
+            Solder in the five jumpers as shown. Refer back to the breadboard circuit for reference.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img29.jpg">
+            <p>
+            Solder the 9 volt battery clip to the board as shown.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img30.jpg">
+            <img src="/images/amplifier/img31.jpg">
+            <p>
+            Solder the 9 volt battery clip to the board as shown.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img32.jpg">
+            <p>
+            Solder a jumper wire across the two signal leeds of the audio jack. Make sure that this jumper is also soldered to the jumper between IC A pin 3 and IC B pin 2. The points you must solder have been indicated in the photo.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img33.jpg">
+            <img src="/images/amplifier/img34.jpg">
+            <p>
+                Use a pair of pliers to bend the bottom right connector pin at a 90 degree angle.
+                Insert the connector into the PCB board so that the left pin can be soldered to pin 5 of IC A.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img35.jpg">
+            <p>
+                Solder a jumper from pin 5 of IC B to the bent pin of the connector.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img36.jpg">
+            <p>
+            Solder the two 10 uF capacitors between pins 1 and 8 on each IC. Be sure to position the negative polarity indicator on the capacitor on pin 8.
+            </p>
+        </section>
+
+        <section>
+            <img src="/images/amplifier/img37.jpg">
+            <p>
+            Trim off any excess wire and then insert the ICs into the sockets. You must insert them with the polarity indicator facing the right way as shown. Plug in an mp3 player or a laptop through the audio jack and test it out. Plug your speaker into the four pin socket.
+            </p>
+        </section>
+
+    </div>
+</div>
