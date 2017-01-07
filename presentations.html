@@ -21,17 +21,12 @@ description: Robotics and technology presentations by Gunther Cox
 <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
 
-        <h2><a href="/presentations/introduction/">Meet Salvius</a></h2>
-        <p>An introductory presentation about Salvius.</p>
+        {% for presentation in site.presentations %}
 
-        <h2><a href="/timeline/">Salvius Photo Timeline</a></h2>
-        <p>Photos showing the progress of designing Salvius</p>
+        <h2><a href="{{ presentation.url }}">{{ presentation.title }}</a></h2>
+        <p>{{ presentation.description }}</p>
 
-        <h2><a href="/presentations/zorg/">Zorg Robotics Framework</a></h2>
-        <p>An overview of the the Python framework for robotics.</p>
-
-        <h2><a href="/presentations/sql/">SQL Database Concepts</a></h2>
-        <p>An introduction to SQL queries and concepts.</p>
+        {% endfor %}
 
     </div>
 </div>

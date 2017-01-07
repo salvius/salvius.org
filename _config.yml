@@ -29,6 +29,8 @@ permalink: /blog/:year/:month/:title/
 collections:
   notes:
     output: true
+  presentations:
+    output: true
   spec:
     output: true
 
@@ -40,6 +42,11 @@ defaults:
       layout: paginated
       index_url: /notes/
       color_class: color-prestige
+
+  - scope:
+      type: presentations
+    values:
+      layout: presentation
 
   - scope:
       type: spec
