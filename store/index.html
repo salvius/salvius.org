@@ -49,7 +49,7 @@ title: Robot Store
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <a href="{{ product.url | prepend: site.baseurl }}">
-                                <img class="img-responsive" src="{{ product.image | prepend: site.baseurl }}">
+                                <img class="img-responsive" src="{{ product.image | prepend: site.baseurl }}" alt="{{ product.title }}">
                             </a>
                             <h4>{{ product.title }}</h4>
                             <p>{{ product.description }}</p>
