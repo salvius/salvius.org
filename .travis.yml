@@ -10,4 +10,4 @@ env:
   # speeds up installation of html-proofer
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 
-script: ./script/cibuild
+script: ./scripts/cibuild
