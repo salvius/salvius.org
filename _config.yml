@@ -31,8 +31,6 @@ collections:
     output: true
   spec:
     output: true
-  timeline:
-    output: true
 
 defaults:
 
@@ -47,13 +45,6 @@ defaults:
       type: spec
     values:
       layout: page
-
-  - scope:
-      type: timeline
-    values:
-      layout: paginated
-      index_url: /timeline/
-      color_class: color-forest
 
   - scope:
       type: posts

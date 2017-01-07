@@ -1,25 +1,37 @@
 ---
-layout: default
-permalink: /timeline/
+layout: presentation
 title: Building Salvius
-description: A timeline of development since 2008
+description: Timeline of development since 2009
+extra_css:
+  - /css/reveal/theme/moon.css
+  - /css/reveal/zenburn.css
 ---
 
-<div class="container-fluid color-forest inset-shadow">
-    <div class="row">
-        <div class="col-sm-12">
+<div class="reveal">
+	<div class="slides">
+
+		<section>
             <h1>{{ page.title }}</h1>
-            <p class="lead">{{ page.description }}</p>
-        </div>
+            <p>
+	            {{ page.description }}
+            </p>
+        </section>
+
+        {% for timeitem in site.data.salvius_timeline %}
+		<section>
+
+            {% for item in timeitem.items %}
+		    <section>
+                <h2>{{ item.month }} {{ timeitem.year }}</h2>
+                <img src="{{ item.image }}" style="height: 400px" alt="item.description"/>
+                <p>
+	                {{ item.description }}
+                </p>
+            </section>
+            {% endfor %}
+
+        </section>
+        {% endfor %}
+
     </div>
-</div>
-
-<div class="container">
-{% for page in site.timeline %}
-
-    <div class="row">
-        <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-    </div>
-
-{% endfor %}
 </div>

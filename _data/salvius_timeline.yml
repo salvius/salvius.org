@@ -1,0 +1,59 @@
+- year: 2009
+  items:
+    - month: September
+      image: /images/2009/outside.jpg
+      description: First prototype built from recycled parts
+
+- year: 2010
+  items:
+    - month: November
+      image: /images/2010/arm.jpg
+      description: Stronger motor used for left arm
+
+- year: 2011
+  items:
+    - month: July
+      image: /images/2011/cardboard.jpg
+      description: Cardboard prototype for different head design
+
+    - month: August
+      image: /images/2011/metal.jpg
+      description: Metal head based on cardboard mockup
+
+    - month: October
+      image: /images/2011/2011.jpg
+      description: New drive base with wheels
+
+    - month: December
+      image: /images/2011/hand.jpg
+      description: Right hand
+
+- year: 2012
+  items:
+    - month: February
+      image: /images/2012/top.jpg
+      description: Beginning revisions to drive base
+
+- year: 2013
+  items:
+    - month: January
+      image: /images/news01.jpg
+      description: Salvius featured in Wilbraham Hampden Times
+
+    - month: March
+      image: /images/2013/names.jpg
+      description: Names of contributors who donated to the project
+
+    - month: March
+      image: /images/2013/wilbraham_music.jpg
+      description: Wilbraham Music supports development efforts
+
+- year: 2014
+  items:
+    - month: February
+      image: /images/2014/IMG_2238.JPG
+      description: Improvements to electrical configuration
+
+    - month: March
+      image: /images/2014/entrepreneurship.jpg
+      description: Salvius exhibits at Grinspoon Entrepreneurship Initiative
