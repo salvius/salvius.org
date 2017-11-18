@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'github-pages', group: :jekyll_plugins
-gem 'jekyll-sitemap', group: :jekyll_plugins
+group :jekyll_plugins do
+   gem 'bravissimo', '>= 0.0', '< 0.1'
+   gem 'jekyll-feed', '~> 0.6'
+   gem 'jekyll-sitemap'
+end
+
 gem 'sinatra-cross_origin', '~> 0.3.1'
 gem 'html-proofer'
