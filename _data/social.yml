@@ -1,0 +1,9 @@
+- name: Twitter
+  url: https://twitter.com/salviusrobot
+  icon_class: fa fa-twitter
+- name: Facebook
+  url: https://www.facebook.com/salviusrobot
+  icon_class: fa fa-facebook
+- name: YouTube
+  url: https://www.youtube.com/user/salviusrobot/videos
+  icon_class: fa fa-youtube

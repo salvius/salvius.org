@@ -3,19 +3,11 @@
 		<div class="row" style="padding: 15px 0px">
 	        <div class="col-xs-12">
 
-                <a href='https://www.youtube.com/user/salviusrobot/videos' aria-label="YouTube" target='_blank' class="btn btn-lg btn-link text-white">
-                    <i class="fa fa-youtube" aria-hidden="true" style="font-size: 24px;"></i>
-                </a>
-                <a href="https://www.facebook.com/salviusrobot/" aria-label="Facebook" target='_blank' class="btn btn-lg btn-link text-white">
-                    <i class="fa fa-facebook" aria-hidden="true" style="font-size: 24px;"></i>
-                </a>
-                <a href="https://twitter.com/SalviusRobot" aria-label="Twitter" target='_blank' class="btn btn-lg btn-link text-white">
-                    <i class="fa fa-twitter" aria-hidden="true" style="font-size: 24px;"></i>
-                </a>
-
-                <a href="https://twitter.com/SalviusRobot" class="btn btn-lg btn-default white-outline color-darkorange pull-right">
-                    <i class="fa fa-twitter" aria-hidden="true"></i> Follow @salviusrobot
-                </a>
+                {% for account in site.data.social %}
+                    <a href="{{ account.url }}" aria-label="{{ account.name }}" target='_blank' class="btn btn-lg btn-link text-white">
+                        <i class="{{ account.icon_class }}" aria-hidden="true" style="font-size: 24px;"></i>
+                    </a>
+                {% endfor %}
 
             </div>
         </div>
@@ -32,6 +24,6 @@
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-12573345-9', 'auto');
+    ga('create', '{{ site.google_analytics }}', 'auto');
     ga('send', 'pageview');
 </script>

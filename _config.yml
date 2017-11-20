@@ -21,6 +21,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: http://salvius.org
 
 email: gunthercx@gmail.com
+google_analytics: UA-12573345-9
 twitter_username: salviusrobot
 github_username:  gunthercox
 
