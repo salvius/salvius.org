@@ -8,106 +8,106 @@ extra_css:
 ---
 
 <div class="reveal">
-	<div class="slides">
-		<section>
+    <div class="slides">
+        <section>
             <h1>SQL Database</h1>
             <p>
-	            {{ page.description }}
+                {{ page.description }}
             </p>
         </section>
 
-		<section>
-    		<section>
+        <section>
+            <section>
                 <h2>A Brief History of Databases</h2>
                 <h1><i class="fa fa-clock-o"></i></h1>
-		    </section>
-    		<section data-background-image="https://upload.wikimedia.org/wikipedia/commons/1/15/File_Cabinet.jpg">
+            </section>
+            <section data-background-image="https://upload.wikimedia.org/wikipedia/commons/1/15/File_Cabinet.jpg">
                 <h2 style="color: white;">The first database</h2>
-		    </section>
-    		<section>
+            </section>
+            <section>
                 <h2>1960</h2>
                 <p>
                     Computers become cost-effective enough for private businesses to use them for data management
                 </p>
-		    </section>
-    		<section>
+            </section>
+            <section>
                 <h2>1970</h2>
                 <p>
                     E.F. Codd, working for IBM, publishes a paper describing the relational database model.
                 </p>
-		    </section>
-    		<section>
+            </section>
+            <section>
                 <h2>1980</h2>
                 <p>
                     SQL becomes a technological standard for query languages.
                 </p>
-		    </section>
-    		<section>
+            </section>
+            <section>
                 <h2>1990</h2>
                 <p>
                     After a period of heavy market saturation, remaining database
                     companies continue to sell their products at high prices.
                 </p>
-		    </section>
-    		<section>
+            </section>
+            <section>
                 <h2>2000</h2>
                 <p>
                     Interactive applications are created to interact with databases.
                 </p>
-		    </section>
-		</section>
+            </section>
+        </section>
 
-		<section>
+        <section>
             <h2>What is SQL?</h2>
             <ul>
                 <li>Structured Query Language</li>
                 <li>Used to manipulate data in a relational database</li>
             </ul>
-		</section>
+        </section>
 
-	    <section>
+        <section>
             <h2>What is a Relational Database?</h2>
         </section>
 
-		<section>
+        <section>
             <h2>Relations</h2>
             <ul>
                 <li>A tuple data structure</li>
                 <li>Order of tuples in database does not matter</li>
                 <li>Order of elements in tuple does not matter</li>
             </ul>
-	    </section>
+        </section>
 
-		<section>
+        <section>
             <h2>Schema</h2>
             <p>A representation of how information is organized in a database.</p>
-	    </section>
+        </section>
 
-	    <section>
+        <section>
             <h2>Entity-Relationships</h2>
             <p>
                 Database design focus on the data application, instead of logical table structure.
             </p>
         </section>
 
-		<section>
+        <section>
             <h2>Relational databases</h2>
             <p>
                 A database schema, or logical organization, is disconnected
                 from how the information is physicaly stored on the computer.
             </p>
-	    </section>
+        </section>
 
-		<section>
+        <section>
             <h1>Database Mathematics</h1>
             <ol>
                 <li>Set theory</li>
                 <li>Relational algebra</li>
                 <li>Relational calculus (skipping)</li>
             </ol>
-	    </section>
+        </section>
 
-		<section>
+        <section>
             <h2>Set theory</h2>
             <p>
                 A <u>set</u> is a collection of things<br/>
@@ -115,7 +115,7 @@ extra_css:
             </p>
         </section>
 
-		<section>
+        <section>
             <h2>Set notation</h2>
             <p>
                 We write sets as a comma seperated list<br/>
@@ -124,15 +124,15 @@ extra_css:
             <h1>{ }</h1>
         </section>
 
-		<section>
+        <section>
             <h2>Relational Algebra</h2>
             <p>
                 The main application of relational algebra is providing a theoretical foundation for relational databases, particularly query languages for such databases, chief among which is SQL. (<a href="https://en.wikipedia.org/wiki/Relational_algebra">wikipedia.org/relational_algebra</a>)
             </p>
         </section>
 
-		<section>
-		    <section>
+        <section>
+            <section>
                 <h2>Five primitive relational operators</h2>
                 <table>
                     <tbody>
@@ -159,7 +159,7 @@ extra_css:
                     </tbody>
                 </table>
             </section>
-		    <section>
+            <section>
                 <h2>Union (∪)</h2>
                 <p>
                     The union of two sets A and B<br/>
@@ -171,7 +171,7 @@ extra_css:
                 <div>B = {1, 3, 5, 7}</div>
                 <div>A ∪ B = {1, 2, 3, 4, 5, 6, 7, 8}</div>
             </section>
-		    <section>
+            <section>
                 <h2>Intersection (∩)</h2>
                 <p>
                     The intersection of two sets A and B<br/>
@@ -182,7 +182,7 @@ extra_css:
                 <div>B = {2, 4, 6, 8}</div>
                 <div>A ∩ B = {2, 4}</div>
             </section>
-		    <section>
+            <section>
                 <h2>Cartesian product (×)</h2>
                 <p>
                     The Cartesian product of sets A and B is the set of all
@@ -194,7 +194,7 @@ extra_css:
                 <div>A × B = {(1,3), (1,4), (2,3), (2,4)}</div>
                 <div>B × A = {(3,1), (3,2), (4,1), (4,2)}</div>
             </section>
-		    <section>
+            <section>
                 <h2>Projection (Π)</h2>
                 <p>
                     A projection is the subset of available
@@ -203,7 +203,7 @@ extra_css:
                     set have been discarded.
                 </p>
             </section>
-		    <section>
+            <section>
                 <strong>Account</strong>
 
                 <table>
@@ -234,7 +234,7 @@ extra_css:
                 </table>
 
             </section>
-		    <section>
+            <section>
                 <strong><sub>Π Email, Name</sub>(Account)</strong>
 
                 <table>
@@ -261,14 +261,14 @@ extra_css:
                 </table>
 
             </section>
-		    <section>
+            <section>
                 <h2>Selection <span style="text-transform:lowercase;">(σ)</span></h2>
                 <p>
                     A selection is an operation that returns
                     a subset of the rows in a database.
                 </p>
             </section>
-		    <section>
+            <section>
                 <strong>Account</strong>
 
                 <table>
@@ -299,7 +299,7 @@ extra_css:
                 </table>
 
             </section>
-		    <section>
+            <section>
                 <strong><sub>σ Email="gunther@salvius.org"</sub> (Account)</strong>
 
                 <table>
@@ -320,7 +320,7 @@ extra_css:
                 </table>
 
             </section>
-		    <section>
+            <section>
                 <strong><sub>σ Age&lt;50</sub> (Account)</strong>
 
                 <table>
@@ -348,11 +348,11 @@ extra_css:
             </section>
         </section>
 
-	    <section>
+        <section>
             <h2>Converting relational algebra to SQL</h2>
         </section>
 
-	    <section>
+        <section>
             <h2>SQL query syntax</h2>
 
             <blockquote style="text-align: left;">
@@ -362,11 +362,11 @@ extra_css:
             </blockquote>
         </section>
 
-		<section>
-	        <section>
+        <section>
+            <section>
                 <h2>Union (∪)</h2>
             </section>
-		    <section>
+            <section>
                 <blockquote style="text-align: left;">
                 SELECT *<br/>
                 FROM Account<br/>
@@ -376,11 +376,11 @@ extra_css:
             </section>
         </section>
 
-		<section>
-	        <section>
+        <section>
+            <section>
                 <h2>Intersection (∩)</h2>
             </section>
-		    <section>
+            <section>
                 <blockquote style="text-align: left;">
                 SELECT *<br/>
                 FROM Account<br/>
@@ -390,17 +390,17 @@ extra_css:
             </section>
         </section>
 
-		<section>
-	        <section>
+        <section>
+            <section>
                 <h2>Cartesian product (×)</h2>
             </section>
-		    <section>
+            <section>
                 <blockquote style="text-align: left;">
                 SELECT Name, Address<br/>
                 FROM Account, Location;
                 </blockquote>
             </section>
-	        <section>
+            <section>
                 <strong>Location</strong>
                 <table>
                     <thead>
@@ -433,7 +433,7 @@ extra_css:
                     </tbody>
                 </table>
             </section>
-	        <section>
+            <section>
                 <p>
                     Since we have 3 Accounts and 3 Locations,
                     the <u>cardinality</u> of the cartesian
@@ -450,11 +450,11 @@ extra_css:
             </section>
         </section>
 
-		<section>
-	        <section>
+        <section>
+            <section>
                 <h2>Projection (π)</h2>
             </section>
-		    <section>
+            <section>
                 <blockquote style="text-align: left;">
                 SELECT Email, Name<br/>
                 FROM Account
@@ -486,11 +486,11 @@ extra_css:
             </section>
         </section>
 
-		<section>
-	        <section>
+        <section>
+            <section>
                 <h2>Selection <span style="text-transform:lowercase;">(σ)</span></h2>
             </section>
-		    <section>
+            <section>
                 <blockquote style="text-align: left;">
                 SELECT *<br/>
                 FROM Account<br/>
@@ -522,15 +522,15 @@ extra_css:
             </section>
         </section>
 
-	    <section>
+        <section>
             <h2>Links</h2>
             <ul>
-                <li><a href="http://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all">SQL Tryit Editor</a></li>
+                <li><a href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all">SQL Tryit Editor</a></li>
                 <li><a href="/presentations/database.schema">Account database schema</a></li>
             </ul>
         </section>
 
-	    <section>
+        <section>
             <h2>What I did <strong>not</strong> cover</h2>
             <ul>
                 <li>Entity-Relationship diagrams</li>

@@ -30,7 +30,7 @@ Notice the 99 and the 9
 
 
 divisible by 6 if and only if and only if it is divisible by both 2 and 3.
-Breaking 24 into it’s prime number factorizations: 
+Breaking 24 into it's prime number factorizations: 
 24 = 2 * 3 * 2 * 2 
 24/6 = 2 * 3 
 n/6 = P1 * P2 * P3… / 2 * 3 
@@ -48,7 +48,7 @@ divisible by 4 if and only if the number represented by its last two digits is d
 Ex 1: 1784 = (1 * 1000) + (7 * 100) + (8 * 10) + 4 
 Ex 2: Does 4 divide 342? 
 No, because 4 does not divide 42.
-	divisible by 2 if and only if it’s ones digit is even (i.e. 0, 2, 4, 6, 8).
+    divisible by 2 if and only if it's ones digit is even (i.e. 0, 2, 4, 6, 8).
 For instance, 8 is even because 8 / 4 = 2. In other words, its even because its evenly divisible by something.
 divisible by 5 if and only if its ones digit it 0 or 5.
 2 and 5 are the easiest to test because we are working with a base 10 system. 
@@ -96,7 +96,7 @@ Repeat:
 Step 1: d = 0, n = 13 
 Step 2: 13 - 2(0) = 13 
 Since 7 does not | 13, then 7 does not divide 1384.
-	
+    
 
 Primes 2, 3, 5, 7, 11, 13, 17…
 Definition of a composite 1. An integer n > 1 is composite if it is not prime. 2. An integer n is composite if there exist integers a and b with 1 < a < n and 1 < b < n such that n = ab. 3. There exist positive integers r and s such that n = rs and r != 1 and s != 1.
@@ -105,14 +105,14 @@ Proof (contrapositive):
 2. Then n=2k for some integer k
 3. So n2=(2k)2=4k2=2(2k2).
 4. Since 2k2 is an integer, n2 is even.
-	Proof (contradiction):
+    Proof (contradiction):
 1. Assume n2 is odd.
 2. Suppose, to the contrary, that n is even.
 3. Then n=2k for some integer k.
 4. So n2−(2k)2=4k2−2(2k2).
 5. Since 2k2 is an integer, n2 is even, contradicting that n2 is odd.
 6. Therefore, n is odd.
-	For any two integers m and n, 3m+5n is even if and only if m and n are of the same parity.
+    For any two integers m and n, 3m+5n is even if and only if m and n are of the same parity.
 * NOTE: (Two integers m and n have the same parity if they are either both even or both odd.)
 If 3m+5n is even, then m and n are of the same parity.
 Proof (contrapositive): If m and n are of opposite parity, then 3m+5n is odd.
@@ -122,7 +122,7 @@ if m and n are of the same parity, then 3m+5n is even.
 Proof (direct):
 Case 1: m and n are both even.
 Case 2: m and n are both odd.
-	For any sets A, B, and C, (A−B)∪(A−C)=A−(B∩C).
+    For any sets A, B, and C, (A−B)∪(A−C)=A−(B∩C).
 1. Let A, B, and C be sets.
 First we show that (A−B)∪(A−C)⊆A−(B∩C)
 1. Let x∈(A−B)∪(A−C).
@@ -147,16 +147,16 @@ Case 1: x∉B
 Case 2: x∉C
 1. Since x∈A and x∉C, we know x∈A−C.
 2. Therefore x∈(A−B)∪(A−C)
-	For all integers a, b, and c, if a|c and b|c, then ab|c. = False.
+    For all integers a, b, and c, if a|c and b|c, then ab|c. = False.
 Let a=2, b=4, and c=12.
 1. Then 2|12 and 4|12, but 2∗4=8/|12.
-	For all integers a, b, c, and d, if a|b and c|d, then ac|bd. = True.
+    For all integers a, b, c, and d, if a|b and c|d, then ac|bd. = True.
 bd=ax∗cy=ac∗xy
 1. Assume a|b and c|d.
 2. Then b=ax and c=dy for some integers x and y.
 3. So bd=ax∗cy=ac(xy)
 4. Since xy is an integer, ac|bd.
-	
+    
 
 Proof by Mathematical Induction using Factorials 
 1 * 1! + 2 * 2! + 3 * 3! .. + n * n! = (n + 1)! = 1 for all n >= 1. 

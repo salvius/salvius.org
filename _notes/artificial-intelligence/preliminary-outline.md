@@ -1,4 +1,4 @@
-﻿---
+---
 title: Preliminary Outline and Bibliography
 ---
 
@@ -36,8 +36,8 @@ Humans have adapted their environment to suit their needs. In the future it will
 * Reliable stability outside of a laboratory environment
 * Need to be able to keep track of spatial and temporary foot paths
 * Zero Moment Point (ZMP) and pseudoZMP
-   * ZPM algorithm definitions → http://www.mate.tue.nl/mate/pdfs/10796.pdf
-* kinematics and available degrees of freedom
+   * ZPM algorithm definitions → https://www.mate.tue.nl/mate/pdfs/10796.pdf
+   * kinematics and available degrees of freedom
 
 ## Solutions for some challenges
 
@@ -80,14 +80,14 @@ The energy of a previous step can be put in the taking of the next step.
 
 **DARPA's Atlas robot walking**
 
-* Related: http://dasl.mem.drexel.edu/atlas/?p=40
+* Related: https://dasl.mem.drexel.edu/atlas/?p=40
 
 ## Conclusion about machine learning methods for biped locomotion
 
 Artificial intelligence provides a much more flexible solution to biped walking problems than traditional algorithms. It appears that many of the problems encountered with this solution are presented when it comes to real time processing constraints. The solution to time constraints is the abstraction of the initial problem in order to eliminate variables such as rough terrain and other obstacles, however this comes at the expense of the ability of the biped entity to navigate through a wider range of environments.
 
-* Genetic walkers demo: http://rednuht.org/genetic_walkers/
-* Walking on an incline: http://www.cs.cmu.edu/~cga/legs/Paper_3.pdf
+* Genetic walkers demo: https://rednuht.org/genetic_walkers/
+* Walking on an incline: https://www.cs.cmu.edu/~cga/legs/Paper_3.pdf
 
 ***
 
@@ -95,11 +95,11 @@ Artificial intelligence provides a much more flexible solution to biped walking 
 
 Benbrahim, Hamid. "BIPED DYNAMIC WALKING USING REINFORCEMENT
 LEARNING." University of New Hampshire, Dec. 1996. Web.
-http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.99.6229&rep=rep1&type=pdf
+https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.99.6229&rep=rep1&type=pdf
 
 Dekker, M.h.p., July 2009 Eindhoven, and Dct No.: 2009.07.
 ZERO-MOMENT POINT METHOD FOR STABLE BIPED WALKING (n.d.): n.
-pag. July 2009. Web. http://www.mate.tue.nl/mate/pdfs/10796.pdf
+pag. July 2009. Web. https://www.mate.tue.nl/mate/pdfs/10796.pdf
 
 Hawks, John. "Why Be Bipedal?" John Hawks Weblog. N.p., 1 Feb. 2005. Web. 29 Oct. 2015.
 
@@ -107,5 +107,5 @@ McNeill Alexander Ra. 1992. Human locomotion. In: Jones S, Martin R, Pilbeam D, 
 The Cambridge encyclopedia of human evolution.
 Cambridge: Cambridge University Press. p 80-85.
 
-Wisse, Hobbelen, ‘Controlling the Walking Speed in Limit Cycle Walking’,
+Wisse, Hobbelen, 'Controlling the Walking Speed in Limit Cycle Walking',
 the Int. Journal of Robotics Research, 2008, p. 989-1005.

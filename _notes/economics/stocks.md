@@ -8,7 +8,7 @@ date: 2012/10/04
 * Securities - all of the investments, stocks, bonds, mutual funds, options, and commodities that are bought and sold on the stock market.
 * Private corporation - a company that issues stock to a small group of people.
 * Public corporation - a company that sells its shares openly in stock markets.
-Prefered Stock
+Preferred Stock
 * par value - an assigned dollar value that is printed on a stock certificate.
 * Cumulative preferred stock - a stock whose unpaid dividends build up and must be paid before any cash dividend is paid to the common stockholders.
 * Convertible preferred stock - a stock that can be exchanged for a specific number of shares of common stock.
