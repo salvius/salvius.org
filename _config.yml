@@ -104,4 +104,4 @@ exclude:
   - .dockerignore
   - .gitignore
   - .git
-  - "*.markdown.erb"
+  - vendor/bundle
