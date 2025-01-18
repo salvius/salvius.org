@@ -95,7 +95,7 @@ plugins:
   - jekyll-sitemap
 
 exclude:
-  - "*.erb"
+  - *.erb
   - readme.md
   - Gemfile
   - Gemfile.lock
