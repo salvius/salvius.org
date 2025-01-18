@@ -2,91 +2,86 @@
 title: Resistor Color Code Calculator
 ---
 
-<meta NAME="Description" CONTENT="resistor, resistance, color code, color bands, ohms, electronic, components, calculator, calculate">
-<meta NAME="Keywords" CONTENT="resistor, resistance, color code, color bands, ohms, electronic, components, calculator, calculate">
-<SCRIPT> 
-var one=0;
-var two=0;
-var three=0;
-var four=0;
-var val1=0;
-var val2=0;
-var val3=0;
-var val4=0;
-var res1=0;
-var res2=0;
-var res3=0;
-var res4=0;
-var resout=0;
-var restnce=0;
-</script>
+<script> 
 
-<SCRIPT> 
-function calc(){
-restnce=0;
-resout=0;
-one=(document.dropbox.bandone.options[document.dropbox.bandone.selectedIndex].value)
-two=(document.dropbox.bandtwo.options[document.dropbox.bandtwo.selectedIndex].value)
-three=(document.dropbox.bandthree.options[document.dropbox.bandthree.selectedIndex].value)
-four=(document.dropbox.bandfour.options[document.dropbox.bandfour.selectedIndex].value)
- 
-val1=((one-100)*3)-2;
-val2=((two-200)*3)+28;
-val3=((three-300)*3)+58;
-val4=((four-400)*3)+88;
- 
-var mn = new Array 
-(
-101	,	0	,	"BLACK",
-102	,	10	,	"BROWN",
-103	,	20	,	"RED",
-104	,	30	,	"ORANGE",
-105	,	40	,	"YELLOW",
-106	,	50	,	"GREEN",
-107	,	60	,	"BLUE",
-108	,	70	,	"VIOLET",
-109	,	80	,	"GRAY",
-110	,	90	,	"WHITE",
- 
-201	,	0	,	"BLACK",
-202	,	1	,	"BROWN",
-203	,	2	,	"RED",
-204	,	3	,	"ORANGE",
-205	,	4	,	"YELLOW",
-206	,	5	,	"GREEN",
-207	,	6	,	"BLUE",
-208	,	7	,	"VIOLET",
-209	,	8	,	"GRAY",
-210	,	9	,	"WHITE",
- 
-301	,	1	,	"BLACK",
-302	,	10	,	"BROWN",
-303	,	100	,	"RED",
-304	,	1000	,	"ORANGE",
-305	,	10000	,	"YELLOW",
-306	,	100000	,	"GREEN",
-307	,	1000000	,	"BLUE",
-308	,	10000000	,"VIOLET",
-309	,	.1	,	"GOLD",
-310	,	.01	,	"SILVER",
- 
-401	,	20	,	"NONE",
-402	,	10	,	"SILVER",
-403	,	5	,	"GOLD"
+var bandValues = new Array(
+    101, 0, "BLACK",
+    102, 10, "BROWN",
+    103, 20, "RED",
+    104, 30, "ORANGE",
+    105, 40, "YELLOW",
+    106, 50, "GREEN",
+    107, 60, "BLUE",
+    108, 70, "VIOLET",
+    109, 80, "GRAY",
+    110, 90, "WHITE",
+
+    201, 0, "BLACK",
+    202, 1, "BROWN",
+    203, 2, "RED",
+    204, 3, "ORANGE",
+    205, 4, "YELLOW",
+    206, 5, "GREEN",
+    207, 6, "BLUE",
+    208, 7, "VIOLET",
+    209, 8, "GRAY",
+    210, 9, "WHITE",
+
+    301, 1, "BLACK",
+    302, 10, "BROWN",
+    303, 100, "RED",
+    304, 1000, "ORANGE",
+    305, 10000, "YELLOW",
+    306, 100000, "GREEN",
+    307, 1000000, "BLUE",
+    308, 10000000    ,"VIOLET",
+    309, .1, "GOLD",
+    310, .01, "SILVER",
+
+    401, 20, "NONE",
+    402, 10, "SILVER",
+    403, 5, "GOLD"
 );
-res1=mn[val1];res2=mn[val2];res3=mn[val3];res4=mn[val4];
-restnce=(res1+res2)*res3;
-resout=restnce;
-if(restnce>1000){resout=(restnce/1000) + " K"}
-if(restnce>1000000){resout=(restnce/1000000) + " MEG"}
-document.outbox.z1.value=" "+(resout)+ " ohms    and   " +(res4)+" % tolerance";
+
+function calculate() {
+    var outputResistance = 0;
+    var resistance = 0;
+
+    var rForm = document.resistors;
+
+    var one = rForm.bandone.options[rForm.bandone.selectedIndex].value;
+    var two = rForm.bandtwo.options[rForm.bandtwo.selectedIndex].value;
+    var three = rForm.bandthree.options[rForm.bandthree.selectedIndex].value;
+    var four = rForm.bandfour.options[rForm.bandfour.selectedIndex].value;
+
+    var val1 = ((one - 100) * 3) - 2;
+    var val2 = ((two - 200) * 3) + 28;
+    var val3 = ((three - 300) * 3) + 58;
+    var val4 = ((four - 400) * 3) + 88;
+
+    var res1 = bandValues[val1];
+    var res2 = bandValues[val2];
+    var res3 = bandValues[val3];
+    var res4 = bandValues[val4];
+
+    resistance = (res1 + res2) * res3;
+
+    outputResistance = resistance;
+
+    if (resistance > 1000) {
+        outputResistance = (resistance / 1000) + " K";
+    }
+    if (resistance > 1000000) {
+        outputResistance = (resistance / 1000000) + " MEG"
+    }
+    document.outbox.z1.value = "" + outputResistance + " ohms and " +(res4) + "% tolerance";
 }
 </script>
 
 <h2>Fixed Resistors</h2>
 
-<P>A
-fixed resistor supplies a predetermined resistance to a circuit. The
+<P>
+A fixed resistor supplies a predetermined resistance to a circuit. The
 standard unit value of a resistor is the ohm (represented by the
 symbol &Omega;) usually with the
 prefix ''K'' or ''M''; ''K'' meaning thousand and ''M'' meaning
@@ -102,352 +97,306 @@ the resistor and comprises four, five, and sometimes six band colors.
 10) + (second band color)) &times; 10<SUP>third
 band color value</SUP> ohms</P>
 
-<TABLE class="table">
-	<TR>
-		<TH>
-			<P>Color</P>
-		</TH>
-		<TH>
-			<P>First band (A)</P>
-		</TH>
-		<TH>
-			<P>Second band (B)</P>
-		</TH>
-		<TH>
-			<P>Third band (C)</P>
-		</TH>
-		<TH>
-			<P>Fourth band (D)</P>
-		</TH>
-	</TR>
-	<TR>
-		<TD>
-			<P STYLE="background: #000000">Black</P>
-		</TD>
-		<TD>
-			<P>0</P>
-		</TD>
-		<TD SDVAL="0" SDNUM="1033;">
-			<P>0</P>
-		</TD>
-		<TD SDVAL="1" SDNUM="1033;">
-			<P>1</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P STYLE="background: #804c19">Brown</P>
-		</TD>
-		<TD SDVAL="1" SDNUM="1033;">
-			<P>1</P>
-		</TD>
-		<TD SDVAL="1" SDNUM="1033;">
-			<P>1</P>
-		</TD>
-		<TD SDVAL="10" SDNUM="1033;">
-			<P>10</P>
-		</TD>
-		<TD SDVAL="0.01" SDNUM="1033;0;0.00%">
-			<P>1.00%</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P STYLE="background: #ff0000">Red</P>
-		</TD>
-		<TD SDVAL="2" SDNUM="1033;">
-			<P>2</P>
-		</TD>
-		<TD SDVAL="2" SDNUM="1033;">
-			<P>2</P>
-		</TD>
-		<TD SDVAL="100" SDNUM="1033;">
-			<P>100</P>
-		</TD>
-		<TD SDVAL="0.02" SDNUM="1033;0;0.00%">
-			<P>2.00%</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P STYLE="background: #ff420e">Orange</P>
-		</TD>
-		<TD SDVAL="3" SDNUM="1033;">
-			<P>3</P>
-		</TD>
-		<TD SDVAL="3" SDNUM="1033;">
-			<P>3</P>
-		</TD>
-		<TD SDVAL="1000" SDNUM="1033;">
-			<P>1000</P>
-		</TD>
-		<TD SDVAL="0.03" SDNUM="1033;0;0.00%">
-			<P>3.00%</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P STYLE="background: #ffff00">Yellow</P>
-		</TD>
-		<TD SDVAL="4" SDNUM="1033;">
-			<P>4</P>
-		</TD>
-		<TD SDVAL="4" SDNUM="1033;">
-			<P>4</P>
-		</TD>
-		<TD SDVAL="10000" SDNUM="1033;">
-			<P>10000</P>
-		</TD>
-		<TD SDVAL="0.04" SDNUM="1033;0;0.00%">
-			<P>4.00%</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P STYLE="background: #008000">Green</P>
-		</TD>
-		<TD SDVAL="5" SDNUM="1033;">
-			<P>5</P>
-		</TD>
-		<TD SDVAL="5" SDNUM="1033;">
-			<P>5</P>
-		</TD>
-		<TD SDVAL="100000" SDNUM="1033;">
-			<P>100000</P>
-		</TD>
-		<TD SDVAL="0.005" SDNUM="1033;0;0.00%">
-			<P>0.50%</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P STYLE="background: #0000ff">Blue</P>
-		</TD>
-		<TD SDVAL="6" SDNUM="1033;">
-			<P>6</P>
-		</TD>
-		<TD SDVAL="6" SDNUM="1033;">
-			<P>6</P>
-		</TD>
-		<TD SDVAL="1000000" SDNUM="1033;">
-			<P>1000000</P>
-		</TD>
-		<TD SDVAL="0.0025" SDNUM="1033;0;0.00%">
-			<P>0.25%</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P STYLE="background: #9966cc">Violet</P>
-		</TD>
-		<TD SDVAL="7" SDNUM="1033;">
-			<P>7</P>
-		</TD>
-		<TD SDVAL="7" SDNUM="1033;">
-			<P>7</P>
-		</TD>
-		<TD SDVAL="10000000" SDNUM="1033;">
-			<P>10000000</P>
-		</TD>
-		<TD SDVAL="0.001" SDNUM="1033;0;0.00%">
-			<P>0.10%</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P STYLE="background: #808080">Gray</P>
-		</TD>
-		<TD SDVAL="8" SDNUM="1033;">
-			<P>8</P>
-		</TD>
-		<TD SDVAL="8" SDNUM="1033;">
-			<P>8</P>
-		</TD>
-		<TD SDVAL="100000000" SDNUM="1033;">
-			<P>100000000</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P STYLE="background: #ffffff">White</P>
-		</TD>
-		<TD SDVAL="9" SDNUM="1033;">
-			<P>9</P>
-		</TD>
-		<TD SDVAL="9" SDNUM="1033;">
-			<P>9</P>
-		</TD>
-		<TD SDVAL="1000000000" SDNUM="1033;">
-			<P>1000000000</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P>Gold</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-		<TD SDVAL="0.05" SDNUM="1033;0;0.00%">
-			<P>5.00%</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P>Silver</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-		<TD SDVAL="0.1" SDNUM="1033;0;0.00%">
-			<P>10.00%</P>
-		</TD>
-	</TR>
-	<TR>
-		<TD>
-			<P>(no color)</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-		<TD>
-			<P><BR>
-			</P>
-		</TD>
-		<TD SDVAL="0.2" SDNUM="1033;0;0.00%">
-			<P>20.00%</P>
-		</TD>
-	</TR>
-</TABLE>
+<table class="table">
+    <tr>
+        <th>Color</th>
+        <th>First band (A)</th>
+        <th>Second band (B)</th>
+        <th>Third band (C)</th>
+        <th>Fourth band (D)</th>
+    </tr>
+    <tr>
+        <td style="background-color: black;">
+            Black
+        </td>
+        <td>
+            0
+        </td>
+        <td SDVAL="0" SDNUM="1033;">
+            0
+        </td>
+        <td SDVAL="1" SDNUM="1033;">
+            1
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td style="background-color: #804c19;">
+            Brown
+        </td>
+        <td SDVAL="1" SDNUM="1033;">
+            1
+        </td>
+        <td SDVAL="1" SDNUM="1033;">
+            1
+        </td>
+        <td SDVAL="10" SDNUM="1033;">
+            10
+        </td>
+        <td SDVAL="0.01" SDNUM="1033;0;0.00%">
+            1.00%
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color: red;">
+            Red
+        </td>
+        <td SDVAL="2" SDNUM="1033;">
+            2
+        </td>
+        <td SDVAL="2" SDNUM="1033;">
+            2
+        </td>
+        <td SDVAL="100" SDNUM="1033;">
+            100
+        </td>
+        <td SDVAL="0.02" SDNUM="1033;0;0.00%">
+            2.00%
+        </td>
+    </tr>
+    <tr>
+        <td  style="background-color: orange;">
+            Orange
+        </td>
+        <td SDVAL="3" SDNUM="1033;">
+            3
+        </td>
+        <td SDVAL="3" SDNUM="1033;">
+            3
+        </td>
+        <td SDVAL="1000" SDNUM="1033;">
+            1000
+        </td>
+        <td SDVAL="0.03" SDNUM="1033;0;0.00%">
+            3.00%
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color: #ffff00;">
+            Yellow
+        </td>
+        <td SDVAL="4" SDNUM="1033;">
+            4
+        </td>
+        <td SDVAL="4" SDNUM="1033;">
+            4
+        </td>
+        <td SDVAL="10000" SDNUM="1033;">
+            10000
+        </td>
+        <td SDVAL="0.04" SDNUM="1033;0;0.00%">
+            4.00%
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color: green; color: white;">
+            Green
+        </td>
+        <td SDVAL="5" SDNUM="1033;">
+            5
+        </td>
+        <td SDVAL="5" SDNUM="1033;">
+            5
+        </td>
+        <td SDVAL="100000" SDNUM="1033;">
+            100000
+        </td>
+        <td SDVAL="0.005" SDNUM="1033;0;0.00%">
+            0.50%
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color: blue; color: white;">
+            Blue
+        </td>
+        <td SDVAL="6" SDNUM="1033;">
+            6
+        </td>
+        <td SDVAL="6" SDNUM="1033;">
+            6
+        </td>
+        <td SDVAL="1000000" SDNUM="1033;">
+            1000000
+        </td>
+        <td SDVAL="0.0025" SDNUM="1033;0;0.00%">
+            0.25%
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color: #9966cc; color: white;">
+            Violet
+        </td>
+        <td SDVAL="7" SDNUM="1033;">
+            7
+        </td>
+        <td SDVAL="7" SDNUM="1033;">
+            7
+        </td>
+        <td SDVAL="10000000" SDNUM="1033;">
+            10000000
+        </td>
+        <td SDVAL="0.001" SDNUM="1033;0;0.00%">
+            0.10%
+        </td>
+    </tr>
+    <tr>
+        <td  style="background-color: gray;">
+            Gray
+        </td>
+        <td SDVAL="8" SDNUM="1033;">
+            8
+        </td>
+        <td SDVAL="8" SDNUM="1033;">
+            8
+        </td>
+        <td SDVAL="100000000" SDNUM="1033;">
+            100000000
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td style="background-color: white;">
+            White
+        </td>
+        <td SDVAL="9" SDNUM="1033;">
+            9
+        </td>
+        <td SDVAL="9" SDNUM="1033;">
+            9
+        </td>
+        <td SDVAL="1000000000" SDNUM="1033;">
+            1000000000
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td style="background-color: gold;">
+            Gold
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td SDVAL="0.05" SDNUM="1033;0;0.00%">
+            5.00%
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color: silver;">
+            Silver
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td SDVAL="0.1" SDNUM="1033;0;0.00%">
+            10.00%
+        </td>
+    </tr>
+    <tr>
+        <td>
+            (no color)
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td SDVAL="0.2" SDNUM="1033;0;0.00%">
+            20.00%
+        </td>
+    </tr>
+</table>
 
+<form name="resistors">
+    <select name="bandone"> 
+        <option value=101 selected>*** FIRST ***</option>
+        <option value=101>BLACK</option>
+        <option value=102>BROWN</option>
+        <option value=103>RED</option>
+        <option value=104>ORANGE</option>
+        <option value=105>YELLOW</option>
+        <option value=106>GREEN</option>
+        <option value=107>BLUE</option>
+        <option value=108>VIOLET</option>
+        <option value=109>GRAY</option>
+        <option value=110>WHITE</option>
+    </select>
 
-<FORM name="dropbox">
-<SELECT name=bandone> 
-<OPTION value=101 selected>*** FIRST ***
-<OPTION value=101>	BLACK
-<OPTION value=102>	BROWN
-<OPTION value=103>	RED
-<OPTION value=104>	ORANGE
-<OPTION value=105>	YELLOW
-<OPTION value=106>	GREEN
-<OPTION value=107>	BLUE
-<OPTION value=108>	VIOLET
-<OPTION value=109>	GRAY
-<OPTION value=110>	WHITE
- 
-</option></select>
-   
-<SELECT name=bandtwo> 
-<OPTION value=201 selected>*** SECOND ***
-<OPTION value=201>	BLACK
-<OPTION value=202>	BROWN
-<OPTION value=203>	RED
-<OPTION value=204>	ORANGE
-<OPTION value=205>	YELLOW
-<OPTION value=206>	GREEN
-<OPTION value=207>	BLUE
-<OPTION value=208>	VIOLET
-<OPTION value=209>	GRAY
-<OPTION value=210>	WHITE
- 
-</option></select>
-   
-<SELECT name=bandthree> 
-<OPTION value=301 selected>*** THIRD ***
-<OPTION value=301>	BLACK
-<OPTION value=302>	BROWN
-<OPTION value=303>	RED
-<OPTION value=304>	ORANGE
-<OPTION value=305>	YELLOW
-<OPTION value=306>	GREEN
-<OPTION value=307>	BLUE
-<OPTION value=308>	VIOLET
-<OPTION value=309>	GOLD
-<OPTION value=310>	SILVER
-</option></select>
- 
-   
-<SELECT name=bandfour> 
-<OPTION value=401 selected>*TOLERANCE *
-<OPTION value=401>	NONE
-<OPTION value=402>	SILVER
-<OPTION value=403>	GOLD
- 
-</option></select>
- 
-</form>
-<P>
+    <select name="bandtwo"> 
+        <option value=201 selected>*** SECOND ***</option>
+        <option value=201>BLACK</option>
+        <option value=202>BROWN</option>
+        <option value=203>RED</option>
+        <option value=204>ORANGE</option>
+        <option value=205>YELLOW</option>
+        <option value=206>GREEN</option>
+        <option value=207>BLUE</option>
+        <option value=208>VIOLET</option>
+        <option value=209>GRAY</option>
+        <option value=210>WHITE</option>
+    </select>
 
-<FORM>
-<INPUT onclick=calc() type=button value="CALCULATE" name=ENTER>
+    <select name="bandthree"> 
+        <option value=301 selected>*** THIRD ***</option>
+        <option value=301>BLACK</option>
+        <option value=302>BROWN</option>
+        <option value=303>RED</option>
+        <option value=304>ORANGE</option>
+        <option value=305>YELLOW</option>
+        <option value=306>GREEN</option>
+        <option value=307>BLUE</option>
+        <option value=308>VIOLET</option>
+        <option value=309>GOLD</option>
+        <option value=310>SILVER</option>
+    </select>
+
+    <select name="bandfour"> 
+        <option value=401 selected>* TOLERANCE *</option>
+        <option value=401>NONE</option>
+        <option value=402>SILVER</option>
+        <option value=403>GOLD</option>
+    </select>
+
 </form>
-<P>                  
-<FORM name=outbox> 
-<INPUT type=text size=60 name=z1>
+
+<br />
+
+<form>
+    <input onclick=calculate() type="button" value="CALCULATE">
 </form>
+
+<br />
+
+<form name="outbox"> 
+    <input type="text" size=60 name="z1">
+</form>
+
+<br />
 
 <P>
     Additional information concerning the Axial Lead resistor can be obtained if the
     first band is a wide band.
 </P>
 
-<P STYLE="margin-bottom: 0in">(Case
+<p style="margin-bottom: 0in">(Case
 1) if only the first band is wide than the resistor is wire wound.</P>
-<P ALIGN=JUSTIFY STYLE="margin-bottom: 0in">(Case
+<p style="text-align: justify;" STYLE="margin-bottom: 0in">(Case
 2) if the first band is wide and there is also a blue fifth band to
-the right of the fourth band than the resistor is wirewound and flame
+the right of the fourth band than the resistor is wire wound and flame
 proof.</P>
 
 <h2>Variable Resistors</h2>
 
-<P>
+<p>
     Variable resistors, also known as
     potentiometers (pots) let you adjust a resistor to a specific
     resistance. The actual range of resistance is determined by the
     upward value of the potentiometer. Potentiometers are thus marked
     with this upward value, such as 10K, 50K, 100K, 1M, and so forth.
-</P>
+</p>
 
-<P><B>Example:</B>
+<p><b>Example:</b>
 A 50K potentiometer will let you set any resistance any ware from 0
-to 50000 ohms.</P>
+to 50000 ohms.</p>
 
-<P>
+<p>
     Potentiometers are either the dial or slide type.
     The rotation of the dial type is nearly 360&deg;,
     depending on the type of potentiometer.
