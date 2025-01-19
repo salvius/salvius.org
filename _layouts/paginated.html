@@ -12,7 +12,9 @@
                     {% endif %}
                 </div>
                 <div class="col-xs-4 text-center">
+                    {% if page.index_url %}
                     <a class="btn btn-default white-outline {{ page.color_class }}" href="{{ page.index_url }}">Main</a>
+                    {% endif %}
                 </div>
                 <div class="col-xs-4 text-right">
                     {% if page.next %}

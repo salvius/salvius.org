@@ -61,6 +61,7 @@ defaults:
   - scope:
       type: posts
     values:
+      index_url: /updates/
       layout: post
 
 meta_tags:
