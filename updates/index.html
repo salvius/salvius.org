@@ -1,0 +1,93 @@
+---
+layout: page
+title: "Salvius Robot Project Updates"
+---
+
+{% if site.paginate %}
+    {% assign posts = paginator.posts %}
+{% else %}
+    {% assign posts = site.posts %}
+{% endif %}
+
+<div class="container color-white">
+
+    <div class="alert alert-success" style="margin-top: 30px">
+        <i class="fa fa-info-circle"></i>
+        This is a feed of smaller announcements and project updates. Larger articles and blog posts can be accessed at <a href="https://blog.salvius.org">blog.salvius.org</a>
+    </div>
+
+    {% for page in posts %}
+
+        <div class="container color-white">
+
+            <div class="row post">
+                <div class="hidden-xs col-sm-2">
+
+                    {% include blog_date.html %}
+
+                </div>
+                <div class="col-xs-12 col-sm-10">
+
+                    <a href="{{ page.url }}">
+                        <h1>{{ page.title }}</h1>
+                    </a>
+                    <hr/>
+
+                    {{ page.content }}
+
+                </div>
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+    {% if site.paginate %}
+    <nav class="text-center">
+        <ul class="pagination pagination-lg">
+            <li {% if paginator.previous_page %}{% else %}class="disabled"{% endif %}>
+                {%- if paginator.previous_page %}
+                    <a href="{{ paginator.previous_page_path | relative_url }}" aria-label="Previous">
+                        &laquo; Newer
+                    </a>
+                {%- else %}
+                    <a href="#" aria-label="Previous">
+                        &laquo; Newer
+                    </a>
+                {%- endif %}
+            </li>
+            {%- if paginator.previous_page %}
+                <li>
+                    <a href="{{ paginator.previous_page_path | relative_url }}" aria-label="Page {{ paginator.previous_page }}">
+                        {{ paginator.previous_page }}
+                    </a>
+                </li>
+            {%- endif %}
+
+            <li class="active">
+                <a href="{{ paginator.page_path | relative_url }}" aria-label="Page {{ paginator.page }}">{{ paginator.page }}</a>
+            </li>
+
+            {%- if paginator.next_page %}
+                <li>
+                    <a href="{{ paginator.next_page_path | relative_url }}" aria-label="Page {{ paginator.next_page }}">
+                        {{ paginator.next_page }}
+                    </a>
+                </li>
+            {%- endif %}
+            <li {% if paginator.next_page %}{% else %}class="disabled"{% endif %}>
+                {%- if paginator.next_page %}
+                    <a href="{{ paginator.next_page_path | relative_url }}" aria-label="Next">
+                        Older &raquo;
+                    </a>
+                {%- else %}
+                    <a href="#" aria-label="Next">
+                        Older &raquo;
+                    </a>
+                {%- endif %}
+            </li>
+        </ul>
+    </nav>
+    {%- endif %}
+
+</div>

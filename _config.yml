@@ -23,9 +23,13 @@ email: gunthercx@gmail.com
 google_analytics: UA-12573345-9
 twitter_username: salviusrobot
 github_username:  gunthercox
-google_plus_username: gunthercox
 
-permalink: /blog/:year/:month/:title/
+permalink: /updates/:year/:month/:title/
+
+paginate_path: "/updates/page/:num/"
+paginate: 6
+
+show_drafts: false
 
 collections:
   notes:
@@ -61,6 +65,7 @@ defaults:
 
 meta_tags:
   - <meta name="google-site-verification" content="ONW7FjhOnQbl0qdKKOUYXBxf-4ERt8FfB30p6dl0WUQ" />
+  - <meta name="p:domain_verify" content="7a9bfe48a18aed6de19c56e4e80c726e"/>
   - <meta content="https://salvius.org/images/main/succeed.jpg" property="og:image"/>
   - <meta content="https://salvius.org/images/main/first_snow.jpg" property="og:image"/>
   - <meta content="https://blog.salvius.org/2015/01/salvius-gives-thumbs-up-to-students-at.html" property="og:see_also"/>
@@ -93,6 +98,7 @@ theme: bravissimo
 
 plugins:
   - jekyll-sitemap
+  - jekyll-paginate
 
 exclude:
   - readme.md
