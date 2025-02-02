@@ -1,5 +1,5 @@
 ---
-title: Choosing a license for your robot's software
+title: Choosing a licence for your robot's software
 ---
 
 I like to encourage developers and engineers to open source their robotics projects when possible. Obviously the nature of intellectual property and ownership does not always permit this, and there is still a great amount of proprietary software that many businesses rely on which cannot be open sourced.

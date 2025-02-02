@@ -34,7 +34,7 @@ Infrared lasers are used in cd and dvd players, be careful if testing a part fro
 
 Capacitors in old monitors and televisions can store a charge of several hundred volts without even being plugged into an electrical socket.
 
-Most devices are completely safe to take apart. It is better to be safe than sorry so do research on the devices you are taking apart. You will soon learn to quickly identify what gadgets contin useful parts and what ones you don't need to waste your time with. Stay safe and learn what these used devices have to offer.
+Most devices are completely safe to take apart. It is better to be safe than sorry so do research on the devices you are taking apart. You will soon learn to quickly identify what gadgets contain useful parts and what ones you don't need to waste your time with. Stay safe and learn what these used devices have to offer.
 
 ## Raw Materials
 
