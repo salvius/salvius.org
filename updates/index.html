@@ -64,9 +64,17 @@ title: "Salvius Robot Project Updates"
                 </li>
             {%- endif %}
 
+            {%- for page in (1..paginator.total_pages) %}
+            {%- if page == paginator.page %}
             <li class="active">
-                <a href="{{ paginator.page_path | relative_url }}" aria-label="Page {{ paginator.page }}">{{ paginator.page }}</a>
+                {%- if page == 1 %}
+                    <a href="{{ site.paginate_path | relative_url | replace: 'page/:num/', '' }}" aria-label="Page {{ paginator.page }}">{{ page }}</a>
+                {% else %}
+                    <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" aria-label="Page {{ paginator.page }}">{{ page }}</a>
+                {%- endif %}
             </li>
+            {%- endif %}
+            {%- endfor %}
 
             {%- if paginator.next_page %}
                 <li>
