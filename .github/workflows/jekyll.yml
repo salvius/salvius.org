@@ -50,6 +50,11 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+          # Speeds up installation of html-proofer
+          NOKOGIRI_USE_SYSTEM_LIBRARIES: true
+      -name: Test
+        run: bundle exec htmlproofer ./_site --disable-external --ignore_urls "/resisto.rs/"
+        # --ignore_urls "/0.0.0.0/,/resisto.rs/"
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
