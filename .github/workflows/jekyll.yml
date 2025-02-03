@@ -52,7 +52,7 @@ jobs:
           JEKYLL_ENV: production
           # Speeds up installation of html-proofer
           NOKOGIRI_USE_SYSTEM_LIBRARIES: true
-      -name: Test
+      - name: Test
         run: bundle exec htmlproofer ./_site --disable-external --ignore_urls "/resisto.rs/"
         # --ignore_urls "/0.0.0.0/,/resisto.rs/"
       - name: Upload artifact
