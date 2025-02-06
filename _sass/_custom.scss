@@ -171,6 +171,10 @@ a.white-outline:hover {
     color: #222;
 }
 
+.panel {
+    margin-bottom: 0px;
+}
+
 .panel-heading {
     overflow: hidden;
 }
@@ -200,12 +204,6 @@ ul.no-space {
 
 ul.no-space img {
     width: 100%;
-}
-
-.parallax-window {
-    min-height: 720px;
-    background: transparent;
-    padding: 200px 0px!important;
 }
 
 picture, picture * {
@@ -545,4 +543,95 @@ h1, .h1 {
 
 #specificationCarousel .item:hover .image img {
     transform: scale(1.1);
+}
+
+/* Defaults overridden by media queries */
+.bg-responsive-succeed {
+    background: url(/images/main/succeed.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.bg-responsive-snow {
+    background: url(/images/main/first_snow.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.bg-responsive-nature {
+    background: url(/images/main/nature.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+@media (max-width: 3200px) {
+    .bg-responsive-snow {
+        background: url(/images/main/first_snow-3200px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+    .bg-responsive-nature {
+        background: url(/images/main/nature-3200px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 2400px) {
+    .bg-responsive-succeed {
+        background: url(/images/main/succeed-2400px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+    .bg-responsive-snow {
+        background: url(/images/main/first_snow-2400px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+    .bg-responsive-nature {
+        background: url(/images/main/nature-2400px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 1200px) {
+    .bg-responsive-succeed {
+        background: url(/images/main/succeed-1200px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+    .bg-responsive-snow {
+        background: url(/images/main/first_snow-1200px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+    .bg-responsive-nature {
+        background: url(/images/main/nature-1200px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 1024px) {
+    .bg-responsive-succeed {
+        background: url(/images/main/succeed-1024px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+    .bg-responsive-snow {
+        background: url(/images/main/first_snow-1024px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+    .bg-responsive-nature {
+        background: url(/images/main/nature-1024px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 800px) {
+    .bg-responsive-succeed {
+        background: url(/images/main/succeed-800px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+    .bg-responsive-snow {
+        background: url(/images/main/first_snow-800px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+    .bg-responsive-nature {
+        background: url(/images/main/nature-800px.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+}
+
+
+.py-30 {
+    padding-top: 250px;
+    padding-bottom: 250px
 }
