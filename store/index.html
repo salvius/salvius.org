@@ -35,18 +35,20 @@ title: Robot Store
             </p>
         </div>
     </div>
+
+    {% assign products = site.pages | where: "layout", "product" %}
+
     <div class="col-sm-8 col-md-9">
-        {% for product in site.pages %}
+        {%- for product in products %}
 
-            {% assign mod = forloop.index0 | modulo:3 %}
+        {%- assign mod = forloop.index | modulo:3 %}
 
-            {% if mod == 0 %}
-                <div class="row">
-            {% endif %}
+        {%- if mod == 1 %}
+            <div class="row">
+        {%- endif %}
 
-            {% if product.layout == "product" %}
                 <div class="col-sm-4">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" style="margin-bottom: 30px;">
                         <div class="panel-body">
                             <a href="{{ product.url | prepend: site.baseurl }}">
                                 <img class="img-responsive" src="{{ product.image | prepend: site.baseurl }}" alt="{{ product.title }}">
@@ -62,12 +64,10 @@ title: Robot Store
                         </div>
                     </div>
                 </div>
-            {% endif %}
 
-
-            {% if mod == 0 %}
-                </div>
-            {% endif %}
-        {% endfor %}
+        {%- if mod == 0 or forloop.last %}
+            </div>
+        {% endif %}
+    {%- endfor %}
     </div>
 </div>
