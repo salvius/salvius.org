@@ -13,7 +13,7 @@ GEM
       traces (~> 0.15)
     base64 (0.2.0)
     bigdecimal (3.1.9)
-    bravissimo (0.1.4)
+    bravissimo (0.1.5)
       jekyll (~> 4.3)
       kramdown-parser-gfm (~> 1.1)
     colorator (1.1.0)
@@ -39,7 +39,7 @@ GEM
       bigdecimal
       rake (>= 13)
     hashery (2.1.2)
-    html-proofer (5.0.9)
+    html-proofer (5.0.10)
       addressable (~> 2.3)
       async (~> 2.1)
       nokogiri (~> 1.13)
@@ -114,7 +114,7 @@ GEM
     rouge (4.5.1)
     ruby-rc4 (0.1.5)
     safe_yaml (1.0.5)
-    sass-embedded (1.85.0)
+    sass-embedded (1.85.1)
       google-protobuf (~> 4.29)
       rake (>= 13)
     sinatra-cross_origin (0.3.2)
@@ -134,7 +134,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bravissimo (>= 0.1.3, < 2.0)
+  bravissimo (>= 0.1.5, < 2.0)
   html-proofer
   jekyll-feed (~> 0.17)
   jekyll-paginate
