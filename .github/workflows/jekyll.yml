@@ -43,6 +43,8 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Setup apt Dependencies
+        run: sudo apt-get update && sudo apt-get install -y libvips-dev libpng-dev libjpeg-dev imagemagick
       - name: Upgrade Jekyll
         run: gem install jekyll
       - name: Build with Jekyll
