@@ -38,6 +38,8 @@ collections:
     output: true
   spec:
     output: true
+  library:
+    output: false
 
 defaults:
 
@@ -63,6 +65,11 @@ defaults:
     values:
       index_url: /updates/
       layout: post
+
+  - scope:
+      type: library
+    values:
+      display: true
 
 meta_tags:
   - <meta name="google-site-verification" content="ONW7FjhOnQbl0qdKKOUYXBxf-4ERt8FfB30p6dl0WUQ" />

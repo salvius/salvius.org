@@ -1,0 +1,198 @@
+---
+layout: default
+title: Library
+---
+
+<div class="container-fluid color-prestige inset-shadow">
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-sm-12">
+                <h1>Library</h1>
+
+                <p class="lead">
+                    Learning from a wide range of sources and materials is far better than any single source. Housed within this library are a collection of books that we've found to be particularly useful in my own learning, as well as some of my favorite works of fiction.
+                    The worn covers, curled pages, and ample bookmarks visible in some of these photos are hopefully and indication of the value that I have found in these resources.
+                    <br/>
+                    - Gunther
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container color-white">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>
+                Books We Love
+                <i class="fa fa-heart pull-right" aria-hidden="true"></i>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for item in site.library %}
+            {% if item.favorite %}
+
+            <div class="col-sm-4">
+                {% include library_item.html %}
+            </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <br />
+            <b>Notes:</b>
+            <ol>
+            {% for item in site.library %}
+            {% if item.favorite and item.notes %}
+                <li class="mt-1">{{ item.notes }}</li>
+            {% endif %}
+            {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>
+                Software and Engineering
+                <i class="fa fa-code pull-right" aria-hidden="true"></i>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for item in site.library %}
+            {% if item.display and item.favorite == false and item.categories contains "Software Engineering" or item.categories contains "Engineering" %}
+
+            <div class="col-sm-4">
+                {% include library_item.html %}
+            </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <br />
+            <b>Notes:</b>
+            <ol>
+            {% for item in site.library %}
+            {% if item.display and item.favorite == false and item.categories contains "Software Engineering" or item.categories contains "Engineering" and item.notes %}
+                <li class="mt-1">{{ item.notes }}</li>
+            {% endif %}
+            {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>
+                Electronics
+                <i class="fa fa-lightbulb-o pull-right" aria-hidden="true"></i>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for item in site.library %}
+            {% if item.display and item.favorite == false and item.categories contains "Electronics" %}
+
+            <div class="col-sm-4">
+                {% include library_item.html %}
+            </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <br />
+            <b>Notes:</b>
+            <ol>
+            {% for item in site.library %}
+            {% if item.display and item.favorite == false and item.categories contains "Electronics" and item.notes %}
+                <li class="mt-1">{{ item.notes }}</li>
+            {% endif %}
+            {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>
+                Fiction
+                <i class="fa fa-cog pull-right" aria-hidden="true"></i>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for item in site.library %}
+            {% if item.display and item.favorite == false and item.categories contains "Fiction" %}
+
+            <div class="col-sm-4">
+                {% include library_item.html %}
+            </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <br />
+            <b>Notes:</b>
+            <ol>
+            {% for item in site.library %}
+            {% if item.display and item.favorite == false and item.categories contains "Fiction" and item.notes %}
+                <li class="mt-1">{{ item.notes }}</li>
+            {% endif %}
+            {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>
+                Movies and Music
+                <i class="fa fa-camera pull-right" aria-hidden="true"></i>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for item in site.library %}
+            {% if item.display and item.favorite == false and item.categories contains "Music" or item.categories contains "Movie" %}
+
+            <div class="col-sm-4">
+                {% include library_item.html %}
+            </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <br />
+            <b>Notes:</b>
+            <ol>
+            <li class="mt-1">
+                If you're a fan of any of these classics, you might also enjoy the upcoming exhibit we're going to be adding to the Robotics wing of the Gunther Cox Digital Museum: <a href="https://museum.gunthercox.com/science/technology/robotics/">museum.gunthercox.com/science/technology/robotics/</a>. Keep an eye out for the new exhibit featuring some of our favorite robots in film and television history.
+            </li>
+            {% for item in site.library %}
+            {% if item.display and item.favorite == false and item.categories contains "Music" or item.categories contains "Movie" and item.notes %}
+                <li class="mt-1">{{ item.notes }}</li>
+            {% endif %}
+            {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <br/>
+        </div>
+    </div>
+</div>
