@@ -1,9 +1,12 @@
 - name: YouTube
   url: https://www.youtube.com/user/salviusrobot/videos
-  icon_class: fa fa-youtube
+  icon_class: fa-brands fa-youtube
+- name: Bluesky
+  url: https://bsky.app/profile/salvius.org
+  icon_class: fa-brands fa-bluesky
 - name: Twitter
   url: https://twitter.com/salviusrobot
-  icon_class: fa fa-twitter
+  icon_class: fa-brands fa-twitter
 - name: Facebook
   url: https://www.facebook.com/salviusrobot
-  icon_class: fa fa-facebook
+  icon_class: fa-brands fa-facebook

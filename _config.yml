@@ -24,6 +24,9 @@ google_analytics: UA-12573345-9
 twitter_username: salviusrobot
 github_username:  gunthercox
 
+# Use a file name that doesn't override "main.css" from the theme
+css_file: /assets/css/site.css
+
 permalink: /updates/:year/:month/:title/
 
 paginate_path: "/updates/page/:num/"
