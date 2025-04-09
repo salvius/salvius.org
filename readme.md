@@ -19,7 +19,8 @@ salvius.org
 ## Collaboration
 
 - **Stay connected on...**
-- [YouTube](https://www.youtube.com/user/salviusrobot/videos)
+- [YouTube](https://www.youtube.com/@SalviusRobot)
+- [Bluesky](https://bsky.app/profile/salvius.org)
 - [Twitter](https://twitter.com/salviusrobot)
 - [Facebook](https://www.facebook.com/salviusrobot)
 

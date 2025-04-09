@@ -1,5 +1,5 @@
 - name: YouTube
-  url: https://www.youtube.com/user/salviusrobot/videos
+  url: https://www.youtube.com/@SalviusRobot
   icon_class: fa-brands fa-youtube
 - name: Bluesky
   url: https://bsky.app/profile/salvius.org
