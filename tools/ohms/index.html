@@ -1,0 +1,87 @@
+---
+layout: page
+title: Ohm's Law Calculator
+extra_js:
+  - /js/apps/ohms-law-calculator.js
+---
+
+<style>
+    .calculator {
+        background: rgba(255,255,255,0.08);
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        max-width: 400px;
+        width: 100%;
+    }
+    .calculator h1 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+    }
+    .calculator input {
+        width: 100%;
+        padding: 0.6rem;
+        margin: 0.5rem 0;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+    button {
+        flex: 1;
+        margin: 0.25rem;
+        padding: 0.7rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    button.calculate {
+        background: #3b82f6;
+        color: #fff;
+    }
+    button.calculate:hover {
+        background: #2563eb;
+    }
+    button.reset {
+        background: #94a3b8;
+        color: #000;
+    }
+    button.reset:hover {
+        background: #64748b;
+        color: #fff;
+    }
+</style>
+
+<div class="row color-navy inset-shadow">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <h1>Ohm's Law Calculator</h1>
+        <p class="lead">
+            This tool can be used to calculate the relationship between
+            voltage, current, resistance, and power in an electrical circuit.
+        </p>
+
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                  <div class="calculator">
+                    <input type="number" id="voltage" placeholder="Voltage (V)">
+                    <input type="number" id="current" placeholder="Current (I)">
+                    <input type="number" id="resistance" placeholder="Resistance (R)">
+                    <input type="number" id="power" placeholder="Power (P)">
+                    <div class="buttons">
+                    <button class="calculate" onclick="calculate()">Calculate</button>
+                    <button class="reset" onclick="resetForm()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
