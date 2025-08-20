@@ -1,22 +1,19 @@
 ---
 layout: page
-title: Robot Store
+title: The Bot Shop
 ---
 
 <div class="row color-forest">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="page-header">
             <h1>
-                The Robot Store
-                <span class="label label-warning pull-right">beta</span>
+                {{ page.title }}
+                <i class="fa-solid fa-robot pull-right" aria-hidden="true"></i>
             </h1>
         </div>
 
         <p class="lead">
-            The Robot Store is an idea to create a marketplace for custom parts
-            and kits modeled after Salvius.
-            <strong>These products are currently
-            unavailable for sale.</strong>
+            Welcome to The Bot Shop, now featuring our first publication: a coloring book based on Salvius!
         </p>
     </div>
 </div>
@@ -24,21 +21,48 @@ title: Robot Store
 <br/>
 
 <div class="row">
-    <div class="col-sm-4 col-md-3">
-        <div class="well">
-            <h2>{{ page.title }}</h2>
+    <div class="col-xs-12">
+        <img class="img-responsive" src="/images/library/robot-science-coloring-book-cover-banner.jpg" alt="The Robot Science Coloring Book">
 
-            <p>
-                The robot store allows you to get the supplies you
-                need to start building your robots. Each kit is
-                modeled after Salvius.
-            </p>
+        <h2 class="text-center">The Robot Science Coloring Book</h2>
+        <p class="lead text-center">
+            This coloring book features over 30 pages based on the robotic designs of Salvius.
+            Page themes cover concepts around where raw materials used to build robots
+            originate from, how various components are made, as well as various types of
+            electronic components and what they are used for. From robotic arms used in
+            factories, to humanoid robots designed to work alongside people, the world of
+            robotics is intriguing and filled with new ideas to learn about.
+        </p>
+        <div class="text-center">
+            <a href="https://amzn.to/41K298G" class="btn btn-default btn-lg white-outline color-darkorange">
+                <i class="fa-solid fa-shopping-cart"></i> Buy on Amazon
+            </a>
         </div>
     </div>
+</div>
 
+<br/><br/><br/>
+<br/><br/><br/>
+
+<div class="row color-putty">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <h2>
+            Discontinued Items
+        </h2>
+
+        <p class="lead">
+            Small kits modeled after Salvius are not currently available for sale, but they may return in the future.
+        </p>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
     {% assign products = site.pages | where: "layout", "product" %}
 
-    <div class="col-sm-8 col-md-9">
+    <div class="col-sm-12>
         {%- for product in products %}
 
         {%- assign mod = forloop.index | modulo:3 %}
