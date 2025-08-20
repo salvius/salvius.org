@@ -58,6 +58,25 @@ title: Library
     <div class="row">
         <div class="col-sm-12">
             <h2>
+                Our Publications
+                <i class="fa-solid fa-code pull-right" aria-hidden="true"></i>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for item in site.library %}
+            {% if item.display and item.favorite == false and item.categories contains "Publications" %}
+
+            <div class="col-sm-4">
+                {% include library_item.html %}
+            </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>
                 Software and Engineering
                 <i class="fa-solid fa-code pull-right" aria-hidden="true"></i>
             </h2>
