@@ -3,66 +3,71 @@ layout: default
 title: Library
 ---
 
-<div class="container-fluid color-prestige inset-shadow">
+<section class="container-fluid color-prestige inset-shadow">
     <div class="container">
         <div class="row mt-3">
             <div class="col-sm-12">
-                <h1>Library</h1>
+                <header>
+                    <h1>Library</h1>
 
-                <p class="lead">
-                    Learning from a wide range of sources and materials is far better than any single source. Housed within this library are a collection of books that we've found to be particularly useful in my own learning, as well as some of my favorite works of fiction.
-                    The worn covers, curled pages, and ample bookmarks visible in some of these photos are hopefully and indication of the value that I have found in these resources.
-                    <br/>
-                    - Gunther
-                </p>
+                    <p class="lead">
+                        Learning from a wide range of sources and materials is far better than any single source. Housed within this library are a collection of books that we've found to be particularly useful in my own learning, as well as some of my favorite works of fiction.
+                        The worn covers, curled pages, and ample bookmarks visible in some of these photos are hopefully and indication of the value that I have found in these resources.
+                        <br/>
+                        - Gunther
+                    </p>
+                </header>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <div class="container color-white">
 
-    <div class="row">
-        <div class="col-sm-12">
-            <h2>
-                Books We Love
-                <i class="fa-solid fa-heart pull-right" aria-hidden="true"></i>
-            </h2>
-        </div>
-    </div>
-    <div class="row">
-        {% for item in site.library %}
-            {% if item.favorite %}
-
-            <div class="col-sm-4">
-                {% include library_item.html %}
+    <section aria-labelledby="books-we-love">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 id="books-we-love">
+                    Books We Love
+                    <i class="fa-solid fa-heart pull-right" aria-hidden="true"></i>
+                </h2>
             </div>
-
-            {% endif %}
-        {% endfor %}
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <br />
-            <b>Notes:</b>
-            <ol>
+        </div>
+        <div class="row">
             {% for item in site.library %}
-            {% if item.favorite and item.notes %}
-                <li class="mt-1">{{ item.notes }}</li>
-            {% endif %}
-            {% endfor %}
-            </ol>
-        </div>
-    </div>
+                {% if item.favorite %}
 
-    <div class="row">
-        <div class="col-sm-12">
-            <h2>
-                Our Publications
-                <i class="fa-solid fa-code pull-right" aria-hidden="true"></i>
-            </h2>
+                <article class="col-sm-4">
+                    {% include library_item.html %}
+                </article>
+
+                {% endif %}
+            {% endfor %}
         </div>
-    </div>
+        <footer class="row">
+            <div class="col-sm-12">
+                <br />
+                <strong>Notes:</strong>
+                <ol>
+                {% for item in site.library %}
+                {% if item.favorite and item.notes %}
+                    <li class="mt-1">{{ item.notes }}</li>
+                {% endif %}
+                {% endfor %}
+                </ol>
+            </div>
+        </footer>
+    </section>
+
+    <section aria-labelledby="our-publications">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 id="our-publications">
+                    Our Publications
+                    <i class="fa-solid fa-code pull-right" aria-hidden="true"></i>
+                </h2>
+            </div>
+        </div>
     <div class="row">
         {% for item in site.library %}
             {% if item.display and item.favorite == false and item.categories contains "Publications" %}
