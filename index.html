@@ -5,260 +5,266 @@ extra_js:
   - /js/mainpage.js
 ---
 
-<div class="row color-soil inset-shadow js-first-row">
-    <div class="col-sm-10 col-sm-offset-1">
-        <div class="page-header">
-            <h1 id="meet-salvius">
-                Meet Salvius!
-                <small class="text-success">A humanoid robot built from recycled materials.</small>
-                <i class="fa-solid fa-leaf text-success pull-right" aria-hidden="true"></i>
-            </h1>
-        </div>
-        <p class="lead">
-            <img src="/images/vectors/head.svg" class="pull-left" height="200" alt="Salvius">
-            {{ site.description }}
-        </p>
-    </div>
-</div>
-
-<div class="row bg-responsive-succeed py-30">
-    <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
-        <div class="panel panel-default white-outline color-darkorange">
-            <div class="panel-body text-center">
-                <i class="fa-solid fa-large fa-gear" aria-hidden="true"></i>
-                <h2>
-                    The Bot Shop
-                </h2>
-                <p class="lead">
-                    Check out our robot shop!<br/>
-                    Featuring a growing collection of robot related publications
-                    with additional items coming soon.
-                </p>
-                <a href="/store/" class="btn btn-default btn-lg white-outline color-darkorange">EXPLORE</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="software" class="row color-forest inset-shadow">
-    <div class="col-sm-10 col-sm-offset-1">
-        <div class="page-header">
-            <h1>
-                Open Source Software
-                <i class="fa-regular fa-lightbulb yellow-glow animate pull-right" aria-hidden="true"></i>
-            </h1>
-        </div>
-
-        <p class="lead">
-            A minimal amount of code has been written specifically for Salvius.
-            Instead, this project aims to create and promote the development of
-            more robust software libraries that have extensive use cases
-            throughout the software community.
-        </p>
-
-        <div class="row">
-
-            <div class="col-sm-4">
-                <div class="card hovercard color-white">
-                    <div class="cardheader color-navy">
-
-                    </div>
-                    <div class="avatar">
-                        <img src="/images/vectors/head.svg" alt="Salvius" class="color-white">
-                    </div>
-                    <div class="info">
-                        <div class="title">
-                            Salvius
-                        </div>
-                        <p class="lead">
-                            Salvius is a humanoid robot made from recycled parts.
-                        </p>
-                    </div>
-                    <div class="bottom">
-                        <a class="btn btn-info btn-lg" href="https://twitter.com/salviusrobot" aria-label="Salvius on Twitter" target="_blank">
-                            <i class="fa-brands fa-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a class="btn btn-primary btn-lg" href="https://www.facebook.com/salviusrobot" aria-label="Salvius on Facebook" target="_blank">
-                            <i class="fa-brands fa-facebook" aria-hidden="true"></i>
-                        </a>
-                        <a class="btn btn-default btn-lg" href="https://github.com/gunthercox/salvius" aria-label="Salvius source code on GitHub" target="_blank">
-                            <i class="fa-brands fa-github" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="card hovercard color-white">
-                    <div class="cardheader color-prestige">
-
-                    </div>
-                    <div class="avatar">
-                        <img src="/images/logos/chatterbot.png" alt="ChatterBot">
-                    </div>
-                    <div class="info">
-                        <div class="title">
-                            ChatterBot
-                        </div>
-                        <p class="lead">
-                            ChatterBot is a machine learning, conversational dialog engine.
-                        </p>
-                    </div>
-                    <div class="bottom">
-                        <a class="btn btn-success btn-lg" href="https://docs.chatterbot.us/" aria-label="ChatterBot Documentation" target="_blank">
-                            <i class="fa-solid fa-home" aria-hidden="true"></i>
-                        </a>
-                        <a class="btn btn-default btn-lg" href="https://github.com/gunthercox/ChatterBot" aria-label="ChatterBot source code on GitHub" target="_blank">
-                            <i class="fa-brands fa-github" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-
-                <div class="card hovercard color-white">
-                    <div class="cardheader color-rust">
-
-                    </div>
-                    <div class="avatar">
-                        <img src="/images/logos/zorg.svg" alt="Zorg" class="color-white">
-                    </div>
-                    <div class="info">
-                        <div class="title">
-                            Zorg
-                        </div>
-                        <p class="lead">Zorg is a framework for robotics and physical computing.</p>
-                    </div>
-                    <div class="bottom">
-                        <a class="btn btn-danger btn-lg" href="https://zorg.github.io/" aria-label="Zorg website" target="_blank">
-                            <i class="fa-solid fa-home" aria-hidden="true"></i>
-                        </a>
-                        <a class="btn btn-default btn-lg" href="https://github.com/zorg/" aria-label="Zorg source code on GitHub" target="_blank">
-                            <i class="fa-brands fa-github" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<div id="engineering" class="row row-banner color-prestige">
-    {% include open_specification_heading.html %}
-    {% include navigation.topics.html %}
-</div>
-
-<div class="row bg-responsive-snow py-30">
-    <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
-        <div class="panel panel-default color-navy white-outline" id="snowImage">
-            <div class="panel-body">
-                <h2 class="text-center">
-                    <i class="fa-solid fa-location-dot fa-large" aria-hidden="true"></i>
-                    Salvius Travels
-                </h2>
-                <p class="lead">
-                    Salvius travels to a variety of locations. The goal of this
-                    initiative is to improve the project's development while
-                    simultaneously creating opportunities for people to work with
-                    new and cutting edge technologies.
-                    The robot has been the center of workshops and presentations,
-                    the robot also serves as a great platform for developing at
-                    hackathons and maker fairs.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="story" class="row color-darkgray inset-shadow">
-    <div class="col-sm-10 col-sm-offset-1">
-        <div class="page-header">
-            <h1>
-                Story
-                <i class="fa-solid fa-rocket pull-right" aria-hidden="true"></i>
-            </h1>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-4">
-                <img src="/images/news02.jpg" class="img-responsive hidden-xs" alt="Salvius news article"/>
-            </div>
-            <div class="col-sm-8">
-                <p class="lead">
-                    I have always had a deep interest in learning about technology. In truth, I have never owned an electronic device for long without disassembling it to see how it works. I find the field of robotics compelling because it combines every field of science with a single subject. Studying robotics teaches people about anatomy, biology, chemistry, mathematics, physics, engineering, etc. and this list just keeps going on. In high school, I began an open source robotics project with the goal of teaching others about robotics while simultaneously furthering my own knowledge.
-                </p>
-                <p class="lead">
-                    In 2013 I started a campaign to raise funding and get supplies to further develop Salvius. Since then, I have had some incredible opportunities meet and collaborate with countless brilliant individuals.
-                </p>
-
-                <div class="panel panel-success color-orange white-outline">
-                    <div class="panel-body">
-                        <em class="lead">
-                            I have never owned an electronic device for long without disassembling it to see how it works. @salviusrobot
-                        </em>
-                        <br/>
-                        <a href="https://twitter.com/share?text=I+have+never+owned+an+electronic+device+for+long+without disassembling+it+to+see+how+it+works.+%40salviusrobot&url=https://salvius.org" class="btn btn-xs color-orange white-outline pull-right" target="_blank">Retweet</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<div class="row bg-responsive-nature py-30">
-    <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
-        <div class="panel panel-default color-softgreen white-outline">
-            <div class="panel-body">
-
-                <h1>Subscribe</h1>
-                <h5>Connect and stay up to date with project updates from our project.</h5>
-                <br/>
-                <p class="lead">
-                    <a href="https://bsky.app/profile/salvius.org" class="btn btn-default btn-lg white-outline color-bluesky" aria-label="Salvius on Bluesky" title="Bluesky">
-                        <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@SalviusRobot" class="btn btn-danger btn-lg" aria-label="Salvius on YouTube" title="YouTube">
-                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://www.facebook.com/salviusrobot" class="btn btn-primary btn-lg" aria-label="Salvius on Facebook" title="Facebook">
-                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://twitter.com/salviusrobot" class="btn btn-info btn-lg" aria-label="Salvius on Twitter" title="Twitter">
-                        <i class="fa-brands fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://blog.salvius.org/feeds/posts/default" class="btn btn-default btn-lg white-outline color-darkorange" aria-label="Salvius blog RSS feed" title="RSS">
-                        <i class="fa-solid fa-rss"></i> Subscribe
-                    </a>
-                </p>
-                <br/>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="sponsors" class="row color-navy inset-shadow">
-    <div class="col-sm-10 col-sm-offset-1">
-        <div class="page-header">
-            <h1>
-                Sponsors
-                <i class="fa-solid fa-ship pull-right" aria-hidden="true"></i>
-            </h1>
-        </div>
-
-        <div class="jumbotron">
-            <a href="https://www.facebook.com/pages/Wilbraham-Music/148382598513113" title="Wilbraham Music">
-                <img src="/images/logos/wilbraham_music.jpg" alt="Wilbraham Music" width="200"/>
-            </a>
-            <p class="lead text-right">
-                Contact <a href="mailto:gunther@salvius.org">gunther@salvius.org</a>
-                to become a sponsor.
+<article itemscope itemtype="https://schema.org/WebPage">
+    <section class="row color-soil inset-shadow js-first-row" aria-labelledby="meet-salvius">
+        <div class="col-sm-10 col-sm-offset-1">
+            <header class="page-header">
+                <h1 id="meet-salvius" itemprop="headline">
+                    Meet Salvius!
+                    <small class="text-success">A humanoid robot built from recycled materials.</small>
+                    <i class="fa-solid fa-leaf text-success pull-right" aria-hidden="true"></i>
+                </h1>
+            </header>
+            <p class="lead" itemprop="description">
+                <img src="/images/vectors/head.svg" class="pull-left" height="200" alt="Salvius robot head illustration" itemprop="image">
+                {{ site.description }}
             </p>
         </div>
-    </div>
-</div>
+    </section>
+
+    <section class="row bg-responsive-succeed py-30" aria-label="Robot Shop">
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
+            <article class="panel panel-default white-outline color-darkorange">
+                <div class="panel-body text-center">
+                    <i class="fa-solid fa-large fa-gear" aria-hidden="true"></i>
+                    <h2>
+                        The Bot Shop
+                    </h2>
+                    <p class="lead">
+                        Check out our robot shop!<br/>
+                        Featuring a growing collection of robot related publications
+                        with additional items coming soon.
+                    </p>
+                    <a href="/store/" class="btn btn-default btn-lg white-outline color-darkorange">EXPLORE</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="software" class="row color-forest inset-shadow" aria-labelledby="software-heading">
+        <div class="col-sm-10 col-sm-offset-1">
+            <header class="page-header">
+                <h2 id="software-heading">
+                    Open Source Software
+                    <i class="fa-regular fa-lightbulb yellow-glow animate pull-right" aria-hidden="true"></i>
+                </h2>
+            </header>
+
+            <p class="lead">
+                A minimal amount of code has been written specifically for Salvius.
+                Instead, this project aims to create and promote the development of
+                more robust software libraries that have extensive use cases
+                throughout the software community.
+            </p>
+            </p>
+
+            <div class="row">
+
+                <article class="col-sm-4" itemscope itemtype="https://schema.org/SoftwareApplication">
+                    <div class="card hovercard color-white">
+                        <div class="cardheader color-navy">
+
+                        </div>
+                        <div class="avatar">
+                            <img src="/images/vectors/head.svg" alt="Salvius logo" class="color-white" itemprop="image">
+                        </div>
+                        <div class="info">
+                            <h3 class="title" itemprop="name">
+                                Salvius
+                            </h3>
+                            <p class="lead" itemprop="description">
+                                Salvius is a humanoid robot made from recycled parts.
+                            </p>
+                        </div>
+                        <footer class="bottom">
+                            <a class="btn btn-info btn-lg" href="https://twitter.com/salviusrobot" aria-label="Salvius on Twitter" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn btn-primary btn-lg" href="https://www.facebook.com/salviusrobot" aria-label="Salvius on Facebook" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn btn-default btn-lg" href="https://github.com/gunthercox/salvius" aria-label="Salvius source code on GitHub" target="_blank" rel="noopener noreferrer" itemprop="codeRepository">
+                                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                            </a>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="col-sm-4" itemscope itemtype="https://schema.org/SoftwareApplication">
+                    <div class="card hovercard color-white">
+                        <div class="cardheader color-prestige">
+
+                        </div>
+                        <div class="avatar">
+                            <img src="/images/logos/chatterbot.png" alt="ChatterBot logo" itemprop="image">
+                        </div>
+                        <div class="info">
+                            <h3 class="title" itemprop="name">
+                                ChatterBot
+                            </h3>
+                            <p class="lead" itemprop="description">
+                                ChatterBot is a machine learning, conversational dialog engine.
+                            </p>
+                        </div>
+                        <footer class="bottom">
+                            <a class="btn btn-success btn-lg" href="https://docs.chatterbot.us/" aria-label="ChatterBot Documentation" target="_blank" rel="noopener noreferrer" itemprop="url">
+                                <i class="fa-solid fa-home" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn btn-default btn-lg" href="https://github.com/gunthercox/ChatterBot" aria-label="ChatterBot source code on GitHub" target="_blank" rel="noopener noreferrer" itemprop="codeRepository">
+                                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                            </a>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="col-sm-4" itemscope itemtype="https://schema.org/SoftwareApplication">
+
+                    <div class="card hovercard color-white">
+                        <div class="cardheader color-rust">
+
+                        </div>
+                        <div class="avatar">
+                            <img src="/images/logos/zorg.svg" alt="Zorg logo" class="color-white" itemprop="image">
+                        </div>
+                        <div class="info">
+                            <h3 class="title" itemprop="name">
+                                Zorg
+                            </h3>
+                            <p class="lead" itemprop="description">Zorg is a framework for robotics and physical computing.</p>
+                        </div>
+                        <footer class="bottom">
+                            <a class="btn btn-danger btn-lg" href="https://zorg.github.io/" aria-label="Zorg website" target="_blank" rel="noopener noreferrer" itemprop="url">
+                                <i class="fa-solid fa-home" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn btn-default btn-lg" href="https://github.com/zorg/" aria-label="Zorg source code on GitHub" target="_blank" rel="noopener noreferrer" itemprop="codeRepository">
+                                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                            </a>
+                        </footer>
+                    </div>
+
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="engineering" class="row row-banner color-prestige" aria-labelledby="engineering-heading">
+        {% include open_specification_heading.html %}
+        {% include navigation.topics.html %}
+    </section>
+
+    <section class="row bg-responsive-snow py-30" aria-label="Salvius Travels">
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
+            <article class="panel panel-default color-navy white-outline" id="snowImage">
+                <div class="panel-body">
+                    <h2 class="text-center">
+                        <i class="fa-solid fa-location-dot fa-large" aria-hidden="true"></i>
+                        Salvius Travels
+                    </h2>
+                    <p class="lead">
+                        Salvius travels to a variety of locations. The goal of this
+                        initiative is to improve the project's development while
+                        simultaneously creating opportunities for people to work with
+                        new and cutting edge technologies.
+                        The robot has been the center of workshops and presentations,
+                        the robot also serves as a great platform for developing at
+                        hackathons and maker fairs.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="story" class="row color-darkgray inset-shadow" aria-labelledby="story-heading">
+        <div class="col-sm-10 col-sm-offset-1">
+            <header class="page-header">
+                <h2 id="story-heading">
+                    Story
+                    <i class="fa-solid fa-rocket pull-right" aria-hidden="true"></i>
+                </h2>
+            </header>
+
+            <div class="row">
+                <aside class="col-sm-4">
+                    <img src="/images/news02.jpg" class="img-responsive hidden-xs" alt="Salvius featured in news article"/>
+                </aside>
+                <article class="col-sm-8">
+                    <p class="lead">
+                        I have always had a deep interest in learning about technology. In truth, I have never owned an electronic device for long without disassembling it to see how it works. I find the field of robotics compelling because it combines every field of science with a single subject. Studying robotics teaches people about anatomy, biology, chemistry, mathematics, physics, engineering, etc. and this list just keeps going on. In high school, I began an open source robotics project with the goal of teaching others about robotics while simultaneously furthering my own knowledge.
+                    </p>
+                    <p class="lead">
+                        In 2013 I started a campaign to raise funding and get supplies to further develop Salvius. Since then, I have had some incredible opportunities meet and collaborate with countless brilliant individuals.
+                    </p>
+
+                    <aside class="panel panel-success color-orange white-outline">
+                        <div class="panel-body">
+                            <em class="lead">
+                                I have never owned an electronic device for long without disassembling it to see how it works. @salviusrobot
+                            </em>
+                            <br/>
+                            <a href="https://twitter.com/share?text=I+have+never+owned+an+electronic+device+for+long+without disassembling+it+to+see+how+it+works.+%40salviusrobot&url=https://salvius.org" class="btn btn-xs color-orange white-outline pull-right" target="_blank" rel="noopener noreferrer">Retweet</a>
+                        </div>
+                    </aside>
+
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="row bg-responsive-nature py-30" aria-label="Subscribe to updates">
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-1">
+            <article class="panel panel-default color-softgreen white-outline">
+                <div class="panel-body">
+
+                    <h2>Subscribe</h2>
+                    <p class="lead">Connect and stay up to date with project updates from our project.</p>
+                    <br/>
+                    <nav aria-label="Social media links">
+                        <p class="lead">
+                            <a href="https://bsky.app/profile/salvius.org" class="btn btn-default btn-lg white-outline color-bluesky" aria-label="Salvius on Bluesky" title="Bluesky" rel="noopener noreferrer">
+                                <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@SalviusRobot" class="btn btn-danger btn-lg" aria-label="Salvius on YouTube" title="YouTube" rel="noopener noreferrer">
+                                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.facebook.com/salviusrobot" class="btn btn-primary btn-lg" aria-label="Salvius on Facebook" title="Facebook" rel="noopener noreferrer">
+                                <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://twitter.com/salviusrobot" class="btn btn-info btn-lg" aria-label="Salvius on Twitter" title="Twitter" rel="noopener noreferrer">
+                                <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://blog.salvius.org/feeds/posts/default" class="btn btn-default btn-lg white-outline color-darkorange" aria-label="Salvius blog RSS feed" title="RSS" rel="noopener noreferrer">
+                                <i class="fa-solid fa-rss"></i> Subscribe
+                            </a>
+                        </p>
+                    </nav>
+                    <br/>
+
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="sponsors" class="row color-navy inset-shadow" aria-labelledby="sponsors-heading">
+        <div class="col-sm-10 col-sm-offset-1">
+            <header class="page-header">
+                <h2 id="sponsors-heading">
+                    Sponsors
+                    <i class="fa-solid fa-ship pull-right" aria-hidden="true"></i>
+                </h2>
+            </header>
+
+            <article class="jumbotron" itemscope itemtype="https://schema.org/Organization">
+                <a href="https://www.facebook.com/pages/Wilbraham-Music/148382598513113" title="Wilbraham Music" itemprop="url">
+                    <img src="/images/logos/wilbraham_music.jpg" alt="Wilbraham Music logo" width="200" itemprop="logo"/>
+                </a>
+                <p class="lead text-right">
+                    Contact <a href="mailto:gunther@salvius.org" itemprop="email">gunther@salvius.org</a>
+                    to become a sponsor.
+                </p>
+            </article>
+        </div>
+    </section>
+
+</article>
