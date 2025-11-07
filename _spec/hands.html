@@ -1,152 +1,775 @@
 ---
 title: Hands
-description: Robotic hands and wrist joints
+description: Technical specification for Salvius humanoid robot hand and finger design including biomechanical proportions, joint articulation, grip mechanisms, and actuator implementation.
 ---
 
-<div class="row inset-shadow">
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
     <div class="col-sm-10 col-sm-offset-1">
 
-        <div class="page-header">
-            <h1>{{ page.title }}</h1>
-        </div>
+        <header class="page-header">
+            <h1 itemprop="headline">{{ page.title }} Specification</h1>
+        </header>
 
-        <p class="lead">
-            ...
-        </p>
+        <section>
+            <h2>Overview</h2>
+            <p class="lead" itemprop="description">
+                The robotic hand provides manipulation capabilities essential for interaction with objects in the environment.
+                Human hands are remarkably complex with 27 bones and over 30 articulations, making exact replication impractical
+                for most robotics projects. This specification balances biomechanical accuracy with practical construction methods,
+                focusing on functional grip patterns rather than perfect anatomical replication.
+            </p>
+        </section>
+
+        <section>
+            <h2>Design Philosophy</h2>
+
+            <h3>Complexity vs. Functionality Trade-off</h3>
+            <p>
+                Full human hand replication requires 20+ actuators per hand, sophisticated control systems, and extensive mechanical complexity. For most robotics applications, simplified designs with 3-8 actuators per hand provide sufficient functionality while remaining buildable with hobby-grade components.
+            </p>
+
+            <h3>Key Design Decisions</h3>
+            <ul>
+                <li><strong>Degrees of Freedom</strong>: Prioritize thumb opposition and index finger control over individual finger control</li>
+                <li><strong>Grip Patterns</strong>: Design for power grip (holding objects) and precision grip (pinching) capabilities</li>
+                <li><strong>Actuation Method</strong>: Choose between direct servo mounting, cable-driven, or linkage mechanisms</li>
+                <li><strong>Sensing</strong>: Include basic force/pressure sensing for grip feedback</li>
+                <li><strong>Materials</strong>: Use flexible materials for contact surfaces, rigid for structure</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Biomechanical Proportions</h2>
+
+            <h3>Hand Dimensions</h3>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Measurement</th>
+                        <th>Typical Human</th>
+                        <th>Recommended Robot</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hand Length</td>
+                        <td>18-20 cm</td>
+                        <td>16-22 cm</td>
+                        <td>Wrist to middle finger tip</td>
+                    </tr>
+                    <tr>
+                        <td>Palm Width</td>
+                        <td>8-9 cm</td>
+                        <td>7-10 cm</td>
+                        <td>Widest part of palm</td>
+                    </tr>
+                    <tr>
+                        <td>Palm Length</td>
+                        <td>9-11 cm</td>
+                        <td>8-12 cm</td>
+                        <td>Wrist to finger base</td>
+                    </tr>
+                    <tr>
+                        <td>Finger Span</td>
+                        <td>18-22 cm</td>
+                        <td>16-24 cm</td>
+                        <td>Thumb to pinky when spread</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </div>
-</div>
+</article>
 
-<div class="row">
+<article class="row" itemscope itemtype="https://schema.org/TechArticle">
     <div class="col-sm-10 col-sm-offset-1">
 
-        <div class="page-header">
-            <h2>Fingers</h2>
-        </div>
+        <header class="page-header">
+            <h2 id="fingers-heading">Fingers</h2>
+        </header>
 
-        <p class="lead">
-        The interphalangeal articulations of the hand are represented as hinge joints connecting the phalanges of each digit. The interphalangeal joints connect the proximal, intermediate and distal phalanges and allow for 90 degrees of flexion and extension. Each interphalangeal joint must prevent hyperextension of the phalanges.
-        </p>
+        <section>
+            <h3>Joint Structure and Movement</h3>
+            <p class="lead">
+                The interphalangeal articulations of the hand are represented as hinge joints connecting the phalanges of each digit. The interphalangeal joints connect the proximal, intermediate and distal phalanges and allow for 90 degrees of flexion and extension. Each interphalangeal joint must prevent hyperextension of the phalanges.
+            </p>
 
-        <img src="/images/vectors/finger_lengths.svg" class="img-responsive" alt="Humanoid robot finger lengths">
+            <p>
+                The metacarpophalangeal articulations (knuckle joints) connecting each proximal phalanx to the metacarpal should permit movement in two planes, allowing flexion, extension, adduction, abduction, and circumduction.
+            </p>
 
-        <ul class="list-group">
-            <li class="list-group-item">
-                <strong>Symetry</strong> 80, 89, 95, 89, 80 for the length of each metacarple.
-            </li>
-            <li class="list-group-item">
-                <strong>Fibonacci sequence</strong> 1, 1, 2, 3, 5... allows hand to make a fist.
-            </li>
-        </ul>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Joint type</th>
+                        <th>Range of flexion/extension</th>
+                        <th>Range of adduction/abduction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Interphalangeal (IP)</td>
+                        <td>90 degrees</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Metacarpophalangeal (MCP)</td>
+                        <td>90 degrees</td>
+                        <td>30 degrees</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <p>
-        The metacarpophalangeal articulations of the joints connecting each proximal phalanx to the metacarpal should permit movement in two planes, allowing flexion, extension, adduction, abduction, and circumduction.
-        </p>
+        <section>
+            <h3>Finger Length Proportions</h3>
+            
+            <img src="/images/vectors/finger_lengths.svg" class="img-responsive" alt="Humanoid robot finger length proportions diagram"/>
 
-        <table class="table table-striped">
-            <tbody>
-                <tr>
-                    <td>Joint type</td>
-                    <td>Range of flexion/extension</td>
-                    <td>Range of adduction/abduction</td>
-                </tr>
-                <tr>
-                    <td>Interphalangeal</td>
-                    <td>90 degrees</td>
-                    <td>None</td>
-                </tr>
-                <tr>
-                    <td>Metacarpophalangeal</td>
-                    <td>90 degrees</td>
-                    <td>30 degrees</td>
-                </tr>
-            </tbody>
-        </table>
+            <p>
+                Two mathematical approaches provide natural-looking finger proportions:
+            </p>
 
-        <img src="/images/spec/fingers.svg" alt="Humanoid robot fingers">
+            <h4>Symmetric Approach</h4>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Metacarpal Lengths (Symmetry)</strong>: 80, 89, 95, 89, 80 mm for pinky through thumb
+                </li>
+                <li class="list-group-item">
+                    This creates a symmetric, aesthetically pleasing hand shape with the middle finger longest
+                </li>
+                <li class="list-group-item">
+                    Good for hands that need to look proportional and balanced
+                </li>
+            </ul>
 
-        <strong>Dimensions of phalangeal digits</strong>
+            <h4>Fibonacci Sequence Approach</h4>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Phalanx Ratios (Fibonacci)</strong>: 1, 1, 2, 3, 5... for distal through metacarpal
+                </li>
+                <li class="list-group-item">
+                    The Fibonacci sequence (each number is sum of previous two) creates natural proportions
+                </li>
+                <li class="list-group-item">
+                    <strong>Key Benefit</strong>: Allows the hand to make a proper fist with fingers curling naturally
+                </li>
+                <li class="list-group-item">
+                    Example: If distal phalanx = 20mm, then intermediate = 20mm, proximal = 40mm, metacarpal = 60mm
+                </li>
+            </ul>
 
-        <table class="table table-striped table-bordered">
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td>Index finger</td>
-                    <td>Middle finger</td>
-                    <td>Ring finger</td>
-                    <td class=" c18">Pinky</td>
-                    <td class="c2 c18">Thumb</td>
-                </tr>
-                <tr>
-                    <td>Distal phalanx</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Intermediate phalanx</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Proximal phalanx</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Metacarpal</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Carpal</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+            <div class="alert alert-success">
+                <strong>Design Tool:</strong> A calculator for automating Fibonacci-based finger dimensions can be found here:
+                <a href="https://salvius.org/tools/fibonacci/" target="_blank">salvius.org/tools/fibonacci/</a>
+            </div>
 
-        A tool for automating these calculations can be found here:
-        https://salvius.org/tools/fibonacci/
+            <img src="/images/spec/fingers.svg" alt="Humanoid robot finger joint diagram showing phalanges" class="img-responsive"/>
+        </section>
 
-        <strong>Finger joint elastomer definition</strong>
-        ...
+        <section>
+            <h3>Dimensions of Phalangeal Digits</h3>
 
-        Thumb
+            <p>
+                The following table provides reference dimensions for a medium-sized robotic hand (total length ~18cm):
+            </p>
 
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Bone/Segment</th>
+                        <th>Index finger</th>
+                        <th>Middle finger</th>
+                        <th>Ring finger</th>
+                        <th>Pinky</th>
+                        <th>Thumb</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Distal phalanx</strong></td>
+                        <td>18mm</td>
+                        <td>20mm</td>
+                        <td>18mm</td>
+                        <td>15mm</td>
+                        <td>22mm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intermediate phalanx</strong></td>
+                        <td>22mm</td>
+                        <td>25mm</td>
+                        <td>23mm</td>
+                        <td>18mm</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Proximal phalanx</strong></td>
+                        <td>40mm</td>
+                        <td>45mm</td>
+                        <td>42mm</td>
+                        <td>33mm</td>
+                        <td>35mm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Metacarpal</strong></td>
+                        <td>65mm</td>
+                        <td>70mm</td>
+                        <td>65mm</td>
+                        <td>55mm</td>
+                        <td>45mm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Length</strong></td>
+                        <td>145mm</td>
+                        <td>160mm</td>
+                        <td>148mm</td>
+                        <td>121mm</td>
+                        <td>102mm</td>
+                    </tr>
+                </tbody>
+            </table>
 
+            <p class="text-muted">
+                <em>Note: These dimensions are starting points. Adjust proportionally based on your robot's size and available materials. The thumb is notably shorter as it doesn't align with other fingers but opposes them.</em>
+            </p>
+        </section>
 
+        <section>
+            <h3>Joint Construction Methods</h3>
+
+            <h4>Method 1: Flexible Material (Simplest)</h4>
+            <ul>
+                <li><strong>Materials</strong>: Silicone tubing, rubber, soft plastic, fabric</li>
+                <li><strong>Construction</strong>: Rigid phalanx segments connected by flexible joint material</li>
+                <li><strong>Actuation</strong>: Cable/string pulled through center bends finger</li>
+                <li><strong>Advantages</strong>: Simple, no separate hinge, compliant grip</li>
+                <li><strong>Disadvantages</strong>: Can't extend beyond neutral, wears over time</li>
+                <li><strong>Best For</strong>: Quick prototypes, underactuated hands</li>
+            </ul>
+
+            <h4>Method 2: Pin Hinge</h4>
+            <ul>
+                <li><strong>Materials</strong>: Small nails, wire, or M2 screws as hinge pins</li>
+                <li><strong>Construction</strong>: Drill perpendicular holes through adjacent phalanges, insert pin</li>
+                <li><strong>Actuation</strong>: Cable or linkage pulls segments to bend</li>
+                <li><strong>Advantages</strong>: Proper hinge motion, can extend to neutral</li>
+                <li><strong>Disadvantages</strong>: Requires precision drilling, can bind if misaligned</li>
+                <li><strong>Best For</strong>: Fully actuated fingers with extension control</li>
+            </ul>
+
+            <h4>Method 3: Living Hinge</h4>
+            <ul>
+                <li><strong>Materials</strong>: 3D-printed TPU or thin sections in rigid plastic</li>
+                <li><strong>Construction</strong>: Entire finger printed as one piece with thin joint sections</li>
+                <li><strong>Actuation</strong>: Cable through finger or external linkage</li>
+                <li><strong>Advantages</strong>: No assembly required, no wearing pins</li>
+                <li><strong>Disadvantages</strong>: Requires 3D printer, TPU can be tricky to print</li>
+                <li><strong>Best For</strong>: 3D-printed hands, integrated designs</li>
+            </ul>
+
+            <h4>Method 4: Elastomer Joints (Advanced)</h4>
+            <ul>
+                <li><strong>Materials</strong>: Silicone rubber, urethane casting resin</li>
+                <li><strong>Construction</strong>: Cast flexible joints with embedded rigid segments</li>
+                <li><strong>Actuation</strong>: Tendons routed through channels in elastomer</li>
+                <li><strong>Advantages</strong>: Compliant, natural movement, self-centering</li>
+                <li><strong>Disadvantages</strong>: Requires mold making, complex fabrication</li>
+                <li><strong>Best For</strong>: Professional-quality hands, research projects</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Thumb Mechanism</h3>
+
+            <p>
+                The thumb is the most important digit for manipulation, providing opposition to create pinch and grip patterns.
+            </p>
+
+            <h4>Thumb Requirements</h4>
+            <ul>
+                <li><strong>Opposition</strong>: Ability to touch tips of other fingers (especially index)</li>
+                <li><strong>Rotation</strong>: 90° rotation at base to bring thumb perpendicular to palm</li>
+                <li><strong>Flexion</strong>: Two joints (IP and MCP) for grasping</li>
+                <li><strong>Strength</strong>: Higher force capability than other fingers</li>
+            </ul>
+
+            <h4>Simplified Thumb Design</h4>
+            <ul>
+                <li><strong>Base Joint</strong>: Single servo provides rotation and some flexion</li>
+                <li><strong>Tip Joint</strong>: Coupled to base or separately actuated for pinch control</li>
+                <li><strong>Mounting Angle</strong>: 45-60° from palm plane for natural opposition</li>
+                <li><strong>Range</strong>: Should reach from side of index finger to pinky</li>
+            </ul>
+        </section>
     </div>
-</div>
+</article>
 
-<div class="row inset-shadow">
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
     <div class="col-sm-10 col-sm-offset-1">
 
-        <div class="page-header">
-            <h2>Wrist</h2>
-        </div>
+        <header class="page-header">
+            <h2 id="wrist-heading">Wrist</h2>
+        </header>
 
-        <p class="lead">
-            The wrist must permit movement in two planes, allowing flexion, extension, adduction, abduction, and circumduction.
-        </p>
+        <section>
+            <h3>Movement Requirements</h3>
+            <p class="lead">
+                The wrist must permit movement in two planes, allowing flexion, extension, adduction, abduction, and circumduction. This provides the hand with proper positioning for grasping objects at various angles.
+            </p>
 
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Movement Type</th>
+                        <th>Range (degrees)</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Flexion</td>
+                        <td>80-90°</td>
+                        <td>Bending palm toward forearm (down)</td>
+                    </tr>
+                    <tr>
+                        <td>Extension</td>
+                        <td>70-80°</td>
+                        <td>Bending back of hand toward forearm (up)</td>
+                    </tr>
+                    <tr>
+                        <td>Radial Deviation</td>
+                        <td>15-20°</td>
+                        <td>Bending toward thumb side</td>
+                    </tr>
+                    <tr>
+                        <td>Ulnar Deviation</td>
+                        <td>30-40°</td>
+                        <td>Bending toward pinky side</td>
+                    </tr>
+                    <tr>
+                        <td>Pronation/Supination</td>
+                        <td>180° total</td>
+                        <td>Rotation (palm up/down) - forearm joint</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
+        <section>
+            <h3>Wrist Construction Approaches</h3>
+
+            <h4>Single-Axis Wrist (Minimal)</h4>
+            <ul>
+                <li><strong>Actuator</strong>: One servo for flexion/extension or rotation</li>
+                <li><strong>Advantages</strong>: Simple, lightweight, low cost</li>
+                <li><strong>Disadvantages</strong>: Limited positioning capability</li>
+                <li><strong>Use Case</strong>: Simple grippers, basic manipulation</li>
+            </ul>
+
+            <h4>Two-Axis Wrist (Recommended)</h4>
+            <ul>
+                <li><strong>Actuators</strong>: Two servos for pitch and yaw (or roll and pitch)</li>
+                <li><strong>Configuration</strong>: Servos mounted perpendicular to each other</li>
+                <li><strong>Advantages</strong>: Good positioning range, manageable complexity</li>
+                <li><strong>Disadvantages</strong>: Requires two servos, slightly heavier</li>
+                <li><strong>Use Case</strong>: Most general-purpose manipulation tasks</li>
+            </ul>
+
+            <h4>Three-Axis Wrist (Advanced)</h4>
+            <ul>
+                <li><strong>Actuators</strong>: Three servos for full orientation control</li>
+                <li><strong>Configuration</strong>: Sequential rotation axes or parallel mechanism</li>
+                <li><strong>Advantages</strong>: Complete hand orientation control</li>
+                <li><strong>Disadvantages</strong>: Complex, heavy, expensive, potential singularities</li>
+                <li><strong>Use Case</strong>: Research platforms, industrial-grade manipulation</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Mechanical Design</h3>
+
+            <h4>Direct Servo Mount</h4>
+            <ul>
+                <li>Hand mounts directly to servo horn</li>
+                <li>Simple but servo must support hand weight cantilevered</li>
+                <li>Recommended for lightweight hands (under 300g)</li>
+                <li>Use high-torque metal-gear servo (MG996R minimum)</li>
+            </ul>
+
+            <h4>Bearing-Supported Design</h4>
+            <ul>
+                <li>Bearing handles lateral loads, servo only provides torque</li>
+                <li>Extends servo life significantly</li>
+                <li>Recommended for heavier hands or high-duty-cycle applications</li>
+                <li>Use small ball bearing (608 or similar)</li>
+            </ul>
+
+            <h4>Cable-Driven Wrist</h4>
+            <ul>
+                <li>Servos located in forearm, cables transmit motion to wrist</li>
+                <li>Keeps weight out of hand for better arm dynamics</li>
+                <li>More complex cable routing and tensioning</li>
+                <li>Used in advanced anthropomorphic hands</li>
+            </ul>
+        </section>
     </div>
-</div>
+</article>
 
-<div class="row">
+<article class="row" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2>Actuation Strategies</h2>
+        </header>
+
+        <section>
+            <h3>Underactuated Hand (Recommended for Beginners)</h3>
+            
+            <h4>Concept</h4>
+            <p>
+                One actuator controls multiple fingers through mechanical coupling. Fingers curl sequentially around objects, providing automatic adaptation to object shape.
+            </p>
+
+            <h4>Typical Configuration</h4>
+            <ul>
+                <li><strong>Actuators</strong>: 1-2 servos total</li>
+                <li><strong>Design</strong>: All four fingers connected by single cable/tendon</li>
+                <li><strong>Thumb</strong>: Separate servo for opposition</li>
+                <li><strong>Springs</strong>: Return fingers to open position</li>
+            </ul>
+
+            <h4>Advantages</h4>
+            <ul>
+                <li>Very simple control (just open/close command)</li>
+                <li>Self-adapting to object shapes</li>
+                <li>Minimal actuators = low cost and weight</li>
+                <li>Robust and reliable</li>
+            </ul>
+
+            <h4>Disadvantages</h4>
+            <ul>
+                <li>Cannot perform complex gestures</li>
+                <li>Limited precision in grip force</li>
+                <li>All fingers move together</li>
+            </ul>
+
+            <h4>Construction Steps</h4>
+            <ol>
+                <li>Build four fingers with flexible joints</li>
+                <li>Route single cable through all four fingers</li>
+                <li>Attach cable to servo or winch mechanism</li>
+                <li>Add springs or elastic to return fingers to open</li>
+                <li>Build separately-actuated thumb</li>
+                <li>Test grip patterns with various objects</li>
+            </ol>
+        </section>
+
+        <section>
+            <h3>Fully Actuated Hand</h3>
+
+            <h4>Configuration Options</h4>
+
+            <p><strong>5-Actuator Hand</strong></p>
+            <ul>
+                <li>One servo per finger (all segments coupled per finger)</li>
+                <li>Allows independent finger control</li>
+                <li>Can perform basic gestures (pointing, counting)</li>
+                <li>Moderate complexity and cost</li>
+            </ul>
+
+            <p><strong>10+ Actuator Hand</strong></p>
+            <ul>
+                <li>Multiple servos per finger for phalanx control</li>
+                <li>Highly dexterous manipulation</li>
+                <li>Complex control algorithms required</li>
+                <li>Expensive and mechanically challenging</li>
+            </ul>
+
+            <h4>Actuation Methods</h4>
+
+            <p><strong>Direct Servo Drive</strong></p>
+            <ul>
+                <li>Micro servos (SG90 size) mounted in palm</li>
+                <li>Linkages connect servo to finger joints</li>
+                <li>Simple mechanically but requires space</li>
+                <li>Heavy and bulky</li>
+            </ul>
+
+            <p><strong>Cable/Tendon Drive</strong></p>
+            <ul>
+                <li>Servos in forearm pull cables through fingers</li>
+                <li>Biomimetic design (similar to human tendons)</li>
+                <li>Lightweight hand but complex cable routing</li>
+                <li>Friction and cable stretch are challenges</li>
+            </ul>
+
+            <p><strong>Linkage Drive</strong></p>
+            <ul>
+                <li>Mechanical linkages transfer motion from palm to fingers</li>
+                <li>Precise, minimal slack</li>
+                <li>Complex geometry, difficult to design</li>
+                <li>Can be heavy and space-inefficient</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Sensing and Feedback</h3>
+
+            <h4>Position Sensing</h4>
+            <ul>
+                <li><strong>Servo Feedback</strong>: Some servos provide position feedback</li>
+                <li><strong>Flex Sensors</strong>: Resistive sensors measure finger bend angle</li>
+                <li><strong>Hall Effect</strong>: Magnetic sensors detect joint angles</li>
+                <li><strong>Optical Encoders</strong>: High precision but expensive</li>
+            </ul>
+
+            <h4>Force/Touch Sensing</h4>
+            <ul>
+                <li><strong>FSR (Force Sensitive Resistor)</strong>: Simple pressure sensors on fingertips</li>
+                <li><strong>Capacitive</strong>: Detect proximity and touch</li>
+                <li><strong>Current Sensing</strong>: Monitor servo current for grip force</li>
+                <li><strong>Strain Gauges</strong>: Precise force measurement but complex</li>
+            </ul>
+
+            <h4>Tactile Feedback Benefits</h4>
+            <ul>
+                <li>Prevents crushing delicate objects</li>
+                <li>Enables force-controlled manipulation</li>
+                <li>Provides data for machine learning</li>
+                <li>Allows blind grasping (without visual feedback)</li>
+            </ul>
+        </section>
+    </div>
+</article>
+
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2>Materials and Fabrication</h2>
+        </header>
+
+        <section>
+            <h3>Palm Structure</h3>
+            <ul>
+                <li><strong>Plywood</strong>: 6-10mm thickness, easy to cut and drill</li>
+                <li><strong>3D Printed</strong>: PLA or ABS, allows complex geometries</li>
+                <li><strong>Acrylic</strong>: Clear panels show internal mechanisms</li>
+                <li><strong>Aluminum Sheet</strong>: Lightweight and strong, requires metalworking tools</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Finger Materials</h3>
+
+            <h4>Rigid Segments (Phalanges)</h4>
+            <ul>
+                <li><strong>3D Printed Plastic</strong>: Most versatile, any geometry</li>
+                <li><strong>Popsicle Sticks</strong>: Quick prototyping, easy to cut</li>
+                <li><strong>Bamboo Skewers</strong>: Lightweight, natural material</li>
+                <li><strong>Thin Aluminum</strong>: Professional appearance, durable</li>
+                <li><strong>Carbon Fiber Rod</strong>: Ultra-lightweight for performance hands</li>
+            </ul>
+
+            <h4>Flexible Joints</h4>
+            <ul>
+                <li><strong>Silicone Tubing</strong>: Medical grade or aquarium tubing</li>
+                <li><strong>Heat Shrink Tubing</strong>: Before shrinking, works as joint material</li>
+                <li><strong>Fabric</strong>: Denim, canvas for soft robotics approach</li>
+                <li><strong>TPU Filament</strong>: 3D printable flexible material</li>
+                <li><strong>Rubber Bands</strong>: Quick prototyping, not durable</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Tendons/Cables</h3>
+            <ul>
+                <li><strong>Fishing Line</strong>: 20-50 lb test, inexpensive and strong</li>
+                <li><strong>Braided Spectra</strong>: Minimal stretch, used in prosthetics</li>
+                <li><strong>Guitar Strings</strong>: Steel cables, very low stretch</li>
+                <li><strong>Thin Cable</strong>: Bicycle brake cable for high loads</li>
+                <li><strong>Thread</strong>: Nylon or polyester for light-duty hands</li>
+            </ul>
+
+            <div class="alert alert-warning">
+                <strong>Important:</strong> Cable stretch is a major issue in tendon-driven hands. Use low-stretch materials and implement spring-based tensioning systems.
+            </div>
+        </section>
+
+        <section>
+            <h3>Finger Tip Materials</h3>
+            <ul>
+                <li><strong>Silicone Rubber</strong>: High friction, compliant</li>
+                <li><strong>Foam</strong>: Soft, protective of grasped objects</li>
+                <li><strong>Latex</strong>: Thin, tactile (some people allergic)</li>
+                <li><strong>Hot Glue</strong>: Quick solution, surprisingly effective</li>
+                <li><strong>Sugru</strong>: Moldable silicone, hardens in 24 hours</li>
+            </ul>
+        </section>
+    </div>
+</article>
+
+<article class="row" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2>Build Recommendations by Experience Level</h2>
+        </header>
+
+        <section>
+            <h3>Beginner: Simple Gripper</h3>
+            <ul>
+                <li><strong>Design</strong>: Two "fingers" (pincer style) or three-finger underactuated</li>
+                <li><strong>Actuators</strong>: 1 servo</li>
+                <li><strong>Construction</strong>: Popsicle sticks, flexible tubing joints, fishing line</li>
+                <li><strong>Features</strong>: Basic open/close grip</li>
+                <li><strong>Build Time</strong>: 4-8 hours</li>
+                <li><strong>Cost</strong>: $10-20</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Intermediate: Underactuated Hand</h3>
+            <ul>
+                <li><strong>Design</strong>: Four fingers + opposing thumb</li>
+                <li><strong>Actuators</strong>: 2 servos (one for fingers, one for thumb)</li>
+                <li><strong>Construction</strong>: 3D printed or plywood palm, flexible finger joints</li>
+                <li><strong>Features</strong>: Power grip and pinch grip, self-adapting</li>
+                <li><strong>Build Time</strong>: 20-40 hours</li>
+                <li><strong>Cost</strong>: $40-80</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Advanced: Fully Articulated Hand</h3>
+            <ul>
+                <li><strong>Design</strong>: Five fingers with independent control</li>
+                <li><strong>Actuators</strong>: 5-10 servos depending on DOF per finger</li>
+                <li><strong>Construction</strong>: 3D printed components, tendon-driven from forearm</li>
+                <li><strong>Features</strong>: Individual finger control, force sensing, multiple grip patterns</li>
+                <li><strong>Build Time</strong>: 60-120 hours</li>
+                <li><strong>Cost</strong>: $150-400</li>
+            </ul>
+        </section>
+    </div>
+</article>
+
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2>Control Software</h2>
+        </header>
+
+        <section>
+            <h3>Basic Control</h3>
+            <ul>
+                <li><strong>Arduino</strong>: Standard Servo library for simple control</li>
+                <li><strong>Commands</strong>: Open, close, pinch, release</li>
+                <li><strong>Input</strong>: Serial commands, buttons, or joystick</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Advanced Control</h3>
+            <ul>
+                <li><strong>Position Control</strong>: Specify exact finger angles</li>
+                <li><strong>Force Control</strong>: Maintain specific grip force using sensor feedback</li>
+                <li><strong>Gesture Library</strong>: Pre-programmed hand shapes (point, OK sign, etc.)</li>
+                <li><strong>Vision Integration</strong>: Use camera to guide grasping</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Grasp Planning</h3>
+            <ul>
+                <li><strong>Power Grip</strong>: Fingers wrap around object, thumb opposes</li>
+                <li><strong>Precision Grip</strong>: Thumb and index finger pinch</li>
+                <li><strong>Hook Grip</strong>: Fingers curl without thumb (carrying bag)</li>
+                <li><strong>Tripod Grip</strong>: Thumb, index, middle finger (holding pen)</li>
+            </ul>
+        </section>
+    </div>
+</article>
+
+<article class="row" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2>Testing and Validation</h2>
+        </header>
+
+        <section>
+            <h3>Functional Tests</h3>
+            <ol>
+                <li><strong>Range of Motion</strong>: Verify all joints reach specified angles</li>
+                <li><strong>Grip Strength</strong>: Test with objects of various weights</li>
+                <li><strong>Precision</strong>: Ability to grasp small objects (coin, pen)</li>
+                <li><strong>Power</strong>: Ability to hold heavy objects (1-2 kg)</li>
+                <li><strong>Durability</strong>: Repeated open/close cycles (100+)</li>
+            </ol>
+        </section>
+
+        <section>
+            <h3>Standard Test Objects</h3>
+            <ul>
+                <li>Tennis ball (sphere, compressible)</li>
+                <li>Water bottle (cylinder, smooth)</li>
+                <li>Book (rectangular, rigid)</li>
+                <li>Coin (small, flat, precise grip)</li>
+                <li>Marker/pen (cylindrical, precision grip)</li>
+                <li>Egg (fragile, force control)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Common Issues and Solutions</h3>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Likely Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fingers don't close fully</td>
+                        <td>Insufficient servo travel or cable slack</td>
+                        <td>Increase servo range, reduce cable slack</td>
+                    </tr>
+                    <tr>
+                        <td>Uneven finger closing</td>
+                        <td>Asymmetric cable routing or friction</td>
+                        <td>Balance cable tensions, add lubricant</td>
+                    </tr>
+                    <tr>
+                        <td>Weak grip</td>
+                        <td>Low servo torque or poor mechanical advantage</td>
+                        <td>Use stronger servo or add gear reduction</td>
+                    </tr>
+                    <tr>
+                        <td>Fingers don't return to open</td>
+                        <td>Insufficient return spring force</td>
+                        <td>Add stronger springs or elastic bands</td>
+                    </tr>
+                    <tr>
+                        <td>Joints bind or stick</td>
+                        <td>Misalignment or debris</td>
+                        <td>Realign joints, clean, add lubrication</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div class="alert alert-success">
+            <strong>Option:</strong> Start with a simple underactuated design. Master the basics of cable routing, tensioning, and grip control before attempting complex fully-actuated hands. A simple hand that works reliably is more valuable than a complex hand that doesn't.
+        </div>
+    </div>
+</article>
+
+<nav class="row" aria-label="Related specifications">
     {% include navigation.topics.html %}
-</div>
+</nav>
