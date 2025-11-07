@@ -1,36 +1,197 @@
 ---
 title: Head
-description: Humanoid robot head design
+description: Technical specification for Salvius humanoid robot head assembly including sensors, cameras, audio systems, and mechanical design requirements.
 ---
 
-<div class="row inset-shadow">
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
     <div class="col-sm-10 col-sm-offset-1">
 
-        <div class="page-header">
-            <h1>{{ page.title }}</h1>
+        <header class="page-header">
+            <h1 itemprop="headline">{{ page.title }} Specification</h1>
+        </header>
+
+        <section>
+            <h2>Overview</h2>
+            <p class="lead" itemprop="description">
+                The head assembly serves as the primary sensory platform for the Salvius robot, housing vision, audio, and communication systems. While there are minimal functional requirements for a humanoid head design due to the lack of mandatory moving parts, the specification ensures proper proportions, sensor placement, and integration with the neck assembly.
+            </p>
+        </section>
+
+        <section>
+            <h2>Dimensional Requirements</h2>
+
+            <h3>Proportions</h3>
+            <p>
+                The head must maintain proportions relative to the body to ensure balanced appearance and proper weight distribution:
+            </p>
+            <ul>
+                <li><strong>Height</strong>: 22-28 cm (approximately 1/7 of total robot height)</li>
+                <li><strong>Width</strong>: 18-22 cm (shoulder width × 0.7)</li>
+                <li><strong>Depth</strong>: 20-24 cm</li>
+                <li><strong>Weight</strong>: Maximum 2.5 kg (to prevent excessive torque on neck servo)</li>
+            </ul>
+
+            <h3>Eye Position</h3>
+            <p>
+                Camera/sensor placement should follow human eye positioning for natural appearance:
+            </p>
+            <ul>
+                <li><strong>Eye Height</strong>: Approximately 60% from bottom of head</li>
+                <li><strong>Inter-pupillary Distance</strong>: 6-7 cm for stereo vision</li>
+                <li><strong>Forward Offset</strong>: 4-6 cm from head rear surface</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>Note:</strong> These proportions are based on average human head dimensions. Variations may be necessary depending on available components and aesthetic preferences.
+            </div>
+        </section>
+
+        <section>
+            <h2>Required Subsystems</h2>
+
+            <h3>Visual Input System</h3>
+            <p>
+                The head must accommodate one or more cameras for vision processing:
+            </p>
+            <ul>
+                <li><strong>Primary Camera</strong>: Minimum 720p resolution, 60° field of view</li>
+                <li><strong>Recommended</strong>: Dual cameras for stereo vision and depth perception</li>
+                <li><strong>Mounting</strong>: Adjustable brackets to allow camera alignment</li>
+                <li><strong>Protection</strong>: Clear acrylic or glass lens covers</li>
+            </ul>
+
+            <h3>Audio Output System</h3>
+            <p>
+                Audio components for speech and sound generation:
+            </p>
+            <ul>
+                <li><strong>Speaker</strong>: 8 ohm impedance, 3-5 watt power rating</li>
+                <li><strong>Placement</strong>: Mouth area or front panel for clear audio projection</li>
+                <li><strong>Speaker Wire</strong>: 12-18 gauge stranded core wire, twisted pair to reduce electromagnetic interference</li>
+                <li><strong>Amplification</strong>: Integrated audio amplifier (PAM8403 or similar)</li>
+            </ul>
+
+            <h3>Audio Input System</h3>
+            <p>
+                Microphone array for voice recognition and sound localization:
+            </p>
+            <ul>
+                <li><strong>Microphone</strong>: USB microphone or analog microphone with preamp</li>
+                <li><strong>Array Configuration</strong>: 2-4 microphones for directional audio</li>
+                <li><strong>Placement</strong>: Ear positions or forehead area</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Materials and Construction</h2>
+
+            <h3>Structural Materials</h3>
+            <ul>
+                <li><strong>Frame</strong>: Aluminum sheet metal (0.5-1mm thickness) or rigid plastic</li>
+                <li><strong>Face Panel</strong>: Acrylic, 3D-printed material, or thin wood</li>
+                <li><strong>Internal Supports</strong>: Aluminum angle stock or 3D-printed brackets</li>
+                <li><strong>Fasteners</strong>: M3 or M4 machine screws with nuts</li>
+            </ul>
+
+            <h3>Construction Techniques</h3>
+            <ul>
+                <li><strong>Salvaged Materials</strong>: Computer case panels, electronics enclosures</li>
+                <li><strong>Cutting</strong>: Hand shears for thin metal, jigsaw for wood/plastic</li>
+                <li><strong>Joining</strong>: Machine screws, rivets, or epoxy for permanent bonds</li>
+                <li><strong>Finish</strong>: Optional paint for aesthetics</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Interface Requirements</h2>
+
+            <h3>Neck Connection</h3>
+            <p>
+                The head must securely attach to the neck rotation mechanism:
+            </p>
+            <ul>
+                <li><strong>Mounting Pattern</strong>: 4-bolt pattern, minimum M4 screws</li>
+                <li><strong>Load Distribution</strong>: Mounting plate distributed across neck servo</li>
+                <li><strong>Cable Routing</strong>: Minimum 20mm diameter passage for wiring</li>
+                <li><strong>Balance Point</strong>: Center of mass should align with rotation axis</li>
+            </ul>
+
+            <h3>Electrical Connections</h3>
+            <p>
+                Standard wiring requirements for integration with main control system:
+            </p>
+            <ul>
+                <li><strong>Camera</strong>: USB 2.0 or higher</li>
+                <li><strong>Audio Output</strong>: 3.5mm stereo jack or direct amplifier connection</li>
+                <li><strong>Audio Input</strong>: USB microphone or 3.5mm microphone input</li>
+                <li><strong>Servo Control</strong>: PWM signal wires for any head-mounted servos</li>
+                <li><strong>Power</strong>: 5V and/or 12V power rails</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Optional Enhancements</h2>
+            <ul>
+                <li><strong>LED Audio Visualizer</strong>: Visual feedback for audio output</li>
+                <li><strong>Ultrasonic Sensors</strong>: Forehead-mounted distance sensors</li>
+                <li><strong>Thermal Imaging</strong>: Infrared camera for heat sensing</li>
+                <li><strong>Cooling System</strong>: Small fan for internal ventilation</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Design Considerations</h2>
+
+            <h3>Weight Distribution</h3>
+            <p>
+                Heavy components (cameras, speakers) should be positioned close to the neck rotation point to minimize torque requirements. Use lightweight materials for areas far from the center.
+            </p>
+
+            <h3>Cable Management</h3>
+            <p>
+                Plan for wire routing from the beginning. Cables should:
+            </p>
+            <ul>
+                <li>Have sufficient slack for neck rotation (±90°)</li>
+                <li>Be secured to prevent interference with moving parts</li>
+                <li>Use strain relief at connection points</li>
+                <li>Follow paths that minimize electromagnetic interference</li>
+            </ul>
+
+            <h3>Modularity</h3>
+            <p>
+                Design the head with modular components that can be easily replaced or upgraded:
+            </p>
+            <ul>
+                <li>Quick-change face panels for different expressions or displays</li>
+                <li>Removable camera mounts for swapping it out or adding sensors</li>
+                <li>Accessible speaker and microphone mounting</li>
+                <li>Tool-free access panels for maintenance</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Testing and Validation</h2>
+            <p>
+                Before final assembly, verify:
+            </p>
+            <ul>
+                <li><strong>Weight</strong>: Total mass within servo torque capacity</li>
+                <li><strong>Balance</strong>: Head doesn't tip when neck is stationary</li>
+                <li><strong>Camera View</strong>: Clear, unobstructed field of view</li>
+                <li><strong>Audio Quality</strong>: Clear speech output, minimal distortion</li>
+                <li><strong>Cable Routing</strong>: No binding or tension during rotation</li>
+                <li><strong>Structural Integrity</strong>: No vibration during movement</li>
+            </ul>
+        </section>
+
+        <div class="alert alert-success">
+            <strong>Tip:</strong> Start with a simple design and add complexity incrementally. A basic box-shaped or round head with mounted cameras and speakers is functional and can be enhanced with cosmetic improvements later.
         </div>
 
-        <p class="lead">
-        There is minimal requirements dictating the function of a robot's head for a humanoid design. Due to the lack of moving parts, the only specification that the head must obey is the size of its proportions in relation the the rest of the body.
-        </p>
-
-        <p class="alert alert-warning">
-            The calculations for determining the optimal size ratio of the head and position of the eyes are still being determined.
-        <p>
-
-        <p>
-        It is recommended that the robot's head house hardware for visual input and audio output.
-        This allows for optimal control over the direction of visual and audio data.
-        </p>
-
-        <ul>
-            <li>Speaker: 8 ohm speaker.</li>
-            <li>Speaker wire: 12 gauge stranded core wire. Twisted to reduce electromagnetic interference.</li>
-        </ul>
-
     </div>
-</div>
+</article>
 
-<div class="row">
+<nav class="row" aria-label="Related specifications">
     {% include navigation.topics.html %}
-</div>
+</nav>
