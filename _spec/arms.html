@@ -1,45 +1,307 @@
 ---
 title: Arms
-description: Robotic arm design
+description: Technical specification for Salvius humanoid robot arm design including shoulder, elbow, and wrist joints with actuator requirements and range of motion details.
 ---
 
-<div class="row inset-shadow">
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
     <div class="col-sm-10 col-sm-offset-1">
 
-        <div class="page-header">
-            <h1>{{ page.title }}</h1>
+        <header class="page-header">
+            <h1 itemprop="headline">{{ page.title }} Specification</h1>
+        </header>
+
+        <section>
+            <h2>Overview</h2>
+            <p class="lead" itemprop="description">
+                The robotic arm assembly provides manipulation capabilities essential for interaction with the environment. Each arm consists of three primary joints (shoulder, elbow, wrist) that work together to position the hand within the robot's workspace. The design prioritizes simplicity, use of salvaged components, and sufficient range of motion for common tasks.
+            </p>
+        </section>
+
+        <section>
+            <h2>Design Requirements</h2>
+
+            <h3>Shoulder Joint</h3>
+            <p>
+                The shoulder is the most complex joint in the arm, requiring multiple degrees of freedom for natural movement:
+            </p>
+            <ul>
+                <li><strong>Rotation (Yaw)</strong>: 180° total range (±90° from neutral)</li>
+                <li><strong>Flexion/Extension (Pitch)</strong>: 180° total range (0° to 180° forward)</li>
+                <li><strong>Abduction/Adduction (Roll)</strong>: 120° total range (30° inward to 90° outward)</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>Note:</strong> Full 3-axis shoulder movement requires 3 separate servo motors. A simplified 2-axis design is acceptable for basic manipulation tasks and significantly reduces complexity and cost.
+            </div>
+
+            <h3>Elbow Joint</h3>
+            <p>
+                The elbow joint connects the upper arm and forearm, represented as a hinge joint:
+            </p>
+            <ul>
+                <li><strong>Flexion/Extension</strong>: 150° range (0° straight to 150° bent)</li>
+                <li><strong>Joint Type</strong>: Single-axis hinge</li>
+                <li><strong>Hyperextension Prevention</strong>: Mechanical stop at 0° prevents backward bending</li>
+                <li><strong>Load Capacity</strong>: Must support forearm, wrist, hand, and payload (minimum 2 kg)</li>
+            </ul>
+
+            <h3>Wrist Joint</h3>
+            <p>
+                The wrist provides fine positioning of the hand:
+            </p>
+            <ul>
+                <li><strong>Rotation (Pronation/Supination)</strong>: 270° total range</li>
+                <li><strong>Flexion/Extension</strong>: 120° range (60° up, 60° down from neutral)</li>
+                <li><strong>Optional: Radial/Ulnar Deviation</strong>: 60° range (30° each direction)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Materials and Components</h2>
+
+            <h3>Parts List for Building the Arms</h3>
+            <ul class="fa-ul">
+                <li><i class="fa-regular fa-square-check"></i> <strong>Rectangular moulding</strong> (PVC pipe or wood) - Upper arm and forearm structure</li>
+                <li><i class="fa-regular fa-square-check"></i> <strong>Hinges</strong> - 2-3 per arm for elbow joints</li>
+                <li><i class="fa-regular fa-square-check"></i> <strong>Windshield wiper motor</strong> or high-torque servo - Shoulder actuator (salvaged)</li>
+                <li><i class="fa-regular fa-square-check"></i> <strong>Plywood</strong> (6-12mm thickness) - Joint mounting plates</li>
+                <li><i class="fa-regular fa-square-check"></i> <strong>Standoffs and spacers</strong> - M4 or M5, various lengths</li>
+                <li><i class="fa-regular fa-square-check"></i> <strong>Rubber bands, surgical tubing, or bungee cord</strong> - Counterweight system</li>
+                <li><i class="fa-regular fa-square-check"></i> <strong>Servo motors</strong> - MG996R or similar (15-20 kg-cm torque minimum)</li>
+                <li><i class="fa-regular fa-square-check"></i> <strong>Ball bearings</strong> - 608 skateboard bearings work well (salvaged)</li>
+                <li><i class="fa-regular fa-square-check"></i> <strong>Chain or timing belt</strong> - Power transmission (salvaged from printers)</li>
+                <li><i class="fa-regular fa-square-check"></i> <strong>Gears or sprockets</strong> - Mechanical advantage for shoulder joint</li>
+            </ul>
+
+            <h3>Salvage Sources</h3>
+            <ul>
+                <li><strong>Windshield wiper motors</strong>: Junked cars, automotive salvage yards</li>
+                <li><strong>Servo motors</strong>: Broken RC cars, RC helicopters, old printers</li>
+                <li><strong>Hinges</strong>: Old furniture, cabinet doors, toolboxes</li>
+                <li><strong>Bearings</strong>: Skateboards, inline skates, fidget spinners</li>
+                <li><strong>Chains/belts</strong>: Printers, photocopiers, old bikes</li>
+                <li><strong>PVC pipe</strong>: Plumbing remnants, broken sprinkler systems</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Shoulder Construction</h2>
+
+            <img src="/images/spec/shoulder.svg" alt="Humanoid robot shoulder joint diagram" class="img-responsive"/>
+
+            <h3>Multi-Axis Design</h3>
+            <p>
+                The shoulder requires careful mechanical design to achieve multiple axes of rotation:
+            </p>
+
+            <h4>Yaw Axis (Rotation)</h4>
+            <ul>
+                <li><strong>Motor Mounting</strong>: Base-mounted servo with output shaft vertical</li>
+                <li><strong>Upper Arm Attachment</strong>: Servo horn connects to arm assembly</li>
+                <li><strong>Bearing Support</strong>: Large bearing at top to handle lateral loads</li>
+            </ul>
+
+            <h4>Pitch Axis (Forward/Back)</h4>
+            <ul>
+                <li><strong>Motor Position</strong>: Mounted perpendicular to yaw axis</li>
+                <li><strong>Drive Method</strong>: Direct drive or 2:1 gear reduction for higher torque</li>
+                <li><strong>Counterbalance</strong>: Elastic cords or springs to reduce motor load</li>
+            </ul>
+
+            <h4>Roll Axis (Up/Down)</h4>
+            <ul>
+                <li><strong>Implementation</strong>: Optional third servo for full 3-DOF movement</li>
+                <li><strong>Simplified Alternative</strong>: Omit for 2-DOF shoulder, reducing complexity</li>
+            </ul>
+
+            <h3>Torque Requirements</h3>
+            <p>
+                Shoulder motors experience the highest loads in the arm:
+            </p>
+            <ul>
+                <li><strong>Minimum Torque</strong>: 20 kg-cm for lightweight arms</li>
+                <li><strong>Recommended Torque</strong>: 40-60 kg-cm for reliable operation</li>
+                <li><strong>Gear Reduction</strong>: 2:1 or 3:1 reduction increases effective torque</li>
+                <li><strong>Counterbalance</strong>: Springs or elastic reduce required holding torque by 30-50%</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Elbow Construction</h2>
+
+            <img src="/images/spec/elbow.svg" alt="Humanoid robot elbow joint diagram" class="img-responsive"/>
+
+            <h3>Hinge Mechanism</h3>
+            <p>
+                The elbow is a simpler single-axis joint but must handle significant loads:
+            </p>
+
+            <h4>Construction Methods</h4>
+
+            <p><strong>Method 1: Hardware Store Hinge</strong></p>
+            <ul>
+                <li>Standard door hinge provides strong, reliable pivot</li>
+                <li>Mount servo alongside hinge with linkage to hinge arm</li>
+                <li>Advantages: Simple, strong, uses common parts</li>
+                <li>Disadvantages: Limited range (~120°), bulky appearance</li>
+            </ul>
+
+            <p><strong>Method 2: Direct Servo Mount</strong></p>
+            <ul>
+                <li>Large servo becomes the joint, eliminating separate hinge</li>
+                <li>Forearm mounts directly to servo horn</li>
+                <li>Advantages: Compact, good range of motion (180°+)</li>
+                <li>Disadvantages: Requires expensive high-torque servo, more complex mounting</li>
+            </ul>
+
+            <p><strong>Method 3: Cable/Pulley System</strong></p>
+            <ul>
+                <li>Servo pulls cable that bends the elbow</li>
+                <li>Similar to biological muscle-tendon system</li>
+                <li>Advantages: Motor can be located away from joint</li>
+                <li>Disadvantages: Cable stretch, complex routing, friction losses</li>
+            </ul>
+
+            <h3>Range Limiting</h3>
+            <p>
+                Prevent hyperextension and protect the servo:
+            </p>
+            <ul>
+                <li><strong>Mechanical Stops</strong>: Physical barriers at 0° and 150°</li>
+                <li><strong>Software Limits</strong>: Servo control code prevents extreme positions</li>
+                <li><strong>Compliance</strong>: Slight flexibility prevents damage from impacts</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Dimensional Specifications</h2>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Length</th>
+                        <th>Diameter/Width</th>
+                        <th>Weight (approx)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Upper Arm</td>
+                        <td>25-30 cm</td>
+                        <td>4-6 cm</td>
+                        <td>300-500g</td>
+                    </tr>
+                    <tr>
+                        <td>Forearm</td>
+                        <td>25-30 cm</td>
+                        <td>3-5 cm</td>
+                        <td>250-400g</td>
+                    </tr>
+                    <tr>
+                        <td>Shoulder Assembly</td>
+                        <td>15-20 cm width</td>
+                        <td>10-12 cm depth</td>
+                        <td>600-900g</td>
+                    </tr>
+                    <tr>
+                        <td>Total Arm (no hand)</td>
+                        <td>50-60 cm</td>
+                        <td>-</td>
+                        <td>1.2-1.8 kg</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning">
+                <strong>Important:</strong> These dimensions assume a robot with approximately 150-170 cm total height. Scale proportionally for different sizes.
+            </div>
+        </section>
+
+        <section>
+            <h2>Electrical Interface</h2>
+
+            <h3>Servo Connections</h3>
+            <ul>
+                <li><strong>Per Arm</strong>: 3-5 servos depending on configuration</li>
+                <li><strong>Signal</strong>: PWM control (50Hz, 1-2ms pulse width)</li>
+                <li><strong>Power</strong>: Dedicated 6V supply, 2-3A per servo</li>
+                <li><strong>Control Board</strong>: PCA9685 16-channel PWM driver or similar</li>
+            </ul>
+
+            <h3>Position Feedback (Optional)</h3>
+            <ul>
+                <li><strong>Potentiometers</strong>: Analog position sensing</li>
+                <li><strong>Encoders</strong>: Digital position and velocity</li>
+                <li><strong>Current Sensing</strong>: Detect obstacles and resistance</li>
+            </ul>
+
+            <h3>Wiring Considerations</h3>
+            <ul>
+                <li>Use flexible wire for moving joints (silicone insulated wire recommended)</li>
+                <li>Strain relief at all connection points</li>
+                <li>Color coding: Red (6V+), Black (GND), White/Yellow (Signal)</li>
+                <li>Twist power pairs to reduce electromagnetic interference</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Assembly Tips</h2>
+
+            <h3>Build Order</h3>
+            <ol>
+                <li>Construct and test elbow joint first (simplest component)</li>
+                <li>Build upper arm and forearm structures</li>
+                <li>Assemble shoulder mechanism (most complex)</li>
+                <li>Integrate all components and test range of motion</li>
+                <li>Add counterbalance system</li>
+                <li>Wire and test electrical systems</li>
+                <li>Attach to torso and calibrate</li>
+            </ol>
+
+            <h3>Common Pitfalls</h3>
+            <ul>
+                <li><strong>Insufficient Torque</strong>: Use gear reduction or stronger servos</li>
+                <li><strong>Binding Joints</strong>: Ensure proper alignment and adequate clearance</li>
+                <li><strong>Cable Snagging</strong>: Route cables through internal channels</li>
+                <li><strong>Overheating Servos</strong>: Add cooling or reduce continuous load</li>
+                <li><strong>Loose Connections</strong>: Use threadlocker on critical fasteners</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Testing and Calibration</h2>
+
+            <h3>Range of Motion Test</h3>
+            <ul>
+                <li>Verify each joint reaches specified angles without binding</li>
+                <li>Check for smooth movement throughout full range</li>
+                <li>Ensure mechanical stops prevent overextension</li>
+            </ul>
+
+            <h3>Load Testing</h3>
+            <ul>
+                <li>Test with hand and expected payload attached</li>
+                <li>Verify servos don't overheat during sustained holding</li>
+                <li>Check for vibration or oscillation when stationary</li>
+            </ul>
+
+            <h3>Calibration</h3>
+            <ul>
+                <li>Record servo PWM values at key positions (0°, 90°, 180°)</li>
+                <li>Map servo commands to actual joint angles</li>
+                <li>Account for mechanical slack and backlash</li>
+                <li>Document neutral position for repeatability</li>
+            </ul>
+        </section>
+
+        <div class="alert alert-success">
+            <strong>Option:</strong> Start with a simple 2-DOF shoulder and 1-DOF elbow. This 3-servo arm can perform most basic tasks and can be upgraded later with additional axes of motion.
         </div>
 
-        <p class="lead">
-            The robot's shoulder joint must allow rotation, flexion and extension.
-        </p>
-
-        <strong>Parts list for building the arms</strong>
-        <ul class="fa-ul">
-            <li><i class="fa-regular fa-square-check"></i></i>Rectangular moulding (pvc or wood)</li>
-            <li><i class="fa-regular fa-square-check"></i></i>Hinge</li>
-            <li><i class="fa-regular fa-square-check"></i></i>Windshield wiper motor</li>
-            <li><i class="fa-regular fa-square-check"></i></i>Plywood</li>
-            <li><i class="fa-regular fa-square-check"></i></i>Standoff</li>
-            <li><i class="fa-regular fa-square-check"></i></i>Rubber bands, surgical tubing, or bungee cord</li>
-        </ul>
-
-        <h2>Shoulder</h2>
-
-        <img src="/images/spec/shoulder.svg" alt="Humanoid robot shoulder joint"/>
-
-        <h2>Elbow</h2>
-
-        <p>
-            The elbow joint is represented as hinge joints connecting the upper arm and the forearm.
-            The joint allows for 180 degrees of flexion and extension and must prevent hyperextension.
-        </p>
-
-        <img src="/images/spec/elbow.svg" alt="Humanoid robot elbow joint"/>
-
     </div>
-</div>
+</article>
 
-<div class="row">
+<nav class="row" aria-label="Related specifications">
     {% include navigation.topics.html %}
-</div>
+</nav>
