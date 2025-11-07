@@ -1,22 +1,353 @@
 ---
 title: Torso
-description: Humanoid robot torso design
+description: Technical specification for Salvius humanoid robot torso structure including chassis design, component mounting, cable management, and power distribution systems.
 ---
 
-<div class="row inset-shadow">
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
     <div class="col-sm-10 col-sm-offset-1">
 
-        <div class="page-header">
-            <h1>{{ page.title }}</h1>
+        <header class="page-header">
+            <h1 itemprop="headline">{{ page.title }} Specification</h1>
+        </header>
+
+        <section>
+            <h2>Overview</h2>
+            <p class="lead" itemprop="description">
+                The torso serves as the structural foundation and central hub of the robot, housing critical electronic components, providing mounting points for arms and head, and connecting to the mobility base. It must balance structural rigidity with accessibility for maintenance while keeping weight reasonable for the overall design.
+            </p>
+        </section>
+
+        <section>
+            <h2>Functional Requirements</h2>
+
+            <h3>Structural</h3>
+            <ul>
+                <li><strong>Load Bearing</strong>: Support head assembly (2-3 kg) and both arms (2-4 kg total)</li>
+                <li><strong>Rigidity</strong>: Minimal flex under operational loads (less than 2mm deflection)</li>
+                <li><strong>Attachment Points</strong>: Standardized mounting for arms, head, and legs</li>
+                <li><strong>Dimensions</strong>: Proportional to overall robot height (typically 35-45 cm height)</li>
+            </ul>
+
+            <h3>Electronic Housing</h3>
+            <ul>
+                <li><strong>Main Computer</strong>: Raspberry Pi, small PC, or laptop motherboard</li>
+                <li><strong>Motor Controllers</strong>: Servo driver boards, H-bridges for DC motors</li>
+                <li><strong>Power Distribution</strong>: Battery packs, voltage regulators, fuse/circuit protection</li>
+                <li><strong>Connectivity</strong>: USB hubs, WiFi router, Ethernet connections</li>
+                <li><strong>Cooling</strong>: Ventilation for heat-generating components</li>
+            </ul>
+
+            <h3>Cable Management</h3>
+            <ul>
+                <li><strong>Routing Channels</strong>: Organized dedicated paths for power and signal cables</li>
+                <li><strong>Service Loops</strong>: Slack for articulating joints (arms, head)</li>
+                <li><strong>Strain Relief</strong>: Secured cables prevent pulling on connections</li>
+                <li><strong>Accessibility</strong>: Easy access for maintenance without full disassembly</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Design Approaches</h2>
+
+            <h3>Box Frame Construction</h3>
+            <p>
+                A rectangular frame provides maximum internal volume and simple construction:
+            </p>
+
+            <h4>Advantages</h4>
+            <ul>
+                <li>Easy to build with basic tools (saw, drill, screwdriver)</li>
+                <li>Efficient use of materials (minimal waste)</li>
+                <li>Simple panel attachment (flat surfaces)</li>
+                <li>Large internal volume for components</li>
+                <li>Stackable design allows modular assembly</li>
+            </ul>
+
+            <h4>Construction Materials</h4>
+            <ul>
+                <li><strong>Frame</strong>: Aluminum angle (25mm x 25mm) or wood (pine 2x2)</li>
+                <li><strong>Panels</strong>: Plywood (6-12mm), acrylic sheet, or recycled sheet metal</li>
+                <li><strong>Fasteners</strong>: M4 or M5 machine screws with nuts</li>
+                <li><strong>Corner Bracing</strong>: L-brackets</li>
+            </ul>
+
+            <h3>Skeletal Frame</h3>
+            <p>
+                A minimal framework with components exposed or lightly covered:
+            </p>
+
+            <h4>Advantages</h4>
+            <ul>
+                <li>Lightest weight option</li>
+                <li>Maximum airflow for cooling</li>
+                <li>Easy access to all components</li>
+                <li>Maker aesthetic shows internal workings</li>
+            </ul>
+
+            <h4>Considerations</h4>
+            <ul>
+                <li>Less protection for electronics from impacts</li>
+                <li>More cable management required</li>
+                <li>Dust and debris access to components</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Recommended Dimensions</h2>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Measurement</th>
+                        <th>Box Design</th>
+                        <th>Cylindrical Design</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Height</td>
+                        <td>35-45 cm</td>
+                        <td>40-50 cm</td>
+                        <td>Approximately 1/3 of total robot height</td>
+                    </tr>
+                    <tr>
+                        <td>Width (shoulders)</td>
+                        <td>25-35 cm</td>
+                        <td>15-20 cm diameter</td>
+                        <td>Wider for arm mounting</td>
+                    </tr>
+                    <tr>
+                        <td>Depth</td>
+                        <td>15-25 cm</td>
+                        <td>15-20 cm diameter</td>
+                        <td>Enough for largest component</td>
+                    </tr>
+                    <tr>
+                        <td>Weight (empty)</td>
+                        <td>1.5-3 kg</td>
+                        <td>1-2 kg</td>
+                        <td>Without electronics or batteries</td>
+                    </tr>
+                    <tr>
+                        <td>Internal Volume</td>
+                        <td>15-25 liters</td>
+                        <td>10-15 liters</td>
+                        <td>Available space for components</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Component Layout</h2>
+
+            <h3>Upper Section (Shoulder Area)</h3>
+            <ul>
+                <li><strong>Shoulder Motors</strong>: Mounted at top corners for arm attachment</li>
+                <li><strong>Neck Mount</strong>: Central mounting point for head rotation</li>
+                <li><strong>Cable Exit Points</strong>: Grommets or bushings for arm and head wiring</li>
+            </ul>
+
+            <h3>Middle Section</h3>
+            <ul>
+                <li><strong>Main Computer</strong>: Raspberry Pi, NUC, or laptop motherboard</li>
+                <li><strong>Servo Controllers</strong>: Dedicated boards or Arduino for PWM generation</li>
+                <li><strong>USB Hub</strong>: Central connection point for peripherals</li>
+                <li><strong>Cooling Fan</strong>: 80-120mm fan for active airflow</li>
+            </ul>
+
+            <h3>Lower Section</h3>
+            <ul>
+                <li><strong>Battery Packs</strong>: Lowest position for optimal center of gravity</li>
+                <li><strong>Power Distribution</strong>: Main switch, voltage regulators, fuse blocks</li>
+                <li><strong>Heavy Components</strong>: Batteries, large capacitors</li>
+                <li><strong>Base Mounting</strong>: Connection to leg assembly</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>Note:</strong> Place heavy components (batteries, motors) low in the torso when possible to lower the center of gravity and improve stability.
+            </div>
+        </section>
+
+        <section>
+            <h2>Access Panel Design</h2>
+
+            <h3>Panel Locations</h3>
+            <p>
+                Multiple access points enable maintenance without complete disassembly:
+            </p>
+            <ul>
+                <li><strong>Front Panel</strong>: Access to computer, USB ports, main electronics</li>
+                <li><strong>Back Panel</strong>: Battery access, power distribution</li>
+            </ul>
+
+            <h3>Fastening Methods</h3>
+            <ul>
+                <li><strong>Thumb Screws</strong>: Tool-free removal for frequent access</li>
+                <li><strong>Quick-Release Clips</strong>: Snap-on panels for rapid opening</li>
+                <li><strong>Hinges</strong>: Permanent attachment, panels swing open</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Power System Integration</h2>
+
+            <h3>Battery Configuration</h3>
+            <ul>
+                <li><strong>Logic Power (5V)</strong>: USB battery pack (10,000+ mAh) for Raspberry Pi, Arduino</li>
+                <li><strong>Servo Power (6V)</strong>: NiMH or LiPo packs, 3000+ mAh capacity</li>
+                <li><strong>Motor Power (12V)</strong>: Sealed lead-acid or LiPo for drive motors</li>
+                <li><strong>Isolation</strong>: Separate power supplies prevent servo noise affecting logic</li>
+            </ul>
+
+            <h3>Power Distribution</h3>
+            <ul>
+                <li><strong>Main Switch</strong>: Master power cutoff, easily accessible</li>
+                <li><strong>Fuses/Circuit Breakers</strong>: Protection for each power rail</li>
+                <li><strong>Voltage Regulators</strong>: Step-down converters for 5V, 3.3V rails</li>
+                <li><strong>Power Indicators</strong>: LEDs showing active power rails</li>
+                <li><strong>Emergency Stop</strong>: Accessible button to cut all motor power</li>
+            </ul>
+
+            <h3>Charging Access</h3>
+            <ul>
+                <li>External charging ports prevent opening torso for daily charging</li>
+                <li>Label charging voltages and polarities clearly</li>
+                <li>Use standardized connectors (XT60, Anderson Powerpole)</li>
+                <li>Consider integrated BMS (Battery Management System) for LiPo safety</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Thermal Management</h2>
+
+            <h3>Ventilation Strategy</h3>
+            <ul>
+                <li><strong>Air Intake</strong>: Bottom or lower side vents with dust filters</li>
+                <li><strong>Exhaust</strong>: Top or upper side vents (heat rises naturally)</li>
+                <li><strong>Fan Placement</strong>: Exhaust fan at top creates negative pressure, pulls air through</li>
+                <li><strong>Component Spacing</strong>: Minimum 10mm clearance around hot components</li>
+            </ul>
+
+            <h3>Heat Sources</h3>
+            <ul>
+                <li><strong>Servo Controllers</strong>: Can reach approximately 60-80°C under load</li>
+                <li><strong>Voltage Regulators</strong>: Require heatsinks for continuous operation</li>
+                <li><strong>Main Computer</strong>: Raspberry Pi needs airflow, can throttle when hot</li>
+                <li><strong>Batteries</strong>: LiPo packs must stay below 60°C for safety</li>
+            </ul>
+
+            <div class="alert alert-warning">
+                <strong>Safety Warning:</strong> Inadequate cooling can cause component failure or, in the case of LiPo batteries, fire hazard. Always provide active cooling for enclosed electronics.
+            </div>
+        </section>
+
+        <section>
+            <h2>Cable Management Best Practices</h2>
+
+            <h3>Routing Principles</h3>
+            <ul>
+                <li><strong>Separate Power and Signal</strong>: Keep high-current wires away from sensors and data lines</li>
+                <li><strong>Secure at Intervals</strong>: Cable ties every 10-15 cm prevent sagging and tangling</li>
+                <li><strong>Service Loops</strong>: Extra length at joints allows for movement</li>
+                <li><strong>Labeling</strong>: Tag wires at both ends (printed labels or colored heat shrink)</li>
+                <li><strong>Future Expansion</strong>: Leave spare capacity in channels for additions</li>
+            </ul>
+
+            <h3>Cable Types</h3>
+            <ul>
+                <li><strong>Servo Wires</strong>: Pre-made 3-wire servo extensions (various lengths)</li>
+                <li><strong>Power Cables</strong>: Silicone-insulated wire (14-18 AWG for high current)</li>
+                <li><strong>USB Cables</strong>: Short runs, quality shielded cables to prevent data errors</li>
+                <li><strong>Sensor Wires</strong>: Twisted pairs or shielded cable for noise immunity</li>
+            </ul>
+
+            <h3>Connectors</h3>
+            <ul>
+                <li><strong>Servo Connectors</strong>: Standard 3-pin headers, polarized</li>
+                <li><strong>Power</strong>: XT60, Anderson Powerpole, or barrel jacks</li>
+                <li><strong>Data</strong>: USB, Ethernet, or custom pin headers with keying</li>
+                <li><strong>Expansion</strong>: Spare connectors on panels for future modules</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Assembly Checklist</h2>
+
+            <h3>Frame Construction</h3>
+            <ol>
+                <li>Cut frame members to length</li>
+                <li>Assemble frame with corner brackets</li>
+                <li>Verify squareness with diagonal measurements</li>
+                <li>Drill mounting holes for components</li>
+                <li>Apply finish or paint if desired</li>
+            </ol>
+
+            <h3>Component Installation</h3>
+            <ol>
+                <li>Install mounting standoffs and shelves</li>
+                <li>Mount main computer and secure with anti-vibration mounts</li>
+                <li>Install servo controllers and power distribution</li>
+                <li>Mount batteries in lowest position</li>
+                <li>Install cooling fans with airflow direction marked</li>
+                <li>Add sensors, switches, and indicators</li>
+            </ol>
+
+            <h3>Wiring</h3>
+            <ol>
+                <li>Route power cables first (largest, least flexible)</li>
+                <li>Install main power switch and fuses</li>
+                <li>Connect computers and controllers</li>
+                <li>Route servo cables through exits to arms and head</li>
+                <li>Secure all cables with ties</li>
+                <li>Label connections</li>
+                <li>Test continuity and polarity</li>
+            </ol>
+
+            <h3>Testing</h3>
+            <ol>
+                <li>Power on logic systems (no servos connected)</li>
+                <li>Verify voltage levels on all power rails</li>
+                <li>Connect and test one servo at a time</li>
+                <li>Monitor temperatures under load</li>
+                <li>Check for electromagnetic interference</li>
+                <li>Verify emergency stop functionality</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Maintenance Considerations</h2>
+
+            <h3>Regular Maintenance</h3>
+            <ul>
+                <li><strong>Weekly</strong>: Check battery charge levels, inspect visible connections</li>
+                <li><strong>Monthly</strong>: Clean dust filters, verify cooling fan operation</li>
+                <li><strong>Quarterly</strong>: Inspect all fasteners for tightness, check cable wear</li>
+                <li><strong>Annually</strong>: Full inspection, re-apply thermal paste, replace worn components</li>
+            </ul>
+
+            <div class="alert alert-success">
+                <strong>Note:</strong> Alternatively schedule maintenance based on operational hours (e.g., every 100 hours of operation) for robots in continuous use.
+            </div>
+
+            <h3>Common Issues</h3>
+            <ul>
+                <li><strong>Servo Jitter</strong>: Often caused by insufficient power or EMI</li>
+                <li><strong>Random Resets</strong>: Check power supply capacity and connections</li>
+                <li><strong>Overheating</strong>: Verify fan operation, clean vents</li>
+                <li><strong>Loose Components</strong>: Use threadlocker on vibration-prone fasteners</li>
+            </ul>
+        </section>
+
+        <div class="alert alert-success">
+            <strong>Design Philosophy:</strong> The torso should be the most robust and reliable component of the robot.
+            Invest time in cable management and component layout during initial build—it pays dividends during every subsequent modification and repair.
         </div>
 
-        <p class="lead">
-            ...
-        </p>
-
     </div>
-</div>
+</article>
 
-<div class="row">
+<nav class="row" aria-label="Related specifications">
     {% include navigation.topics.html %}
-</div>
+</nav>
