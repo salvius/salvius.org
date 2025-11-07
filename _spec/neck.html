@@ -1,34 +1,427 @@
 ---
 title: Neck
-description: Robotic neck joint and actuators
+description: Technical specification for Salvius humanoid robot neck mechanism including rotation, tilt, and Stewart platform implementation for multi-axis head movement.
 ---
 
-<div class="row inset-shadow">
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
     <div class="col-sm-10 col-sm-offset-1">
 
-        <div class="page-header">
-            <h1>{{ page.title }}</h1>
+        <header class="page-header">
+            <h1 itemprop="headline">{{ page.title }} Specification</h1>
+        </header>
+
+        <section>
+            <h2>Overview</h2>
+            <p class="lead" itemprop="description">
+                The neck assembly provides head articulation for the Salvius robot, enabling camera tracking, natural head movements, and directional audio.
+                The design balances complexity with functionality, offering options from simple single-axis rotation to advanced multi-axis movement using Stewart platform kinematics.
+            </p>
+        </section>
+
+        <section>
+            <h2>Movement Requirements</h2>
+
+            <h3>Primary Function: Rotation (Yaw)</h3>
+            <ul>
+                <li><strong>Minimum Range</strong>: 180° total (±90° from center)</li>
+                <li><strong>Recommended Range</strong>: 270° total (±135° from center)</li>
+                <li><strong>Speed</strong>: 45-90° per second</li>
+                <li><strong>Precision</strong>: ±2° positioning accuracy</li>
+                <li><strong>Load Capacity</strong>: Support 2-3 kg head assembly</li>
+            </ul>
+
+            <h3>Secondary Functions (Advanced)</h3>
+            <ul>
+                <li><strong>Tilt (Pitch)</strong>: ±45° forward/backward nod</li>
+                <li><strong>Pan (Roll)</strong>: ±30° side-to-side tilt</li>
+                <li><strong>Combined Motion</strong>: Smooth transitions between orientations</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>Note:</strong> A single-axis (rotation only) neck is sufficient for most applications and significantly simpler to build.
+                Multi-axis capability adds complexity but enables more expressive, life-like movements.
+            </div>
+        </section>
+
+        <section>
+            <h2>Design Option 1: Simple Rotation</h2>
+
+            <h3>Direct Drive Configuration</h3>
+            <p>
+                The simplest and most reliable neck design uses a single servo for yaw rotation:
+            </p>
+
+            <h4>Components</h4>
+            <ul>
+                <li><strong>Servo Motor</strong>: High-torque servo, 25-35 kg-cm minimum (MG996R or similar)</li>
+                <li><strong>Mounting Plate</strong>: 6-10mm plywood or aluminum plate</li>
+                <li><strong>Base Bracket</strong>: Attaches servo to torso</li>
+                <li><strong>Head Mount</strong>: Connects servo horn to head assembly</li>
+                <li><strong>Bearing (Optional)</strong>: Large lazy Susan bearing for lateral support</li>
+                <li><strong>Slip Ring (Optional)</strong>: Allows unlimited rotation without cable tangling</li>
+            </ul>
+
+            <h4>Construction</h4>
+            <ol>
+                <li>Mount servo vertically on top of torso with shaft pointing up</li>
+                <li>Attach large servo horn or mounting disc to output shaft</li>
+                <li>If using bearing, mount bearing around servo with outer race on torso</li>
+                <li>Create head mounting plate that attaches to servo horn/bearing</li>
+                <li>Route cables through center of rotation or use slip ring</li>
+                <li>Attach head assembly to mounting plate</li>
+            </ol>
+
+            <h4>Advantages</h4>
+            <ul>
+                <li>Simple construction with minimal parts</li>
+                <li>Reliable operation, few failure points</li>
+                <li>Easy to debug and maintain</li>
+                <li>Low cost (single servo plus mounting)</li>
+                <li>Direct control with standard servo library</li>
+            </ul>
+
+            <h4>Limitations</h4>
+            <ul>
+                <li>Single axis of motion only</li>
+                <li>Cable management challenges at extreme rotations</li>
+                <li>No nodding or tilting capability</li>
+            </ul>
+
+            <h3>Cable Management for Rotating Neck</h3>
+
+            <p><strong>Method 1: Service Loop</strong></p>
+            <ul>
+                <li>Provide extra cable length in a loop below neck</li>
+                <li>Loop allows ±180° rotation before cables bind</li>
+                <li>Simple but limits continuous rotation</li>
+                <li>Requires periodic "unwinding" to center position</li>
+            </ul>
+
+            <p><strong>Method 2: Slip Ring</strong></p>
+            <ul>
+                <li>Electrical rotating connector allows unlimited rotation</li>
+                <li>6-12 conductor slip rings available from hobby suppliers</li>
+                <li>Routes power and signals through rotating joint</li>
+                <li>More expensive (~$15-30) but enables full 360° rotation</li>
+                <li>Small signal degradation, not suitable for high-speed data</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Design Option 2: Stewart Platform</h2>
+
+            <p class="lead">
+                For multi-axis head movement, a Stewart platform provides 6 degrees of freedom using six prismatic actuators. This advanced design allows for pitch, roll, yaw, and XYZ positioning.
+            </p>
+
+            <img src="/images/spec/neck.svg" alt="Humanoid robot neck joint showing Stewart platform configuration" class="img-responsive"/>
+
+            <h3>Stewart Platform Overview</h3>
+            <p>
+                A Stewart platform incorporates six prismatic actuators mounted in pairs to the base, crossing over to three mounting points on a top plate. This configuration enables movement in all six degrees of freedom:
+            </p>
+            <ul>
+                <li><strong>Linear Movement</strong>: X (lateral), Y (longitudinal), Z (vertical)</li>
+                <li><strong>Rotational Movement</strong>: Pitch (nodding), Roll (tilting), Yaw (turning)</li>
+            </ul>
+
+            <div class="alert alert-warning">
+                <strong>Complexity Warning:</strong> Stewart platforms require sophisticated inverse kinematics calculations and precise actuator control. This design is recommended only for advanced builders comfortable with trigonometry and programming.
+            </div>
+
+            <h3>Components for Stewart Platform</h3>
+            <ul>
+                <li><strong>Linear Actuators</strong>: 6x servos with rack-and-pinion or screw drive (5-10 cm stroke)</li>
+                <li><strong>Universal Joints</strong>: 12x ball joints or universal joints (2 per actuator)</li>
+                <li><strong>Base Plate</strong>: Rigid mounting surface (aluminum or thick plywood)</li>
+                <li><strong>Top Plate</strong>: Head mounting platform</li>
+                <li><strong>Actuator Arms</strong>: Connecting rods between base and top plate</li>
+                <li><strong>Controller</strong>: Arduino or Raspberry Pi running inverse kinematics</li>
+            </ul>
+
+            <h3>Kinematics Considerations</h3>
+
+            <h4>Inverse Kinematics</h4>
+            <p>
+                Converting desired head orientation (pitch, roll, yaw) to individual actuator lengths requires:
+            </p>
+            <ul>
+                <li>3D transformation matrices</li>
+                <li>Iterative solving algorithms</li>
+                <li>Real-time calculation capability</li>
+                <li>Collision detection to prevent self-interference</li>
+            </ul>
+
+            <h4>Calibration Requirements</h4>
+            <ul>
+                <li>Precise measurement of mounting point positions</li>
+                <li>Actuator length calibration at neutral position</li>
+                <li>Software limits to prevent mechanical binding</li>
+                <li>Testing of full range of motion envelope</li>
+            </ul>
+
+            <h3>Stewart Platform Advantages</h3>
+            <ul>
+                <li>Full 6-DOF movement capability</li>
+                <li>Very expressive, life-like head movements</li>
+                <li>Can compensate for body tilt (self-leveling)</li>
+                <li>Interesting engineering challenge</li>
+                <li>Impressive demonstration of robotic capability</li>
+            </ul>
+
+            <h3>Stewart Platform Challenges</h3>
+            <ul>
+                <li>Complex mathematics for inverse kinematics</li>
+                <li>Requires 6 synchronized actuators</li>
+                <li>Higher cost (6 servos vs. 1-2)</li>
+                <li>More failure points</li>
+                <li>Difficult to debug mechanical issues</li>
+                <li>Requires custom control software</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Design Option 3: Two-Axis Neck</h2>
+
+            <p>
+                A compromise between simple rotation and full Stewart platform complexity:
+            </p>
+
+            <h3>Configuration</h3>
+            <ul>
+                <li><strong>Base Servo</strong>: Yaw rotation (left/right)</li>
+                <li><strong>Tilt Servo(s)</strong>: Pitch movement (nod up/down)</li>
+                <li><strong>Total Servos</strong>: 2 servos for 2 degrees of freedom, or 3 if using 2 tilt servos for increased range of motion</li>
+            </ul>
+
+            <h3>Construction Approach</h3>
+            <ol>
+                <li>Mount yaw servo vertically on torso (same as simple rotation)</li>
+                <li>Attach pitch servo to top of yaw servo output</li>
+                <li>Mount pitch servo perpendicular to yaw axis</li>
+                <li>Attach head to pitch servo output</li>
+                <li>Balance head weight on pitch servo to reduce torque</li>
+            </ol>
+
+            <h3>Advantages Over Simple Rotation</h3>
+            <ul>
+                <li>Adds nodding capability (more expressive)</li>
+                <li>Still relatively simple construction</li>
+                <li>Standard servo control, no complex kinematics</li>
+                <li>Moderate cost increase (one additional servo)</li>
+            </ul>
+
+            <h3>Considerations</h3>
+            <ul>
+                <li>Pitch servo must support full head weight cantilevered</li>
+                <li>Use counterweight or spring assist on pitch axis</li>
+                <li>Cable routing more complex with two axes</li>
+                <li>Total neck height increases with stacked servos</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Servo Selection Guidelines</h2>
+
+            <h3>Torque Requirements</h3>
+            <p>
+                Calculate required servo torque based on head weight and lever arm:
+            </p>
+            <ul>
+                <li><strong>Minimum Torque</strong>: Head weight (kg) × Lever arm (cm) × 1.5 safety factor</li>
+                <li><strong>Example</strong>: 2.5 kg head × 5 cm offset × 1.5 = 18.75 kg-cm minimum</li>
+                <li><strong>Recommended</strong>: 25-35 kg-cm for reliable operation with margin</li>
+            </ul>
+
+            <h3>Servo Speed</h3>
+            <ul>
+                <li><strong>Standard Speed</strong>: 0.15-0.20 sec/60° (typical for MG996R class)</li>
+                <li><strong>Fast Movement</strong>: 0.10-0.14 sec/60° (higher voltage or specialized servos)</li>
+                <li><strong>Trade-off</strong>: Faster servos often have lower torque or higher cost</li>
+            </ul>
+
+            <h3>Servo Model Evaluations</h3>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Torque</th>
+                        <th>Speed</th>
+                        <th>Cost</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MG996R</td>
+                        <td>11 kg-cm @ 6V</td>
+                        <td>0.17 sec/60°</td>
+                        <td>$</td>
+                        <td>Budget option, marginal for heavy heads</td>
+                    </tr>
+                    <tr>
+                        <td>MG995</td>
+                        <td>13 kg-cm @ 6V</td>
+                        <td>0.19 sec/60°</td>
+                        <td>$</td>
+                        <td>Similar to MG996R, slightly higher torque</td>
+                    </tr>
+                    <tr>
+                        <td>DS3218</td>
+                        <td>20 kg-cm @ 6V</td>
+                        <td>0.16 sec/60°</td>
+                        <td>$$</td>
+                        <td>Good balance of torque and speed</td>
+                    </tr>
+                    <tr>
+                        <td>Hitec HS-805BB</td>
+                        <td>24 kg-cm @ 6V</td>
+                        <td>0.14 sec/60°</td>
+                        <td>$$$</td>
+                        <td>High quality, very reliable</td>
+                    </tr>
+                    <tr>
+                        <td>Dynamixel MX-28</td>
+                        <td>24 kg-cm @ 12V</td>
+                        <td>0.126 sec/60°</td>
+                        <td>$$$$</td>
+                        <td>Smart servo with position feedback</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Mechanical Design Details</h2>
+
+            <h3>Mounting Considerations</h3>
+            <ul>
+                <li><strong>Servo Orientation</strong>: Output shaft vertical for yaw rotation</li>
+                <li><strong>Centering</strong>: Align servo shaft with desired rotation center</li>
+                <li><strong>Vibration Isolation</strong>: Rubber grommets reduce gear noise transmission</li>
+                <li><strong>Accessibility</strong>: Allow servo removal without major disassembly</li>
+            </ul>
+
+            <h3>Load Support</h3>
+
+            <h4>Without Bearing</h4>
+            <ul>
+                <li>Servo shaft supports head weight and lateral forces</li>
+                <li>Works for lighter heads (under 2 kg)</li>
+                <li>May cause premature servo wear</li>
+                <li>Risk of shaft bending under side loads</li>
+            </ul>
+
+            <h4>With Bearing Support</h4>
+            <ul>
+                <li>Large bearing (40-60mm diameter) surrounds servo</li>
+                <li>Bearing handles lateral loads, servo only provides rotation torque</li>
+                <li>Dramatically extends servo life</li>
+                <li>Recommended for heads over 2 kg</li>
+                <li>Lazy Susan bearing or large ball bearing</li>
+            </ul>
+
+            <h3>Safety Stops</h3>
+            <ul>
+                <li><strong>Software Limits</strong>: Prevent servo commands beyond safe range</li>
+                <li><strong>Mechanical Stops</strong>: Physical barriers at rotation limits</li>
+                <li><strong>Cable Protection</strong>: Limit rotation to prevent cable damage</li>
+                <li><strong>Emergency Stop</strong>: Kill switch accessible during testing</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Electrical Integration</h2>
+
+            <h3>Power Requirements</h3>
+            <ul>
+                <li><strong>Voltage</strong>: 6V nominal (4.8-7.4V acceptable for most servos)</li>
+                <li><strong>Current</strong>: Peak 2-3A per servo during movement</li>
+                <li><strong>Continuous</strong>: 0.5-1A when holding position</li>
+                <li><strong>Recommendation</strong>: Dedicated 6V power supply with 5A+ capacity</li>
+            </ul>
+
+            <h3>Control Signals</h3>
+            <ul>
+                <li><strong>PWM Signal</strong>: 50Hz, 1-2ms pulse width</li>
+                <li><strong>Source</strong>: Arduino, Raspberry Pi, or servo controller board</li>
+                <li><strong>Wiring</strong>: Keep signal wires short and away from motor power lines</li>
+                <li><strong>Decoupling</strong>: Large capacitor (1000μF+) near servo power input</li>
+            </ul>
+
+            <h3>Sensor Integration (Optional)</h3>
+            <ul>
+                <li><strong>IMU</strong>: Detect head orientation for self-leveling</li>
+                <li><strong>Encoders</strong>: Precise position feedback</li>
+                <li><strong>Current Sensing</strong>: Detect collisions or binding</li>
+                <li><strong>Limit Switches</strong>: Hardware end stops for safety</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Testing and Calibration</h2>
+
+            <h3>Initial Testing (No Head Attached)</h3>
+            <ol>
+                <li>Verify servo moves smoothly through full range</li>
+                <li>Check for binding or unusual sounds</li>
+                <li>Test at low power first, gradually increase</li>
+                <li>Verify center position aligns with mechanical center</li>
+                <li>Map PWM values to actual angles</li>
+            </ol>
+
+            <h3>Load Testing (Head Attached)</h3>
+            <ol>
+                <li>Start with servo at neutral, slowly power on</li>
+                <li>Test small movements first (±10°)</li>
+                <li>Gradually increase range and speed</li>
+                <li>Monitor servo temperature during continuous operation</li>
+                <li>Check for vibration or oscillation</li>
+                <li>Verify cables don't snag during full rotation</li>
+            </ol>
+
+            <h3>Calibration</h3>
+            <ul>
+                <li>Record PWM values at key positions (0°, 90°, 180°, etc.)</li>
+                <li>Create lookup table or interpolation function</li>
+                <li>Account for mechanical slop and backlash</li>
+                <li>Test repeatability: return to same position multiple times</li>
+                <li>Document final calibration values for future reference</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Maintenance</h2>
+
+            <h3>Regular Checks</h3>
+            <ul>
+                <li><strong>Weekly</strong>: Listen for unusual sounds, verify smooth operation</li>
+                <li><strong>Monthly</strong>: Check fastener tightness, inspect cables for wear</li>
+                <li><strong>Quarterly</strong>: Lubricate moving parts (bearing, slip ring if used)</li>
+                <li><strong>Annually</strong>: Complete inspection, replace worn components</li>
+            </ul>
+
+            <div class="alert alert-success">
+                <strong>Note:</strong> Alternatively schedule maintenance based on operational hours (e.g., every 100 hours of operation) for robots in continuous use.
+            </div>
+
+            <h3>Common Issues</h3>
+            <ul>
+                <li><strong>Jittering</strong>: Insufficient power, loose connection, or servo failure</li>
+                <li><strong>Slow Response</strong>: Low voltage, overloaded servo, or binding mechanism</li>
+                <li><strong>Position Drift</strong>: Mechanical slop, servo wear, or control signal noise</li>
+                <li><strong>Clicking Sounds</strong>: Stripped gears, binding, or overload condition</li>
+            </ul>
+        </section>
+
+        <div class="alert alert-success">
+            <strong>Recommendation:</strong> Start with a simple single-axis rotation design. It provides 80% of the functionality with 20% of the complexity. Multi-axis capability can be added later if needed, but many applications work perfectly well with rotation alone.
         </div>
 
-        <p class="lead">
-            The neck must allow for a minimum of 45 degrees of lateral and longitudinal rotation. To accomplish this, the neck will be constructed similar to a <a href="https://en.wikipedia.org/wiki/Stewart_platform" target="_blank">Stewart platform</a>. A Stewart platform incorporates six prismatic actuators  mounted in pairs to the base of the mechanism, crossing over to three mounting points on a top plate.
-        </p>
-
-        <p>
-        Devices placed on the top plate can be moved in the six degrees of freedom in which it is possible for a freely-suspended body to move. These are the three linear movements x, y, z (lateral, longitudinal and vertical), and the three rotations pitch, roll, and yaw. The term "six-axis" platform is also used.
-        </p>
-
-        <p>
-        The robot's neck must allow the head to rotate a minimum of 180 degrees in either direction.
-        This will be accomplished by a motor attached to the top of the Stewart platform.
-        </p>
-
-        <img src="/images/spec/neck.svg" alt="Humanoid robot neck joint">
-
     </div>
+</article>
 
-</div>
-
-<div class="row">
+<nav class="row" aria-label="Related specifications">
     {% include navigation.topics.html %}
-</div>
+</nav>
