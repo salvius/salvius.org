@@ -1,46 +1,976 @@
 ---
 title: Legs
-description: Humanoid robot leg design
+description: Technical specification for humanoid robot leg design including bipedal locomotion mechanics, hip/knee/ankle joints, balance control, and walking gait implementation for stable humanoid mobility.
 ---
 
-<div class="row inset-shadow">
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
     <div class="col-sm-10 col-sm-offset-1">
 
-        <div class="page-header">
-            <h1>{{ page.title }}</h1>
-        </div>
+        <header class="page-header">
+            <h1 itemprop="headline">{{ page.title }} Specification</h1>
+        </header>
 
-        <p class="lead">
-            Bipedal modality provides an efficient and versatile form of locomotion that allows robots to excel in human environments.
-        </p>
+        <section>
+            <p class="lead" itemprop="description">
+                Bipedal modality provides an efficient and versatile form of locomotion that allows robots to excel in human environments. However, bipedal walking is one of the most challenging aspects of humanoid robotics, requiring sophisticated balance control, coordinated multi-joint movement, and real-time stability management. This specification covers both static walking approaches (always maintaining balance) and dynamic walking methods (controlled falling).
+            </p>
+        </section>
 
-        <h2>Overview</h2>
+        <section>
+            <h2>Design Philosophy and Challenges</h2>
 
-        <h3>Leg joint placement</h3>
+            <h3>Why Bipedal Locomotion?</h3>
+            <ul>
+                <li><strong>Human Environments</strong>: Stairs, narrow passages, and spaces designed for two-legged beings</li>
+                <li><strong>Height Advantage</strong>: Reach objects at human heights, interact at eye level</li>
+                <li><strong>Efficient in Constrained Spaces</strong>: Smaller footprint than wheeled or quadruped designs</li>
+                <li><strong>Tool Use</strong>: Frees upper limbs for manipulation tasks</li>
+                <li><strong>Aesthetic</strong>: More human-like appearance and interaction</li>
+            </ul>
 
-        <img src="/images/3d/legs/leg_dof.png" class="img-responsive" alt="Humanoid robot legs degrees of freedom">
+            <h3>Fundamental Challenges</h3>
+            <ul>
+                <li><strong>Inherent Instability</strong>: Two-point contact provides minimal stability</li>
+                <li><strong>Complex Dynamics</strong>: Inverted pendulum system requires constant correction</li>
+                <li><strong>Energy Intensive</strong>: Requires significant power for balance and movement</li>
+                <li><strong>Control Complexity</strong>: Must coordinate 6-12 DOF in real-time</li>
+                <li><strong>Mechanical Stress</strong>: High loads on joints, especially during impacts</li>
+            </ul>
 
-        <h3>Range of movement</h3>
+            <div class="alert alert-info">
+                <strong>Important Note:</strong> Many successful humanoid robots use wheeled bases or static platforms instead of true bipedal walking. Consider whether full walking capability is necessary for your application, or if a simpler mobility solution would suffice.
+            </div>
+        </section>
 
-        <h3>Dimensions, weight and center of gravity</h3>
+        <section>
+            <h2>Overview</h2>
 
-        <h2>Hip</h2>
+            <h3>Leg Joint Placement and Degrees of Freedom</h3>
 
-        <p>...</p>
+            <img src="/images/3d/legs/leg_dof.png" class="img-responsive" alt="Humanoid robot legs showing degrees of freedom at hip, knee, and ankle joints">
 
-        <h2>Knee</h2>
+            <p>
+                A minimal bipedal walking system requires <strong>6 degrees of freedom (DOF) per leg</strong>, distributed across three major joint complexes:
+            </p>
 
-        <p>...</p>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Joint Complex</th>
+                        <th>DOF</th>
+                        <th>Movement Types</th>
+                        <th>Primary Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hip</strong></td>
+                        <td>3</td>
+                        <td>Flexion/Extension, Abduction/Adduction, Rotation</td>
+                        <td>Leg positioning, lateral balance</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Knee</strong></td>
+                        <td>1</td>
+                        <td>Flexion/Extension</td>
+                        <td>Leg length adjustment, shock absorption</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ankle</strong></td>
+                        <td>2</td>
+                        <td>Dorsiflexion/Plantarflexion, Inversion/Eversion</td>
+                        <td>Ground contact, balance fine-tuning</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total per leg</strong></td>
+                        <td><strong>6</strong></td>
+                        <td colspan="2">Total system: 12 DOF for both legs</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <h2>Foot</h2>
+            <h3>Simplified Configurations</h3>
+            <p>
+                For static walking or limited mobility, the DOF count can be reduced:
+            </p>
+            <ul>
+                <li><strong>4 DOF per leg</strong>: Remove hip rotation and ankle inversion/eversion (can walk forward/backward on flat ground)</li>
+                <li><strong>3 DOF per leg</strong>: Remove ankle joints entirely (static standing, limited walking)</li>
+                <li><strong>2 DOF per leg</strong>: Hip flexion and knee only (sitting/standing transitions, not walking)</li>
+            </ul>
+        </section>
 
-        <p>...</p>
+        <section>
+            <h3>Range of Movement</h3>
 
-        <img src="/images/vectors/human_foot.svg" class="img-responsive" alt="Human foot bones">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Joint</th>
+                        <th>Movement</th>
+                        <th>Human Range</th>
+                        <th>Robot Minimum</th>
+                        <th>Robot Recommended</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3"><strong>Hip</strong></td>
+                        <td>Flexion/Extension</td>
+                        <td>120° / 20°</td>
+                        <td>90° / 10°</td>
+                        <td>120° / 30°</td>
+                    </tr>
+                    <tr>
+                        <td>Abduction/Adduction</td>
+                        <td>45° / 30°</td>
+                        <td>20° / 10°</td>
+                        <td>45° / 30°</td>
+                    </tr>
+                    <tr>
+                        <td>Internal/External Rotation</td>
+                        <td>45° / 45°</td>
+                        <td>0° (fixed)</td>
+                        <td>30° / 30°</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Knee</strong></td>
+                        <td>Flexion/Extension</td>
+                        <td>135° / 0°</td>
+                        <td>90° / 0°</td>
+                        <td>130° / 0°</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>Ankle</strong></td>
+                        <td>Dorsiflexion/Plantarflexion</td>
+                        <td>20° / 50°</td>
+                        <td>10° / 20°</td>
+                        <td>20° / 45°</td>
+                    </tr>
+                    <tr>
+                        <td>Inversion/Eversion</td>
+                        <td>35° / 15°</td>
+                        <td>0° (fixed)</td>
+                        <td>20° / 20°</td>
+                    </tr>
+                </tbody>
+            </table>
 
+            <p class="text-muted">
+                <em>Note: Flexion angles are from neutral standing position. Greater range enables more natural gait but increases mechanical complexity.</em>
+            </p>
+        </section>
+
+        <section>
+            <h3>Dimensions, Weight and Center of Gravity</h3>
+
+            <h4>Proportional Scaling</h4>
+            <p>
+                Human leg proportions follow consistent ratios. For a robot with total height <strong>H</strong>:
+            </p>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>Proportion of Height (H)</th>
+                        <th>Example (H = 1.5m)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total Leg Length</td>
+                        <td>0.50 - 0.53 H</td>
+                        <td>750-795 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Thigh (Hip to Knee)</td>
+                        <td>0.25 H</td>
+                        <td>375 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Shin (Knee to Ankle)</td>
+                        <td>0.25 H</td>
+                        <td>375 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Foot Length</td>
+                        <td>0.15 H</td>
+                        <td>225 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Hip Width</td>
+                        <td>0.19 H</td>
+                        <td>285 mm</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Center of Gravity Considerations</h4>
+            <ul>
+                <li><strong>Standing Position</strong>: CoG should be ~55-60% of total height from ground</li>
+                <li><strong>Weight Distribution</strong>: Lower body should be 40-50% of total robot weight</li>
+                <li><strong>Battery Placement</strong>: Heavy batteries best placed low in torso or upper legs to lower CoG</li>
+                <li><strong>Foot Size</strong>: Larger feet provide more stability but reduce maneuverability</li>
+            </ul>
+
+            <div class="alert alert-warning">
+                <strong>Stability Rule:</strong> The robot's center of gravity projection must remain within the support polygon (foot contact area) for static stability. During walking, predictive control is needed for dynamic stability.
+            </div>
+        </section>
     </div>
-</div>
+</article>
 
-<div class="row">
+<article class="row" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2 id="hip-heading">Hip Joint</h2>
+        </header>
+
+        <section>
+            <h3>Functional Requirements</h3>
+            <p class="lead">
+                The hip is the most complex joint in the leg, requiring three degrees of freedom to position the leg in 3D space. It must support the entire weight of the robot during single-leg stance while walking, making it the highest-stress joint in the system.
+            </p>
+
+            <h4>Three-Axis Hip Design</h4>
+            <p>
+                Most successful humanoid robots use three perpendicular rotation axes at the hip:
+            </p>
+            <ul>
+                <li><strong>Yaw (Hip Rotation)</strong>: Allows leg to rotate about vertical axis</li>
+                <li><strong>Roll (Abduction/Adduction)</strong>: Moves leg away from or toward centerline</li>
+                <li><strong>Pitch (Flexion/Extension)</strong>: Swings leg forward and backward</li>
+            </ul>
+
+            <h4>Servo Configuration</h4>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Axis</th>
+                        <th>Mounting</th>
+                        <th>Torque Requirements</th>
+                        <th>Critical Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Yaw (Rotation)</td>
+                        <td>Vertical shaft in pelvis</td>
+                        <td>LOW (10-20 kg·cm)</td>
+                        <td>Least stressed, can use smaller servo</td>
+                    </tr>
+                    <tr>
+                        <td>Roll (Abduction)</td>
+                        <td>Horizontal, perpendicular to leg</td>
+                        <td>HIGH (40-80 kg·cm)</td>
+                        <td>Supports full leg weight laterally</td>
+                    </tr>
+                    <tr>
+                        <td>Pitch (Flexion)</td>
+                        <td>Horizontal, parallel to hips</td>
+                        <td>VERY HIGH (60-120 kg·cm)</td>
+                        <td>Highest stress during walking</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h3>Construction Methods</h3>
+
+            <h4>Method 1: Sequential Servo Mount</h4>
+            <ul>
+                <li>Each servo mounts to the previous servo's horn/bracket</li>
+                <li>Creates a chain: pelvis → yaw servo → roll servo → pitch servo → thigh</li>
+                <li><strong>Advantages</strong>: Simple concept, easy to visualize and build</li>
+                <li><strong>Disadvantages</strong>: Heavy and bulky, each servo must support weight of subsequent servos</li>
+                <li><strong>Best For</strong>: Smaller robots (under 50cm tall), prototypes</li>
+            </ul>
+
+            <h4>Method 2: Parallel Mounting Frame</h4>
+            <ul>
+                <li>All three servos mount to a rigid frame structure</li>
+                <li>Linkages connect servos to thigh mount point</li>
+                <li><strong>Advantages</strong>: More compact, better load distribution</li>
+                <li><strong>Disadvantages</strong>: Complex mechanical design, requires precise fabrication</li>
+                <li><strong>Best For</strong>: Medium to large robots, final production designs</li>
+            </ul>
+
+            <h4>Method 3: Spherical Joint Mechanism</h4>
+            <ul>
+                <li>Ball-and-socket joint provides 3-DOF in single mechanical element</li>
+                <li>Actuators drive the joint via cables or external linkages</li>
+                <li><strong>Advantages</strong>: Compact, wide range of motion</li>
+                <li><strong>Disadvantages</strong>: Very complex to design and build, difficult to control</li>
+                <li><strong>Best For</strong>: Advanced projects, research platforms</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Torque Calculations</h3>
+
+            <p>
+                To size hip servos, calculate the torque required to support the leg:
+            </p>
+
+            <div class="well">
+                <strong>Hip Pitch (Forward/Back) Torque:</strong><br>
+                T = (M<sub>leg</sub> × L<sub>leg</sub> × g) + safety_factor<br><br>
+                Where:<br>
+                • M<sub>leg</sub> = mass of leg (kg)<br>
+                • L<sub>leg</sub> = distance from hip to leg center of mass (m)<br>
+                • g = gravitational acceleration (9.81 m/s²)<br>
+                • safety_factor = 2.0-3.0 for dynamic movement<br>
+                • T = required torque (N·m)<br><br>
+                <strong>Example:</strong> 2kg leg, CoM at 20cm, safety factor 2.5<br>
+                T = (2 × 0.2 × 9.81) × 2.5 = 9.81 N·m = 100 kg·cm
+            </div>
+
+            <div class="well">
+                <strong>Hip Roll (Abduction) Torque:</strong><br>
+                T = (M<sub>robot</sub> × D<sub>hip-width</sub> × g) + safety_factor<br><br>
+                Where:<br>
+                • M<sub>robot</sub> = total robot mass (kg)<br>
+                • D<sub>hip-width</sub> = distance from hip joint to CoG centerline (m)<br>
+                • During single-leg stance, this servo supports entire robot weight
+            </div>
+
+            <h4>Servo Motor Evaluation</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Robot Height</th>
+                        <th>Total Mass</th>
+                        <th>Hip Pitch/Roll Servo</th>
+                        <th>Hip Yaw Servo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>150+ cm</td>
+                        <td>40+ kg</td>
+                        <td>Industrial servo with 10:1+ gearbox (300+ kg·cm)</td>
+                        <td>Dynamixel MX-64 or industrial servo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h3>Mechanical Considerations</h3>
+            <ul>
+                <li><strong>Bearing Support</strong>: Use ball bearings at high-load pivot points to reduce servo stress</li>
+                <li><strong>Hard Stops</strong>: Implement mechanical stops to prevent over-rotation and protect servos</li>
+                <li><strong>Shock Absorption</strong>: Consider rubber dampers at hip mounts to reduce impact transmission</li>
+                <li><strong>Cable Management</strong>: Hip joints have complex wiring; plan cable routing carefully</li>
+                <li><strong>Heat Dissipation</strong>: Hip servos work hardest; ensure good ventilation</li>
+            </ul>
+        </section>
+    </div>
+</article>
+
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2 id="knee-heading">Knee Joint</h2>
+        </header>
+
+        <section>
+            <h3>Functional Requirements</h3>
+            <p class="lead">
+                The knee is a single degree of freedom hinge joint connecting the thigh and shin. Despite being simpler than the hip, it experiences extremely high loads during walking and must be robust enough to support the full weight of the robot during stance phase.
+            </p>
+
+            <h4>Key Functions</h4>
+            <ul>
+                <li><strong>Leg Length Adjustment</strong>: Allows robot to lower/raise center of mass</li>
+                <li><strong>Swing Phase Clearance</strong>: Bends to lift foot off ground during walking</li>
+                <li><strong>Shock Absorption</strong>: Flexes to cushion impacts when foot contacts ground</li>
+                <li><strong>Energy Storage</strong>: Can store elastic energy during gait (with spring elements)</li>
+            </ul>
+
+            <h4>Movement Range</h4>
+            <ul>
+                <li><strong>Minimum</strong>: 0° (straight leg) to 90° (bent)</li>
+                <li><strong>Recommended</strong>: 0° to 130° for natural gait and sitting</li>
+                <li><strong>No Hyperextension</strong>: Must not bend backward beyond 0°</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Construction Methods</h3>
+
+            <h4>Method 1: Direct Servo Hinge</h4>
+            <ul>
+                <li>Servo mounts at knee with shaft axis perpendicular to leg</li>
+                <li>Thigh and shin connect directly to servo body and horn</li>
+                <li><strong>Advantages</strong>: Simplest possible design, minimal parts</li>
+                <li><strong>Disadvantages</strong>: Servo bears all lateral loads, limited to lighter robots</li>
+                <li><strong>Best For</strong>: Small robots (under 3kg), prototypes</li>
+            </ul>
+
+            <h4>Method 2: Bearing-Supported Hinge</h4>
+            <ul>
+                <li>Main load-bearing shaft runs through bearings in thigh and shin</li>
+                <li>Servo connects via gear or linkage to drive shaft</li>
+                <li><strong>Advantages</strong>: Bearings handle lateral loads, servo only provides torque</li>
+                <li><strong>Disadvantages</strong>: More complex, requires precision machining</li>
+                <li><strong>Best For</strong>: Medium to large robots, production designs</li>
+            </ul>
+
+            <h4>Method 3: Four-Bar Linkage</h4>
+            <ul>
+                <li>Parallel linkage system creates virtual hinge point</li>
+                <li>Distributes loads across multiple pivot points</li>
+                <li><strong>Advantages</strong>: Very strong, even load distribution</li>
+                <li><strong>Disadvantages</strong>: Bulky, complex geometry</li>
+                <li><strong>Best For</strong>: Heavy-duty applications, large robots</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Torque Requirements</h3>
+
+            <div class="well">
+                <strong>Knee Torque Calculation:</strong><br>
+                T = (M<sub>shin+foot</sub> × L<sub>shin</sub> × g) × safety_factor<br><br>
+                Where:<br>
+                • M<sub>shin+foot</sub> = combined mass of shin and foot (kg)<br>
+                • L<sub>shin</sub> = shin length from knee to CoM (m)<br>
+                • safety_factor = 2.0-2.5 for walking<br><br>
+                <strong>Example:</strong> 1kg shin+foot, 20cm length, factor 2.0<br>
+                T = (1 × 0.2 × 9.81) × 2.0 = 3.92 N·m = 40 kg·cm
+            </div>
+
+            <p class="text-muted">
+                <em>Note: Knee torque is typically lower than hip torque since it only supports the lower leg, not the entire robot.</em>
+            </p>
+        </section>
+
+        <section>
+            <h3>Mechanical Design Details</h3>
+
+            <h4>Hyperextension Prevention</h4>
+            <ul>
+                <li><strong>Mechanical Stop</strong>: Hard stop at 0° prevents backward bending</li>
+                <li><strong>Locking Mechanism</strong>: Optional ratchet or pin locks knee straight for standing</li>
+                <li><strong>Software Limits</strong>: Set servo endpoints to prevent overextension</li>
+            </ul>
+
+            <h4>Shock Absorption</h4>
+            <ul>
+                <li><strong>Compliance</strong>: Add rubber bushings at pivot points</li>
+                <li><strong>Spring Elements</strong>: Parallel springs can store/release energy during gait</li>
+                <li><strong>Dampers</strong>: Small dampers prevent oscillation after impact</li>
+            </ul>
+
+            <h4>Weight Reduction</h4>
+            <ul>
+                <li>Use hollow tubes for shin structure</li>
+                <li>Aluminum or carbon fiber preferred over steel</li>
+                <li>Place heavy components (batteries) in upper body, not lower leg</li>
+            </ul>
+        </section>
+    </div>
+</article>
+
+<article class="row" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2 id="ankle-heading">Ankle Joint</h2>
+        </header>
+
+        <section>
+            <h3>Functional Requirements</h3>
+            <p class="lead">
+                The ankle joint connects the leg to the foot and provides critical balance control during standing and walking. It acts as the final adjustment point between the robot's center of mass and the ground contact surface.
+            </p>
+
+            <h4>Two-Axis Ankle (Recommended)</h4>
+            <ul>
+                <li><strong>Pitch (Dorsiflexion/Plantarflexion)</strong>: Foot tilts up/down, essential for walking</li>
+                <li><strong>Roll (Inversion/Eversion)</strong>: Foot tilts side-to-side, crucial for balance on uneven ground</li>
+            </ul>
+
+            <h4>Movement Ranges</h4>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Axis</th>
+                        <th>Movement</th>
+                        <th>Minimum Range</th>
+                        <th>Recommended Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pitch</td>
+                        <td>Dorsiflexion (up)</td>
+                        <td>10°</td>
+                        <td>20°</td>
+                    </tr>
+                    <tr>
+                        <td>Pitch</td>
+                        <td>Plantarflexion (down)</td>
+                        <td>20°</td>
+                        <td>45°</td>
+                    </tr>
+                    <tr>
+                        <td>Roll</td>
+                        <td>Inversion/Eversion</td>
+                        <td>0° (fixed)</td>
+                        <td>±20°</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h3>Simplified Ankle Designs</h3>
+
+            <h4>Single-Axis Ankle (Pitch Only)</h4>
+            <ul>
+                <li>One servo provides pitch (forward/back tilt)</li>
+                <li>Sufficient for walking on flat surfaces</li>
+                <li>Simpler control and construction</li>
+                <li>Roll stability must come from hip control</li>
+            </ul>
+
+            <h4>Passive Ankle</h4>
+            <ul>
+                <li>No actuators; foot connected with compliant material (springs, rubber)</li>
+                <li>Provides passive shock absorption</li>
+                <li>Extremely simple and lightweight</li>
+                <li>Limited to very basic walking or static standing</li>
+            </ul>
+
+            <h4>Fixed Ankle</h4>
+            <ul>
+                <li>Foot rigidly attached to shin</li>
+                <li>Simplest possible configuration</li>
+                <li>Can achieve static standing and limited shuffling</li>
+                <li>Not suitable for dynamic walking</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Construction Methods</h3>
+
+            <h4>Two-Servo Perpendicular Mount</h4>
+            <ul>
+                <li>Pitch servo connects shin to intermediate bracket</li>
+                <li>Roll servo connects bracket to foot</li>
+                <li>Servos oriented 90° to each other</li>
+                <li>Simple and effective for most robots</li>
+            </ul>
+
+            <h4>Universal Joint with Actuators</h4>
+            <ul>
+                <li>U-joint provides 2-DOF passive movement</li>
+                <li>Servos control joint via cables or linkages</li>
+                <li>More compact than direct servo mount</li>
+                <li>Complex mechanical design</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Torque Requirements</h3>
+
+            <div class="well">
+                <strong>Ankle Pitch Torque:</strong><br>
+                T = (M<sub>robot</sub> × D<sub>CoG-to-ankle</sub> × g) × safety_factor<br><br>
+                During walking, ankle must support entire robot weight moments<br>
+                Typically requires 30-50% of hip pitch torque<br><br>
+                <strong>Ankle Roll Torque:</strong><br>
+                Similar to ankle pitch but typically slightly less<br>
+                Can use same size servo for both axes
+            </div>
+        </section>
+    </div>
+</article>
+
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2 id="foot-heading">Foot</h2>
+        </header>
+
+        <section>
+            <h3>Foot Design Principles</h3>
+            <p class="lead">
+                The foot is the only point of contact between robot and ground. Its design directly impacts stability, balance, and walking performance. Larger feet provide more stability but reduce maneuverability and increase the risk of foot-ground interference.
+            </p>
+
+            <img src="/images/vectors/human_foot.svg" class="img-responsive" alt="Human foot anatomical structure showing bones and arch">
+
+            <h4>Key Design Parameters</h4>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Typical Range</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Length</td>
+                        <td>15-20% of robot height</td>
+                        <td>Longer = more stable, but harder to maneuver</td>
+                    </tr>
+                    <tr>
+                        <td>Width</td>
+                        <td>40-50% of foot length</td>
+                        <td>Wider = more lateral stability</td>
+                    </tr>
+                    <tr>
+                        <td>Thickness</td>
+                        <td>20-40mm</td>
+                        <td>Thicker allows sensors, wiring space</td>
+                    </tr>
+                    <tr>
+                        <td>Surface Material</td>
+                        <td>Rubber, foam, textured</td>
+                        <td>High friction prevents slipping</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h3>Foot Construction Approaches</h3>
+
+            <h4>Flat Plate Foot (Simplest)</h4>
+            <ul>
+                <li><strong>Design</strong>: Rectangular or foot-shaped flat plate</li>
+                <li><strong>Materials</strong>: Plywood, acrylic, 3D printed plastic, aluminum</li>
+                <li><strong>Base Material</strong>: Rubber sheet adhered to bottom for friction</li>
+                <li><strong>Advantages</strong>: Extremely simple, large support polygon</li>
+                <li><strong>Disadvantages</strong>: Cannot conform to uneven ground</li>
+                <li><strong>Best For</strong>: Beginners, indoor flat-surface walking</li>
+            </ul>
+
+            <h4>Multi-Contact Foot</h4>
+            <ul>
+                <li><strong>Design</strong>: Multiple separate pads at toe and heel</li>
+                <li><strong>Contact Points</strong>: Typically 3-4 points (heel, ball, toes)</li>
+                <li><strong>Advantages</strong>: Better sensing, can detect contact points separately</li>
+                <li><strong>Disadvantages</strong>: More complex, requires multiple sensors</li>
+                <li><strong>Best For</strong>: Advanced walking, force-controlled gait</li>
+            </ul>
+
+            <h4>Compliant/Flexible Foot</h4>
+            <ul>
+                <li><strong>Design</strong>: Rigid structure with flexible sole (foam, rubber)</li>
+                <li><strong>Compliance</strong>: Foot deforms to conform to ground irregularities</li>
+                <li><strong>Advantages</strong>: Passive shock absorption, better grip on uneven surfaces</li>
+                <li><strong>Disadvantages</strong>: Harder to model dynamics, can wear out</li>
+                <li><strong>Best For</strong>: Outdoor use, rough terrain</li>
+            </ul>
+
+            <h4>Articulated Foot (Advanced)</h4>
+            <ul>
+                <li><strong>Design</strong>: Toe section can bend separately from foot</li>
+                <li><strong>Actuation</strong>: Additional servo for toe flexion</li>
+                <li><strong>Advantages</strong>: Can "push off" with toes like human gait</li>
+                <li><strong>Disadvantages</strong>: Adds DOF and complexity</li>
+                <li><strong>Best For</strong>: Research, high-performance humanoids</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Sensing and Feedback</h3>
+
+            <h4>Force Sensitive Resistors (FSR)</h4>
+            <ul>
+                <li>Place at heel and toe (minimum) or 4-6 points across foot</li>
+                <li>Detect when foot contacts ground and weight distribution</li>
+                <li>Essential for gait phase detection</li>
+                <li>Inexpensive and simple to integrate</li>
+            </ul>
+
+            <h4>Pressure Mat Arrays</h4>
+            <ul>
+                <li>Grid of sensors shows pressure distribution</li>
+                <li>High-resolution data for balance control</li>
+                <li>Expensive and complex to process</li>
+                <li>Used in advanced research platforms</li>
+            </ul>
+
+            <h4>Contact Switches</h4>
+            <ul>
+                <li>Simple binary detection (foot on ground: yes/no)</li>
+                <li>Microswitches or limit switches at foot edges</li>
+                <li>Minimal cost and complexity</li>
+                <li>Sufficient for basic walking</li>
+            </ul>
+
+            <h4>IMU in Foot</h4>
+            <ul>
+                <li>Accelerometer/gyroscope detects foot motion and orientation</li>
+                <li>Can detect impacts, foot angle, acceleration</li>
+                <li>Useful for gait analysis and control refinement</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Center of Pressure (CoP) and Zero Moment Point (ZMP)</h3>
+
+            <p>
+                Understanding where forces act on the foot is critical for balance:
+            </p>
+
+            <ul>
+                <li><strong>Center of Pressure (CoP)</strong>: The point on the foot where ground reaction force acts</li>
+                <li><strong>Zero Moment Point (ZMP)</strong>: Point where horizontal moment equals zero</li>
+                <li><strong>Stability Criterion</strong>: ZMP must remain within foot support polygon for stability</li>
+                <li><strong>Sensor Requirement</strong>: Multiple force sensors allow CoP calculation</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>Control Strategy:</strong> Advanced walking controllers continuously adjust joint positions to keep ZMP within safe bounds. This requires real-time sensor feedback and fast control loops (100+ Hz).
+            </div>
+        </section>
+    </div>
+</article>
+
+<article class="row" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2>Walking Gait and Control</h2>
+        </header>
+
+        <section>
+            <h3>Static Walking (Beginner-Friendly)</h3>
+
+            <h4>Principle</h4>
+            <p>
+                Robot maintains static balance at all times by ensuring center of gravity always projects within support polygon. Walking is achieved through a sequence of stable poses.
+            </p>
+
+            <h4>Walking Sequence</h4>
+            <ol>
+                <li><strong>Shift Weight</strong>: Move CoG over one leg (stance leg)</li>
+                <li><strong>Verify Balance</strong>: Ensure CoG projection is within stance foot</li>
+                <li><strong>Lift Swing Leg</strong>: Raise other leg off ground</li>
+                <li><strong>Move Swing Leg Forward</strong>: Position leg for next step</li>
+                <li><strong>Lower Swing Leg</strong>: Place foot on ground</li>
+                <li><strong>Transfer Weight</strong>: Shift CoG to new position over both feet</li>
+                <li><strong>Repeat</strong>: Alternate legs</li>
+            </ol>
+
+            <h4>Advantages</h4>
+            <ul>
+                <li>Never falls (if executed correctly)</li>
+                <li>Simple to understand and implement</li>
+                <li>No complex dynamics calculations required</li>
+                <li>Can pause at any point in gait</li>
+            </ul>
+
+            <h4>Disadvantages</h4>
+            <ul>
+                <li>Very slow walking speed</li>
+                <li>Energy inefficient (constant lifting of CoG)</li>
+                <li>Unnatural, robotic appearance</li>
+                <li>Large feet required for stability</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Dynamic Walking (Advanced)</h3>
+
+            <h4>Principle</h4>
+            <p>
+                Robot uses momentum and controlled falling to achieve faster, more efficient walking. The center of gravity may move outside the support polygon during swing phase, with stability maintained dynamically.
+            </p>
+
+            <h4>Control Approaches</h4>
+
+            <p><strong>ZMP-Based Control</strong></p>
+            <ul>
+                <li>Plans trajectory to keep Zero Moment Point within support polygon</li>
+                <li>Most common method for humanoid robots (ASIMO, Atlas, etc.)</li>
+                <li>Requires inverse kinematics and dynamics calculations</li>
+                <li>Computationally intensive but stable</li>
+            </ul>
+
+            <p><strong>Inverted Pendulum Model</strong></p>
+            <ul>
+                <li>Models robot as simple inverted pendulum</li>
+                <li>Uses linear approximations for fast computation</li>
+                <li>Good for flat terrain at moderate speeds</li>
+                <li>Foundation for Model Predictive Control (MPC)</li>
+            </ul>
+
+            <p><strong>Passive Dynamic Walking</strong></p>
+            <ul>
+                <li>Exploits natural dynamics; minimal actuation</li>
+                <li>Very energy efficient</li>
+                <li>Limited to specific conditions (downhill slope, specific leg design)</li>
+                <li>Research topic more than practical solution</li>
+            </ul>
+
+            <p><strong>Learning-Based Control</strong></p>
+            <ul>
+                <li>Machine learning algorithms (reinforcement learning, neural networks)</li>
+                <li>Can discover novel gaits and adapt to terrain</li>
+                <li>Requires extensive training and powerful hardware</li>
+                <li>Cutting-edge research area</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Sensors for Walking Control</h3>
+
+            <h4>Essential Sensors</h4>
+            <ul>
+                <li><strong>IMU (Inertial Measurement Unit)</strong>: Detects body tilt, critical for balance</li>
+                <li><strong>Foot Force Sensors</strong>: Detect ground contact and weight distribution</li>
+                <li><strong>Joint Position Feedback</strong>: Servo position or encoders verify joint angles</li>
+            </ul>
+
+            <h4>Helpful Additional Sensors</h4>
+            <ul>
+                <li><strong>Joint Current Sensors</strong>: Detect excessive loads or collisions</li>
+                <li><strong>Vision System</strong>: Identify obstacles, stairs, terrain</li>
+                <li><strong>Distance Sensors</strong>: Ultrasonic or LiDAR for obstacle detection</li>
+                <li><strong>Battery Monitor</strong>: Walking consumes significant power</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Common Walking Problems and Solutions</h3>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Likely Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Falls backward/forward</td>
+                        <td>CoG too far from support</td>
+                        <td>Reduce step length, improve IMU feedback control</td>
+                    </tr>
+                    <tr>
+                        <td>Falls sideways</td>
+                        <td>Insufficient hip abduction or poor lateral weight shift</td>
+                        <td>Increase hip roll range, widen stance</td>
+                    </tr>
+                    <tr>
+                        <td>Foot catches ground</td>
+                        <td>Insufficient knee flexion during swing</td>
+                        <td>Increase swing leg knee bend, raise CoG</td>
+                    </tr>
+                    <tr>
+                        <td>Jerky, oscillating motion</td>
+                        <td>Control loop instability or servo backlash</td>
+                        <td>Tune PID parameters, reduce control gain, fix mechanical slack</td>
+                    </tr>
+                    <tr>
+                        <td>Cannot walk on inclines</td>
+                        <td>Insufficient ankle range or no tilt compensation</td>
+                        <td>Increase ankle pitch range, add IMU-based tilt compensation</td>
+                    </tr>
+                    <tr>
+                        <td>High power consumption</td>
+                        <td>Inefficient gait or excessive servo stiffness</td>
+                        <td>Optimize trajectory, reduce servo holding torque, add compliance</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</article>
+
+<article class="row inset-shadow" itemscope itemtype="https://schema.org/TechArticle">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <header class="page-header">
+            <h2>Implementation Recommendations</h2>
+        </header>
+
+        <section>
+            <h3>Beginner Approach: Static Standing Platform</h3>
+            <ul>
+                <li><strong>DOF</strong>: 2-3 per leg (hip pitch, knee, maybe ankle pitch)</li>
+                <li><strong>Goal</strong>: Standing, sitting, basic poses - not walking</li>
+                <li><strong>Foot</strong>: Large flat plates for maximum stability</li>
+                <li><strong>Control</strong>: Pre-programmed positions, manual control</li>
+                <li><strong>Sensors</strong>: Optional IMU for tilt monitoring</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Intermediate Approach: Static Walker</h3>
+            <ul>
+                <li><strong>DOF</strong>: 5-6 per leg (3-axis hip, knee, 1-2 axis ankle)</li>
+                <li><strong>Goal</strong>: Slow, stable walking on flat surfaces</li>
+                <li><strong>Foot</strong>: Moderate size with force sensors</li>
+                <li><strong>Control</strong>: Scripted gait sequences with CoG monitoring</li>
+                <li><strong>Sensors</strong>: IMU + foot force sensors essential</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Advanced Approach: Dynamic Walker</h3>
+            <ul>
+                <li><strong>DOF</strong>: 6 per leg (full 3-axis hip, knee, 2-axis ankle)</li>
+                <li><strong>Goal</strong>: Natural walking, running, terrain adaptation</li>
+                <li><strong>Foot</strong>: Optimized design with multiple force points</li>
+                <li><strong>Control</strong>: Real-time ZMP or MPC control at 100+ Hz</li>
+                <li><strong>Sensors</strong>: IMU, force sensors, joint encoders, possibly vision</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Alternative: Wheeled Base Hybrid</h3>
+            <p>
+                Many successful humanoid robots use wheeled or tracked bases instead of legs:
+            </p>
+            <ul>
+                <li><strong>Examples</strong>: PR2, TIAGo, many service robots</li>
+                <li><strong>Advantages</strong>: Reliable, energy efficient, can carry heavy loads</li>
+                <li><strong>Disadvantages</strong>: Cannot climb stairs, limited terrain capability</li>
+                <li><strong>Best For</strong>: Indoor service robots, research platforms focusing on manipulation</li>
+            </ul>
+
+            <div class="alert alert-success">
+                <strong>Practical Advice:</strong> If your primary goal is upper body manipulation and human interaction, consider starting with a wheeled base. You can always add legs later once the upper body systems are working. Many robotics teams spend years just getting reliable bipedal walking, which delays other important capabilities.
+            </div>
+        </section>
+
+        <section>
+            <h3>Testing Checklist</h3>
+            <ol>
+                <li>✓ Verify all joint ranges meet specifications</li>
+                <li>✓ Test servo torque under load (support robot weight)</li>
+                <li>✓ Confirm mechanical stops prevent hyperextension</li>
+                <li>✓ Calibrate all sensors (IMU, force sensors)</li>
+                <li>✓ Test single-leg stance stability (can robot balance on one leg?)</li>
+                <li>✓ Verify CoG position calculation accuracy</li>
+                <li>✓ Test emergency stop functionality</li>
+                <li>✓ Verify power system can handle peak current draw</li>
+                <li>✓ Test walking on different surfaces (carpet, tile, wood)</li>
+                <li>✓ Measure battery life during walking (typically 10-30 minutes)</li>
+            </ol>
+        </section>
+
+        <div class="alert alert-warning">
+            <strong>Safety Warning:</strong> Walking robots can fall and cause damage. Always test with safety supports (harness, crane, or foam padding). Start with very slow, controlled movements and gradually increase speed only after stability is proven. Have an emergency stop button within easy reach.
+        </div>
+    </div>
+</article>
+
+<nav class="row" aria-label="Related specifications">
     {% include navigation.topics.html %}
-</div>
+</nav>
