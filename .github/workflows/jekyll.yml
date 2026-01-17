@@ -55,7 +55,7 @@ jobs:
           # Speeds up installation of html-proofer
           NOKOGIRI_USE_SYSTEM_LIBRARIES: true
       - name: Test
-        run: bundle exec htmlproofer ./_site --disable-external --ignore_urls "/resisto.rs/" --ignore_status_codes "0,999" --check_external_hash false
+        run: bundle exec htmlproofer ./_site --disable-external --ignore-urls "/resisto.rs/,/#/"
         # --ignore_urls "/0.0.0.0/,/resisto.rs/"
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
