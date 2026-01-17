@@ -12,19 +12,28 @@ module Jekyll
       # Skip if images directory doesn't exist
       return unless File.directory?(image_dir)
 
+      # Get gallery configuration
+      gallery_config = site.config['gallery'] || {}
+      include_dirs = gallery_config['include_dirs'] || []
+      exclude_dirs = gallery_config['exclude_dirs'] || []
+
+      # Validate configuration
+      validate_gallery_config(site, image_dir, include_dirs, exclude_dirs)
+
       # Create arrays to store image data
       images = []
 
-      # Scan for images in top-level subdirectories only
-      Dir.glob(File.join(image_dir, '*/')).each do |category_dir|
-        next unless File.directory?(category_dir)
+      # Get directories to scan based on configuration
+      directories_to_scan = get_directories_to_scan(image_dir, include_dirs, exclude_dirs)
 
-        category_name = File.basename(category_dir)
+      Jekyll.logger.info "Gallery:", "Scanning #{directories_to_scan.length} directories for images"
 
-        # Skip certain directories
-        next if ['generated', '.', '..'].include?(category_name)
+      # Scan for images in configured directories
+      directories_to_scan.each do |category_dir|
+        relative_category = category_dir.sub(image_dir + '/', '')
+        category_name = relative_category.split('/').first
 
-        # Find all JPEG images in this category
+        # Find all JPEG images in this directory
         Dir.glob(File.join(category_dir, '*.{jpg,jpeg,JPG,JPEG}')).each do |image_path|
           relative_path = image_path.sub(site.source, '')
 
@@ -80,6 +89,73 @@ module Jekyll
     end
 
     private
+
+    def validate_gallery_config(site, image_dir, include_dirs, exclude_dirs)
+      # Check that include_dirs exist
+      if include_dirs.any?
+        include_dirs.each do |dir|
+          dir_path = File.join(image_dir, dir)
+          unless File.directory?(dir_path)
+            Jekyll.logger.warn "Gallery:", "Configured include directory '#{dir}' does not exist"
+          end
+        end
+      end
+
+      # Check that exclude_dirs exist
+      if exclude_dirs.any?
+        exclude_dirs.each do |dir|
+          dir_path = File.join(image_dir, dir)
+          unless File.directory?(dir_path)
+            Jekyll.logger.warn "Gallery:", "Configured exclude directory '#{dir}' does not exist"
+          end
+        end
+      end
+    end
+
+    def get_directories_to_scan(image_dir, include_dirs, exclude_dirs)
+      directories = []
+
+      if include_dirs.any?
+        # If include_dirs is specified, only scan those directories and their subdirectories
+        include_dirs.each do |dir|
+          dir_path = File.join(image_dir, dir)
+          if File.directory?(dir_path)
+            # Add the directory itself
+            directories << dir_path
+            # Add all subdirectories recursively
+            directories.concat(get_all_subdirectories(dir_path))
+          end
+        end
+      else
+        # If no include_dirs, scan all directories
+        directories = get_all_subdirectories(image_dir)
+      end
+
+      # Apply exclusions (always filter out 'generated' and any configured exclude_dirs)
+      directories.reject do |dir|
+        if File.basename(dir) == 'generated'
+          true
+        elsif exclude_dirs.any?
+          relative_path = dir.sub(image_dir + '/', '')
+          exclude_dirs.any? do |excluded|
+            relative_path == excluded || relative_path.start_with?(excluded + '/')
+          end
+        else
+          false
+        end
+      end
+    end
+
+    def get_all_subdirectories(root_dir)
+      directories = []
+
+      Dir.glob(File.join(root_dir, '**', '*/')).each do |dir|
+        next if ['.', '..'].include?(File.basename(dir))
+        directories << dir
+      end
+
+      directories
+    end
 
     def create_photo_page(site, image_data, all_images)
       # Create a new page for this photo

@@ -31,7 +31,7 @@ layout: page
                 </button>
                 {% for category_data in site.data.images_by_category %}
                 <button type="button" class="btn btn-default category-filter-btn" data-category="{{ category_data[0] }}">
-                    {{ category_data[0] | capitalize }} ({{ category_data[1] | size }})
+                    {% assign category_name = category_data[0] | replace: '-', ' ' | replace: '_', ' ' %}{% assign words = category_name | split: ' ' %}{% for word in words %}{{ word | capitalize }} {% endfor %}({{ category_data[1] | size }})
                 </button>
                 {% endfor %}
             </div>

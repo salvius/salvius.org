@@ -105,6 +105,18 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
 
+# Gallery configuration
+# Controls which directories under images/ are scanned for photos
+gallery:
+  # Include only these directories (optional - if empty, scans all directories)
+  # Directories can be top-level or nested paths. All subdirectories will be included recursively.
+  # Example: ['gallery', 'gallery/2015', 'main/torso'] would include gallery/, gallery/2015/, main/torso/ and all their subdirectories
+  include_dirs: ['gallery', 'actuator', 'amplifier', 'blog-themes', 'transition-to-biped', 'experimental-hand-design-1']
+
+  # Exclude these directories (always applied, whether include_dirs is set or not)
+  # Example: ['2009', '2010', 'posts'] would exclude those directories and their subdirectories
+  exclude_dirs: []
+
 # Picture tag configuration for responsive images
 picture:
   source: ""
