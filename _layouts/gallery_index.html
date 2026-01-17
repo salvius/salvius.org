@@ -1,0 +1,199 @@
+---
+layout: page
+---
+
+<link rel="stylesheet" href="{{ '/assets/leaflet/leaflet.css' | relative_url }}">
+
+<div class="row inset-shadow color-putty">
+    <div class="col-xs-8 col-xs-offset-2">
+
+        <header class="page-header">
+            <h1>
+                {{ page.title }}
+            </h1>
+            <p class="lead">
+                    {{ page.description | default: "A collection of photos documenting the Salvius robot project." }}
+            </p>
+        </header>
+
+    </div>
+</div>
+
+<div class="container color-white" style="padding-top: 30px; padding-bottom: 30px;">
+
+    <!-- Filter Controls -->
+    <div class="row gallery-filters">
+        <div class="col-sm-12">
+            <h3>Filter by Category</h3>
+            <div class="btn-group" role="group" aria-label="Filter by category" style="margin-bottom: 15px; flex-wrap: wrap; display: flex;">
+                <button type="button" class="btn btn-default category-filter-btn active" data-category="all">
+                    All Categories
+                </button>
+                {% for category_data in site.data.images_by_category %}
+                <button type="button" class="btn btn-default category-filter-btn" data-category="{{ category_data[0] }}">
+                    {{ category_data[0] | capitalize }} ({{ category_data[1] | size }})
+                </button>
+                {% endfor %}
+            </div>
+
+            <h3>Filter by Year</h3>
+            <div class="btn-group" role="group" aria-label="Filter by year" style="margin-bottom: 20px; flex-wrap: wrap; display: flex;">
+                <button type="button" class="btn btn-default year-filter-btn active" data-year="all">
+                    All Years
+                </button>
+                {% assign years_sorted = site.data.images_by_year | sort %}
+                {% for year_data in years_sorted reversed %}
+                <button type="button" class="btn btn-default year-filter-btn" data-year="{{ year_data[0] }}">
+                    {{ year_data[0] }} ({{ year_data[1] | size }})
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="row gallery-grid">
+        {% for image in site.data.gallery_images %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 gallery-item" 
+             data-year="{{ image.year }}" 
+             data-category="{{ image.category }}"
+             id="photo-{{ image.filename }}">
+            <div class="gallery-item-wrapper">
+                <a href="/gallery/{{ image.category }}/{{ image.filename }}/">
+                    <div class="image-wrapper">
+                        <img src="{{ image.url }}" 
+                             class="img-responsive img-thumbnail" 
+                             alt="{{ image.filename }}"
+                             loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class="fa fa-search-plus fa-2x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="photo-caption">
+                    <p class="photo-title">
+                        <strong>{{ image.filename | replace: '-', ' ' | replace: '_', ' ' | capitalize }}</strong>
+                    </p>
+                    {% if image.description %}
+                    <p class="photo-description" style="font-size: 13px; margin: 5px 0; color: #555;">
+                        {{ image.description | truncate: 100 }}
+                    </p>
+                    {% endif %}
+                    <p class="photo-meta text-muted">
+                        {% if image.exif.date_taken %}
+                            {{ image.exif.date_taken | date: "%B %d, %Y" }}
+                        {% else %}
+                            {{ image.date_taken | date: "%B %d, %Y" }}
+                        {% endif %}
+                        {% if image.exif.camera %}
+                        <br><small><i class="fa fa-camera" aria-hidden="true"></i> {{ image.exif.camera }}</small>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12 text-center" style="margin-top: 20px;">
+            <p id="photo-count" class="text-muted"></p>
+        </div>
+    </div>
+</div>
+
+<script src="{{ '/assets/leaflet/leaflet.js' | relative_url }}"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryButtons = document.querySelectorAll('.category-filter-btn');
+    const yearButtons = document.querySelectorAll('.year-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const photoCount = document.getElementById('photo-count');
+
+    let activeCategory = 'all';
+    let activeYear = 'all';
+
+    function updatePhotoCount() {
+        const visibleItems = Array.from(galleryItems).filter(item => item.style.display !== 'none');
+        photoCount.textContent = `Showing ${visibleItems.length} of ${galleryItems.length} photos`;
+    }
+
+    function filterGallery() {
+        console.log('Filtering with activeYear:', activeYear, 'activeCategory:', activeCategory);
+        galleryItems.forEach(item => {
+            const itemYear = item.dataset.year;
+            const itemCategory = item.dataset.category;
+
+            const yearMatch = activeYear === 'all' || itemYear === activeYear;
+            const categoryMatch = activeCategory === 'all' || itemCategory === activeCategory;
+
+            if (yearMatch && categoryMatch) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        updatePhotoCount();
+    }
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            activeCategory = this.dataset.category;
+
+            // Reset year filter to "all" when selecting a category
+            if (activeCategory !== 'all') {
+                yearButtons.forEach(btn => btn.classList.remove('active'));
+                yearButtons[0].classList.add('active'); // First button is "All Years"
+                activeYear = 'all';
+            }
+
+            filterGallery();
+        });
+    });
+
+    yearButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            yearButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            activeYear = this.dataset.year;
+
+            // Reset category filter to "all" when selecting a year
+            if (activeYear !== 'all') {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                categoryButtons[0].classList.add('active'); // First button is "All Categories"
+                activeCategory = 'all';
+            }
+
+            console.log('Year filter clicked:', activeYear);
+            filterGallery();
+        });
+    });
+
+    // Handle deep linking to categories
+    if (window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        if (hash.startsWith('category-')) {
+            const category = hash.replace('category-', '');
+            const categoryBtn = Array.from(categoryButtons).find(btn => btn.dataset.category === category);
+            if (categoryBtn) {
+                categoryBtn.click();
+            }
+        } else if (hash.startsWith('year-')) {
+            const year = hash.replace('year-', '');
+            const yearBtn = Array.from(yearButtons).find(btn => btn.dataset.year === year);
+            if (yearBtn) {
+                yearBtn.click();
+            }
+        }
+    }
+
+    // Initial count
+    updatePhotoCount();
+});
+</script>
