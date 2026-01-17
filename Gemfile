@@ -6,6 +6,7 @@ group :jekyll_plugins do
    gem 'jekyll-sitemap'
    gem 'jekyll-paginate'
    gem 'jekyll_picture_tag', '~> 2.0'
+   gem 'exifr', '~> 1.4'
 end
 
 gem 'sinatra-cross_origin', '~> 0.3.1'

@@ -107,7 +107,7 @@ plugins:
 
 # Picture tag configuration for responsive images
 picture:
-  source: "images"
+  source: ""
   output: "images/generated"
   markup: "picture"
   ignore_missing_images: true
