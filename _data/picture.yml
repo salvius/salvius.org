@@ -1,0 +1,18 @@
+presets:
+  gallery_thumb:
+    widths: [300, 600]
+    formats: [webp, original]
+    fallback_width: 300
+    fallback_format: original
+
+  gallery_full:
+    widths: [800, 1200, 1600, 2400]
+    formats: [webp, original]
+    fallback_width: 1200
+    fallback_format: original
+
+  photo_page:
+    widths: [1200, 1600, 2400]
+    formats: [webp, original]
+    fallback_width: 1600
+    fallback_format: original

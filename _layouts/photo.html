@@ -1,0 +1,171 @@
+---
+layout: page
+---
+
+<link rel="stylesheet" href="{{ '/assets/leaflet/leaflet.css' | relative_url }}">
+
+<div class="row color-prestige inset-shadow">
+    <div class="col-sm-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: transparent; padding-left: 0;">
+                <li class="breadcrumb-item"><a href="/gallery/">Gallery</a></li>
+                <li class="breadcrumb-item"><a href="/gallery/#category-{{ page.photo_data.category }}">{{ page.photo_data.category | capitalize }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+            </ol>
+        </nav>
+        <header>
+            <h1>{{ page.title }}</h1>
+            {% if page.photo_data.exif.date_taken %}
+            <p class="lead">
+                {{ page.photo_data.exif.date_taken | date: "%B %d, %Y at %I:%M %p" }}
+            </p>
+            {% endif %}
+        </header>
+    </div>
+</div>
+
+<div class="container color-white" style="padding-top: 30px; padding-bottom: 30px;">
+
+    {% if page.photo_data.description %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="photo-description" style="background-color: #f8f8f8; padding: 15px 20px; border-radius: 4px; margin-bottom: 30px; border-left: 4px solid #337ab7;">
+                <p style="margin: 0; font-size: 16px; line-height: 1.6;">{{ page.photo_data.description }}</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="photo-container">
+                <img src="{{ page.photo_data.path }}" alt="{{ page.title }}" class="img-responsive">
+            </div>
+
+            <div class="photo-navigation" style="margin-top: 20px;">
+                <div class="row">
+                    <div class="col-xs-6 text-left">
+                        {% if page.prev_photo %}
+                        <a href="/gallery/{{ page.prev_photo.category }}/{{ page.prev_photo.filename }}/" class="btn btn-default">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i> Previous
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        {% if page.next_photo %}
+                        <a href="/gallery/{{ page.next_photo.category }}/{{ page.next_photo.filename }}/" class="btn btn-default">
+                            Next <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXIF Data Sidebar -->
+        <div class="col-md-4">
+            <div class="exif-data">
+                <h3>Photo Information</h3>
+
+                {% if page.photo_data.date_taken %}
+                <div class="exif-section">
+                    <h4><i class="fa fa-calendar" aria-hidden="true"></i> Date Taken</h4>
+                    <p>{{ page.photo_data.date_taken | date: "%B %d, %Y at %I:%M %p" }}</p>
+                </div>
+                {% endif %}
+
+                <div class="exif-section">
+                    <h4><i class="fa fa-folder" aria-hidden="true"></i> Category</h4>
+                    <p>{{ page.photo_data.category | capitalize }}</p>
+                </div>
+
+                {% if page.photo_data.exif.camera %}
+                <div class="exif-section">
+                    <h4><i class="fa fa-camera" aria-hidden="true"></i> Camera</h4>
+                    <p>{{ page.photo_data.exif.camera }}</p>
+                </div>
+                {% endif %}
+
+                {% if page.photo_data.exif.lens %}
+                <div class="exif-section">
+                    <h4><i class="fa fa-circle-o" aria-hidden="true"></i> Lens</h4>
+                    <p>{{ page.photo_data.exif.lens }}</p>
+                </div>
+                {% endif %}
+
+                {% if page.photo_data.exif.aperture or page.photo_data.exif.shutter_speed or page.photo_data.exif.iso or page.photo_data.exif.focal_length %}
+                <div class="exif-section">
+                    <h4><i class="fa fa-cog" aria-hidden="true"></i> Settings</h4>
+                    <table class="table table-condensed exif-table">
+                        {% if page.photo_data.exif.aperture %}
+                        <tr>
+                            <td><strong>Aperture</strong></td>
+                            <td>f/{{ page.photo_data.exif.aperture }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if page.photo_data.exif.shutter_speed %}
+                        <tr>
+                            <td><strong>Shutter Speed</strong></td>
+                            <td>{{ page.photo_data.exif.shutter_speed }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if page.photo_data.exif.iso %}
+                        <tr>
+                            <td><strong>ISO</strong></td>
+                            <td>{{ page.photo_data.exif.iso }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if page.photo_data.exif.focal_length %}
+                        <tr>
+                            <td><strong>Focal Length</strong></td>
+                            <td>{{ page.photo_data.exif.focal_length }}</td>
+                        </tr>
+                        {% endif %}
+                    </table>
+                </div>
+                {% endif %}
+
+                {% if page.photo_data.exif.width and page.photo_data.exif.height %}
+                <div class="exif-section">
+                    <h4><i class="fa fa-picture-o" aria-hidden="true"></i> Dimensions</h4>
+                    <p>{{ page.photo_data.exif.width }} × {{ page.photo_data.exif.height }} pixels</p>
+                </div>
+                {% endif %}
+
+                {% if page.photo_data.exif.location %}
+                <div class="exif-section">
+                    <h4><i class="fa fa-map-marker" aria-hidden="true"></i> Location</h4>
+                    <div id="map" style="height: 300px; width: 100%; margin-top: 10px;"></div>
+                    <p style="margin-top: 10px; font-size: 12px;">
+                        <strong>Coordinates:</strong><br>
+                        {{ page.photo_data.exif.location.latitude }}, {{ page.photo_data.exif.location.longitude }}
+                        {% if page.photo_data.exif.location.altitude %}
+                        <br><strong>Altitude:</strong> {{ page.photo_data.exif.location.altitude }}m
+                        {% endif %}
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ '/assets/leaflet/leaflet.js' | relative_url }}"></script>
+
+{% if page.photo_data.exif.location %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var map = L.map('map').setView([{{ page.photo_data.exif.location.latitude }}, {{ page.photo_data.exif.location.longitude }}], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19
+    }).addTo(map);
+
+    L.marker([{{ page.photo_data.exif.location.latitude }}, {{ page.photo_data.exif.location.longitude }}])
+        .addTo(map)
+        .bindPopup('{{ page.title }}')
+        .openPopup();
+});
+</script>
+{% endif %}
