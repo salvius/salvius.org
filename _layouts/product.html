@@ -9,10 +9,12 @@
             <div class="row">
                 <br/>
                 <div class="col-sm-12">
-                    <a href="/store/" class="btn btn-primary">
-                        <i class="fa-regular fa-circle-left"></i>
-                        Back to Robot Store
-                    </a>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/store/">Store</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
 
@@ -69,6 +71,20 @@
             </div>
 
             {{ content }}
+
+            <br/>
+            <br/>
+            <br/>
+
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>
+                        <a href="/store/return-policy/">
+                            <i class="fa-solid fa-info-circle"></i> View Return Policy
+                        </a>
+                    </p>
+                </div>
+            </div>
 
         </div>
     </body>
