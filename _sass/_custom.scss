@@ -11,6 +11,10 @@ footer {
     color: white;
 }
 
+.modal.in .modal-dialog {
+    z-index: 1050;
+}
+
 .inset-shadow {
     -webkit-box-shadow: inset 0 0 10px 5px rgba(0,0,0,0.4);
     -moz-box-shadow: inset 0 0 10px 5px rgba(0,0,0,0.4);
@@ -660,6 +664,7 @@ h1, .h1 {
 .mt-3 {
     margin-top: 30px;
 }
+
 /* Gallery Styles */
 .gallery-grid {
     margin-top: 20px;
@@ -854,12 +859,12 @@ h1, .h1 {
     .exif-data {
         margin-top: 30px;
     }
-    
+
     .photo-navigation .btn {
         width: 100%;
         margin-bottom: 10px;
     }
-    
+
     .gallery-filters .btn-group {
         display: flex;
         flex-wrap: wrap;
