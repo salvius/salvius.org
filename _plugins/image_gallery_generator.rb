@@ -222,7 +222,14 @@ module Jekyll
         Jekyll.logger.warn "EXIF Error:", "Could not read EXIF from #{File.basename(image_path)}: #{e.message}"
       end
 
-      data
+      # Convert symbol keys to string keys for Liquid template compatibility
+      data.transform_keys(&:to_s).transform_values do |value|
+        if value.is_a?(Hash)
+          value.transform_keys(&:to_s)
+        else
+          value
+        end
+      end
     end
 
     def format_shutter_speed(exposure_time)
