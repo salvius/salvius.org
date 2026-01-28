@@ -12,9 +12,10 @@
   condition: new
   brand: Salvius
   product_type: book
-  google_product_category: Media > Books > Nonfiction
+  google_product_category: 543543
   isbn: 979-8298557757
   gtin: "9798298557757"
+  shipping_weight: 227g
   link: https://salvius.org/store/robot-science-coloring-book/
   image_link: https://salvius.org/images/library/robot-science-coloring-book-cover-banner.jpg
   additional_image_links:
@@ -31,9 +32,10 @@
   condition: new
   brand: Salvius
   product_type: book
-  google_product_category: Media > Books > Nonfiction
+  google_product_category: 543543
   isbn: 979-8279180806
   gtin: "9798279180806"
+  shipping_weight: 115g
   link: https://salvius.org/store/stand-up-for-robots/
   image_link: https://salvius.org/images/library/stand-up-for-robots-cover-banner.jpg
   additional_image_links: []
