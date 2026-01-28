@@ -24,7 +24,7 @@ module Jekyll
       end
 
       # Filter for in-stock products only
-      active_products = products.select { |p| p['availability'] == 'instock' }
+      active_products = products.select { |p| p['availability'] == 'in_stock' }
 
       if active_products.empty?
         Jekyll.logger.warn "Merchant Feed:", "No in-stock products found"

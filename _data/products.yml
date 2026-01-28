@@ -8,7 +8,7 @@
   description: A coloring book featuring over 30 pages based on the robotic designs of Salvius. Learn robotics concepts through creative exploration. Perfect for STEM education, classrooms, homeschool, and self-guided learning for all ages.
   price: 9.99
   currency: USD
-  availability: instock
+  availability: in_stock
   condition: new
   brand: Salvius
   product_type: book
@@ -27,7 +27,7 @@
   description: A humorous exploration of robotics, artificial intelligence, and the quirks of human-robot interaction. Follow Salvius, a humanoid robot comedian, as he learns the art of comedy and explores what it means to think, feel, and exist in the modern world through punchlines and possibly a few malfunctions.
   price: 5.75
   currency: USD
-  availability: instock
+  availability: in_stock
   condition: new
   brand: Salvius
   product_type: book
