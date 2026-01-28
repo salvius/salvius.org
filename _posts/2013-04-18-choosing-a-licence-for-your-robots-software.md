@@ -1,5 +1,8 @@
 ---
 title: Choosing a licence for your robot's software
+description: A guide to open source licensing for robotics projects. Learn how to balance proprietary code with open source contributions while building reputation in the robotics community.
+keywords: open source robotics, software licensing, robot software, open source license, robotics development, intellectual property
+image: /images/vectors/head.svg
 ---
 
 I like to encourage developers and engineers to open source their robotics projects when possible. Obviously the nature of intellectual property and ownership does not always permit this, and there is still a great amount of proprietary software that many businesses rely on which cannot be open sourced.

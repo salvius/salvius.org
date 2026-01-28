@@ -1,5 +1,8 @@
 ---
 title: Project History Summary 2008 to 2011
+description: A detailed timeline of Salvius robot development from 2008 to 2011, documenting design decisions, hardware installations, and early construction milestones.
+keywords: robot development, robotics timeline, Arduino robot, humanoid robot construction, DIY robotics
+image: /images/vectors/head.svg
 ---
 
 - 08/15/11 - I will create a blog to talk about the robot.

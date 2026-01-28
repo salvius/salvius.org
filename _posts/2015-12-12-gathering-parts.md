@@ -1,5 +1,8 @@
 ---
 title: Gathering Parts For Your Project
+description: A comprehensive guide to salvaging electronic parts for robotics projects. Learn which devices provide the best components and which to avoid, plus safety tips.
+keywords: robotics parts, electronic salvage, recycled electronics, robot building materials, DIY robotics, parts harvesting
+image: /images/vectors/head.svg
 ---
 
 Recycling used electronic gadgets is a fantastic way to build a parts inventory for your projects. It is extremely useful to always have a few parts on hand for when you need them. However, when salvaging parts, some devices prove more bountiful than others.

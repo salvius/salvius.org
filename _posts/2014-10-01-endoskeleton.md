@@ -1,5 +1,8 @@
 ---
 title: Endoskeleton
+description: Understanding endoskeletons in biology and their relevance to humanoid robot structural design. Exploring internal support structures in nature and robotics.
+keywords: endoskeleton, robot skeleton, humanoid robot structure, biomimicry, robot anatomy, structural design
+image: /images/vectors/head.svg
 ---
 
 An endoskeleton is an internal support structure of an animal, composed of mineralized tissue.

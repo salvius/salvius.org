@@ -97,7 +97,7 @@ title: The Bot Shop
 <div class="row">
     {% assign products = site.pages | where: "layout", "product" %}
 
-    <div class="col-sm-12>
+    <div class="col-sm-12">
         {%- for product in products %}
 
         {%- assign mod = forloop.index | modulo:3 %}
