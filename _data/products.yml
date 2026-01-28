@@ -1,0 +1,169 @@
+# Google Merchant Center Product Feed Data
+# This file contains centralized product information for all store items
+# Feed only includes products with availability: instock
+
+- id: robot-science-coloring-book
+  title: Robot Science Coloring Book - STEM Activity Book for Kids & Adults - 30+ Robotics Pages
+  short_title: Robot Science Coloring Book
+  description: A coloring book featuring over 30 pages based on the robotic designs of Salvius. Learn robotics concepts through creative exploration. Perfect for STEM education, classrooms, homeschool, and self-guided learning for all ages.
+  price: 9.99
+  currency: USD
+  availability: instock
+  condition: new
+  brand: Salvius
+  product_type: book
+  google_product_category: Media > Books > Nonfiction
+  isbn: 979-8298557757
+  gtin: "9798298557757"
+  link: https://salvius.org/store/robot-science-coloring-book/
+  image_link: https://salvius.org/images/library/robot-science-coloring-book-cover-banner.jpg
+  additional_image_links:
+    - https://salvius.org/images/library/robot-science-coloring-book-cover.jpg
+    - https://salvius.org/images/library/robot-science-coloring-book-inside.jpg
+
+- id: stand-up-for-robots
+  title: Stand-up for Robots - Humorous AI & Robotics Book - Comedy Exploration of Human-Robot Interaction
+  short_title: Stand-up for Robots
+  description: A humorous exploration of robotics, artificial intelligence, and the quirks of human-robot interaction. Follow Salvius, a humanoid robot comedian, as he learns the art of comedy and explores what it means to think, feel, and exist in the modern world through punchlines and possibly a few malfunctions.
+  price: 5.75
+  currency: USD
+  availability: instock
+  condition: new
+  brand: Salvius
+  product_type: book
+  google_product_category: Media > Books > Nonfiction
+  isbn: 979-8279180806
+  gtin: "9798279180806"
+  link: https://salvius.org/store/stand-up-for-robots/
+  image_link: https://salvius.org/images/library/stand-up-for-robots-cover-banner.jpg
+  additional_image_links: []
+
+# Discontinued robot kits (excluded from feed due to availability: discontinued)
+
+- id: head-kit
+  title: Salvius Head Kit
+  short_title: Head Kit
+  description: Build your own robotic head with servo-controlled jaw movement
+  price: 49.99
+  currency: USD
+  availability: discontinued
+  condition: new
+  brand: Salvius
+  product_type: hardware
+  google_product_category: Hardware > Robotics > Robot Kits
+  mpn: SALVIUS-HEAD-001
+  link: https://salvius.org/store/head-kit/
+  image_link: https://salvius.org/images/store/head.jpg
+  additional_image_links: []
+
+- id: hand-kit
+  title: Salvius Hand Kit
+  short_title: Hand Kit
+  description: Robotic hand assembly kit with articulated fingers
+  price: 59.99
+  currency: USD
+  availability: discontinued
+  condition: new
+  brand: Salvius
+  product_type: hardware
+  google_product_category: Hardware > Robotics > Robot Kits
+  mpn: SALVIUS-HAND-001
+  link: https://salvius.org/store/hand-kit/
+  image_link: https://salvius.org/images/store/hand.jpg
+  additional_image_links: []
+
+- id: face-panel
+  title: Salvius Face Panel
+  short_title: Face Panel
+  description: LED matrix face panel for robot expression display
+  price: 9.99
+  currency: USD
+  availability: discontinued
+  condition: new
+  brand: Salvius
+  product_type: hardware
+  google_product_category: Hardware > Robotics > Robot Parts
+  mpn: SALVIUS-FACE-001
+  link: https://salvius.org/store/face-panel/
+  image_link: https://salvius.org/images/store/salvius-led-panel-close.jpg
+  additional_image_links: []
+
+- id: shoulder-kit
+  title: Salvius Shoulder Kit
+  short_title: Shoulder Kit
+  description: Robotic shoulder assembly with servo motors
+  price: 79.99
+  currency: USD
+  availability: discontinued
+  condition: new
+  brand: Salvius
+  product_type: hardware
+  google_product_category: Hardware > Robotics > Robot Kits
+  mpn: SALVIUS-SHOULDER-001
+  link: https://salvius.org/store/shoulder-kit/
+  image_link: https://salvius.org/images/store/shoulder.jpg
+  additional_image_links: []
+
+- id: arm-kit
+  title: Salvius Arm Kit
+  short_title: Arm Kit
+  description: Complete robotic arm assembly kit
+  price: 89.99
+  currency: USD
+  availability: discontinued
+  condition: new
+  brand: Salvius
+  product_type: hardware
+  google_product_category: Hardware > Robotics > Robot Kits
+  mpn: SALVIUS-ARM-001
+  link: https://salvius.org/store/arm-kit/
+  image_link: https://salvius.org/images/store/arm.jpg
+  additional_image_links: []
+
+- id: leg-kit
+  title: Salvius Leg Kit
+  short_title: Leg Kit
+  description: Robotic leg assembly with knee joint actuation
+  price: 99.99
+  currency: USD
+  availability: discontinued
+  condition: new
+  brand: Salvius
+  product_type: hardware
+  google_product_category: Hardware > Robotics > Robot Kits
+  mpn: SALVIUS-LEG-001
+  link: https://salvius.org/store/leg-kit/
+  image_link: https://salvius.org/images/store/leg.jpg
+  additional_image_links: []
+
+- id: foot-kit
+  title: Salvius Foot Kit
+  short_title: Foot Kit
+  description: Robotic foot assembly with ankle articulation
+  price: 69.99
+  currency: USD
+  availability: discontinued
+  condition: new
+  brand: Salvius
+  product_type: hardware
+  google_product_category: Hardware > Robotics > Robot Kits
+  mpn: SALVIUS-FOOT-001
+  link: https://salvius.org/store/foot-kit/
+  image_link: https://salvius.org/images/store/foot.jpg
+  additional_image_links: []
+
+- id: torso-kit
+  title: Salvius Torso Kit
+  short_title: Torso Kit
+  description: Central torso frame assembly kit for humanoid robots
+  price: 129.99
+  currency: USD
+  availability: discontinued
+  condition: new
+  brand: Salvius
+  product_type: hardware
+  google_product_category: Hardware > Robotics > Robot Kits
+  mpn: SALVIUS-TORSO-001
+  link: https://salvius.org/store/torso-kit/
+  image_link: https://salvius.org/images/store/torso.jpg
+  additional_image_links: []
