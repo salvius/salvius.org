@@ -118,8 +118,11 @@ module Jekyll
       # Short title (for mobile)
       item << "      <g:short_title>#{escape_xml(product['short_title'])}</g:short_title>" if product['short_title']
 
-      # Shipping weight
+      # Shipping information
       item << "      <g:shipping_weight>#{escape_xml(product['shipping_weight'])}</g:shipping_weight>" if product['shipping_weight']
+      item << "      <g:shipping_length>#{escape_xml(product['shipping_length'])}</g:shipping_length>" if product['shipping_length']
+      item << "      <g:shipping_width>#{escape_xml(product['shipping_width'])}</g:shipping_width>" if product['shipping_width']
+      item << "      <g:shipping_height>#{escape_xml(product['shipping_height'])}</g:shipping_height>" if product['shipping_height']
 
       item.join("\n")
     end
