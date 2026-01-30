@@ -43,8 +43,8 @@ Examples:
 > The earth does not have two moons and 3 + 5 ≥ 2  
 
 > 2.) Negate the following statements.  
-> A stack overflow has occured and the sector size is not supported.  
-> A stack overflow has not occured and the sector size is supported.  
+> A stack overflow has occurred and the sector size is not supported.  
+> A stack overflow has not occurred and the sector size is supported.  
 
 > 3.) Negate the following statements.  
 > x is positive or y is negative.  

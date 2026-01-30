@@ -1,0 +1,14 @@
+{% if jekyll.environment == "production" %}
+  {% assign base_url = site.url | remove: 'https://' | remove: 'http://' %}
+  <img src="https://images.weserv.nl/?url={{ base_url }}{{ include.url }}&w=400&h=400&fit=cover&output=webp&q=85&il&af&n=-1"
+       srcset="https://images.weserv.nl/?url={{ base_url }}{{ include.url }}&w=400&h=400&fit=cover&output=webp&q=85&il&af&n=-1 1x,
+               https://images.weserv.nl/?url={{ base_url }}{{ include.url }}&w=800&h=800&fit=cover&output=webp&q=80&il&af&n=-1 2x"
+       class="{{ include.class | default: 'img-responsive img-thumbnail' }}"
+       alt="{{ include.alt }}"
+       loading="lazy">
+{% else %}
+  <img src="{{ include.url }}"
+       class="{{ include.class | default: 'img-responsive img-thumbnail' }}"
+       alt="{{ include.alt }}"
+       loading="lazy">
+{% endif %}

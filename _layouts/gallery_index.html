@@ -61,10 +61,7 @@ layout: page
             <div class="gallery-item-wrapper">
                 <a href="/gallery/{{ image.category }}/{{ image.filename }}/">
                     <div class="image-wrapper">
-                        <img src="{{ image.url }}" 
-                             class="img-responsive img-thumbnail" 
-                             alt="{{ image.filename }}"
-                             loading="lazy">
+                        {% include weserv_thumb.html url=image.url alt=image.filename %}
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class="fa fa-search-plus fa-2x" aria-hidden="true"></i>

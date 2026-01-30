@@ -51,7 +51,7 @@ image: /images/vectors/head.svg
 - 06/14/10 - Found an online suppler of muscle wire for nano-robots.
 - 05/05/10 - Finished installing right arm motor for wrist rotation.
 - 04/12/10 - Organized data files.
-- 03/01/10 - Robot now has limited speech and extremely pour motor control.
+- 03/01/10 - Robot now has limited speech and extremely poor motor control.
 - 02/27/10 - Someone to speak to the robot and the robot can to reply to the person.
 - 02/14/10 - Working on a design for a grabber to go on the flexible mobile arm.
 - 02/10/10 - Working on housing for custom power cell.
