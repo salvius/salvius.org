@@ -70,8 +70,8 @@ module Jekyll
 
           images << image_data
 
-          # Create individual page for this image
-          create_photo_page(site, image_data, images)
+          # Create individual page for this image (main gallery version)
+          create_photo_page(site, image_data, images, 'main')
         end
       end
 
@@ -85,7 +85,31 @@ module Jekyll
       site.data['images_by_year'] = images.group_by { |img| img['year'] }
       site.data['images_by_category'] = images.group_by { |img| img['category'] }
 
-      Jekyll.logger.info "Gallery:", "Generated #{images.length} photo pages across #{site.data['images_by_category'].keys.length} categories"
+      # Generate category index pages and category-specific photo pages
+      site.data['images_by_category'].each do |category, category_images|
+        # Create category index page
+        page = GalleryCategoryPage.new(site, site.source, category, category_images)
+        site.pages << page
+        
+        # Create photo pages for this category context
+        category_images.each do |image_data|
+          create_photo_page(site, image_data, category_images, 'category', category)
+        end
+      end
+
+      # Generate year index pages and year-specific photo pages
+      site.data['images_by_year'].each do |year, year_images|
+        # Create year index page
+        page = GalleryYearPage.new(site, site.source, year, year_images)
+        site.pages << page
+        
+        # Create photo pages for this year context
+        year_images.each do |image_data|
+          create_photo_page(site, image_data, year_images, 'year', year)
+        end
+      end
+
+      Jekyll.logger.info "Gallery:", "Generated #{images.length * 3} photo pages (main + category + year contexts) across #{site.data['images_by_category'].keys.length} categories"
     end
 
     private
@@ -157,9 +181,9 @@ module Jekyll
       directories
     end
 
-    def create_photo_page(site, image_data, all_images)
-      # Create a new page for this photo
-      page = PhotoPage.new(site, site.source, image_data, all_images)
+    def create_photo_page(site, image_data, context_images, context_type, context_value = nil)
+      # Create a new page for this photo in the appropriate context
+      page = PhotoPage.new(site, site.source, image_data, context_images, context_type, context_value)
       site.pages << page
     end
 
@@ -242,11 +266,21 @@ module Jekyll
   end
 
   class PhotoPage < Page
-    def initialize(site, base, image_data, all_images)
+    def initialize(site, base, image_data, context_images, context_type, context_value = nil)
       @site = site
       @base = base
-      @dir = File.join('gallery', image_data['category'])
-      @name = "#{image_data['filename']}.html"
+      
+      # Set directory based on context
+      case context_type
+      when 'category'
+        @dir = File.join('gallery', 'category', context_value, image_data['filename'])
+      when 'year'
+        @dir = File.join('gallery', 'year', context_value, image_data['filename'])
+      else # 'main'
+        @dir = File.join('gallery', image_data['category'], image_data['filename'])
+      end
+      
+      @name = 'index.html'
 
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'photo.html')
@@ -255,17 +289,79 @@ module Jekyll
       self.data['title'] = image_data['filename'].gsub(/[-_]/, ' ').split.map(&:capitalize).join(' ')
       self.data['photo_data'] = image_data
       self.data['layout'] = 'photo'
+      self.data['context_type'] = context_type
+      self.data['context_value'] = context_value
 
-      # Find previous and next photos in the same category
-      category_images = all_images.select { |img| img['category'] == image_data['category'] }
-      category_images.sort_by! { |img| img['date_taken'] }.reverse!
-
-      current_index = category_images.find_index { |img| img['filename'] == image_data['filename'] }
+      # Find previous and next photos in the current context
+      sorted_images = context_images.sort_by { |img| img['date_taken'] }.reverse!
+      current_index = sorted_images.find_index { |img| img['filename'] == image_data['filename'] }
 
       if current_index
-        self.data['prev_photo'] = category_images[current_index + 1] if current_index < category_images.length - 1
-        self.data['next_photo'] = category_images[current_index - 1] if current_index > 0
+        if current_index < sorted_images.length - 1
+          prev_img = sorted_images[current_index + 1]
+          self.data['prev_photo'] = prev_img
+          self.data['prev_photo_url'] = get_photo_url(prev_img, context_type, context_value)
+        end
+        
+        if current_index > 0
+          next_img = sorted_images[current_index - 1]
+          self.data['next_photo'] = next_img
+          self.data['next_photo_url'] = get_photo_url(next_img, context_type, context_value)
+        end
       end
+    end
+    
+    private
+    
+    def get_photo_url(image_data, context_type, context_value)
+      case context_type
+      when 'category'
+        "/gallery/category/#{context_value}/#{image_data['filename']}/"
+      when 'year'
+        "/gallery/year/#{context_value}/#{image_data['filename']}/"
+      else
+        "/gallery/#{image_data['category']}/#{image_data['filename']}/"
+      end
+    end
+  end
+
+  class GalleryCategoryPage < Page
+    def initialize(site, base, category, images)
+      @site = site
+      @base = base
+      @dir = File.join('gallery', 'category', category)
+      @name = 'index.html'
+
+      self.process(@name)
+      self.read_yaml(File.join(base, '_layouts'), 'gallery_index.html')
+
+      category_title = category.gsub(/[-_]/, ' ').split.map(&:capitalize).join(' ')
+      
+      self.data['title'] = "#{category_title} Gallery"
+      self.data['description'] = "Photos in the #{category_title} category"
+      self.data['gallery_images'] = images
+      self.data['filter_type'] = 'category'
+      self.data['filter_value'] = category
+      self.data['layout'] = 'gallery_index'
+    end
+  end
+
+  class GalleryYearPage < Page
+    def initialize(site, base, year, images)
+      @site = site
+      @base = base
+      @dir = File.join('gallery', 'year', year)
+      @name = 'index.html'
+
+      self.process(@name)
+      self.read_yaml(File.join(base, '_layouts'), 'gallery_index.html')
+
+      self.data['title'] = "#{year} Gallery"
+      self.data['description'] = "Photos from #{year}"
+      self.data['gallery_images'] = images
+      self.data['filter_type'] = 'year'
+      self.data['filter_value'] = year
+      self.data['layout'] = 'gallery_index'
     end
   end
 end

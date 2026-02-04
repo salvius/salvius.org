@@ -7,9 +7,13 @@ layout: page
 <div class="row color-prestige inset-shadow">
     <div class="col-sm-12">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb" style="background-color: transparent; padding-left: 0;">
+            <ol class="breadcrumb" id="photo-breadcrumb" style="background-color: transparent; padding-left: 0;">
                 <li class="breadcrumb-item"><a href="/gallery/">Gallery</a></li>
-                <li class="breadcrumb-item"><a href="/gallery/#category-{{ page.photo_data.category }}">{{ page.photo_data.category | capitalize }}</a></li>
+                {% if page.context_type == 'category' %}
+                <li class="breadcrumb-item"><a href="/gallery/category/{{ page.context_value }}/">{{ page.context_value | replace: '-', ' ' | replace: '_', ' ' | split: ' ' | map: 'capitalize' | join: ' ' }}</a></li>
+                {% elsif page.context_type == 'year' %}
+                <li class="breadcrumb-item"><a href="/gallery/year/{{ page.context_value }}/">{{ page.context_value }}</a></li>
+                {% endif %}
                 <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
             </ol>
         </nav>
@@ -46,14 +50,14 @@ layout: page
                 <div class="row">
                     <div class="col-xs-6 text-left">
                         {% if page.prev_photo %}
-                        <a href="/gallery/{{ page.prev_photo.category }}/{{ page.prev_photo.filename }}/" class="btn btn-default">
+                        <a href="{{ page.prev_photo_url }}" class="btn btn-default">
                             <i class="fa fa-chevron-left" aria-hidden="true"></i> Previous
                         </a>
                         {% endif %}
                     </div>
                     <div class="col-xs-6 text-right">
                         {% if page.next_photo %}
-                        <a href="/gallery/{{ page.next_photo.category }}/{{ page.next_photo.filename }}/" class="btn btn-default">
+                        <a href="{{ page.next_photo_url }}" class="btn btn-default">
                             Next <i class="fa fa-chevron-right" aria-hidden="true"></i>
                         </a>
                         {% endif %}

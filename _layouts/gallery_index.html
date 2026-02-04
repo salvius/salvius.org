@@ -26,40 +26,46 @@ layout: page
         <div class="col-sm-12">
             <h3>Filter by Category</h3>
             <div class="btn-group" role="group" aria-label="Filter by category" style="margin-bottom: 15px; flex-wrap: wrap; display: flex;">
-                <button type="button" class="btn btn-default category-filter-btn active" data-category="all">
+                <a href="/gallery/" class="btn btn-default category-filter-btn {% if page.filter_type == nil %}active{% endif %}">
                     All Categories
-                </button>
+                </a>
                 {% for category_data in site.data.images_by_category %}
-                <button type="button" class="btn btn-default category-filter-btn" data-category="{{ category_data[0] }}">
+                <a href="/gallery/category/{{ category_data[0] }}/" class="btn btn-default category-filter-btn {% if page.filter_type == 'category' and page.filter_value == category_data[0] %}active{% endif %}">
                     {% assign category_name = category_data[0] | replace: '-', ' ' | replace: '_', ' ' %}{% assign words = category_name | split: ' ' %}{% for word in words %}{{ word | capitalize }} {% endfor %}({{ category_data[1] | size }})
-                </button>
+                </a>
                 {% endfor %}
             </div>
 
             <h3>Filter by Year</h3>
             <div class="btn-group" role="group" aria-label="Filter by year" style="margin-bottom: 20px; flex-wrap: wrap; display: flex;">
-                <button type="button" class="btn btn-default year-filter-btn active" data-year="all">
+                <a href="/gallery/" class="btn btn-default year-filter-btn {% if page.filter_type == nil %}active{% endif %}">
                     All Years
-                </button>
+                </a>
                 {% assign years_sorted = site.data.images_by_year | sort %}
                 {% for year_data in years_sorted reversed %}
-                <button type="button" class="btn btn-default year-filter-btn" data-year="{{ year_data[0] }}">
+                <a href="/gallery/year/{{ year_data[0] }}/" class="btn btn-default year-filter-btn {% if page.filter_type == 'year' and page.filter_value == year_data[0] %}active{% endif %}">
                     {{ year_data[0] }} ({{ year_data[1] | size }})
-                </button>
+                </a>
                 {% endfor %}
             </div>
         </div>
     </div>
 
     <!-- Gallery Grid -->
-    <div class="row gallery-grid">
-        {% for image in site.data.gallery_images %}
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 gallery-item" 
-             data-year="{{ image.year }}" 
-             data-category="{{ image.category }}"
+    <div class="gallery-container">
+        {% assign display_images = page.gallery_images | default: site.data.gallery_images %}
+        {% for image in display_images %}
+        <div class="gallery-item" 
              id="photo-{{ image.filename }}">
             <div class="gallery-item-wrapper">
-                <a href="/gallery/{{ image.category }}/{{ image.filename }}/">
+                {% if page.filter_type == 'category' %}
+                    {% assign photo_url = '/gallery/category/' | append: page.filter_value | append: '/' | append: image.filename | append: '/' %}
+                {% elsif page.filter_type == 'year' %}
+                    {% assign photo_url = '/gallery/year/' | append: page.filter_value | append: '/' | append: image.filename | append: '/' %}
+                {% else %}
+                    {% assign photo_url = '/gallery/' | append: image.category | append: '/' | append: image.filename | append: '/' %}
+                {% endif %}
+                <a href="{{ photo_url }}">
                     <div class="image-wrapper">
                         {% include weserv_thumb.html url=image.url alt=image.filename %}
                         <div class="image-overlay">
@@ -91,106 +97,59 @@ layout: page
                 </div>
             </div>
         </div>
+        {% assign mod_result = forloop.index | modulo: 15 %}
+        {% if mod_result == 0 %}
+        <div class="ad-row">
+            {% if jekyll.environment == "production" %}
+            <div style="padding: 20px; text-align: center;">
+                <!-- Salvius Image Gallery Ad -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-3019790405701706"
+                     data-ad-slot="1870186028"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% else %}
+            <div class="ad-placeholder" style="padding: 20px; text-align: center;">
+                <em>Ad placeholder (ads are disabled in development mode)</em>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
         {% endfor %}
+        {% if site.data.gallery_images.size > 0 %}
+        <div class="ad-row">
+            {% if jekyll.environment == "production" %}
+            <div style="padding: 20px; text-align: center;">
+                <!-- Salvius Image Gallery Ad -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-3019790405701706"
+                     data-ad-slot="1870186028"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% else %}
+            <div class="ad-placeholder" style="padding: 20px; text-align: center;">
+                <em>Ad placeholder (ads are disabled in development mode)</em>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
     </div>
-    
+
     <div class="row">
         <div class="col-sm-12 text-center" style="margin-top: 20px;">
-            <p id="photo-count" class="text-muted"></p>
+            <p class="text-muted">Showing {{ display_images.size }} {% if page.filter_type %}of {{ site.data.gallery_images.size }} {% endif %}photos</p>
         </div>
     </div>
 </div>
 
 <script src="{{ '/assets/leaflet/leaflet.js' | relative_url }}"></script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const categoryButtons = document.querySelectorAll('.category-filter-btn');
-    const yearButtons = document.querySelectorAll('.year-filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const photoCount = document.getElementById('photo-count');
-
-    let activeCategory = 'all';
-    let activeYear = 'all';
-
-    function updatePhotoCount() {
-        const visibleItems = Array.from(galleryItems).filter(item => item.style.display !== 'none');
-        photoCount.textContent = `Showing ${visibleItems.length} of ${galleryItems.length} photos`;
-    }
-
-    function filterGallery() {
-        console.log('Filtering with activeYear:', activeYear, 'activeCategory:', activeCategory);
-        galleryItems.forEach(item => {
-            const itemYear = item.dataset.year;
-            const itemCategory = item.dataset.category;
-
-            const yearMatch = activeYear === 'all' || itemYear === activeYear;
-            const categoryMatch = activeCategory === 'all' || itemCategory === activeCategory;
-
-            if (yearMatch && categoryMatch) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-
-        updatePhotoCount();
-    }
-
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            activeCategory = this.dataset.category;
-
-            // Reset year filter to "all" when selecting a category
-            if (activeCategory !== 'all') {
-                yearButtons.forEach(btn => btn.classList.remove('active'));
-                yearButtons[0].classList.add('active'); // First button is "All Years"
-                activeYear = 'all';
-            }
-
-            filterGallery();
-        });
-    });
-
-    yearButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            yearButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            activeYear = this.dataset.year;
-
-            // Reset category filter to "all" when selecting a year
-            if (activeYear !== 'all') {
-                categoryButtons.forEach(btn => btn.classList.remove('active'));
-                categoryButtons[0].classList.add('active'); // First button is "All Categories"
-                activeCategory = 'all';
-            }
-
-            console.log('Year filter clicked:', activeYear);
-            filterGallery();
-        });
-    });
-
-    // Handle deep linking to categories
-    if (window.location.hash) {
-        const hash = window.location.hash.substring(1);
-        if (hash.startsWith('category-')) {
-            const category = hash.replace('category-', '');
-            const categoryBtn = Array.from(categoryButtons).find(btn => btn.dataset.category === category);
-            if (categoryBtn) {
-                categoryBtn.click();
-            }
-        } else if (hash.startsWith('year-')) {
-            const year = hash.replace('year-', '');
-            const yearBtn = Array.from(yearButtons).find(btn => btn.dataset.year === year);
-            if (yearBtn) {
-                yearBtn.click();
-            }
-        }
-    }
-
-    // Initial count
-    updatePhotoCount();
-});
-</script>
