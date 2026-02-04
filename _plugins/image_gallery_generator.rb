@@ -33,8 +33,8 @@ module Jekyll
         relative_category = category_dir.sub(image_dir + '/', '')
         category_name = relative_category.split('/').first
 
-        # Find all JPEG images in this directory
-        Dir.glob(File.join(category_dir, '*.{jpg,jpeg,JPG,JPEG}')).each do |image_path|
+        # Find all JPEG and PNG images in this directory
+        Dir.glob(File.join(category_dir, '*.{jpg,jpeg,JPG,JPEG,png,PNG}')).each do |image_path|
           relative_path = image_path.sub(site.source, '')
 
           # Extract EXIF data
@@ -203,7 +203,11 @@ module Jekyll
       }
 
       begin
-        exif = EXIFR::JPEG.new(image_path)
+        # Only attempt EXIF extraction for JPEG files
+        exif = nil
+        if image_path =~ /\.(jpe?g)$/i
+          exif = EXIFR::JPEG.new(image_path)
+        end
 
         if exif
           # Basic info

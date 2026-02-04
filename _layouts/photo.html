@@ -10,9 +10,13 @@ layout: page
             <ol class="breadcrumb" id="photo-breadcrumb" style="background-color: transparent; padding-left: 0;">
                 <li class="breadcrumb-item"><a href="/gallery/">Gallery</a></li>
                 {% if page.context_type == 'category' %}
-                <li class="breadcrumb-item"><a href="/gallery/category/{{ page.context_value }}/">{{ page.context_value | replace: '-', ' ' | replace: '_', ' ' | split: ' ' | map: 'capitalize' | join: ' ' }}</a></li>
+                {% assign cat_display = page.photo_data.category | replace: '-', ' ' | replace: '_', ' ' | capitalize %}
+                <li class="breadcrumb-item"><a href="/gallery/category/{{ page.photo_data.category }}/">{{ cat_display }}</a></li>
                 {% elsif page.context_type == 'year' %}
-                <li class="breadcrumb-item"><a href="/gallery/year/{{ page.context_value }}/">{{ page.context_value }}</a></li>
+                <li class="breadcrumb-item"><a href="/gallery/year/{{ page.photo_data.year }}/">{{ page.photo_data.year }}</a></li>
+                {% else %}
+                {% assign cat_display = page.photo_data.category | replace: '-', ' ' | replace: '_', ' ' | capitalize %}
+                <li class="breadcrumb-item"><a href="/gallery/category/{{ page.photo_data.category }}/">{{ cat_display }}</a></li>
                 {% endif %}
                 <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
             </ol>
