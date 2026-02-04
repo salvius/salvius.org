@@ -61,7 +61,8 @@ layout: page
                 </div>
             </div>
 
-            <div class="ad-placeholder" style="margin-top: 30px; padding: 20px; text-align: center;">
+            {% if jekyll.environment == "production" %}
+            <div style="margin-top: 30px; padding: 20px; text-align: center;">
                 <!-- Salvius Image Gallery Ad -->
                 <ins class="adsbygoogle"
                      style="display:block"
@@ -73,6 +74,11 @@ layout: page
                      (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
             </div>
+            {% else %}
+                <div class="ad-placeholder" style="margin-top: 30px; padding: 20px; text-align: center;">
+                    <em>Ad placeholder (ads are disabled in development mode)</em>
+                </div>
+            {% endif %}
         </div>
 
         <!-- EXIF Data Sidebar -->
