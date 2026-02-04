@@ -37,7 +37,7 @@ layout: page
             </div>
 
             <h3>Filter by Year</h3>
-            <div class="btn-group" role="group" aria-label="Filter by year" style="margin-bottom: 20px; flex-wrap: wrap; display: flex;">
+            <div class="btn-group" role="group" aria-label="Filter by year" style="margin-bottom: 10px; flex-wrap: wrap; display: flex;">
                 <a href="/gallery/" class="btn btn-default year-filter-btn {% if page.filter_type == nil %}active{% endif %}">
                     All Years
                 </a>
@@ -50,6 +50,15 @@ layout: page
             </div>
         </div>
     </div>
+
+    <!-- Album Description (only show when category filter is active) -->
+    {% if page.filter_type == 'category' and page.album_description %}
+    <div class="row" style="margin-bottom: 20px;">
+        <div class="col-sm-12">
+            <p class="lead">{{ page.album_description }}</p>
+        </div>
+    </div>
+    {% endif %}
 
     <!-- Gallery Grid -->
     <div class="gallery-container">

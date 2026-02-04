@@ -34,16 +34,6 @@ layout: page
 
 <div class="container color-white" style="padding-top: 30px; padding-bottom: 30px;">
 
-    {% if page.photo_data.description %}
-    <div class="row">
-        <div class="col-md-12">
-            <div class="photo-description" style="background-color: #f8f8f8; padding: 15px 20px; border-radius: 4px; margin-bottom: 30px; border-left: 4px solid #337ab7;">
-                <p style="margin: 0; font-size: 16px; line-height: 1.6;">{{ page.photo_data.description }}</p>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-
     <div class="row">
         <div class="col-md-8">
             <div class="photo-container">
@@ -94,10 +84,17 @@ layout: page
             <div class="exif-data">
                 <h3>Photo Information</h3>
 
-                {% if page.photo_data.date_taken %}
+                {% if page.photo_data.description %}
+                <div class="exif-section">
+                    <h4><i class="fa fa-file" aria-hidden="true"></i> Description</h4>
+                    <p>{{ page.photo_data.description }}</p>
+                </div>
+                {% endif %}
+
+                {% if page.photo_data.exif.date_taken %}
                 <div class="exif-section">
                     <h4><i class="fa fa-calendar" aria-hidden="true"></i> Date Taken</h4>
-                    <p>{{ page.photo_data.date_taken | date: "%B %d, %Y at %I:%M %p" }}</p>
+                    <p>{{ page.photo_data.exif.date_taken | date: "%B %d, %Y at %I:%M %p" }}</p>
                 </div>
                 {% endif %}
 
@@ -171,6 +168,30 @@ layout: page
                         {% endif %}
                     </p>
                 </div>
+                {% endif %}
+
+                {% if page.photo_data.custom and page.photo_data.custom.size > 0 %}
+                {% assign has_custom_attrs = false %}
+                {% for item in page.photo_data.custom %}
+                    {% if item[0] != 'description' %}
+                        {% assign has_custom_attrs = true %}
+                    {% endif %}
+                {% endfor %}
+                {% if has_custom_attrs %}
+                <div class="exif-section">
+                    <h4><i class="fa fa-info-circle" aria-hidden="true"></i> Additional Information</h4>
+                    <table class="table table-condensed exif-table">
+                        {% for item in page.photo_data.custom %}
+                        {% if item[0] != 'description' %}
+                        <tr>
+                            <td><strong>{{ item[0] | replace: '_', ' ' | replace: '-', ' ' | capitalize }}</strong></td>
+                            <td>{{ item[1] }}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
+                {% endif %}
                 {% endif %}
             </div>
         </div>

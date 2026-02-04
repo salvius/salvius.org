@@ -40,21 +40,44 @@ module Jekyll
           # Extract EXIF data
           exif_data = extract_exif(image_path)
 
-          # Use EXIF date or fall back to file modification time
-          date_taken = exif_data[:date_taken]
-          if date_taken.nil?
-            date_taken = File.mtime(image_path)
-            Jekyll.logger.warn "Gallery:", "No EXIF date for #{File.basename(image_path)}, using file mtime"
-          end
-
-          year = date_taken.year.to_s
-
           # Check for optional description file
           description_file = image_path.sub(File.extname(image_path), '.txt')
           description = nil
           if File.exist?(description_file)
             description = File.read(description_file).strip
           end
+
+          # Check for optional JSON file with custom metadata
+          json_file = image_path.sub(File.extname(image_path), '.json')
+          custom_data = {}
+          if File.exist?(json_file)
+            begin
+              require 'json'
+              custom_data = JSON.parse(File.read(json_file))
+              # If JSON has description and no .txt file exists, use it
+              description = custom_data['description'] if description.nil? && custom_data['description']
+              Jekyll.logger.info "Gallery:", "Found custom metadata for #{File.basename(image_path)}"
+            rescue => e
+              Jekyll.logger.warn "Gallery:", "Error reading JSON for #{File.basename(image_path)}: #{e.message}"
+            end
+          end
+
+          # Determine date_taken: prioritize EXIF, then JSON, then file mtime as last resort
+          date_taken = exif_data[:date_taken]
+          if date_taken.nil? && custom_data['date_taken']
+            # Try to parse date from JSON
+            begin
+              date_taken = Time.parse(custom_data['date_taken'])
+            rescue => e
+              Jekyll.logger.warn "Gallery:", "Invalid date_taken in JSON for #{File.basename(image_path)}: #{e.message}"
+            end
+          end
+          if date_taken.nil?
+            date_taken = File.mtime(image_path)
+            Jekyll.logger.warn "Gallery:", "No EXIF or JSON date for #{File.basename(image_path)}, using file mtime"
+          end
+
+          year = date_taken.year.to_s
 
           image_data = {
             'path' => relative_path,
@@ -65,7 +88,8 @@ module Jekyll
             'year' => year,
             'date_taken' => date_taken,
             'exif' => exif_data,
-            'description' => description
+            'description' => description,
+            'custom' => custom_data
           }
 
           images << image_data
@@ -347,6 +371,19 @@ module Jekyll
       self.data['filter_type'] = 'category'
       self.data['filter_value'] = category
       self.data['layout'] = 'gallery_index'
+      
+      # Check for album.json in the category directory
+      album_json_path = File.join(site.source, 'images', category, 'album.json')
+      if File.exist?(album_json_path)
+        begin
+          require 'json'
+          album_data = JSON.parse(File.read(album_json_path))
+          self.data['album_description'] = album_data['description']
+          Jekyll.logger.info "Gallery:", "Found album description for #{category}"
+        rescue => e
+          Jekyll.logger.warn "Gallery:", "Error reading album.json for #{category}: #{e.message}"
+        end
+      end
     end
   end
 
