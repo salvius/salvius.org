@@ -193,6 +193,64 @@ layout: page
                 </div>
                 {% endif %}
                 {% endif %}
+
+                <!-- Social Sharing Section -->
+                <div class="exif-section">
+                    <h4><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Share</h4>
+                    <div class="social-share-buttons" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                        {% assign page_url = page.url | absolute_url | url_encode %}
+                        {% assign page_title = page.title | url_encode %}
+                        {% assign image_url = page.photo_data.path | absolute_url | url_encode %}
+
+                        <!-- Pinterest -->
+                        <a href="https://pinterest.com/pin/create/button/?url={{ page_url }}&media={{ image_url }}&description={{ page_title }}" 
+                           target="_blank" rel="noopener" class="btn btn-sm" 
+                           style="background-color: #E60023; color: white; border: none;"
+                           title="Share on Pinterest">
+                            <i class="fa-brands fa-pinterest" aria-hidden="true"></i>
+                        </a>
+
+                        <!-- Twitter -->
+                        <a href="https://twitter.com/intent/tweet?url={{ page_url }}&text={{ page_title }}" 
+                           target="_blank" rel="noopener" class="btn btn-sm" 
+                           style="background-color: #1DA1F2; color: white; border: none;"
+                           title="Share on Twitter">
+                            <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                        </a>
+
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}" 
+                           target="_blank" rel="noopener" class="btn btn-sm" 
+                           style="background-color: #1877F2; color: white; border: none;"
+                           title="Share on Facebook">
+                            <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                        </a>
+
+                        <!-- Bluesky -->
+                        <a href="https://bsky.app/intent/compose?text={{ page_title }}%20{{ page_url }}" 
+                           target="_blank" rel="noopener" class="btn btn-sm" 
+                           style="background-color: #1185FE; color: white; border: none;"
+                           title="Share on Bluesky">
+                            <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
+                        </a>
+
+                        <!-- Reddit -->
+                        <a href="https://reddit.com/submit?url={{ page_url }}&title={{ page_title }}" 
+                           target="_blank" rel="noopener" class="btn btn-sm" 
+                           style="background-color: #FF4500; color: white; border: none;"
+                           title="Share on Reddit">
+                            <i class="fa-brands fa-reddit-alien" aria-hidden="true"></i>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page_url }}" 
+                           target="_blank" rel="noopener" class="btn btn-sm" 
+                           style="background-color: #0A66C2; color: white; border: none;"
+                           title="Share on LinkedIn">
+                            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
