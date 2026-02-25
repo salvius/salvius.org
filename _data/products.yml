@@ -86,6 +86,7 @@
   description: LED matrix face panel for robot expression display
   price: 9.99
   currency: USD
+  shipping_weight: 300g
   availability: discontinued
   condition: new
   brand: Salvius
@@ -165,6 +166,7 @@
   short_title: Torso Kit
   description: Central torso frame assembly kit for humanoid robots
   price: 129.99
+  shipping_weight: 60lbs
   currency: USD
   availability: discontinued
   condition: new
