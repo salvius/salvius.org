@@ -19,6 +19,6 @@ RUN gem update --system && gem install jekyll && gem cleanup
 COPY Gemfile Gemfile.lock ./
 
 # Run `bundle update` to update gems
-RUN bundle install --no-cache
+RUN bundle install
 
 ENTRYPOINT ["sleep", "infinity"]
