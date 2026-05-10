@@ -46,6 +46,21 @@
   image_link: https://salvius.org/images/library/stand-up-for-robots-cover-banner.jpg
   additional_image_links: []
 
+- id: resource-rescue-game
+  title: Resource Rescue - Free Retro Earth Day Game - Open Source Educational Platformer
+  short_title: Resource Rescue Game
+  description: A free retro 32-bit style platformer game celebrating Earth Day, featuring Salvius navigating a world made of recycled materials to collect parts and spread the message of environmental preservation. Built with Phaser 3, playable on desktop and mobile, with full accessibility features and offline PWA support.
+  price: 0.00
+  currency: USD
+  availability: in_stock
+  condition: new
+  brand: Salvius Labs
+  product_type: software
+  google_product_category: 5264
+  link: https://salvius.org/store/resource-rescue-game/
+  image_link: https://salvius.org/images/gallery/salvius-game-level-01.png
+  additional_image_links: []
+
 # Discontinued robot kits (excluded from feed due to availability: discontinued)
 
 - id: head-kit
