@@ -124,6 +124,16 @@ module Jekyll
       item << "      <g:shipping_width>#{escape_xml(product['shipping_width'])}</g:shipping_width>" if product['shipping_width']
       item << "      <g:shipping_height>#{escape_xml(product['shipping_height'])}</g:shipping_height>" if product['shipping_height']
 
+      # Digital delivery: emit an explicit free-shipping block so Google does not
+      # flag the product for missing shipping_weight
+      if product['digital_delivery']
+        item << "      <g:shipping>"
+        item << "        <g:country>US</g:country>"
+        item << "        <g:service>Digital Delivery</g:service>"
+        item << "        <g:price>0 #{product['currency']}</g:price>"
+        item << "      </g:shipping>"
+      end
+
       item.join("\n")
     end
 

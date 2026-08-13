@@ -3,6 +3,36 @@
     {% include head.html %}
 
     <body style="background: url({{ page.background }})">
+        {% if page.price %}
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": "{{ page.title | strip_html | escape }}",
+          "description": "{{ page.description | strip_html | escape }}",
+          "image": "{{ site.url }}{{ page.image }}",
+          "brand": {
+            "@type": "Brand",
+            "name": "Salvius"
+          },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "{{ page.price }}",
+            "availability": "https://schema.org/Discontinued",
+            "url": "{{ site.url }}{{ page.url }}"{% if page.weight_value %},
+            "shippingDetails": {
+              "@type": "OfferShippingDetails",
+              "shippingWeight": {
+                "@type": "QuantitativeValue",
+                "value": {{ page.weight_value }},
+                "unitCode": "{{ page.weight_unit }}"
+              }
+            }{% endif %}
+          }
+        }
+        </script>
+        {% endif %}
         {% include navigation.html %}
         <div class="container-fluid">
 
