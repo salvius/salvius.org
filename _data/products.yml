@@ -15,7 +15,7 @@
   google_product_category: 543543
   isbn: 979-8298557757
   gtin: "9798298557757"
-  shipping_weight: 227g
+  shipping_weight: "227 g"
   shipping_length: 11 in
   shipping_width: 8.5 in
   shipping_height: 0.11 in
@@ -38,7 +38,7 @@
   google_product_category: 543543
   isbn: 979-8279180806
   gtin: "9798279180806"
-  shipping_weight: 115g
+  shipping_weight: "115 g"
   shipping_length: 8.5 in
   shipping_width: 5.5 in
   shipping_height: 0.12 in
@@ -58,6 +58,7 @@
   product_type: software
   google_product_category: 5264
   digital_delivery: true
+  shipping_weight: "0 g"
   link: https://salvius.org/store/resource-rescue-game/
   image_link: https://salvius.org/images/gallery/salvius-game-level-01.png
   additional_image_links: []
@@ -102,7 +103,7 @@
   description: LED matrix face panel for robot expression display
   price: 9.99
   currency: USD
-  shipping_weight: 300g
+  shipping_weight: "300 g"
   availability: discontinued
   condition: new
   brand: Salvius
@@ -182,7 +183,7 @@
   short_title: Torso Kit
   description: Central torso frame assembly kit for humanoid robots
   price: 129.99
-  shipping_weight: 60lbs
+  shipping_weight: "60 lb"
   currency: USD
   availability: discontinued
   condition: new
