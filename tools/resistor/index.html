@@ -1,0 +1,491 @@
+---
+layout: page
+title: Resistor Color Code Calculator
+extra_js:
+  - /js/apps/resistor-color-code-calculator.js
+---
+
+<style>
+    .resistor-tool {
+        --picker-item-height: 56px;
+        --accent: #3b82f6;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .resistor-tool .lead {
+        text-align: center;
+    }
+
+    .calculator-card {
+        position: relative;
+        background: rgba(255,255,255,0.08);
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    /* --- mode toggle --- */
+    .mode-toggle-row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+    .mode-toggle {
+        display: inline-flex;
+        background: rgba(255,255,255,0.08);
+        border-radius: 999px;
+        padding: 4px;
+        gap: 4px;
+    }
+    .mode-toggle input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .mode-toggle label {
+        margin: 0;
+        padding: 0.5rem 1.25rem;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background 0.25s ease, color 0.25s ease;
+    }
+    .mode-toggle input:checked + label {
+        background: var(--accent);
+        color: #fff;
+    }
+    .mode-toggle input:focus-visible + label {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+    }
+
+    /* --- resistor SVG --- */
+    .resistor-diagram {
+        display: block;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto 1.75rem;
+    }
+
+    /* --- pickers --- */
+    .picker-hint {
+        text-align: center;
+        font-size: 0.8rem;
+        opacity: 0.65;
+        margin-bottom: 1rem;
+    }
+    .pickers-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 10px;
+        margin-bottom: 1.75rem;
+    }
+    .picker-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 108px;
+    }
+    .picker-group[hidden] {
+        display: none;
+    }
+    .picker-group-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        opacity: 0.7;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+    .picker-wrap {
+        position: relative;
+        width: 100%;
+        height: calc(var(--picker-item-height) * 3);
+        border-radius: 0.75rem;
+        background: rgba(0,0,0,0.25);
+    }
+    .band-picker {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        touch-action: pan-y;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        border-radius: 0.75rem;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+        mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+    }
+    .band-picker::-webkit-scrollbar {
+        display: none;
+    }
+    .band-picker:focus {
+        outline: none;
+    }
+    .band-picker:focus-visible {
+        box-shadow: 0 0 0 2px var(--accent);
+    }
+    .picker-highlight {
+        position: absolute;
+        left: 2px;
+        right: 2px;
+        top: var(--picker-item-height);
+        height: var(--picker-item-height);
+        border-top: 2px solid rgba(59,130,246,0.9);
+        border-bottom: 2px solid rgba(59,130,246,0.9);
+        background: rgba(59,130,246,0.12);
+        border-radius: 0.4rem;
+        pointer-events: none;
+        z-index: 2;
+    }
+    .swatch {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 56px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        box-shadow: inset 0 -1px 0 rgba(255,255,255,0.06);
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        cursor: pointer;
+        user-select: none;
+    }
+    .swatch-chip {
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+        border: 1px solid rgba(255,255,255,0.3);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+        flex-shrink: 0;
+    }
+    .swatch-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.15;
+        overflow: hidden;
+    }
+    .swatch-name {
+        font-weight: 600;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .swatch-label {
+        font-size: 0.68rem;
+        opacity: 0.7;
+        white-space: nowrap;
+    }
+
+    /* --- readouts --- */
+    .readout-card {
+        text-align: center;
+    }
+    .readout-label {
+        display: block;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        opacity: 0.7;
+        margin-bottom: 0.4rem;
+    }
+    .ohms-input {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+        font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+        font-size: 1.6rem;
+        font-weight: 700;
+        background: rgba(0,0,0,0.3);
+        color: #fff;
+        border: 2px solid rgba(255,255,255,0.2);
+        border-radius: 0.6rem;
+        padding: 0.6rem 1rem;
+        transition: border-color 0.2s ease;
+    }
+    .ohms-input:focus {
+        outline: none;
+        border-color: var(--accent);
+    }
+    .ohms-input.invalid {
+        border-color: #ef4444 !important;
+        animation: shake 0.4s;
+    }
+    @keyframes shake {
+        10%, 90% { transform: translateX(-2px); }
+        20%, 80% { transform: translateX(3px); }
+        30%, 50%, 70% { transform: translateX(-5px); }
+        40%, 60% { transform: translateX(5px); }
+    }
+    .readout-friendly {
+        margin-top: 0.75rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    .readout-tolerance {
+        margin-top: 0.25rem;
+        font-size: 0.85rem;
+        opacity: 0.75;
+    }
+    .readout-hint {
+        margin-top: 1rem;
+        font-size: 0.78rem;
+        opacity: 0.6;
+    }
+    .readout-hint code {
+        background: rgba(255,255,255,0.12);
+        color: #fff;
+    }
+
+    .reset-row {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    .btn-reset {
+        background: #94a3b8;
+        color: #000;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.55rem 1.5rem;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+    .btn-reset:hover {
+        background: #64748b;
+        color: #fff;
+    }
+
+    /* --- fullscreen toggle --- */
+    .btn-fullscreen-toggle {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.08);
+        color: #fff;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+    .btn-fullscreen-toggle:hover {
+        background: rgba(255,255,255,0.18);
+    }
+
+    /* Hides site chrome so the tool fills the whole page. Lives in this
+       page's own <style> block, but applies document-wide since CSS isn't
+       scoped to where the <style> tag sits in the DOM. This is a CSS-only
+       layout mode (no browser Fullscreen API), so there's no OS/browser
+       fullscreen transition UI to fight with. */
+    body.tool-fullscreen header,
+    body.tool-fullscreen #nav,
+    body.tool-fullscreen footer,
+    body.tool-fullscreen .tool-intro,
+    body.tool-fullscreen .margin-top {
+        display: none !important;
+    }
+    body.tool-fullscreen {
+        margin: 0;
+    }
+    body.tool-fullscreen .container-fluid {
+        padding: 0;
+        margin: 0;
+    }
+    body.tool-fullscreen .resistor-page-row {
+        min-height: 100vh;
+        width: 100%;
+        margin: 0 !important;
+        padding: 1.5rem 0;
+    }
+    body.tool-fullscreen .resistor-page-row > [class*="col-"] {
+        float: none;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto !important;
+        padding: 0 1rem;
+    }
+
+    @media (max-width: 480px) {
+        .calculator-card {
+            padding: 1.25rem;
+        }
+        .pickers-row {
+            gap: 5px;
+        }
+        .picker-group {
+            max-width: 64px;
+        }
+        .swatch {
+            padding: 0 4px;
+            gap: 4px;
+        }
+        .swatch-chip {
+            width: 18px;
+            height: 18px;
+        }
+        .swatch-name {
+            font-size: 0.62rem;
+        }
+        .swatch-label {
+            font-size: 0.55rem;
+        }
+        .picker-group-label {
+            font-size: 0.62rem;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .calculator-card {
+            padding: 0.9rem;
+        }
+        .pickers-row {
+            gap: 3px;
+        }
+        .picker-group {
+            max-width: 56px;
+        }
+        .swatch-text {
+            display: none;
+        }
+        .swatch {
+            justify-content: center;
+        }
+    }
+</style>
+
+<div class="row color-navy inset-shadow resistor-page-row">
+    <div class="col-sm-10 col-sm-offset-1">
+
+        <div class="tool-intro">
+            <h1>Resistor Color Code Calculator</h1>
+            <p class="lead">
+                Scroll each band to its color and read the resistance below, or
+                type a resistance directly to see the bands move to match.
+            </p>
+        </div>
+
+        <div class="resistor-tool" data-resistor-calculator>
+
+            <div class="mode-toggle-row">
+                <div class="mode-toggle" role="radiogroup" aria-label="Number of color bands">
+                    <input type="radio" name="band-mode" id="mode-3band" value="3band" checked>
+                    <label for="mode-3band">3 Bands</label>
+                    <input type="radio" name="band-mode" id="mode-4band" value="4band">
+                    <label for="mode-4band">4 Bands</label>
+                </div>
+            </div>
+
+            <div class="calculator-card">
+
+                <button type="button" class="btn-fullscreen-toggle" data-fullscreen-toggle aria-pressed="false" title="Toggle fullscreen">
+                    <i class="fa-solid fa-expand" aria-hidden="true"></i>
+                    <span class="sr-only">Toggle fullscreen</span>
+                </button>
+
+                <svg class="resistor-diagram" data-resistor-svg viewBox="0 0 360 120" role="img" aria-label="Resistor diagram with colored bands">
+                    <defs>
+                        <linearGradient id="resistor-body-gradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#f0dca6"/>
+                            <stop offset="45%" stop-color="#e3c583"/>
+                            <stop offset="100%" stop-color="#c9a662"/>
+                        </linearGradient>
+                        <linearGradient id="resistor-lead-gradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#e8e8e8"/>
+                            <stop offset="50%" stop-color="#9a9a9a"/>
+                            <stop offset="100%" stop-color="#6b6b6b"/>
+                        </linearGradient>
+                        <linearGradient id="resistor-gloss-gradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+                            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+
+                    <line x1="0" y1="60" x2="70" y2="60" stroke="url(#resistor-lead-gradient)" stroke-width="8" stroke-linecap="round"/>
+                    <line x1="290" y1="60" x2="360" y2="60" stroke="url(#resistor-lead-gradient)" stroke-width="8" stroke-linecap="round"/>
+
+                    <rect x="70" y="25" width="220" height="70" rx="16" fill="url(#resistor-body-gradient)" stroke="#a9884f" stroke-width="2"/>
+                    <rect x="72" y="27" width="216" height="22" rx="11" fill="url(#resistor-gloss-gradient)" pointer-events="none"/>
+
+                    <rect data-band="d1" x="108" y="20" width="16" height="80" fill="#F4D03F"/>
+                    <rect data-band="d2" x="138" y="20" width="16" height="80" fill="#8E44AD"/>
+                    <rect data-band="d3" x="148" y="20" width="16" height="80" fill="#000000" style="display: none;"/>
+                    <rect data-band="mult" x="168" y="20" width="16" height="80" fill="#E4211C"/>
+                    <rect data-band="tol" x="244" y="20" width="16" height="80" fill="#D4AF37"/>
+                </svg>
+
+                <p class="picker-hint">Scroll, swipe, or focus a band and press &uarr; / &darr;</p>
+
+                <div class="pickers-row">
+                    <div class="picker-group">
+                        <span class="picker-group-label" id="label-digit1">1st Digit</span>
+                        <div class="picker-wrap">
+                            <div class="band-picker" data-picker="digit1" aria-labelledby="label-digit1"></div>
+                            <div class="picker-highlight" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    <div class="picker-group">
+                        <span class="picker-group-label" id="label-digit2">2nd Digit</span>
+                        <div class="picker-wrap">
+                            <div class="band-picker" data-picker="digit2" aria-labelledby="label-digit2"></div>
+                            <div class="picker-highlight" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    <div class="picker-group" data-digit3-column hidden>
+                        <span class="picker-group-label" id="label-digit3">3rd Digit</span>
+                        <div class="picker-wrap">
+                            <div class="band-picker" data-picker="digit3" aria-labelledby="label-digit3"></div>
+                            <div class="picker-highlight" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    <div class="picker-group">
+                        <span class="picker-group-label" id="label-multiplier">Multiplier</span>
+                        <div class="picker-wrap">
+                            <div class="band-picker" data-picker="multiplier" aria-labelledby="label-multiplier"></div>
+                            <div class="picker-highlight" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    <div class="picker-group">
+                        <span class="picker-group-label" id="label-tolerance">Tolerance</span>
+                        <div class="picker-wrap">
+                            <div class="band-picker" data-picker="tolerance" aria-labelledby="label-tolerance"></div>
+                            <div class="picker-highlight" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="readout-card">
+                    <label class="readout-label" for="ohms-input">Resistance (&Omega;)</label>
+                    <input type="text" id="ohms-input" class="ohms-input" data-ohms-input
+                           inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="4700">
+                    <div class="readout-friendly" data-readout-friendly>&asymp; 4.7 k&Omega;</div>
+                    <div class="readout-tolerance" data-readout-tolerance>&plusmn;5% &rarr; 4.465 k&Omega; &ndash; 4.935 k&Omega;</div>
+                    <p class="readout-hint">
+                        Tip: type shorthand like <code>4k7</code> or <code>2.2M</code> and press Enter.
+                    </p>
+                </div>
+
+                <div class="reset-row">
+                    <button type="button" class="btn-reset" data-reset-btn>Reset</button>
+                </div>
+
+                <div class="sr-only" aria-live="polite" data-announcer></div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
